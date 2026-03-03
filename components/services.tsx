@@ -13,7 +13,7 @@ const services = [
     cta: "Explore 3D Design",
   },
   {
-    image: "/images/printer-buildplate.jpg",
+    image: "/images/powder-bed.jpg",
     title: "3D Printing",
     description:
       "High-resolution metal printing using advanced SLM technology.",
@@ -21,7 +21,7 @@ const services = [
     cta: "Explore 3D Printing",
   },
   {
-    image: "/images/framework-polished.jpg",
+    image: "/images/printer-buildplate.jpg",
     title: "Post-Processing",
     description:
       "Professional finishing, polishing, and quality assurance.",
