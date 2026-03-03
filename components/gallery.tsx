@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback, useEffect, useMemo } from "react"
+import { useState, useCallback, useEffect } from "react"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
@@ -70,34 +70,21 @@ const galleryImages = [
 export function Gallery() {
   const { ref, isVisible } = useScrollAnimation()
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
-  const [activeCategory, setActiveCategory] = useState<Category>("All")
-
-  const filteredImages = useMemo(
-    () =>
-      activeCategory === "All"
-        ? galleryImages
-        : galleryImages.filter((img) => img.category === activeCategory),
-    [activeCategory]
-  )
 
   const openLightbox = (globalIndex: number) => setLightboxIndex(globalIndex)
   const closeLightbox = () => setLightboxIndex(null)
 
   const goNext = useCallback(() => {
     if (lightboxIndex !== null) {
-      const indices = filteredImages.map((img) => galleryImages.indexOf(img))
-      const pos = indices.indexOf(lightboxIndex)
-      setLightboxIndex(indices[(pos + 1) % indices.length])
+      setLightboxIndex((lightboxIndex + 1) % galleryImages.length)
     }
-  }, [lightboxIndex, filteredImages])
+  }, [lightboxIndex])
 
   const goPrev = useCallback(() => {
     if (lightboxIndex !== null) {
-      const indices = filteredImages.map((img) => galleryImages.indexOf(img))
-      const pos = indices.indexOf(lightboxIndex)
-      setLightboxIndex(indices[(pos - 1 + indices.length) % indices.length])
+      setLightboxIndex((lightboxIndex - 1 + galleryImages.length) % galleryImages.length)
     }
-  }, [lightboxIndex, filteredImages])
+  }, [lightboxIndex])
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -129,12 +116,7 @@ export function Gallery() {
     )
   }
 
-  const lightboxPosition =
-    lightboxIndex !== null
-      ? filteredImages.findIndex(
-          (img) => galleryImages.indexOf(img) === lightboxIndex
-        ) + 1
-      : 0
+  const lightboxPosition = lightboxIndex !== null ? lightboxIndex + 1 : 0
 
   return (
     <section className="bg-background py-16 lg:py-24" aria-label="Our Work Gallery">
@@ -144,61 +126,27 @@ export function Gallery() {
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        {/* Category filter */}
-        <div
-          className="mb-10 flex flex-wrap justify-center gap-2"
-          role="tablist"
-          aria-label="Filter gallery by category"
-        >
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              role="tab"
-              aria-selected={activeCategory === cat}
-              onClick={() => {
-                setActiveCategory(cat)
-                setLightboxIndex(null)
-              }}
-              className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-                activeCategory === cat
-                  ? "bg-primary text-white"
-                  : "bg-secondary text-muted-foreground hover:bg-secondary/80 hover:text-foreground"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {activeCategory === "All" ? (
-          /* Grouped by category with headings */
-          categories
-            .filter((c) => c !== "All")
-            .map((cat) => {
-              const catImages = galleryImages.filter(
-                (img) => img.category === cat
-              )
-              if (catImages.length === 0) return null
-              return (
-                <div key={cat} className="mb-12 last:mb-0">
-                  <h3 className="mb-4 border-b border-border pb-2 text-sm font-bold uppercase tracking-wider text-foreground">
-                    {cat}
-                    <span className="ml-2 text-xs font-normal text-muted-foreground">
-                      ({catImages.length})
-                    </span>
-                  </h3>
-                  <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-                    {catImages.map(renderImageButton)}
-                  </div>
+        {categories
+          .filter((c) => c !== "All")
+          .map((cat) => {
+            const catImages = galleryImages.filter(
+              (img) => img.category === cat
+            )
+            if (catImages.length === 0) return null
+            return (
+              <div key={cat} className="mb-12 last:mb-0">
+                <h3 className="mb-4 border-b border-border pb-2 text-sm font-bold uppercase tracking-wider text-foreground">
+                  {cat}
+                  <span className="ml-2 text-xs font-normal text-muted-foreground">
+                    ({catImages.length})
+                  </span>
+                </h3>
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                  {catImages.map(renderImageButton)}
                 </div>
-              )
-            })
-        ) : (
-          /* Flat grid for single category */
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {filteredImages.map(renderImageButton)}
-          </div>
-        )}
+              </div>
+            )
+          })}
       </div>
 
       {/* Lightbox */}
@@ -248,7 +196,7 @@ export function Gallery() {
           />
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-white/60">
-            {lightboxPosition} / {filteredImages.length}
+            {lightboxPosition} / {galleryImages.length}
           </div>
         </div>
       )}
