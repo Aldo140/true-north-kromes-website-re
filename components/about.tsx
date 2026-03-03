@@ -12,15 +12,15 @@ import {
 const teamImages = [
   {
     src: "/images/team-selfie.jpg",
-    alt: "The True North Kromes team posing for a selfie",
+    alt: "Three True North Kromes team members posing together in the workshop",
   },
   {
     src: "/images/team-lab.jpg",
-    alt: "The True North Kromes team working in the laboratory",
+    alt: "The True North Kromes team standing in the lab alongside equipment",
   },
   {
     src: "/images/team-building.jpg",
-    alt: "The True North Kromes team building together",
+    alt: "The True North Kromes team outside the building entrance",
   },
 ]
 
