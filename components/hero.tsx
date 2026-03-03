@@ -26,17 +26,13 @@ export function Hero() {
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-          One-Stop Metal Printing Service
-        </p>
-        <h1 className="max-w-2xl text-[clamp(2rem,5vw,3.25rem)] font-bold leading-[1.1] tracking-tight text-white text-balance">
-          True North Kromes
+        <h1 className="max-w-3xl text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-white text-balance">
+          Welcome to True North Kromes
         </h1>
-        <p className="mt-5 max-w-xl text-base leading-relaxed text-white/70">
-          Experience a fully integrated digital 3D-printing solution that
-          transforms the way dental professionals design and manufacture
-          partial dentures. Our workflow delivers high precision, high
-          efficiency, and significant cost savings.
+        <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/75 lg:text-lg lg:leading-relaxed">
+          A fully integrated digital 3D-printing solution that transforms the
+          way dental professionals design and manufacture partial dentures --
+          delivering high precision, high efficiency, and significant cost savings.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <Link
