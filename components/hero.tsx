@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 export function Hero() {
@@ -33,18 +34,18 @@ export function Hero() {
           dental professionals design and manufacture partial dentures.
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="inline-flex items-center rounded bg-[#1e6fff] px-6 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#1a5fd9]"
           >
             Start Working With Us
-          </a>
-          <a
-            href="#gallery"
+          </Link>
+          <Link
+            href="/gallery"
             className="inline-flex items-center rounded border border-white/50 px-6 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-white transition-colors hover:border-white hover:bg-white/10"
           >
             View Our Work
-          </a>
+          </Link>
         </div>
       </div>
 

@@ -44,7 +44,7 @@ export function Gallery() {
   }, [lightboxIndex, goNext, goPrev])
 
   return (
-    <section id="gallery" className="bg-[#2a2a2a] py-20 lg:py-28" aria-label="Our Work Gallery">
+    <section className="bg-[#2a2a2a] py-20 lg:py-28" aria-label="Our Work Gallery">
       <div
         ref={ref}
         className={`mx-auto max-w-7xl px-4 lg:px-8 ${

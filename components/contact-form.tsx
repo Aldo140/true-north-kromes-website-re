@@ -61,7 +61,7 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <section id="contact" className="bg-[#1e1e1e] py-20 lg:py-28" aria-label="Contact">
+      <section className="bg-[#1e1e1e] py-20 lg:py-28" aria-label="Contact">
         <div className="mx-auto max-w-2xl px-4 text-center lg:px-8">
           <h2 className="font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-bold text-white">
             Thank you!
@@ -75,7 +75,7 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact" className="bg-[#1e1e1e] py-20 lg:py-28" aria-label="Send Your First Case">
+    <section className="bg-[#1e1e1e] py-20 lg:py-28" aria-label="Send Your First Case">
       <div
         ref={ref}
         className={`mx-auto max-w-2xl px-4 lg:px-8 ${

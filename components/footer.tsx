@@ -1,17 +1,18 @@
+import Link from "next/link"
 import { Mail, Phone, MapPin } from "lucide-react"
 
 const aboutLinks = [
-  { label: "About Us", href: "#about" },
-  { label: "Our Services", href: "#services" },
-  { label: "Our Work", href: "#gallery" },
-  { label: "Latest Updates", href: "#updates" },
+  { label: "About Us", href: "/about" },
+  { label: "Our Services", href: "/services" },
+  { label: "Our Work", href: "/gallery" },
+  { label: "Latest Updates", href: "/updates" },
 ]
 
 const serviceLinks = [
-  { label: "3D Design", href: "#services" },
-  { label: "3D Printing", href: "#services" },
-  { label: "Post-Processing", href: "#services" },
-  { label: "FAQ", href: "#faq" },
+  { label: "3D Design", href: "/services" },
+  { label: "3D Printing", href: "/services" },
+  { label: "Post-Processing", href: "/services" },
+  { label: "FAQ", href: "/faq" },
 ]
 
 export function Footer() {
@@ -24,12 +25,12 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Col 1: Logo + tagline */}
           <div>
-            <a href="#" className="inline-block" aria-label="True North Kromes - Home">
+            <Link href="/" className="inline-block" aria-label="True North Kromes - Home">
               <span className="font-serif text-2xl font-extrabold text-white">TNK</span>
               <span className="mt-0.5 block text-[0.6rem] font-medium uppercase tracking-[0.2em] text-white/70">
                 True North Kromes
               </span>
-            </a>
+            </Link>
             <p className="mt-4 text-sm italic leading-relaxed text-[#c8a84b]">
               One-Stop Metal Printing Service.
             </p>
@@ -43,12 +44,12 @@ export function Footer() {
             <ul className="flex flex-col gap-2.5">
               {aboutLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-white/60 transition-colors hover:text-[#c8a84b]"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -62,12 +63,12 @@ export function Footer() {
             <ul className="flex flex-col gap-2.5">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-white/60 transition-colors hover:text-[#c8a84b]"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

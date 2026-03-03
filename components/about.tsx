@@ -8,7 +8,7 @@ export function About() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section id="about" className="bg-white py-20 lg:py-28" aria-label="About TNK">
+    <section className="bg-white py-20 lg:py-28" aria-label="About TNK">
       <div
         ref={ref}
         className={`mx-auto max-w-4xl px-4 lg:px-8 ${

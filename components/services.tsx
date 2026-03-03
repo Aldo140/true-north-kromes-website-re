@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
@@ -28,7 +29,7 @@ export function Services() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section id="services" className="bg-[#f2f2f2] py-20 lg:py-28" aria-label="Our Services">
+    <section className="bg-[#f2f2f2] py-20 lg:py-28" aria-label="Our Services">
       <div
         ref={ref}
         className={`mx-auto max-w-7xl px-4 lg:px-8 ${
@@ -65,13 +66,13 @@ export function Services() {
                 <p className="mt-2 text-base leading-relaxed text-[#1e1e1e]/70">
                   {service.description}
                 </p>
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#1e6fff] transition-colors hover:text-[#1a5fd9]"
                 >
                   {service.link}
                   <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
               </div>
             </div>
           ))}

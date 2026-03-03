@@ -47,7 +47,7 @@ export function FAQ() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section id="faq" className="bg-[#f2f2f2] py-20 lg:py-28" aria-label="Frequently Asked Questions">
+    <section className="bg-[#f2f2f2] py-20 lg:py-28" aria-label="Frequently Asked Questions">
       <div
         ref={ref}
         className={`mx-auto max-w-3xl px-4 lg:px-8 ${
