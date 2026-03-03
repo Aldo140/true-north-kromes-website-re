@@ -63,7 +63,7 @@ const galleryImages = [
 
   // Other
   { id: 19, src: "/images/grillz.jpg", alt: "Custom metal dental grillz on model", category: "Other" as Category },
-  { id: 33, src: "/images/team-selfie.jpg", alt: "True North Kromes team members in the lab", category: "Other" as Category },
+
   { id: 34, src: "/images/team-lab.jpg", alt: "True North Kromes team at work", category: "Other" as Category },
 ]
 
