@@ -5,15 +5,15 @@ const documents = [
     title: "Mediloy RPD Licence",
     description:
       "Health Canada Medical Device Licence (No. 109393) for Mediloy RPD, issued to BEGO Bremer Goldschlagerei. Class 2 device certification.",
-    filename: "109393-Mediloy-RPD-Licence.pdf",
-    href: "/downloads/109393-Mediloy-RPD-Licence.pdf",
+    filename: "mediloy-rpd-licence.pdf",
+    href: "/downloads/mediloy-rpd-licence.pdf",
   },
   {
     title: "Credit Card Authorization Form",
     description:
       "Authorization form for payment by credit card. Fill out and return to TNK to set up card-on-file billing.",
-    filename: "Authorization-For-Payment-By-Credit-Card.pdf",
-    href: "/downloads/Authorization-For-Payment-By-Credit-Card.pdf",
+    filename: "credit-card-authorization.pdf",
+    href: "/downloads/credit-card-authorization.pdf",
   },
 ]
 
