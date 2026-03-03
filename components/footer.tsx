@@ -26,10 +26,11 @@ export function Footer() {
           {/* Col 1: Logo + tagline */}
           <div>
             <Link href="/" className="inline-block" aria-label="True North Kromes - Home">
-              <span className="font-serif text-2xl font-extrabold text-white">TNK</span>
-              <span className="mt-0.5 block text-[0.6rem] font-medium uppercase tracking-[0.2em] text-white/70">
-                True North Kromes
-              </span>
+              <img
+                src="/images/logo.jpg"
+                alt="True North Kromes"
+                className="h-12 w-auto brightness-[1.15] invert"
+              />
             </Link>
             <p className="mt-4 text-sm italic leading-relaxed text-[#c8a84b]">
               One-Stop Metal Printing Service.

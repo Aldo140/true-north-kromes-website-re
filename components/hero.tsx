@@ -30,22 +30,31 @@ export function Hero() {
           One-Stop Metal Printing Service
         </h1>
         <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 lg:text-lg">
-          A fully integrated digital 3D-printing solution that transforms the way
-          dental professionals design and manufacture partial dentures.
+          Experience a fully integrated digital 3D-printing solution that transforms the way
+          dental professionals design and manufacture partial dentures. High precision, high
+          efficiency, and significant cost savings.
         </p>
-        <div className="mt-8 flex flex-wrap gap-4">
+        <div className="mt-8 flex flex-wrap items-center gap-4">
           <Link
             href="/contact"
             className="inline-flex items-center rounded bg-[#1e6fff] px-6 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-white transition-colors hover:bg-[#1a5fd9]"
           >
-            Start Working With Us
+            Email or Call Us Today
           </Link>
           <Link
-            href="/gallery"
+            href="/services"
             className="inline-flex items-center rounded border border-white/50 px-6 py-3 text-sm font-semibold uppercase tracking-[0.1em] text-white transition-colors hover:border-white hover:bg-white/10"
           >
-            View Our Work
+            Our Services
           </Link>
+        </div>
+        <div className="mt-6 flex flex-wrap items-center gap-6 text-sm text-white/60">
+          <a href="mailto:truenorthkromes@gmail.com" className="transition-colors hover:text-white/90">
+            truenorthkromes@gmail.com
+          </a>
+          <a href="tel:+18076247222" className="transition-colors hover:text-white/90">
+            807-624-7222
+          </a>
         </div>
       </div>
 

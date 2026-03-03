@@ -22,13 +22,12 @@ export function Navigation() {
       <nav className="bg-[#1e1e1e]" aria-label="Main navigation">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
           {/* Logo */}
-          <Link href="/" className="flex flex-col items-start" aria-label="True North Kromes - Home">
-            <span className="font-serif text-2xl font-extrabold tracking-tight text-white">
-              TNK
-            </span>
-            <span className="text-[0.6rem] font-medium uppercase tracking-[0.2em] text-white/70">
-              True North Kromes
-            </span>
+          <Link href="/" aria-label="True North Kromes - Home">
+            <img
+              src="/images/logo.jpg"
+              alt="True North Kromes"
+              className="h-10 w-auto brightness-[1.15] invert sm:h-12"
+            />
           </Link>
 
           {/* Desktop nav links */}
