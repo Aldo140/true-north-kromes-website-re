@@ -35,7 +35,9 @@ export const metadata: Metadata = {
     description:
       "A fully integrated digital 3D-printing solution that transforms the way dental professionals design and manufacture partial dentures.",
     type: "website",
+    url: "https://tnkromes.ca",
   },
+  metadataBase: new URL("https://tnkromes.ca"),
 }
 
 export const viewport = {
