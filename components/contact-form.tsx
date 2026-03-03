@@ -62,10 +62,10 @@ export function ContactForm() {
       <section className="bg-background py-16 lg:py-24" aria-label="Contact">
         <div className="mx-auto max-w-2xl px-5 text-center">
           <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground">
-            Thank you!
+            [Placeholder]
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            {"We'll be in touch shortly."}
+            {"[Placeholder]"}
           </p>
         </div>
       </section>
@@ -73,7 +73,7 @@ export function ContactForm() {
   }
 
   return (
-    <section className="bg-background py-16 lg:py-24" aria-label="Send Your First Case">
+    <section className="bg-background py-16 lg:py-24" aria-label="Contact Form">
       <div
         ref={ref}
         className={`mx-auto max-w-2xl px-5 ${
@@ -83,10 +83,10 @@ export function ContactForm() {
         <div className="mb-10">
           <div className="mb-4 h-[3px] w-10 rounded-full bg-primary" />
           <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground text-balance">
-            Send Your First Case
+            [Placeholder]
           </h2>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-            {"Email or call us today! Fill out the form below and we'll be in touch."}
+            {"[Placeholder]"}
           </p>
         </div>
 
@@ -301,7 +301,7 @@ export function ContactForm() {
             type="submit"
             className="mt-2 w-full rounded-md bg-primary py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-[#164a74] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           >
-            Submit Inquiry
+            [Placeholder]
           </button>
         </form>
       </div>

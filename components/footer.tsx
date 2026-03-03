@@ -114,7 +114,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 border-t border-border pt-8 text-center">
           <p className="text-sm text-muted-foreground/50">
-            {"© 2026 True North Kromes Inc. All rights reserved."}
+            {"© 2026 True North Kromes. All rights reserved."}
           </p>
         </div>
       </div>
