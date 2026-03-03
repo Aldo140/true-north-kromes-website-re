@@ -30,8 +30,14 @@ const sections = [
     description: "Stay informed with the latest news, insights, and developments from TNK.",
   },
   {
-    href: "/faq",
+    href: "/downloads",
     image: "/images/service-postprocessing.jpg",
+    title: "Downloads",
+    description: "Order forms, submission guides, and technical documents for dental professionals.",
+  },
+  {
+    href: "/faq",
+    image: "/images/service-design.jpg",
     title: "FAQ",
     description: "Answers to common questions about our services, processes, and technology.",
   },

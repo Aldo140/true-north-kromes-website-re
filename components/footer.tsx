@@ -12,6 +12,7 @@ const serviceLinks = [
   { label: "3D Design", href: "/services" },
   { label: "3D Printing", href: "/services" },
   { label: "Post-Processing", href: "/services" },
+  { label: "Downloads", href: "/downloads" },
   { label: "FAQ", href: "/faq" },
 ]
 
