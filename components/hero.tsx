@@ -22,7 +22,7 @@ export function Hero() {
       {/* Content */}
       <div
         ref={ref}
-        className={`relative mx-auto flex max-w-6xl flex-col justify-center px-5 py-24 lg:py-36 ${
+        className={`relative mx-auto flex max-w-6xl flex-col justify-center px-5 pt-32 pb-24 lg:pt-40 lg:pb-36 ${
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >

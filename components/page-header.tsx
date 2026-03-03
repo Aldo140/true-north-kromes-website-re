@@ -11,7 +11,7 @@ export function PageHeader({ title, subtitle }: PageHeaderProps) {
   const { ref, isVisible } = useScrollAnimation(0.1)
 
   return (
-    <section className="border-b border-border bg-secondary py-14 lg:py-20">
+    <section className="border-b border-border bg-secondary pt-28 pb-14 lg:pt-32 lg:pb-20">
       <div
         ref={ref}
         className={`mx-auto max-w-6xl px-5 ${
