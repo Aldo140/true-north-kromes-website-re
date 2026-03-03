@@ -5,40 +5,18 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const documents = [
   {
-    title: "New Client Order Form",
-    description: "Fill out this form to submit your first case to TNK.",
-    filename: "TNK_New_Client_Order_Form.pdf",
-    href: "/downloads/TNK_New_Client_Order_Form.pdf",
+    title: "Mediloy RPD Licence",
+    description:
+      "Health Canada Medical Device Licence (No. 109393) for Mediloy RPD, issued to BEGO Bremer Goldschlagerei. Class 2 device certification.",
+    filename: "mediloy-rpd-licence.pdf",
+    href: "/downloads/mediloy-rpd-licence.pdf",
   },
   {
-    title: "Digital Submission Guide",
-    description: "Step-by-step instructions for submitting digital scans and design files.",
-    filename: "TNK_Digital_Submission_Guide.pdf",
-    href: "/downloads/TNK_Digital_Submission_Guide.pdf",
-  },
-  {
-    title: "Pricing & Fee Schedule",
-    description: "Current pricing for all TNK services including design, printing, and finishing.",
-    filename: "TNK_Pricing_Schedule.pdf",
-    href: "/downloads/TNK_Pricing_Schedule.pdf",
-  },
-  {
-    title: "Material Specifications",
-    description: "Technical data sheets for the CoCr alloys and materials used in our frameworks.",
-    filename: "TNK_Material_Specifications.pdf",
-    href: "/downloads/TNK_Material_Specifications.pdf",
-  },
-  {
-    title: "Shipping & Returns Policy",
-    description: "Guidelines for shipping cases to TNK and our return and remake policy.",
-    filename: "TNK_Shipping_Returns_Policy.pdf",
-    href: "/downloads/TNK_Shipping_Returns_Policy.pdf",
-  },
-  {
-    title: "TNK Product Flyer",
-    description: "Overview flyer of our one-stop metal printing service for dental professionals.",
-    filename: "TNK_Flyer_PROOF.pdf",
-    href: "/downloads/TNK_Flyer_PROOF.pdf",
+    title: "Credit Card Authorization Form",
+    description:
+      "Authorization form for payment by credit card. Fill out and return to TNK to set up card-on-file billing.",
+    filename: "credit-card-authorization.pdf",
+    href: "/downloads/credit-card-authorization.pdf",
   },
 ]
 
