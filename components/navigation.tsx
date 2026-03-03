@@ -48,22 +48,6 @@ export function Navigation() {
             ))}
           </div>
 
-          {/* Desktop CTAs */}
-          <div className="hidden items-center gap-4 lg:flex">
-            <Link
-              href="/contact"
-              className="rounded border border-white/40 px-4 py-2 text-sm font-medium uppercase tracking-[0.1em] text-white transition-colors hover:border-white hover:bg-white/10"
-            >
-              New Client Sign Up
-            </Link>
-            <a
-              href="#"
-              className="text-sm font-medium uppercase tracking-[0.1em] text-white/50 transition-colors hover:text-white/80"
-            >
-              Partner Login
-            </a>
-          </div>
-
           {/* Mobile hamburger */}
           <button
             className="text-white lg:hidden"
@@ -93,21 +77,7 @@ export function Navigation() {
                   {link.label}
                 </Link>
               ))}
-              <div className="mt-4 flex flex-col gap-3 border-t border-white/10 pt-4">
-                <Link
-                  href="/contact"
-                  onClick={() => setMobileOpen(false)}
-                  className="rounded border border-white/40 px-4 py-2 text-center text-sm font-medium uppercase tracking-[0.1em] text-white transition-colors hover:border-white hover:bg-white/10"
-                >
-                  New Client Sign Up
-                </Link>
-                <a
-                  href="#"
-                  className="text-center text-sm font-medium uppercase tracking-[0.1em] text-white/50 transition-colors hover:text-white/80"
-                >
-                  Partner Login
-                </a>
-              </div>
+
             </div>
           </div>
         )}
