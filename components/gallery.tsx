@@ -4,74 +4,60 @@ import { useState, useCallback, useEffect } from "react"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
-const categories = [
-  "All",
-  "Frameworks",
-  "Finished Partials",
-  "3D Printing",
-  "Post-Processing",
-  "Design",
-  "Equipment",
-  "Other",
-] as const
-
-type Category = (typeof categories)[number]
-
 const galleryImages = [
   // Frameworks
-  { id: 1, src: "/images/framework-hero.jpg", alt: "Polished chrome framework on gray surface, dramatic angle", category: "Frameworks" as Category },
-  { id: 2, src: "/images/framework-polished.jpg", alt: "Polished upper palatal framework on dental model", category: "Frameworks" as Category },
-  { id: 3, src: "/images/framework-clasps.jpg", alt: "Upper framework with clasps on dental model", category: "Frameworks" as Category },
-  { id: 4, src: "/images/framework-tweezers.jpg", alt: "Chrome framework with mesh retention held in tweezers", category: "Frameworks" as Category },
-  { id: 5, src: "/images/framework-lower.jpg", alt: "Polished framework fitted on lower dental model", category: "Frameworks" as Category },
-  { id: 6, src: "/images/framework-detail.jpg", alt: "Detailed partial denture framework on model", category: "Frameworks" as Category },
-  { id: 7, src: "/images/framework-overhead.jpg", alt: "Framework overhead view showing retention mesh", category: "Frameworks" as Category },
-  { id: 8, src: "/images/framework-full.jpg", alt: "Full upper framework with retention and clasps", category: "Frameworks" as Category },
-  { id: 9, src: "/images/framework-clasps2.jpg", alt: "Framework with clasps on dental model", category: "Frameworks" as Category },
-  { id: 10, src: "/images/chrome-crowns.jpg", alt: "Chrome metal crowns on dental model", category: "Frameworks" as Category },
-  { id: 11, src: "/images/lower-partial.jpg", alt: "Finished lower partial denture framework", category: "Frameworks" as Category },
-  { id: 12, src: "/images/palatal-framework.jpg", alt: "Palatal framework close-up showing detail", category: "Frameworks" as Category },
-  { id: 13, src: "/images/palatal-plate.jpg", alt: "Perforated palatal plate held in blue glove", category: "Frameworks" as Category },
-  { id: 25, src: "/images/framework-profile.jpg", alt: "Polished chrome framework side profile held in blue glove", category: "Frameworks" as Category },
-  { id: 26, src: "/images/framework-upper-side.jpg", alt: "Upper framework on model, side view", category: "Frameworks" as Category },
-  { id: 27, src: "/images/framework-mandrel.jpg", alt: "Framework on mandrel during inspection", category: "Frameworks" as Category },
+  { id: 1, src: "/images/framework-hero.jpg", alt: "Polished chrome framework on gray surface, dramatic angle" },
+  { id: 2, src: "/images/framework-polished.jpg", alt: "Polished upper palatal framework on dental model" },
+  { id: 3, src: "/images/framework-clasps.jpg", alt: "Upper framework with clasps on dental model" },
+  { id: 4, src: "/images/framework-tweezers.jpg", alt: "Chrome framework with mesh retention held in tweezers" },
+  { id: 5, src: "/images/framework-lower.jpg", alt: "Polished framework fitted on lower dental model" },
+  { id: 6, src: "/images/framework-detail.jpg", alt: "Detailed partial denture framework on model" },
+  { id: 7, src: "/images/framework-overhead.jpg", alt: "Framework overhead view showing retention mesh" },
+  { id: 8, src: "/images/framework-full.jpg", alt: "Full upper framework with retention and clasps" },
+  { id: 9, src: "/images/framework-clasps2.jpg", alt: "Framework with clasps on dental model" },
+  { id: 10, src: "/images/chrome-crowns.jpg", alt: "Chrome metal crowns on dental model" },
+  { id: 11, src: "/images/lower-partial.jpg", alt: "Finished lower partial denture framework" },
+  { id: 12, src: "/images/palatal-framework.jpg", alt: "Palatal framework close-up showing detail" },
+  { id: 13, src: "/images/palatal-plate.jpg", alt: "Perforated palatal plate held in blue glove" },
+  { id: 25, src: "/images/framework-profile.jpg", alt: "Polished chrome framework side profile held in blue glove" },
+  { id: 26, src: "/images/framework-upper-side.jpg", alt: "Upper framework on model, side view" },
+  { id: 27, src: "/images/framework-mandrel.jpg", alt: "Framework on mandrel during inspection" },
 
   // Finished Partials
-  { id: 28, src: "/images/partial-front.jpg", alt: "Finished upper partial denture with teeth, front view", category: "Finished Partials" as Category },
-  { id: 29, src: "/images/partial-palatal.jpg", alt: "Upper partial denture palatal view with framework", category: "Finished Partials" as Category },
-  { id: 30, src: "/images/partial-bite.jpg", alt: "Partial denture on articulated model, bite view", category: "Finished Partials" as Category },
-  { id: 31, src: "/images/partial-lower.jpg", alt: "Lower partial denture on model with chrome framework", category: "Finished Partials" as Category },
+  { id: 28, src: "/images/partial-front.jpg", alt: "Finished upper partial denture with teeth, front view" },
+  { id: 29, src: "/images/partial-palatal.jpg", alt: "Upper partial denture palatal view with framework" },
+  { id: 30, src: "/images/partial-bite.jpg", alt: "Partial denture on articulated model, bite view" },
+  { id: 31, src: "/images/partial-lower.jpg", alt: "Lower partial denture on model with chrome framework" },
 
   // 3D Printing
-  { id: 14, src: "/images/implant-bar.jpg", alt: "Raw implant bar with attachment cylinders", category: "3D Printing" as Category },
-  { id: 15, src: "/images/raw-bar.jpg", alt: "Unpolished implant bar showing print texture", category: "3D Printing" as Category },
-  { id: 16, src: "/images/powder-bed.jpg", alt: "Raw framework emerging from metal powder bed", category: "3D Printing" as Category },
-  { id: 17, src: "/images/framework-raw.jpg", alt: "Raw 3D printed framework before finishing", category: "3D Printing" as Category },
-  { id: 20, src: "/images/printer-buildplate.jpg", alt: "Build plate with frameworks next to NCL-M150 printer", category: "3D Printing" as Category },
+  { id: 14, src: "/images/implant-bar.jpg", alt: "Raw implant bar with attachment cylinders" },
+  { id: 15, src: "/images/raw-bar.jpg", alt: "Unpolished implant bar showing print texture" },
+  { id: 16, src: "/images/powder-bed.jpg", alt: "Raw framework emerging from metal powder bed" },
+  { id: 17, src: "/images/framework-raw.jpg", alt: "Raw 3D printed framework before finishing" },
+  { id: 20, src: "/images/printer-buildplate.jpg", alt: "Build plate with frameworks next to NCL-M150 printer" },
 
   // Post-Processing
-  { id: 18, src: "/images/polishing-process.jpg", alt: "Framework during DLyte electropolishing process", category: "Post-Processing" as Category },
-  { id: 23, src: "/images/dlyte-polishing.jpg", alt: "DLyte mini electropolishing machine in operation", category: "Post-Processing" as Category },
+  { id: 18, src: "/images/polishing-process.jpg", alt: "Framework during DLyte electropolishing process" },
+  { id: 23, src: "/images/dlyte-polishing.jpg", alt: "DLyte mini electropolishing machine in operation" },
 
   // Design
-  { id: 32, src: "/images/cad-design.png", alt: "3D CAD digital design of dental framework", category: "Design" as Category },
+  { id: 32, src: "/images/cad-design.png", alt: "3D CAD digital design of dental framework" },
 
   // Equipment
-  { id: 21, src: "/images/printer-branded.jpg", alt: "True North Kromes build plate in 3D printer", category: "Equipment" as Category },
-  { id: 22, src: "/images/printer-window.jpg", alt: "View through 3D metal printer during printing", category: "Equipment" as Category },
-  { id: 24, src: "/images/lab-facility.jpg", alt: "TNK production facility with Chamlion 3D printers", category: "Equipment" as Category },
+  { id: 21, src: "/images/printer-branded.jpg", alt: "True North Kromes build plate in 3D printer" },
+  { id: 22, src: "/images/printer-window.jpg", alt: "View through 3D metal printer during printing" },
+  { id: 24, src: "/images/lab-facility.jpg", alt: "TNK production facility with Chamlion 3D printers" },
 
   // Other
-  { id: 19, src: "/images/grillz.jpg", alt: "Custom metal dental grillz on model", category: "Other" as Category },
-
-  { id: 34, src: "/images/team-lab.jpg", alt: "True North Kromes team at work", category: "Other" as Category },
+  { id: 19, src: "/images/grillz.jpg", alt: "Custom metal dental grillz on model" },
+  { id: 34, src: "/images/team-lab.jpg", alt: "True North Kromes team at work" },
 ]
 
 export function Gallery() {
   const { ref, isVisible } = useScrollAnimation()
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
-  const openLightbox = (globalIndex: number) => setLightboxIndex(globalIndex)
+  const openLightbox = (index: number) => setLightboxIndex(index)
   const closeLightbox = () => setLightboxIndex(null)
 
   const goNext = useCallback(() => {
@@ -97,27 +83,6 @@ export function Gallery() {
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [lightboxIndex, goNext, goPrev])
 
-  const renderImageButton = (image: (typeof galleryImages)[number]) => {
-    const globalIndex = galleryImages.indexOf(image)
-    return (
-      <button
-        key={image.id}
-        onClick={() => openLightbox(globalIndex)}
-        className="group aspect-square overflow-hidden rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-        aria-label={`View ${image.alt}`}
-      >
-        <img
-          src={image.src}
-          alt={image.alt}
-          className="h-full w-full object-cover transition-all duration-300 group-hover:scale-105 group-hover:brightness-90"
-          loading="lazy"
-        />
-      </button>
-    )
-  }
-
-  const lightboxPosition = lightboxIndex !== null ? lightboxIndex + 1 : 0
-
   return (
     <section className="bg-background py-16 lg:py-24" aria-label="Our Work Gallery">
       <div
@@ -126,27 +91,23 @@ export function Gallery() {
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        {categories
-          .filter((c) => c !== "All")
-          .map((cat) => {
-            const catImages = galleryImages.filter(
-              (img) => img.category === cat
-            )
-            if (catImages.length === 0) return null
-            return (
-              <div key={cat} className="mb-12 last:mb-0">
-                <h3 className="mb-4 border-b border-border pb-2 text-sm font-bold uppercase tracking-wider text-foreground">
-                  {cat}
-                  <span className="ml-2 text-xs font-normal text-muted-foreground">
-                    ({catImages.length})
-                  </span>
-                </h3>
-                <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-                  {catImages.map(renderImageButton)}
-                </div>
-              </div>
-            )
-          })}
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          {galleryImages.map((image, index) => (
+            <button
+              key={image.id}
+              onClick={() => openLightbox(index)}
+              className="group aspect-square overflow-hidden rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              aria-label={`View ${image.alt}`}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="h-full w-full object-cover transition-all duration-300 group-hover:scale-105 group-hover:brightness-90"
+                loading="lazy"
+              />
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Lightbox */}
@@ -196,7 +157,7 @@ export function Gallery() {
           />
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-white/60">
-            {lightboxPosition} / {galleryImages.length}
+            {lightboxIndex + 1} / {galleryImages.length}
           </div>
         </div>
       )}
