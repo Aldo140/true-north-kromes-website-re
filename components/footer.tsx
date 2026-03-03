@@ -116,6 +116,17 @@ export function Footer() {
           <p className="text-sm text-chrome-dark">
             {"© 2026 True North Kromes. All rights reserved."}
           </p>
+          <p className="mt-2 text-xs text-chrome-dark/60">
+            {"Created by "}
+            <a
+              href="https://promptandpixel.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-chrome-mid"
+            >
+              Prompt & Pixel
+            </a>
+          </p>
         </div>
       </div>
     </footer>
