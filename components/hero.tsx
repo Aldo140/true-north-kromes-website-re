@@ -16,8 +16,11 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative mx-auto flex max-w-6xl flex-col justify-center px-5 pt-32 pb-24 lg:pt-40 lg:pb-36">
-        <h1 className="max-w-3xl text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-white">
+        <p className="text-sm font-medium uppercase tracking-widest text-white/50">
           True North Kromes
+        </p>
+        <h1 className="mt-3 max-w-3xl text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-white">
+          One-Stop Metal Printing Service
         </h1>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/75 lg:text-lg lg:leading-relaxed">
           A fully integrated digital 3D-printing solution that transforms the
