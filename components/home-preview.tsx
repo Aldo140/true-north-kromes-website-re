@@ -53,19 +53,28 @@ export function HomePreview() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="bg-background py-16 lg:py-24" aria-label="Explore TNK">
+    <section className="bg-background py-20 lg:py-28" aria-label="Explore TNK">
       <div
         ref={ref}
         className={`mx-auto max-w-6xl px-5 ${
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mb-12 text-center">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-primary">
+            Explore
+          </p>
+          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground text-balance">
+            Everything You Need to Know
+          </h2>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {sections.map((section) => (
             <Link
               key={section.href}
               href={section.href}
-              className="group overflow-hidden rounded border border-border bg-card transition-shadow hover:shadow-md"
+              className="group overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-all hover:shadow-lg"
             >
               <div className="aspect-[16/10] overflow-hidden">
                 <img
@@ -75,24 +84,24 @@ export function HomePreview() {
                   loading="lazy"
                 />
               </div>
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-foreground">
+              <div className="p-6">
+                <h3 className="text-base font-semibold text-foreground">
                   {section.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {section.description}
                 </p>
-                <span className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-primary transition-colors group-hover:text-[#2e6aa3]">
-                  Explore
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors group-hover:text-[#2e6aa3]">
+                  Learn more
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </div>
             </Link>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-base text-muted-foreground">
+        <div className="mt-14 text-center">
+          <p className="text-sm tracking-wide text-muted-foreground">
             All products are designed and fabricated <strong className="text-foreground">digitally</strong> in <strong className="text-foreground">Canada</strong>.
           </p>
         </div>

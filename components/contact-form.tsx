@@ -61,7 +61,7 @@ export function ContactForm() {
     return (
       <section className="bg-background py-16 lg:py-24" aria-label="Contact">
         <div className="mx-auto max-w-2xl px-5 text-center">
-          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-black text-foreground">
+          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground">
             Thank you!
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
@@ -80,8 +80,9 @@ export function ContactForm() {
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <div className="mb-8">
-          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-black text-foreground text-balance">
+        <div className="mb-10">
+          <div className="mb-4 h-[3px] w-10 rounded-full bg-primary" />
+          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground text-balance">
             Send Your First Case
           </h2>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
@@ -130,7 +131,7 @@ export function ContactForm() {
         <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
           {/* Full Name */}
           <div>
-            <label htmlFor="fullName" className="mb-1.5 block text-sm font-bold text-foreground">
+            <label htmlFor="fullName" className="mb-1.5 block text-sm font-medium text-foreground">
               Full Name <span className="text-destructive">*</span>
             </label>
             <input
@@ -148,7 +149,7 @@ export function ContactForm() {
 
           {/* Clinic Name */}
           <div>
-            <label htmlFor="clinicName" className="mb-1.5 block text-sm font-bold text-foreground">
+            <label htmlFor="clinicName" className="mb-1.5 block text-sm font-medium text-foreground">
               Clinic Name <span className="text-destructive">*</span>
             </label>
             <input
@@ -166,7 +167,7 @@ export function ContactForm() {
 
           {/* Telephone */}
           <div>
-            <label htmlFor="telephone" className="mb-1.5 block text-sm font-bold text-foreground">
+            <label htmlFor="telephone" className="mb-1.5 block text-sm font-medium text-foreground">
               Telephone Number <span className="text-destructive">*</span>
             </label>
             <input
@@ -184,7 +185,7 @@ export function ContactForm() {
 
           {/* Full Address */}
           <div>
-            <label htmlFor="address" className="mb-1.5 block text-sm font-bold text-foreground">
+            <label htmlFor="address" className="mb-1.5 block text-sm font-medium text-foreground">
               Full Address <span className="text-destructive">*</span>
             </label>
             <textarea
@@ -202,7 +203,7 @@ export function ContactForm() {
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="mb-1.5 block text-sm font-bold text-foreground">
+            <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-foreground">
               Email Address <span className="text-destructive">*</span>
             </label>
             <input
@@ -220,7 +221,7 @@ export function ContactForm() {
 
           {/* Frames per month */}
           <div>
-            <label htmlFor="frames" className="mb-1.5 block text-sm font-bold text-foreground">
+            <label htmlFor="frames" className="mb-1.5 block text-sm font-medium text-foreground">
               Approx. frames per month <span className="text-destructive">*</span>
             </label>
             <select
@@ -244,7 +245,7 @@ export function ContactForm() {
 
           {/* Case method */}
           <div>
-            <label htmlFor="caseMethod" className="mb-1.5 block text-sm font-bold text-foreground">
+            <label htmlFor="caseMethod" className="mb-1.5 block text-sm font-medium text-foreground">
               How will your cases be sent? <span className="text-destructive">*</span>
             </label>
             <select
@@ -298,7 +299,7 @@ export function ContactForm() {
 
           <button
             type="submit"
-            className="mt-2 w-full rounded bg-primary py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#2e6aa3] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            className="mt-2 w-full rounded-md bg-primary py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-[#2e6aa3] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           >
             Submit Inquiry
           </button>

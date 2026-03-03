@@ -81,18 +81,18 @@ export function Gallery() {
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {galleryImages.map((image, index) => (
             <button
               key={image.id}
               onClick={() => openLightbox(index)}
-              className="group aspect-square overflow-hidden rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              className="group aspect-square overflow-hidden rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               aria-label={`View ${image.alt}`}
             >
               <img
                 src={image.src}
                 alt={image.alt}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                className="h-full w-full object-cover transition-all duration-300 group-hover:scale-105 group-hover:brightness-90"
                 loading="lazy"
               />
             </button>

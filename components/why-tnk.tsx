@@ -27,16 +27,21 @@ export function WhyTNK() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="border-t border-border bg-secondary py-16 lg:py-24" aria-label="Why Choose TNK">
+    <section className="border-t border-border bg-background py-20 lg:py-28" aria-label="Why Choose TNK">
       <div
         ref={ref}
         className={`mx-auto max-w-6xl px-5 ${
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <h2 className="mb-10 text-center text-[clamp(1.5rem,3vw,2.25rem)] font-black text-foreground text-balance">
-          Why Dental Professionals Choose TNK
-        </h2>
+        <div className="mb-12 text-center">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-primary">
+            Why TNK
+          </p>
+          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground text-balance">
+            Why Dental Professionals Choose TNK
+          </h2>
+        </div>
 
         <div className="grid gap-8 md:grid-cols-3">
           {reasons.map((reason) => {
@@ -44,12 +49,12 @@ export function WhyTNK() {
             return (
               <div
                 key={reason.title}
-                className="rounded border border-border bg-card p-8 text-center"
+                className="rounded-lg border border-border bg-card p-8 text-center shadow-sm"
               >
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                   <Icon className="h-5 w-5 text-primary" />
                 </div>
-                <h4 className="text-lg font-bold text-foreground">
+                <h4 className="text-base font-semibold text-foreground">
                   {reason.title}
                 </h4>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">

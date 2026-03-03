@@ -19,31 +19,42 @@ export function Navigation() {
   const pathname = usePathname()
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background shadow-sm">
+    <header className="sticky top-0 z-50 bg-background shadow-sm">
+      {/* Thin accent bar */}
+      <div className="h-[3px] bg-primary" />
       <nav aria-label="Main navigation">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
           {/* Logo */}
           <Link href="/" className="shrink-0" aria-label="True North Kromes - Home">
             <img
               src="/images/logo.png"
               alt="True North Kromes"
-              className="h-12 w-auto"
+              className="h-10 w-auto"
             />
           </Link>
 
           {/* Desktop nav links */}
-          <div className="hidden items-center gap-6 lg:flex">
+          <div className="hidden items-center gap-8 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[13px] font-bold uppercase tracking-wide transition-colors hover:text-primary ${
-                  pathname === link.href ? "text-primary" : "text-foreground/60"
+                className={`relative text-[13px] font-semibold uppercase tracking-wider transition-colors hover:text-primary ${
+                  pathname === link.href ? "text-primary" : "text-foreground/70"
                 }`}
               >
                 {link.label}
+                {pathname === link.href && (
+                  <span className="absolute -bottom-4 left-0 right-0 h-[2px] bg-primary" />
+                )}
               </Link>
             ))}
+            <Link
+              href="/contact"
+              className="ml-2 rounded-md bg-primary px-5 py-2 text-[13px] font-semibold uppercase tracking-wider text-primary-foreground transition-colors hover:bg-[#2e6aa3]"
+            >
+              Get Started
+            </Link>
           </div>
 
           {/* Mobile hamburger */}
@@ -59,20 +70,27 @@ export function Navigation() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="border-t border-border bg-background px-5 pb-5 pt-3 lg:hidden">
-            <div className="flex flex-col gap-3">
+          <div className="border-t border-border bg-background px-5 pb-5 pt-4 lg:hidden">
+            <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`text-[13px] font-bold uppercase tracking-wide transition-colors hover:text-primary ${
-                    pathname === link.href ? "text-primary" : "text-foreground/60"
+                  className={`text-[13px] font-semibold uppercase tracking-wider transition-colors hover:text-primary ${
+                    pathname === link.href ? "text-primary" : "text-foreground/70"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
+              <Link
+                href="/contact"
+                onClick={() => setMobileOpen(false)}
+                className="mt-1 rounded-md bg-primary px-5 py-2.5 text-center text-[13px] font-semibold uppercase tracking-wider text-primary-foreground transition-colors hover:bg-[#2e6aa3]"
+              >
+                Get Started
+              </Link>
             </div>
           </div>
         )}

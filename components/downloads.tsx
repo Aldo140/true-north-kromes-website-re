@@ -37,7 +37,7 @@ export function Downloads() {
               key={doc.filename}
               href={doc.href}
               download={doc.filename}
-              className="group flex flex-col rounded border border-border bg-card p-5 transition-shadow hover:shadow-md"
+              className="group flex flex-col rounded-lg border border-border bg-card p-6 shadow-sm transition-all hover:shadow-lg"
             >
               <div className="flex items-start gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-secondary">

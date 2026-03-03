@@ -22,40 +22,40 @@ export function Hero() {
       {/* Content */}
       <div
         ref={ref}
-        className={`relative mx-auto flex max-w-6xl flex-col justify-center px-5 py-20 lg:py-32 ${
+        className={`relative mx-auto flex max-w-6xl flex-col justify-center px-5 py-24 lg:py-36 ${
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <h1 className="max-w-2xl text-[clamp(2rem,5vw,3.5rem)] font-black leading-[1.15] text-white text-balance">
-          Welcome to True North Kromes
+        <div className="mb-5 h-[3px] w-12 rounded-full bg-white/60" />
+        <h1 className="max-w-2xl text-[clamp(2rem,5vw,3.25rem)] font-bold leading-[1.15] tracking-tight text-white text-balance">
+          One-Stop Metal Printing Service for Dental Professionals
         </h1>
-        <p className="mt-3 max-w-xl text-lg font-light leading-relaxed text-white/80">
-          A fully integrated digital 3D-printing solution that transforms the way
-          dental professionals design and manufacture partial dentures.
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-white/75">
+          A fully integrated digital 3D-printing solution that transforms
+          how you design and manufacture partial dentures -- with high precision,
+          efficiency, and significant cost savings.
         </p>
-        <p className="mt-2 text-base text-white/60">
-          High precision, high efficiency, and significant cost savings.
-        </p>
-        <div className="mt-8 flex flex-wrap items-center gap-4">
+        <div className="mt-10 flex flex-wrap items-center gap-4">
           <Link
             href="/contact"
-            className="inline-flex items-center rounded bg-primary px-7 py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#2e6aa3]"
+            className="inline-flex items-center rounded-md bg-white px-7 py-3 text-sm font-semibold uppercase tracking-wider text-[#2d3340] transition-colors hover:bg-white/90"
           >
-            Email or Call Us Today
+            Get Started
           </Link>
           <Link
             href="/services"
-            className="inline-flex items-center rounded border border-white/40 px-7 py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:border-white hover:bg-white/10"
+            className="inline-flex items-center rounded-md border border-white/30 px-7 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:border-white/60 hover:bg-white/10"
           >
             Our Services
           </Link>
         </div>
-        <div className="mt-5 flex flex-wrap items-center gap-6 text-sm text-white/50">
+        <div className="mt-8 flex flex-wrap items-center gap-6 text-sm text-white/50">
           <a href="mailto:truenorthkromes@gmail.com" className="transition-colors hover:text-white/80">
             truenorthkromes@gmail.com
           </a>
+          <span className="hidden h-4 w-px bg-white/30 sm:block" aria-hidden="true" />
           <a href="tel:+18076247222" className="transition-colors hover:text-white/80">
-            807-624-7222
+            (807) 624-7222
           </a>
         </div>
       </div>

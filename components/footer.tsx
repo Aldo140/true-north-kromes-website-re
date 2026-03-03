@@ -19,7 +19,8 @@ const serviceLinks = [
 export function Footer() {
   return (
     <footer className="border-t border-border bg-secondary" aria-label="Site footer">
-      <div className="mx-auto max-w-6xl px-5 py-14">
+      <div className="h-[3px] bg-primary" />
+      <div className="mx-auto max-w-6xl px-5 py-16">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Col 1: Logo + tagline */}
           <div>
@@ -37,7 +38,7 @@ export function Footer() {
 
           {/* Col 2: About */}
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-foreground">
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-foreground">
               About
             </h4>
             <ul className="flex flex-col gap-2">
@@ -56,7 +57,7 @@ export function Footer() {
 
           {/* Col 3: Services */}
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-foreground">
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-foreground">
               Services
             </h4>
             <ul className="flex flex-col gap-2">
@@ -75,7 +76,7 @@ export function Footer() {
 
           {/* Col 4: Contact */}
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-foreground">
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-foreground">
               Contact Us
             </h4>
             <ul className="flex flex-col gap-3">

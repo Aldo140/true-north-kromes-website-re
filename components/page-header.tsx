@@ -18,7 +18,8 @@ export function PageHeader({ title, subtitle }: PageHeaderProps) {
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <h1 className="text-[clamp(1.75rem,4vw,2.75rem)] font-black leading-tight text-foreground text-balance">
+        <div className="mb-4 h-[3px] w-10 rounded-full bg-primary" />
+        <h1 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-tight tracking-tight text-foreground text-balance">
           {title}
         </h1>
         {subtitle && (

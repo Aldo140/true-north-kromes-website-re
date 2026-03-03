@@ -2,50 +2,61 @@
 
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
-const stats = ["High Precision", "High Efficiency", "Significant Cost Savings"]
+const stats = [
+  { label: "High Precision", detail: "Consistent, accurate frameworks every time" },
+  { label: "High Efficiency", detail: "Streamlined digital workflow" },
+  { label: "Cost Savings", detail: "Competitive pricing, no middlemen" },
+]
 
 export function About() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="bg-background py-16 lg:py-24" aria-label="About TNK">
+    <section className="bg-background py-20 lg:py-28" aria-label="About TNK">
       <div
         ref={ref}
-        className={`mx-auto max-w-3xl px-5 ${
+        className={`mx-auto max-w-6xl px-5 ${
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <div className="overflow-hidden rounded">
-          <img
-            src="/images/team-selfie.jpg"
-            alt="The True North Kromes team members in the laboratory"
-            className="h-auto w-full object-cover"
-            loading="lazy"
-          />
-        </div>
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="overflow-hidden rounded-lg">
+            <img
+              src="/images/team-selfie.jpg"
+              alt="The True North Kromes team members in the laboratory"
+              className="h-auto w-full object-cover"
+              loading="lazy"
+            />
+          </div>
 
-        <h2 className="mt-10 text-[clamp(1.5rem,3vw,2.25rem)] font-black text-foreground text-balance">
-          Your Digital Partner in Partial Denture Manufacturing
-        </h2>
+          <div>
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-primary">
+              About TNK
+            </p>
+            <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground text-balance">
+              Your Digital Partner in Partial Denture Manufacturing
+            </h2>
 
-        <p className="mt-5 text-base leading-[1.8] text-muted-foreground">
-          True North Kromes (TNK) provides complete support throughout the entire
-          production cycle. Our workflow delivers high precision, high efficiency,
-          and significant cost savings -- enabling laboratories and clinics to
-          produce frameworks that are more accurate, consistent, and customized than
-          ever before. With TNK as your digital partner, you gain a streamlined,
-          reliable, and modern approach to partial denture manufacturing.
-        </p>
+            <p className="mt-5 text-base leading-[1.8] text-muted-foreground">
+              True North Kromes (TNK) provides complete support throughout the entire
+              production cycle. Our workflow delivers high precision, high efficiency,
+              and significant cost savings -- enabling laboratories and clinics to
+              produce frameworks that are more accurate, consistent, and customized than
+              ever before.
+            </p>
 
-        <div className="mt-8 flex flex-wrap gap-3">
-          {stats.map((stat) => (
-            <span
-              key={stat}
-              className="rounded border border-border px-4 py-2 text-sm font-bold text-foreground"
-            >
-              {stat}
-            </span>
-          ))}
+            <div className="mt-8 flex flex-col gap-4">
+              {stats.map((stat) => (
+                <div key={stat.label} className="flex items-start gap-3">
+                  <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">{stat.label}</p>
+                    <p className="text-sm text-muted-foreground">{stat.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

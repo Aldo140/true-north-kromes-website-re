@@ -1,14 +1,12 @@
 import type { Metadata } from "next"
-import { Lato } from "next/font/google"
+import { Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import "./globals.css"
 
-const lato = Lato({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "700", "900"],
-  style: ["normal", "italic"],
 })
 
 export const metadata: Metadata = {
@@ -45,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={lato.className}>
+    <html lang="en" className={inter.className}>
       <body className="font-sans antialiased">
         <Navigation />
         <main>{children}</main>
