@@ -5,7 +5,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const services = [
   {
-    image: "/images/service-design.jpg",
+    image: "/images/cad-design.png",
     title: "3D Design",
     description:
       "Expert digital framework design tailored to each case.",
@@ -21,7 +21,7 @@ const services = [
     cta: "Explore 3D Printing",
   },
   {
-    image: "/images/polishing-process.jpg",
+    image: "/images/framework-polished.jpg",
     title: "Post-Processing",
     description:
       "Professional finishing, polishing, and quality assurance.",
@@ -54,11 +54,12 @@ export function Services() {
               </h4>
 
               {/* Image */}
-              <div className="overflow-hidden rounded-lg">
+              <div className="overflow-hidden rounded-lg bg-muted">
                 <img
                   src={service.image}
                   alt={service.title}
                   className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  style={service.image.includes("cad-design") ? { objectPosition: "center 40%" } : undefined}
                   loading="lazy"
                 />
               </div>
