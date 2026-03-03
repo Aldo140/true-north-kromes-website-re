@@ -17,8 +17,8 @@ export function About() {
       >
         <div className="overflow-hidden rounded">
           <img
-            src="/images/about.jpg"
-            alt="True North Kromes dental laboratory facility"
+            src="/images/team-lab.jpg"
+            alt="The True North Kromes team in the dental laboratory"
             className="h-auto w-full object-cover"
             loading="lazy"
           />

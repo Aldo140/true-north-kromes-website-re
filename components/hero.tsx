@@ -11,7 +11,7 @@ export function Hero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="/images/hero.jpg"
+          src="/images/printer-buildplate.jpg"
           alt=""
           className="h-full w-full object-cover"
           loading="eager"

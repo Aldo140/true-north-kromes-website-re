@@ -6,19 +6,19 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const services = [
   {
-    image: "/images/service-design.jpg",
+    image: "/images/framework-clasps.jpg",
     title: "3D Design",
     description: "Expert digital framework design tailored to each case.",
     link: "Explore 3D Design",
   },
   {
-    image: "/images/service-printing.jpg",
+    image: "/images/printer-window.jpg",
     title: "3D Printing",
     description: "High-resolution metal printing using advanced SLM technology.",
     link: "Explore 3D Printing",
   },
   {
-    image: "/images/service-postprocessing.jpg",
+    image: "/images/framework-raw.jpg",
     title: "Post-Processing",
     description: "Professional finishing, polishing, and quality assurance.",
     link: "Explore Post-Processing",

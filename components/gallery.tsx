@@ -4,12 +4,23 @@ import { useState, useCallback, useEffect } from "react"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
-{/* 63 placeholder images -- replace with actual lab photography */}
-const galleryImages = Array.from({ length: 63 }, (_, i) => ({
-  id: i + 1,
-  src: "/images/gallery-1.jpg",
-  alt: `Dental framework sample ${i + 1}`,
-}))
+const galleryImages = [
+  { id: 1, src: "/images/framework-polished.jpg", alt: "Polished upper palatal framework on dental model" },
+  { id: 2, src: "/images/framework-clasps.jpg", alt: "Upper framework with clasps on dental model" },
+  { id: 3, src: "/images/framework-detail.jpg", alt: "Detailed partial denture framework on model" },
+  { id: 4, src: "/images/framework-overhead.jpg", alt: "Framework overhead view showing retention mesh" },
+  { id: 5, src: "/images/framework-full.jpg", alt: "Full upper framework with retention and clasps" },
+  { id: 6, src: "/images/framework-clasps2.jpg", alt: "Framework with clasps on dental model" },
+  { id: 7, src: "/images/chrome-crowns.jpg", alt: "Chrome metal crowns on dental model" },
+  { id: 8, src: "/images/lower-partial.jpg", alt: "Finished lower partial denture framework" },
+  { id: 9, src: "/images/palatal-framework.jpg", alt: "Palatal framework close-up showing detail" },
+  { id: 10, src: "/images/grillz.jpg", alt: "Custom metal dental grillz on model" },
+  { id: 11, src: "/images/framework-raw.jpg", alt: "Raw 3D printed framework before finishing" },
+  { id: 12, src: "/images/printer-buildplate.jpg", alt: "Build plate with frameworks next to NCL-M150 printer" },
+  { id: 13, src: "/images/printer-branded.jpg", alt: "True North Kromes build plate in 3D printer" },
+  { id: 14, src: "/images/printer-window.jpg", alt: "View through 3D metal printer during printing" },
+  { id: 15, src: "/images/team-lab.jpg", alt: "True North Kromes team in the lab" },
+]
 
 export function Gallery() {
   const { ref, isVisible } = useScrollAnimation()
@@ -51,7 +62,7 @@ export function Gallery() {
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <div className="grid grid-cols-3 gap-2 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-9">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {galleryImages.map((image, index) => (
             <button
               key={image.id}
