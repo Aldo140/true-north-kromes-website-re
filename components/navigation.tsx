@@ -53,7 +53,7 @@ export function Navigation() {
               src="/images/logo.png"
               alt="True North Kromes"
               className={`h-10 w-auto transition-all duration-300 ${
-                isTransparent ? "brightness-[1.8] drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]" : "drop-shadow-[0_1px_1px_rgba(0,0,0,0.15)]"
+                isTransparent ? "brightness-0 invert" : ""
               }`}
             />
           </Link>
@@ -117,10 +117,10 @@ export function Navigation() {
           </div>
         )}
       </nav>
-      {/* Bottom separator line */}
+      {/* Bottom separator line -- hidden when transparent so nav doesn't merge with hero */}
       <div
-        className={`h-px transition-colors duration-300 ${
-          isTransparent ? "bg-white/20" : "bg-border"
+        className={`h-px transition-all duration-300 ${
+          isTransparent ? "bg-transparent" : "bg-border"
         }`}
       />
     </header>
