@@ -6,7 +6,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const services = [
   {
-    image: "/images/framework-hero.jpg",
+    image: "/images/cad-design.png",
     title: "3D Design",
     description: "Expert digital framework design tailored to each case.",
     link: "Explore 3D Design",

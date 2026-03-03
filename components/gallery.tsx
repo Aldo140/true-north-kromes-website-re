@@ -29,8 +29,16 @@ const galleryImages = [
   { id: 22, src: "/images/printer-window.jpg", alt: "View through 3D metal printer during printing" },
   { id: 23, src: "/images/dlyte-polishing.jpg", alt: "DLyte mini electropolishing machine in operation" },
   { id: 24, src: "/images/lab-facility.jpg", alt: "TNK production facility with Chamlion 3D printers" },
-  { id: 25, src: "/images/team-selfie.jpg", alt: "True North Kromes team members in the lab" },
-  { id: 26, src: "/images/team-lab.jpg", alt: "True North Kromes team at work" },
+  { id: 25, src: "/images/framework-profile.jpg", alt: "Polished chrome framework side profile held in blue glove" },
+  { id: 26, src: "/images/framework-upper-side.jpg", alt: "Upper framework on model, side view" },
+  { id: 27, src: "/images/framework-mandrel.jpg", alt: "Framework on mandrel during inspection" },
+  { id: 28, src: "/images/partial-front.jpg", alt: "Finished upper partial denture with teeth, front view" },
+  { id: 29, src: "/images/partial-palatal.jpg", alt: "Upper partial denture palatal view with framework" },
+  { id: 30, src: "/images/partial-bite.jpg", alt: "Partial denture on articulated model, bite view" },
+  { id: 31, src: "/images/partial-lower.jpg", alt: "Lower partial denture on model with chrome framework" },
+  { id: 32, src: "/images/cad-design.png", alt: "3D CAD digital design of dental framework" },
+  { id: 33, src: "/images/team-selfie.jpg", alt: "True North Kromes team members in the lab" },
+  { id: 34, src: "/images/team-lab.jpg", alt: "True North Kromes team at work" },
 ]
 
 export function Gallery() {
