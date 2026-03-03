@@ -5,18 +5,18 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const documents = [
   {
-    title: "[Placeholder Document Title]",
+    title: "Mediloy RPD Licence",
     description:
-      "[Placeholder document description -- client to supply before launch.]",
-    filename: "[placeholder-document.pdf]",
-    href: "#",
+      "Health Canada Medical Device Licence (No. 109393) for Mediloy RPD, issued to BEGO Bremer Goldschlagerei. Class 2 device certification.",
+    filename: "mediloy-rpd-licence.pdf",
+    href: "/downloads/mediloy-rpd-licence.pdf",
   },
   {
-    title: "[Placeholder Document Title]",
+    title: "Credit Card Authorization Form",
     description:
-      "[Placeholder document description -- client to supply before launch.]",
-    filename: "[placeholder-document.pdf]",
-    href: "#",
+      "Authorization form for payment by credit card. Fill out and return to TNK to set up card-on-file billing.",
+    filename: "credit-card-authorization.pdf",
+    href: "/downloads/credit-card-authorization.pdf",
   },
 ]
 
@@ -64,7 +64,11 @@ export function Downloads() {
 
         <div className="mt-10 rounded-md border border-border bg-secondary p-5 text-center">
           <p className="text-sm text-muted-foreground">
-            [Placeholder notice text]
+            {"Need a document that's not listed here? "}
+            <a href="/contact" className="font-bold text-primary hover:text-[#164a74]">
+              Contact us
+            </a>
+            {" and we'll be happy to help."}
           </p>
         </div>
       </div>
