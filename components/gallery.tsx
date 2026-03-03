@@ -44,14 +44,14 @@ export function Gallery() {
   }, [lightboxIndex, goNext, goPrev])
 
   return (
-    <section className="bg-[#2a2a2a] py-20 lg:py-28" aria-label="Our Work Gallery">
+    <section className="bg-secondary py-20 lg:py-28" aria-label="Our Work Gallery">
       <div
         ref={ref}
         className={`mx-auto max-w-7xl px-4 lg:px-8 ${
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <h2 className="mb-12 text-center font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-bold text-white text-balance">
+        <h2 className="mb-12 text-center font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-bold text-foreground text-balance">
           Our Work
         </h2>
 
@@ -60,7 +60,7 @@ export function Gallery() {
             <button
               key={image.id}
               onClick={() => openLightbox(index)}
-              className="group aspect-square overflow-hidden rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1e6fff]"
+              className="group aspect-square overflow-hidden rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
               aria-label={`View ${image.alt}`}
             >
               <img

@@ -6,18 +6,18 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 const reasons = [
   {
     icon: Microscope,
-    title: "LAB-DIRECT",
+    title: "Lab-Direct",
     description: "Work directly with the lab. No middlemen, no markups.",
   },
   {
     icon: Truck,
-    title: "FLEXIBLE SUBMISSION",
+    title: "Flexible Submission",
     description:
       "Send cases by courier (physical models) or digital STL scan — whichever works for you.",
   },
   {
     icon: Shield,
-    title: "CANADIAN-MADE",
+    title: "Canadian-Made",
     description:
       "Proudly designed and manufactured in Canada for Canadian dental professionals.",
   },
@@ -27,7 +27,7 @@ export function WhyTNK() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="bg-[#f2f2f2] py-20 lg:py-28" aria-label="Why Choose TNK">
+    <section className="bg-secondary py-20 lg:py-28" aria-label="Why Choose TNK">
       <div
         ref={ref}
         className={`mx-auto max-w-7xl px-4 lg:px-8 ${
@@ -35,10 +35,10 @@ export function WhyTNK() {
         }`}
       >
         <div className="mb-12 text-center">
-          <span className="text-sm font-medium uppercase tracking-[0.15em] text-[#c8a84b]">
+          <p className="text-sm font-medium uppercase tracking-[0.15em] text-muted-foreground">
             Why TNK
-          </span>
-          <h2 className="mt-3 font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-bold text-[#1e1e1e] text-balance">
+          </p>
+          <h2 className="mt-3 font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-bold text-foreground text-balance">
             Why Dental Professionals Choose TNK
           </h2>
         </div>
@@ -49,15 +49,15 @@ export function WhyTNK() {
             return (
               <div
                 key={reason.title}
-                className="rounded-lg bg-white p-8 text-center shadow-sm"
+                className="rounded-lg border border-border bg-card p-8 text-center"
               >
-                <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#f2f2f2]">
-                  <Icon className="h-6 w-6 text-[#1e1e1e]" />
+                <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-secondary">
+                  <Icon className="h-6 w-6 text-foreground" />
                 </div>
-                <h4 className="text-base font-semibold uppercase tracking-[0.1em] text-[#1e1e1e]">
+                <h4 className="text-base font-semibold text-foreground">
                   {reason.title}
                 </h4>
-                <p className="mt-3 text-base leading-relaxed text-[#1e1e1e]/70">
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   {reason.description}
                 </p>
               </div>

@@ -47,14 +47,14 @@ export function FAQ() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="bg-[#f2f2f2] py-20 lg:py-28" aria-label="Frequently Asked Questions">
+    <section className="bg-background py-20 lg:py-28" aria-label="Frequently Asked Questions">
       <div
         ref={ref}
         className={`mx-auto max-w-3xl px-4 lg:px-8 ${
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <h2 className="mb-12 text-center font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-bold text-[#1e1e1e] text-balance">
+        <h2 className="mb-12 text-center font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-bold text-foreground text-balance">
           Frequently Asked Questions
         </h2>
 
@@ -63,12 +63,12 @@ export function FAQ() {
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="border-b border-[#dcdcdc]"
+              className="border-b border-border"
             >
-              <AccordionTrigger className="text-left text-base font-medium text-[#1e1e1e] hover:no-underline hover:text-[#1e6fff]">
+              <AccordionTrigger className="text-left text-base font-medium text-foreground hover:no-underline hover:text-muted-foreground">
                 {item.question}
               </AccordionTrigger>
-              <AccordionContent className="text-base leading-relaxed text-[#1e1e1e]/70">
+              <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
                 {item.answer}
               </AccordionContent>
             </AccordionItem>

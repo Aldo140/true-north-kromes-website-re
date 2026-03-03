@@ -11,7 +11,7 @@ export function PageHeader({ title, subtitle }: PageHeaderProps) {
   const { ref, isVisible } = useScrollAnimation(0.1)
 
   return (
-    <section className="relative bg-[#1e1e1e] py-20 lg:py-28">
+    <section className="relative bg-[#18181b] py-20 lg:py-28">
       <div
         ref={ref}
         className={`mx-auto max-w-7xl px-4 text-center lg:px-8 ${
@@ -22,7 +22,7 @@ export function PageHeader({ title, subtitle }: PageHeaderProps) {
           {title}
         </h1>
         {subtitle && (
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/70 lg:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/60 lg:text-lg">
             {subtitle}
           </p>
         )}

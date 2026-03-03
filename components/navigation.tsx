@@ -19,14 +19,14 @@ export function Navigation() {
 
   return (
     <header className="sticky top-0 z-50">
-      <nav className="bg-[#1e1e1e]" aria-label="Main navigation">
+      <nav className="bg-[#18181b]" aria-label="Main navigation">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
           {/* Logo */}
           <Link href="/" aria-label="True North Kromes - Home">
             <img
-              src="/images/logo.jpg"
+              src="/images/logo.png"
               alt="True North Kromes"
-              className="h-10 w-auto brightness-[1.15] invert sm:h-12"
+              className="h-10 w-auto brightness-[2] invert sm:h-12"
             />
           </Link>
 
@@ -36,10 +36,10 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium uppercase tracking-[0.1em] transition-colors hover:text-[#c8a84b] ${
+                className={`text-sm font-medium tracking-wide transition-colors hover:text-white ${
                   pathname === link.href
-                    ? "text-[#c8a84b]"
-                    : "text-white/80"
+                    ? "text-white"
+                    : "text-white/50"
                 }`}
               >
                 {link.label}
@@ -60,28 +60,26 @@ export function Navigation() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="border-t border-white/10 bg-[#1e1e1e] px-4 pb-6 pt-4 lg:hidden">
+          <div className="border-t border-white/10 bg-[#18181b] px-4 pb-6 pt-4 lg:hidden">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`text-sm font-medium uppercase tracking-[0.1em] transition-colors hover:text-[#c8a84b] ${
+                  className={`text-sm font-medium tracking-wide transition-colors hover:text-white ${
                     pathname === link.href
-                      ? "text-[#c8a84b]"
-                      : "text-white/80"
+                      ? "text-white"
+                      : "text-white/50"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
-
             </div>
           </div>
         )}
       </nav>
-      {/* Chrome gradient band */}
       <div className="chrome-band" />
     </header>
   )

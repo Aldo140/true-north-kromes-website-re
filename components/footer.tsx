@@ -17,8 +17,7 @@ const serviceLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#1e1e1e]" aria-label="Site footer">
-      {/* Chrome gradient band at top */}
+    <footer className="bg-[#18181b]" aria-label="Site footer">
       <div className="chrome-band" />
 
       <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
@@ -27,19 +26,19 @@ export function Footer() {
           <div>
             <Link href="/" className="inline-block" aria-label="True North Kromes - Home">
               <img
-                src="/images/logo.jpg"
+                src="/images/logo.png"
                 alt="True North Kromes"
-                className="h-12 w-auto brightness-[1.15] invert"
+                className="h-12 w-auto brightness-[2] invert"
               />
             </Link>
-            <p className="mt-4 text-sm italic leading-relaxed text-[#c8a84b]">
+            <p className="mt-4 text-sm leading-relaxed text-white/40">
               One-Stop Metal Printing Service.
             </p>
           </div>
 
           {/* Col 2: About */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.1em] text-white">
+            <h4 className="mb-4 text-sm font-semibold text-white">
               About
             </h4>
             <ul className="flex flex-col gap-2.5">
@@ -47,7 +46,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/60 transition-colors hover:text-[#c8a84b]"
+                    className="text-sm text-white/50 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -58,7 +57,7 @@ export function Footer() {
 
           {/* Col 3: Services */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.1em] text-white">
+            <h4 className="mb-4 text-sm font-semibold text-white">
               Services
             </h4>
             <ul className="flex flex-col gap-2.5">
@@ -66,7 +65,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/60 transition-colors hover:text-[#c8a84b]"
+                    className="text-sm text-white/50 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -77,14 +76,14 @@ export function Footer() {
 
           {/* Col 4: Contact */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.1em] text-white">
+            <h4 className="mb-4 text-sm font-semibold text-white">
               Contact Us
             </h4>
             <ul className="flex flex-col gap-3">
               <li>
                 <a
                   href="mailto:truenorthkromes@gmail.com"
-                  className="flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-[#c8a84b]"
+                  className="flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-white"
                 >
                   <Mail className="h-4 w-4 shrink-0" />
                   truenorthkromes@gmail.com
@@ -93,13 +92,13 @@ export function Footer() {
               <li>
                 <a
                   href="tel:+18076247222"
-                  className="flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-[#c8a84b]"
+                  className="flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-white"
                 >
                   <Phone className="h-4 w-4 shrink-0" />
                   (807) 624-7222
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-sm text-white/60">
+              <li className="flex items-center gap-2 text-sm text-white/50">
                 <MapPin className="h-4 w-4 shrink-0" />
                 Cochrane, AB, Canada
               </li>
@@ -113,7 +112,7 @@ export function Footer() {
             {/* Instagram */}
             <a
               href="#"
-              className="text-white/40 transition-colors hover:text-white/80"
+              className="text-white/30 transition-colors hover:text-white/60"
               aria-label="Instagram"
             >
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -127,7 +126,7 @@ export function Footer() {
             {/* Facebook */}
             <a
               href="#"
-              className="text-white/40 transition-colors hover:text-white/80"
+              className="text-white/30 transition-colors hover:text-white/60"
               aria-label="Facebook"
             >
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -140,7 +139,7 @@ export function Footer() {
             </a>
           </div>
 
-          <p className="text-sm text-white/40">
+          <p className="text-sm text-white/30">
             {"© 2026 True North Kromes Inc. All rights reserved."}
           </p>
         </div>
