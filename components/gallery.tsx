@@ -2,7 +2,6 @@
 
 import { useState, useCallback, useEffect } from "react"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const galleryImages = [
   // Frameworks
@@ -74,7 +73,6 @@ const galleryImages = [
 ]
 
 export function Gallery() {
-  const { ref, isVisible } = useScrollAnimation()
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   const openLightbox = (index: number) => setLightboxIndex(index)
@@ -105,24 +103,19 @@ export function Gallery() {
 
   return (
     <section className="bg-background py-16 lg:py-24" aria-label="Our Work Gallery">
-      <div
-        ref={ref}
-        className={`mx-auto max-w-6xl px-5 ${
-          isVisible ? "animate-fade-in-up" : "opacity-0"
-        }`}
-      >
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      <div className="mx-auto max-w-5xl px-5">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           {galleryImages.map((image, index) => (
             <button
               key={image.id}
               onClick={() => openLightbox(index)}
-              className="group aspect-square overflow-hidden rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              className="overflow-hidden rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               aria-label={`View ${image.alt}`}
             >
               <img
                 src={image.src}
                 alt={image.alt}
-                className="h-full w-full object-cover transition-all duration-300 group-hover:scale-105 group-hover:brightness-90"
+                className="aspect-square w-full object-cover"
                 loading="lazy"
               />
             </button>
