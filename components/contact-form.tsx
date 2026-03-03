@@ -15,13 +15,13 @@ export function ContactForm() {
   const validate = (formData: FormData) => {
     const newErrors: Record<string, string> = {}
     const fields = [
-      { key: "fullName", label: "Full Name" },
-      { key: "clinicName", label: "Clinic Name" },
-      { key: "telephone", label: "Telephone Number" },
-      { key: "address", label: "Full Address" },
-      { key: "email", label: "Email Address" },
-      { key: "frames", label: "Approx. frames per month" },
-      { key: "caseMethod", label: "How will your cases be sent" },
+      { key: "fullName", label: "[Placeholder field]" },
+      { key: "clinicName", label: "[Placeholder field]" },
+      { key: "telephone", label: "[Placeholder field]" },
+      { key: "address", label: "[Placeholder field]" },
+      { key: "email", label: "[Placeholder field]" },
+      { key: "frames", label: "[Placeholder field]" },
+      { key: "caseMethod", label: "[Placeholder field]" },
     ]
 
     for (const field of fields) {
@@ -62,10 +62,10 @@ export function ContactForm() {
       <section className="bg-background py-16 lg:py-24" aria-label="Contact">
         <div className="mx-auto max-w-2xl px-5 text-center">
           <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground">
-            Thank you!
+            [Placeholder success heading]
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            {"We'll be in touch shortly."}
+            {"[Placeholder success message]"}
           </p>
         </div>
       </section>
@@ -73,7 +73,7 @@ export function ContactForm() {
   }
 
   return (
-    <section className="bg-background py-16 lg:py-24" aria-label="Send Your First Case">
+    <section className="bg-background py-16 lg:py-24" aria-label="Contact Form">
       <div
         ref={ref}
         className={`mx-auto max-w-2xl px-5 ${
@@ -83,7 +83,7 @@ export function ContactForm() {
         <div className="mb-10">
           <div className="mb-4 h-[3px] w-10 rounded-full bg-primary" />
           <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground text-balance">
-            Send Your First Case
+            [Placeholder heading]
           </h2>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
             {"[Placeholder intro text -- client to supply before launch.]"}
@@ -132,7 +132,7 @@ export function ContactForm() {
           {/* Full Name */}
           <div>
             <label htmlFor="fullName" className="mb-1.5 block text-sm font-medium text-foreground">
-              Full Name <span className="text-destructive">*</span>
+              [Placeholder label] <span className="text-destructive">*</span>
             </label>
             <input
               type="text"
@@ -140,7 +140,7 @@ export function ContactForm() {
               name="fullName"
               required
               className="w-full rounded-md border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              placeholder="John Smith"
+              placeholder="[Placeholder]"
             />
             {errors.fullName && (
               <p className="mt-1 text-sm text-destructive">{errors.fullName}</p>
@@ -150,7 +150,7 @@ export function ContactForm() {
           {/* Clinic Name */}
           <div>
             <label htmlFor="clinicName" className="mb-1.5 block text-sm font-medium text-foreground">
-              Clinic Name <span className="text-destructive">*</span>
+              [Placeholder label] <span className="text-destructive">*</span>
             </label>
             <input
               type="text"
@@ -158,7 +158,7 @@ export function ContactForm() {
               name="clinicName"
               required
               className="w-full rounded-md border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              placeholder="ABC Dental Lab"
+              placeholder="[Placeholder]"
             />
             {errors.clinicName && (
               <p className="mt-1 text-sm text-destructive">{errors.clinicName}</p>
@@ -168,7 +168,7 @@ export function ContactForm() {
           {/* Telephone */}
           <div>
             <label htmlFor="telephone" className="mb-1.5 block text-sm font-medium text-foreground">
-              Telephone Number <span className="text-destructive">*</span>
+              [Placeholder label] <span className="text-destructive">*</span>
             </label>
             <input
               type="tel"
@@ -176,7 +176,7 @@ export function ContactForm() {
               name="telephone"
               required
               className="w-full rounded-md border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              placeholder="(807) 555-1234"
+              placeholder="[Placeholder]"
             />
             {errors.telephone && (
               <p className="mt-1 text-sm text-destructive">{errors.telephone}</p>
@@ -186,7 +186,7 @@ export function ContactForm() {
           {/* Full Address */}
           <div>
             <label htmlFor="address" className="mb-1.5 block text-sm font-medium text-foreground">
-              Full Address <span className="text-destructive">*</span>
+              [Placeholder label] <span className="text-destructive">*</span>
             </label>
             <textarea
               id="address"
@@ -194,7 +194,7 @@ export function ContactForm() {
               required
               rows={3}
               className="w-full rounded-md border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              placeholder="Full mailing address"
+              placeholder="[Placeholder]"
             />
             {errors.address && (
               <p className="mt-1 text-sm text-destructive">{errors.address}</p>
@@ -204,7 +204,7 @@ export function ContactForm() {
           {/* Email */}
           <div>
             <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-foreground">
-              Email Address <span className="text-destructive">*</span>
+              [Placeholder label] <span className="text-destructive">*</span>
             </label>
             <input
               type="email"
@@ -212,7 +212,7 @@ export function ContactForm() {
               name="email"
               required
               className="w-full rounded-md border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              placeholder="john@abcdental.ca"
+              placeholder="[Placeholder]"
             />
             {errors.email && (
               <p className="mt-1 text-sm text-destructive">{errors.email}</p>
@@ -222,7 +222,7 @@ export function ContactForm() {
           {/* Frames per month */}
           <div>
             <label htmlFor="frames" className="mb-1.5 block text-sm font-medium text-foreground">
-              Approx. frames per month <span className="text-destructive">*</span>
+              [Placeholder label] <span className="text-destructive">*</span>
             </label>
             <select
               id="frames"
@@ -246,7 +246,7 @@ export function ContactForm() {
           {/* Case method */}
           <div>
             <label htmlFor="caseMethod" className="mb-1.5 block text-sm font-medium text-foreground">
-              How will your cases be sent? <span className="text-destructive">*</span>
+              [Placeholder label] <span className="text-destructive">*</span>
             </label>
             <select
               id="caseMethod"
@@ -269,7 +269,7 @@ export function ContactForm() {
           {/* Follow-up radio */}
           <fieldset>
             <legend className="mb-3 text-sm font-bold text-foreground">
-              How can we follow up with you? <span className="text-destructive">*</span>
+              [Placeholder label] <span className="text-destructive">*</span>
             </legend>
             <div className="flex flex-col gap-3">
               <label className="flex cursor-pointer items-center gap-3">
@@ -301,7 +301,7 @@ export function ContactForm() {
             type="submit"
             className="mt-2 w-full rounded-md bg-primary py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-[#164a74] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           >
-            Submit Inquiry
+            [Placeholder button text]
           </button>
         </form>
       </div>

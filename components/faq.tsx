@@ -10,36 +10,28 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const faqItems = [
   {
-    question: "[PLACEHOLDER Q] What services does TNK provide?",
-    answer: "[PLACEHOLDER A] Client to supply before launch.",
+    question: "[Placeholder question 1]",
+    answer: "[Placeholder answer]",
   },
   {
-    question: "[PLACEHOLDER Q] How do I submit a case?",
-    answer: "[PLACEHOLDER A] Client to supply before launch.",
+    question: "[Placeholder question 2]",
+    answer: "[Placeholder answer]",
   },
   {
-    question: "[PLACEHOLDER Q] What materials do you use for printing?",
-    answer: "[PLACEHOLDER A] Client to supply before launch.",
+    question: "[Placeholder question 3]",
+    answer: "[Placeholder answer]",
   },
   {
-    question: "[PLACEHOLDER Q] What is SLM technology?",
-    answer: "[PLACEHOLDER A] Client to supply before launch.",
+    question: "[Placeholder question 4]",
+    answer: "[Placeholder answer]",
   },
   {
-    question: "[PLACEHOLDER Q] How long does turnaround take?",
-    answer: "[PLACEHOLDER A] Client to supply before launch.",
+    question: "[Placeholder question 5]",
+    answer: "[Placeholder answer]",
   },
   {
-    question: "[PLACEHOLDER Q] Do you work with clinics directly?",
-    answer: "[PLACEHOLDER A] Client to supply before launch.",
-  },
-  {
-    question: "[PLACEHOLDER Q] What file formats do you accept?",
-    answer: "[PLACEHOLDER A] Client to supply before launch.",
-  },
-  {
-    question: "[PLACEHOLDER Q] How do I get started?",
-    answer: "[PLACEHOLDER A] Client to supply before launch.",
+    question: "[Placeholder question 6]",
+    answer: "[Placeholder answer]",
   },
 ]
 

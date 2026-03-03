@@ -26,7 +26,7 @@ export function CTABanner() {
             href="/contact"
             className="inline-flex items-center gap-2 rounded-md bg-white px-8 py-3 text-sm font-semibold uppercase tracking-wider text-primary transition-colors hover:bg-white/90"
           >
-            Send Your First Case
+            [Placeholder]
             <ArrowRight className="h-4 w-4" />
           </Link>
           <a

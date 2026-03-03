@@ -42,7 +42,8 @@ export function About() {
               production cycle. Our workflow delivers high precision, high efficiency,
               and significant cost savings -- enabling laboratories and clinics to
               produce frameworks that are more accurate, consistent, and customized than
-              ever before.
+              ever before. With TNK as your digital partner, you gain a streamlined,
+              reliable, and modern approach to partial denture manufacturing.
             </p>
 
             <div className="mt-8 flex flex-col gap-4">
