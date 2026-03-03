@@ -84,16 +84,6 @@ export function Navigation() {
                 )}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className={`ml-2 rounded-md px-5 py-2 text-[13px] font-semibold uppercase tracking-wider transition-all duration-300 ${
-                isTransparent
-                  ? "border border-white/40 text-white hover:bg-white/10 hover:border-white/60"
-                  : "bg-primary text-primary-foreground hover:bg-[#2e6aa3]"
-              }`}
-            >
-              Get Started
-            </Link>
           </div>
 
           {/* Mobile hamburger */}
@@ -123,13 +113,6 @@ export function Navigation() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/contact"
-                onClick={() => setMobileOpen(false)}
-                className="mt-1 rounded-md bg-primary px-5 py-2.5 text-center text-[13px] font-semibold uppercase tracking-wider text-primary-foreground transition-colors hover:bg-[#2e6aa3]"
-              >
-                Get Started
-              </Link>
             </div>
           </div>
         )}
