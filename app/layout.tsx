@@ -1,12 +1,18 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Barlow, Barlow_Semi_Condensed } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import "./globals.css"
 
-const inter = Inter({
+const _barlow = Barlow({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+})
+
+const _barlowSC = Barlow_Semi_Condensed({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
 })
 
 export const metadata: Metadata = {
@@ -17,7 +23,12 @@ export const metadata: Metadata = {
   description:
     "A fully integrated digital 3D-printing solution that transforms the way dental professionals design and manufacture partial dentures.",
   keywords: [
-    "[Placeholder keyword]",
+    "dental frameworks",
+    "3D metal printing",
+    "partial dentures",
+    "chrome frameworks",
+    "dental lab",
+    "TNK",
   ],
   openGraph: {
     title: "True North Kromes Inc | One-Stop Metal Printing Service",
@@ -37,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en">
       <body className="font-sans antialiased">
         <Navigation />
         <main>{children}</main>

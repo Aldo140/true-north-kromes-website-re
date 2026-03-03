@@ -65,7 +65,7 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative text-[13px] font-semibold uppercase tracking-wider transition-colors ${
+                className={`relative font-[family-name:var(--font-heading)] text-[13px] font-semibold uppercase tracking-wider transition-colors ${
                   isTransparent
                     ? pathname === link.href
                       ? "text-white"
@@ -107,7 +107,7 @@ export function Navigation() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`text-[13px] font-semibold uppercase tracking-wider transition-colors hover:text-primary ${
+                  className={`font-[family-name:var(--font-heading)] text-[13px] font-semibold uppercase tracking-wider transition-colors hover:text-primary ${
                     pathname === link.href ? "text-primary" : "text-foreground/70"
                   }`}
                 >
