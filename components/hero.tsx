@@ -27,28 +27,29 @@ export function Hero() {
         }`}
       >
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
-          Precision Metal Frameworks for Dental Professionals
+          One-Stop Metal Printing Service
         </p>
         <h1 className="max-w-2xl text-[clamp(2rem,5vw,3.25rem)] font-bold leading-[1.1] tracking-tight text-white text-balance">
-          Digital 3D-Printed Partial Denture Frameworks
+          True North Kromes
         </h1>
         <p className="mt-5 max-w-xl text-base leading-relaxed text-white/70">
-          From CAD design to medical-grade metal printing and professional
-          finishing -- TNK delivers accurate, consistent frameworks with
-          faster turnaround and lower costs than traditional casting.
+          Experience a fully integrated digital 3D-printing solution that
+          transforms the way dental professionals design and manufacture
+          partial dentures. Our workflow delivers high precision, high
+          efficiency, and significant cost savings.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <Link
             href="/contact"
             className="inline-flex items-center rounded-md bg-white px-7 py-3 text-sm font-semibold uppercase tracking-wider text-[#1a2332] transition-colors hover:bg-white/90"
           >
-            Send Your First Case
+            Email or Call Us Today
           </Link>
           <Link
             href="/services"
             className="inline-flex items-center rounded-md border border-white/30 px-7 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:border-white/60 hover:bg-white/10"
           >
-            View Our Process
+            Our Services
           </Link>
         </div>
         <div className="mt-8 flex flex-wrap items-center gap-6 text-sm text-white/45">

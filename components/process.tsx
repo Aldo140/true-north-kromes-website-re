@@ -7,23 +7,23 @@ const steps = [
   {
     icon: Upload,
     step: "01",
-    title: "Submit Your Case",
+    title: "[Placeholder Step Title]",
     description:
-      "Send your case by courier (physical models) or upload STL scans digitally. We handle everything from there.",
+      "[Placeholder step description -- client to supply before launch.]",
   },
   {
     icon: Printer,
     step: "02",
-    title: "We Design & Print",
+    title: "[Placeholder Step Title]",
     description:
-      "Our team creates a precision 3D digital design, then prints your framework in medical-grade metal using SLM technology.",
+      "[Placeholder step description -- client to supply before launch.]",
   },
   {
     icon: Package,
     step: "03",
-    title: "Receive Your Framework",
+    title: "[Placeholder Step Title]",
     description:
-      "After professional post-processing and quality inspection, your finished framework is shipped back ready to use.",
+      "[Placeholder step description -- client to supply before launch.]",
   },
 ]
 
@@ -46,7 +46,7 @@ export function Process() {
             Three Simple Steps
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-base text-muted-foreground">
-            From submission to delivery, we handle the entire workflow so you can focus on your patients.
+            [Placeholder -- client to supply subtitle before launch.]
           </p>
         </div>
 

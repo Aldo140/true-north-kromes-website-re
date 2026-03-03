@@ -15,15 +15,9 @@ export const metadata: Metadata = {
     template: "%s | True North Kromes Inc",
   },
   description:
-    "A fully integrated digital 3D-printing solution for dental professionals. Expert 3D design, high-resolution metal printing, and professional post-processing in Cochrane, Alberta, Canada.",
+    "A fully integrated digital 3D-printing solution that transforms the way dental professionals design and manufacture partial dentures.",
   keywords: [
-    "dental laboratory",
-    "3D metal printing",
-    "partial dentures",
-    "dental frameworks",
-    "SLM technology",
-    "Cochrane Alberta",
-    "dental lab Canada",
+    "[Placeholder keyword]",
   ],
   openGraph: {
     title: "True North Kromes Inc | One-Stop Metal Printing Service",

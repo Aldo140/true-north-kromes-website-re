@@ -86,7 +86,7 @@ export function ContactForm() {
             Send Your First Case
           </h2>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-            {"Ready to get started? Fill out the form below and we'll be in touch."}
+            {"[Placeholder intro text -- client to supply before launch.]"}
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export function ContactForm() {
           >
             <Phone className="h-5 w-5 shrink-0" />
             <span className="text-sm font-bold">
-              Request a Follow-Up Conversation
+              [Placeholder follow-up option 1]
             </span>
           </button>
 
@@ -120,7 +120,7 @@ export function ContactForm() {
           >
             <LinkIcon className="h-5 w-5 shrink-0" />
             <span className="text-sm font-bold">
-              Get Me a Portal Link to Send My First Case
+              [Placeholder follow-up option 2]
             </span>
           </button>
         </div>
@@ -194,7 +194,7 @@ export function ContactForm() {
               required
               rows={3}
               className="w-full rounded-md border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              placeholder="123 Main St, Cochrane, AB, Canada"
+              placeholder="Full mailing address"
             />
             {errors.address && (
               <p className="mt-1 text-sm text-destructive">{errors.address}</p>
@@ -234,9 +234,9 @@ export function ContactForm() {
               <option value="" disabled className="text-muted-foreground">
                 Select an option...
               </option>
-              <option value="less-than-10">Less than 10</option>
-              <option value="10-20">{"10 – 20"}</option>
-              <option value="20-30">{"20 – 30"}</option>
+              <option value="placeholder-1">[Placeholder option 1]</option>
+              <option value="placeholder-2">[Placeholder option 2]</option>
+              <option value="placeholder-3">[Placeholder option 3]</option>
             </select>
             {errors.frames && (
               <p className="mt-1 text-sm text-destructive">{errors.frames}</p>
@@ -258,8 +258,8 @@ export function ContactForm() {
               <option value="" disabled className="text-muted-foreground">
                 Select an option...
               </option>
-              <option value="courier">{"Option 1 — By Courier (Physical Models)"}</option>
-              <option value="stl">{"Option 2 — STL Scans (Digital)"}</option>
+              <option value="placeholder-1">[Placeholder option 1]</option>
+              <option value="placeholder-2">[Placeholder option 2]</option>
             </select>
             {errors.caseMethod && (
               <p className="mt-1 text-sm text-destructive">{errors.caseMethod}</p>
@@ -281,7 +281,7 @@ export function ContactForm() {
                   onChange={() => setFollowUp("conversation")}
                   className="h-4 w-4 accent-primary"
                 />
-                <span className="text-sm text-foreground">Request a follow-up conversation</span>
+                <span className="text-sm text-foreground">[Placeholder follow-up option 1]</span>
               </label>
               <label className="flex cursor-pointer items-center gap-3">
                 <input
@@ -292,7 +292,7 @@ export function ContactForm() {
                   onChange={() => setFollowUp("portal")}
                   className="h-4 w-4 accent-primary"
                 />
-                <span className="text-sm text-foreground">Get me a portal link to send my first case</span>
+                <span className="text-sm text-foreground">[Placeholder follow-up option 2]</span>
               </label>
             </div>
           </fieldset>

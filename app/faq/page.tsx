@@ -5,7 +5,7 @@ import { FAQ } from "@/components/faq"
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Answers to common questions about True North Kromes services, processes, materials, and SLM 3D metal printing technology.",
+    "[Placeholder meta description -- client to supply before launch.]",
 }
 
 const faqJsonLd = {
@@ -88,7 +88,7 @@ export default function FAQPage() {
       />
       <PageHeader
         title="Frequently Asked Questions"
-        subtitle="Answers to common questions about our services, processes, and technology."
+        subtitle="[Placeholder subtitle -- client to supply before launch.]"
       />
       <FAQ />
     </>

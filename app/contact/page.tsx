@@ -6,7 +6,7 @@ import { GoogleProfile } from "@/components/google-profile"
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with True North Kromes. Send your first case, request a follow-up conversation, or find our location in Cochrane, Alberta.",
+    "[Placeholder meta description -- client to supply before launch.]",
 }
 
 export default function ContactPage() {
@@ -14,7 +14,7 @@ export default function ContactPage() {
     <>
       <PageHeader
         title="Contact Us"
-        subtitle="Ready to get started? Fill out the form below or find us on the map."
+        subtitle="[Placeholder subtitle -- client to supply before launch.]"
       />
       <ContactForm />
       <GoogleProfile />

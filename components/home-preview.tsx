@@ -9,43 +9,43 @@ const sections = [
     href: "/services",
     image: "/images/lab-facility.jpg",
     title: "Our Services",
-    description: "3D design, metal printing, and professional post-processing for dental frameworks.",
+    description: "[Placeholder description]",
   },
   {
     href: "/about",
     image: "/images/team-selfie.jpg",
     title: "About TNK",
-    description: "Learn about our mission, capabilities, and why dental professionals choose us.",
+    description: "[Placeholder description]",
   },
   {
     href: "/gallery",
     image: "/images/framework-hero.jpg",
     title: "Our Work",
-    description: "Browse our portfolio of precision-crafted dental frameworks and partial dentures.",
+    description: "[Placeholder description]",
   },
   {
     href: "/updates",
     image: "/images/printer-branded.jpg",
     title: "Latest Updates",
-    description: "Stay informed with the latest news, insights, and developments from TNK.",
+    description: "[Placeholder description]",
   },
   {
     href: "/downloads",
     image: "/images/framework-lower.jpg",
     title: "Downloads",
-    description: "Order forms, submission guides, and technical documents for dental professionals.",
+    description: "[Placeholder description]",
   },
   {
     href: "/faq",
     image: "/images/palatal-plate.jpg",
     title: "FAQ",
-    description: "Answers to common questions about our services, processes, and technology.",
+    description: "[Placeholder description]",
   },
   {
     href: "/contact",
     image: "/images/team-building.jpg",
     title: "Contact Us",
-    description: "Ready to get started? Send your first case or request a follow-up conversation.",
+    description: "[Placeholder description]",
   },
 ]
 
@@ -102,7 +102,7 @@ export function HomePreview() {
 
         <div className="mt-14 text-center">
           <p className="text-sm tracking-wide text-muted-foreground">
-            All products are designed and fabricated <strong className="text-foreground">digitally</strong> in <strong className="text-foreground">Canada</strong>.
+            [Placeholder tagline -- client to supply before launch.]
           </p>
         </div>
       </div>

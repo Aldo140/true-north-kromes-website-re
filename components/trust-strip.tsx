@@ -6,23 +6,23 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 const credentials = [
   {
     icon: ShieldCheck,
-    label: "Health Canada Licensed",
-    detail: "Medical Device Licence No. 109393",
+    label: "[Placeholder]",
+    detail: "[Placeholder credential detail]",
   },
   {
     icon: MapPin,
-    label: "Canadian-Made",
-    detail: "Designed & manufactured in Canada",
+    label: "[Placeholder]",
+    detail: "[Placeholder credential detail]",
   },
   {
     icon: Zap,
-    label: "SLM Technology",
-    detail: "High-resolution metal 3D printing",
+    label: "[Placeholder]",
+    detail: "[Placeholder credential detail]",
   },
   {
     icon: Award,
-    label: "Lab-Direct",
-    detail: "No middlemen, competitive pricing",
+    label: "[Placeholder]",
+    detail: "[Placeholder credential detail]",
   },
 ]
 

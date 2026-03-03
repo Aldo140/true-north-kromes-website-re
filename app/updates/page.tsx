@@ -5,7 +5,7 @@ import { LatestUpdates } from "@/components/latest-updates"
 export const metadata: Metadata = {
   title: "Latest Updates",
   description:
-    "Stay informed with the latest news, insights, and developments from True North Kromes.",
+    "[Placeholder meta description -- client to supply before launch.]",
 }
 
 export default function UpdatesPage() {
@@ -13,7 +13,7 @@ export default function UpdatesPage() {
     <>
       <PageHeader
         title="Latest Updates"
-        subtitle="News, insights, and developments from the TNK team."
+        subtitle="[Placeholder subtitle -- client to supply before launch.]"
       />
       <LatestUpdates />
     </>

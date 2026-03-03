@@ -6,20 +6,20 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 const reasons = [
   {
     icon: Microscope,
-    title: "Lab-Direct",
-    description: "Work directly with the lab. No middlemen, no markups.",
+    title: "[Placeholder]",
+    description: "[Placeholder reason -- client to supply before launch.]",
   },
   {
     icon: Truck,
-    title: "Flexible Submission",
+    title: "[Placeholder]",
     description:
-      "Send cases by courier (physical models) or digital STL scan -- whichever works for you.",
+      "[Placeholder reason -- client to supply before launch.]",
   },
   {
     icon: Shield,
-    title: "Canadian-Made",
+    title: "[Placeholder]",
     description:
-      "Proudly designed and manufactured in Canada for Canadian dental professionals.",
+      "[Placeholder reason -- client to supply before launch.]",
   },
 ]
 

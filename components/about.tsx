@@ -3,9 +3,9 @@
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const stats = [
-  { label: "High Precision", detail: "Consistent, accurate frameworks every time" },
-  { label: "High Efficiency", detail: "Streamlined digital workflow" },
-  { label: "Cost Savings", detail: "Competitive pricing, no middlemen" },
+  { label: "High Precision", detail: "[Placeholder detail]" },
+  { label: "High Efficiency", detail: "[Placeholder detail]" },
+  { label: "Significant Cost Savings", detail: "[Placeholder detail]" },
 ]
 
 export function About() {

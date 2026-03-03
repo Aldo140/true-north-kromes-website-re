@@ -7,7 +7,7 @@ import { CTABanner } from "@/components/cta-banner"
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "True North Kromes (TNK) is your digital partner in partial denture manufacturing. Proudly Canadian-made, lab-direct, with flexible submission options.",
+    "[Placeholder meta description -- client to supply before launch.]",
 }
 
 export default function AboutPage() {
@@ -15,7 +15,7 @@ export default function AboutPage() {
     <>
       <PageHeader
         title="About True North Kromes"
-        subtitle="Your digital partner in partial denture manufacturing — proudly designed and manufactured in Canada."
+        subtitle="[Placeholder subtitle -- client to supply before launch.]"
       />
       <About />
       <WhyTNK />

@@ -5,7 +5,7 @@ import { Downloads } from "@/components/downloads"
 export const metadata: Metadata = {
   title: "Customer Downloads - True North Kromes",
   description:
-    "Download order forms, instruction sheets, and other documents for dental professionals working with True North Kromes.",
+    "[Placeholder meta description -- client to supply before launch.]",
 }
 
 export default function DownloadsPage() {
@@ -13,7 +13,7 @@ export default function DownloadsPage() {
     <>
       <PageHeader
         title="Customer Downloads"
-        subtitle="Download the forms and documents you need to get started or manage your orders with TNK."
+        subtitle="[Placeholder subtitle -- client to supply before launch.]"
       />
       <Downloads />
     </>

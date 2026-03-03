@@ -6,7 +6,7 @@ import { CTABanner } from "@/components/cta-banner"
 export const metadata: Metadata = {
   title: "Our Work",
   description:
-    "Browse our portfolio of precision-crafted dental frameworks and partial dentures produced using advanced 3D metal printing technology.",
+    "[Placeholder meta description -- client to supply before launch.]",
 }
 
 export default function GalleryPage() {
@@ -14,7 +14,7 @@ export default function GalleryPage() {
     <>
       <PageHeader
         title="Our Work"
-        subtitle="Precision-crafted dental frameworks produced with advanced SLM 3D metal printing technology."
+        subtitle="[Placeholder subtitle -- client to supply before launch.]"
       />
       <Gallery />
       <CTABanner />

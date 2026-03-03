@@ -16,12 +16,10 @@ export function CTABanner() {
         }`}
       >
         <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-white text-balance">
-          Ready to Modernize Your Workflow?
+          [Placeholder Heading]
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/75">
-          Join dental professionals across Canada who trust TNK for precision
-          metal frameworks. Send your first case today and experience the
-          difference digital manufacturing makes.
+          [Placeholder call-to-action description -- client to supply before launch.]
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link

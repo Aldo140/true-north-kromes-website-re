@@ -9,21 +9,21 @@ const services = [
     image: "/images/cad-design.png",
     title: "3D Design",
     description:
-      "Expert digital framework design tailored to each case using industry-leading CAD software.",
+      "Expert digital framework design tailored to each case.",
     link: "Learn more",
   },
   {
     image: "/images/printer-window.jpg",
-    title: "Metal 3D Printing",
+    title: "3D Printing",
     description:
-      "High-resolution printing in medical-grade cobalt-chrome using Selective Laser Melting (SLM).",
+      "High-resolution metal printing using advanced SLM technology.",
     link: "Learn more",
   },
   {
     image: "/images/dlyte-polishing.jpg",
     title: "Post-Processing",
     description:
-      "DLyte electropolishing, hand finishing, and rigorous quality assurance on every framework.",
+      "Professional finishing, polishing, and quality assurance.",
     link: "Learn more",
   },
 ]
