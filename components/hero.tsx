@@ -24,7 +24,7 @@ export function Hero() {
         </h1>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/75 lg:text-lg lg:leading-relaxed">
           A fully integrated digital 3D-printing solution that transforms the
-          way dental professionals design and manufacture partial dentures --
+          way dental professionals design and manufacture partial dentures —
           delivering high precision, high efficiency, and significant cost savings.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-4">

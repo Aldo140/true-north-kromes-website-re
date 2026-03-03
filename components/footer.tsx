@@ -33,12 +33,7 @@ export function Footer() {
             <p className="mt-4 text-sm leading-relaxed text-chrome-mid">
               One-Stop Metal Printing Service
             </p>
-            {/* Social links */}
-            <div className="mt-4 flex items-center gap-3">
-              <span className="text-xs text-chrome-dark">
-                [Placeholder -- social media links]
-              </span>
-            </div>
+
           </div>
 
           {/* Col 2: About Us */}

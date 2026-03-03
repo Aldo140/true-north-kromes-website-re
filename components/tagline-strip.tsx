@@ -5,7 +5,7 @@ export function TaglineStrip() {
         <p className="text-base tracking-wide text-chrome-light lg:text-lg">
           {"Your "}
           <strong className="text-white">digital partner</strong>
-          {" in partial denture manufacturing -- streamlined, reliable, and modern."}
+          {" in partial denture manufacturing — streamlined, reliable, and modern."}
         </p>
       </div>
     </section>

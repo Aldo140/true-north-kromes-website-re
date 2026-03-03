@@ -93,7 +93,7 @@ export function About() {
             <p className="mt-5 text-base leading-[1.8] text-muted-foreground">
               True North Kromes (TNK) provides complete support throughout the entire
               production cycle. Our workflow delivers high precision, high efficiency,
-              and significant cost savings -- enabling laboratories and clinics to
+              and significant cost savings — enabling laboratories and clinics to
               produce frameworks that are more accurate, consistent, and customized than
               ever before.
             </p>
