@@ -6,13 +6,13 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 const credentials = [
   {
     icon: ShieldCheck,
-    label: "[Placeholder]",
-    detail: "[Placeholder credential detail]",
+    label: "Health Canada Licensed",
+    detail: "Medical Device Licence No. 109393",
   },
   {
     icon: MapPin,
-    label: "[Placeholder]",
-    detail: "[Placeholder credential detail]",
+    label: "Cochrane, AB",
+    detail: "105 1st Street West, #107",
   },
   {
     icon: Zap,

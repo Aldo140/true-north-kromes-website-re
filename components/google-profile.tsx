@@ -22,12 +22,18 @@ export function GoogleProfile() {
           </h2>
         </div>
 
-        <div className="overflow-hidden rounded-lg border border-border bg-card shadow-sm">
-          <div className="flex h-[400px] items-center justify-center">
-            <p className="text-sm text-muted-foreground">
-              [Placeholder -- Google Maps embed. Client to supply address/embed URL before launch.]
-            </p>
-          </div>
+        <div className="overflow-hidden rounded-lg border border-border shadow-sm">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2509.8!2d-114.4719!3d51.1891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5371550793bcd42f%3A0x3d42f418b44e040b!2s105%201st%20St%20W%20%23107%2C%20Cochrane%2C%20AB%20T4C%200A4!5e0!3m2!1sen!2sca!4v1709500000000!5m2!1sen!2sca"
+            width="100%"
+            height="400"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="True North Kromes - 105 1st Street West, #107, Cochrane, AB"
+            className="w-full"
+          />
         </div>
 
         <div className="mt-6 rounded border border-border bg-card p-6 text-center">
