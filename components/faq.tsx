@@ -6,7 +6,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const faqItems = [
   {
@@ -36,16 +35,9 @@ const faqItems = [
 ]
 
 export function FAQ() {
-  const { ref, isVisible } = useScrollAnimation()
-
   return (
     <section className="bg-background py-16 lg:py-24" aria-label="Frequently Asked Questions">
-      <div
-        ref={ref}
-        className={`mx-auto max-w-3xl px-5 ${
-          isVisible ? "animate-fade-in-up" : "opacity-0"
-        }`}
-      >
+      <div className="mx-auto max-w-3xl px-5">
         <Accordion type="single" collapsible className="w-full">
           {faqItems.map((item, index) => (
             <AccordionItem

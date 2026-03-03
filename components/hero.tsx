@@ -1,11 +1,6 @@
-"use client"
-
 import Link from "next/link"
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 export function Hero() {
-  const { ref, isVisible } = useScrollAnimation(0.1)
-
   return (
     <section className="relative min-h-[500px] lg:min-h-[580px]" aria-label="Hero">
       {/* Background image */}
@@ -20,14 +15,9 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div
-        ref={ref}
-        className={`relative mx-auto flex max-w-6xl flex-col justify-center px-5 pt-32 pb-24 lg:pt-40 lg:pb-36 ${
-          isVisible ? "animate-fade-in-up" : "opacity-0"
-        }`}
-      >
-        <h1 className="max-w-3xl text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-white text-balance">
-          Welcome to True North Kromes
+      <div className="relative mx-auto flex max-w-6xl flex-col justify-center px-5 pt-32 pb-24 lg:pt-40 lg:pb-36">
+        <h1 className="max-w-3xl text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-white">
+          True North Kromes
         </h1>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/75 lg:text-lg lg:leading-relaxed">
           A fully integrated digital 3D-printing solution that transforms the

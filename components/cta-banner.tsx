@@ -1,20 +1,10 @@
-"use client"
-
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 export function CTABanner() {
-  const { ref, isVisible } = useScrollAnimation()
-
   return (
     <section className="dark-chrome py-16 lg:py-20" aria-label="Get Started">
-      <div
-        ref={ref}
-        className={`mx-auto max-w-4xl px-5 text-center ${
-          isVisible ? "animate-fade-in-up" : "opacity-0"
-        }`}
-      >
+      <div className="mx-auto max-w-4xl px-5 text-center">
         <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-white text-balance">
           [Placeholder Heading]
         </h2>

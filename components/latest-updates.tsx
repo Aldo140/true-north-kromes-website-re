@@ -1,8 +1,5 @@
-"use client"
-
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const articles = [
   {
@@ -26,18 +23,11 @@ const articles = [
 ]
 
 export function LatestUpdates() {
-  const { ref, isVisible } = useScrollAnimation()
-
   return (
     <section className="bg-background py-20 lg:py-28" aria-label="Latest News">
-      <div
-        ref={ref}
-        className={`mx-auto max-w-6xl px-5 ${
-          isVisible ? "animate-fade-in-up" : "opacity-0"
-        }`}
-      >
+      <div className="mx-auto max-w-6xl px-5">
         <h2 className="mb-10 text-center text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground text-balance">
-          Latest News
+          Latest
         </h2>
 
         <div className="grid gap-8 md:grid-cols-3">

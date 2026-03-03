@@ -1,7 +1,4 @@
-"use client"
-
 import { FileText, Download } from "lucide-react"
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const documents = [
   {
@@ -21,16 +18,9 @@ const documents = [
 ]
 
 export function Downloads() {
-  const { ref, isVisible } = useScrollAnimation()
-
   return (
     <section className="bg-background py-16 lg:py-24" aria-label="Customer Downloads">
-      <div
-        ref={ref}
-        className={`mx-auto max-w-6xl px-5 ${
-          isVisible ? "animate-fade-in-up" : "opacity-0"
-        }`}
-      >
+      <div className="mx-auto max-w-6xl px-5">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {documents.map((doc) => (
             <a

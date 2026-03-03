@@ -1,7 +1,4 @@
-"use client"
-
 import Link from "next/link"
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const services = [
   {
@@ -31,16 +28,9 @@ const services = [
 ]
 
 export function Services() {
-  const { ref, isVisible } = useScrollAnimation()
-
   return (
     <section className="bg-background py-20 lg:py-28" aria-label="Our Services">
-      <div
-        ref={ref}
-        className={`mx-auto max-w-6xl px-5 ${
-          isVisible ? "animate-fade-in-up" : "opacity-0"
-        }`}
-      >
+      <div className="mx-auto max-w-6xl px-5">
         <div className="grid gap-8 md:grid-cols-3">
           {services.map((service) => (
             <Link

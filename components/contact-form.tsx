@@ -2,12 +2,10 @@
 
 import { useState } from "react"
 import { Phone, Link as LinkIcon } from "lucide-react"
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 type FollowUpOption = "conversation" | "portal"
 
 export function ContactForm() {
-  const { ref, isVisible } = useScrollAnimation()
   const [followUp, setFollowUp] = useState<FollowUpOption | "">("")
   const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
@@ -74,14 +72,8 @@ export function ContactForm() {
 
   return (
     <section className="bg-background py-16 lg:py-24" aria-label="Contact Form">
-      <div
-        ref={ref}
-        className={`mx-auto max-w-2xl px-5 ${
-          isVisible ? "animate-fade-in-up" : "opacity-0"
-        }`}
-      >
+      <div className="mx-auto max-w-2xl px-5">
         <div className="mb-10">
-          <div className="mb-4 h-[2px] w-10 bg-accent" />
           <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground text-balance">
             [Placeholder]
           </h2>

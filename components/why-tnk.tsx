@@ -1,7 +1,4 @@
-"use client"
-
 import { Microscope, Truck, Shield } from "lucide-react"
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const reasons = [
   {
@@ -24,22 +21,12 @@ const reasons = [
 ]
 
 export function WhyTNK() {
-  const { ref, isVisible } = useScrollAnimation()
-
   return (
     <section className="bg-secondary py-20 lg:py-28" aria-label="Why Choose TNK">
-      <div
-        ref={ref}
-        className={`mx-auto max-w-6xl px-5 ${
-          isVisible ? "animate-fade-in-up" : "opacity-0"
-        }`}
-      >
+      <div className="mx-auto max-w-6xl px-5">
         <div className="mb-12 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-primary">
+          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground">
             Why TNK
-          </p>
-          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground text-balance">
-            Why Dental Professionals Choose TNK
           </h2>
         </div>
 

@@ -1,23 +1,9 @@
-"use client"
-
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-
 export function GoogleProfile() {
-  const { ref, isVisible } = useScrollAnimation()
-
   return (
     <section className="bg-secondary py-20 lg:py-28" aria-label="Find Us">
-      <div
-        ref={ref}
-        className={`mx-auto max-w-6xl px-5 ${
-          isVisible ? "animate-fade-in-up" : "opacity-0"
-        }`}
-      >
+      <div className="mx-auto max-w-6xl px-5">
         <div className="mb-12 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-primary">
-            Location
-          </p>
-          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground text-balance">
+          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground">
             Find Us
           </h2>
         </div>
