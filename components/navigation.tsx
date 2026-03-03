@@ -30,7 +30,7 @@ export function Navigation() {
   // On the homepage the nav starts transparent over the hero;
   // on subpages it's always solid.
   const isTransparent = isHome && !scrolled && !mobileOpen
-  const solidClass = "bg-background shadow-sm"
+  const solidClass = "bg-background/95 shadow-sm backdrop-blur-sm"
   const transparentClass = "bg-transparent"
 
   return (
@@ -39,11 +39,12 @@ export function Navigation() {
         isTransparent ? transparentClass : solidClass
       }`}
     >
-      {/* Thin accent bar -- only visible when solid */}
+      {/* Thin metallic accent bar -- only visible when solid */}
       <div
-        className={`h-[3px] bg-primary transition-opacity duration-300 ${
+        className={`h-[2px] transition-opacity duration-300 ${
           isTransparent ? "opacity-0" : "opacity-100"
         }`}
+        style={{ background: "linear-gradient(90deg, var(--primary) 0%, var(--accent) 50%, var(--primary) 100%)" }}
       />
       <nav aria-label="Main navigation">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">

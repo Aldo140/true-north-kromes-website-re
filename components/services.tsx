@@ -54,7 +54,7 @@ export function Services() {
               </h4>
 
               {/* Image */}
-              <div className="overflow-hidden rounded-lg bg-muted">
+              <div className="chrome-card overflow-hidden rounded-lg border bg-card p-0.5">
                 <img
                   src={service.image}
                   alt={service.title}

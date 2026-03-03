@@ -81,7 +81,7 @@ export function ContactForm() {
         }`}
       >
         <div className="mb-10">
-          <div className="mb-4 h-[3px] w-10 rounded-full bg-primary" />
+          <div className="mb-4 h-[2px] w-10 bg-accent" />
           <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground text-balance">
             [Placeholder]
           </h2>

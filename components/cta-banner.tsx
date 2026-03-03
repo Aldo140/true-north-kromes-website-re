@@ -8,7 +8,7 @@ export function CTABanner() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="bg-primary py-16 lg:py-20" aria-label="Get Started">
+    <section className="dark-chrome py-16 lg:py-20" aria-label="Get Started">
       <div
         ref={ref}
         className={`mx-auto max-w-4xl px-5 text-center ${

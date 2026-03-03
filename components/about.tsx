@@ -20,11 +20,11 @@ export function About() {
         }`}
       >
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div className="overflow-hidden rounded-lg">
+          <div className="chrome-card overflow-hidden rounded-lg border bg-card p-1">
             <img
               src="/images/team-selfie.jpg"
               alt="The True North Kromes team members in the laboratory"
-              className="h-auto w-full object-cover"
+              className="h-auto w-full rounded object-cover"
               loading="lazy"
             />
           </div>
@@ -49,7 +49,7 @@ export function About() {
             <div className="mt-8 flex flex-col gap-4">
               {stats.map((stat) => (
                 <div key={stat.label} className="flex items-start gap-3">
-                  <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                  <div className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent" />
                   <div>
                     <p className="text-sm font-semibold text-foreground">{stat.label}</p>
                     <p className="text-sm text-muted-foreground">{stat.detail}</p>

@@ -44,7 +44,7 @@ export function LatestUpdates() {
           {articles.map((article, index) => (
             <div
               key={index}
-              className="border-t-2 border-primary pt-6"
+              className="border-t-2 border-accent pt-6"
             >
               <h4 className="text-base font-bold text-foreground">
                 <a href={article.href} className="transition-colors hover:text-primary">

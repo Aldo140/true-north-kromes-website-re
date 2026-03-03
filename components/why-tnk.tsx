@@ -27,7 +27,7 @@ export function WhyTNK() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="bg-secondary/50 py-20 lg:py-28" aria-label="Why Choose TNK">
+    <section className="bg-secondary py-20 lg:py-28" aria-label="Why Choose TNK">
       <div
         ref={ref}
         className={`mx-auto max-w-6xl px-5 ${
@@ -49,10 +49,10 @@ export function WhyTNK() {
             return (
               <div
                 key={reason.title}
-                className="rounded-lg border border-border bg-card p-8 text-center shadow-sm"
+                className="chrome-card rounded-lg border bg-card p-8 text-center"
               >
-                <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                  <Icon className="h-5 w-5 text-primary" />
+                <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-secondary">
+                  <Icon className="h-5 w-5 text-accent" />
                 </div>
                 <h4 className="text-base font-semibold text-foreground">
                   {reason.title}

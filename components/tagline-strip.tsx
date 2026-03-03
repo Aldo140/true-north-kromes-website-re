@@ -6,7 +6,7 @@ export function TaglineStrip() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="bg-primary py-10 lg:py-14" aria-label="Tagline">
+    <section className="dark-chrome py-10 lg:py-14" aria-label="Tagline">
       <div
         ref={ref}
         className={`mx-auto max-w-4xl px-5 text-center ${

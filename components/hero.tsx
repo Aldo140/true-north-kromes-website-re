@@ -16,7 +16,7 @@ export function Hero() {
           className="h-full w-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-[rgba(27,37,48,0.88)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(34,45,58,0.92)] via-[rgba(26,36,47,0.88)] to-[rgba(18,26,35,0.94)]" />
       </div>
 
       {/* Content */}

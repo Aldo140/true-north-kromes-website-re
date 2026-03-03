@@ -17,8 +17,8 @@ const productLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-chrome-light" aria-label="Site footer">
-      <div className="h-[3px] bg-accent" />
+    <footer className="dark-chrome text-chrome-light" aria-label="Site footer">
+      <div className="h-px bg-chrome-dark/40" />
       <div className="mx-auto max-w-6xl px-5 py-16">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Col 1: Logo + badge */}
