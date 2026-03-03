@@ -52,9 +52,7 @@ export function Navigation() {
             <img
               src="/images/logo.png"
               alt="True North Kromes"
-              className={`h-10 w-auto transition-all duration-300 ${
-                isTransparent ? "brightness-0 invert" : ""
-              }`}
+              className="h-10 w-auto"
             />
           </Link>
 
@@ -117,6 +115,12 @@ export function Navigation() {
           </div>
         )}
       </nav>
+      {/* Bottom separator line */}
+      <div
+        className={`h-px transition-colors duration-300 ${
+          isTransparent ? "bg-white/20" : "bg-border"
+        }`}
+      />
     </header>
   )
 }
