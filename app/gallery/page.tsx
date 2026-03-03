@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { PageHeader } from "@/components/page-header"
 import { Gallery } from "@/components/gallery"
+import { CTABanner } from "@/components/cta-banner"
 
 export const metadata: Metadata = {
   title: "Our Work",
@@ -16,6 +17,7 @@ export default function GalleryPage() {
         subtitle="Precision-crafted dental frameworks produced with advanced SLM 3D metal printing technology."
       />
       <Gallery />
+      <CTABanner />
     </>
   )
 }

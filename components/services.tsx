@@ -8,20 +8,23 @@ const services = [
   {
     image: "/images/cad-design.png",
     title: "3D Design",
-    description: "Expert digital framework design tailored to each case.",
-    link: "Explore 3D Design",
+    description:
+      "Expert digital framework design tailored to each case using industry-leading CAD software.",
+    link: "Learn more",
   },
   {
     image: "/images/printer-window.jpg",
-    title: "3D Printing",
-    description: "High-resolution metal printing using advanced SLM technology.",
-    link: "Explore 3D Printing",
+    title: "Metal 3D Printing",
+    description:
+      "High-resolution printing in medical-grade cobalt-chrome using Selective Laser Melting (SLM).",
+    link: "Learn more",
   },
   {
     image: "/images/dlyte-polishing.jpg",
     title: "Post-Processing",
-    description: "Professional finishing, polishing, and quality assurance.",
-    link: "Explore Post-Processing",
+    description:
+      "DLyte electropolishing, hand finishing, and rigorous quality assurance on every framework.",
+    link: "Learn more",
   },
 ]
 
@@ -29,7 +32,7 @@ export function Services() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="border-t border-border bg-secondary/50 py-20 lg:py-28" aria-label="Our Services">
+    <section className="bg-secondary/50 py-20 lg:py-28" aria-label="Our Services">
       <div
         ref={ref}
         className={`mx-auto max-w-6xl px-5 ${
@@ -67,8 +70,8 @@ export function Services() {
                   {service.description}
                 </p>
                 <Link
-                  href="/contact"
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-[#2e6aa3]"
+                  href="/services"
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-[#164a74]"
                 >
                   {service.link}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />

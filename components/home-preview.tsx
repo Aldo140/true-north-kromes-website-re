@@ -91,7 +91,7 @@ export function HomePreview() {
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {section.description}
                 </p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors group-hover:text-[#2e6aa3]">
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors group-hover:text-[#164a74]">
                   Learn more
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </span>

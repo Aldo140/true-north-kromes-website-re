@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { PageHeader } from "@/components/page-header"
 import { Services } from "@/components/services"
+import { CTABanner } from "@/components/cta-banner"
 
 export const metadata: Metadata = {
   title: "Our Services",
@@ -16,6 +17,7 @@ export default function ServicesPage() {
         subtitle="Complete support throughout the entire production cycle — from digital design to finished framework."
       />
       <Services />
+      <CTABanner />
     </>
   )
 }

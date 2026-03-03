@@ -27,7 +27,7 @@ export function WhyTNK() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="border-t border-border bg-background py-20 lg:py-28" aria-label="Why Choose TNK">
+    <section className="bg-secondary/50 py-20 lg:py-28" aria-label="Why Choose TNK">
       <div
         ref={ref}
         className={`mx-auto max-w-6xl px-5 ${

@@ -16,7 +16,7 @@ export function Hero() {
           className="h-full w-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-[rgba(35,75,120,0.78)]" />
+        <div className="absolute inset-0 bg-[rgba(16,48,80,0.82)]" />
       </div>
 
       {/* Content */}
@@ -26,35 +26,37 @@ export function Hero() {
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <div className="mb-5 h-[3px] w-12 rounded-full bg-white/60" />
-        <h1 className="max-w-2xl text-[clamp(2rem,5vw,3.25rem)] font-bold leading-[1.15] tracking-tight text-white text-balance">
-          One-Stop Metal Printing Service for Dental Professionals
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+          Precision Metal Frameworks for Dental Professionals
+        </p>
+        <h1 className="max-w-2xl text-[clamp(2rem,5vw,3.25rem)] font-bold leading-[1.1] tracking-tight text-white text-balance">
+          Digital 3D-Printed Partial Denture Frameworks
         </h1>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-white/75">
-          A fully integrated digital 3D-printing solution that transforms
-          how you design and manufacture partial dentures -- with high precision,
-          efficiency, and significant cost savings.
+        <p className="mt-5 max-w-xl text-base leading-relaxed text-white/70">
+          From CAD design to medical-grade metal printing and professional
+          finishing -- TNK delivers accurate, consistent frameworks with
+          faster turnaround and lower costs than traditional casting.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <Link
             href="/contact"
-            className="inline-flex items-center rounded-md bg-white px-7 py-3 text-sm font-semibold uppercase tracking-wider text-[#2d3340] transition-colors hover:bg-white/90"
+            className="inline-flex items-center rounded-md bg-white px-7 py-3 text-sm font-semibold uppercase tracking-wider text-[#1a2332] transition-colors hover:bg-white/90"
           >
-            Get Started
+            Send Your First Case
           </Link>
           <Link
             href="/services"
             className="inline-flex items-center rounded-md border border-white/30 px-7 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:border-white/60 hover:bg-white/10"
           >
-            Our Services
+            View Our Process
           </Link>
         </div>
-        <div className="mt-8 flex flex-wrap items-center gap-6 text-sm text-white/50">
-          <a href="mailto:truenorthkromes@gmail.com" className="transition-colors hover:text-white/80">
+        <div className="mt-8 flex flex-wrap items-center gap-6 text-sm text-white/45">
+          <a href="mailto:truenorthkromes@gmail.com" className="transition-colors hover:text-white/75">
             truenorthkromes@gmail.com
           </a>
-          <span className="hidden h-4 w-px bg-white/30 sm:block" aria-hidden="true" />
-          <a href="tel:+18076247222" className="transition-colors hover:text-white/80">
+          <span className="hidden h-4 w-px bg-white/25 sm:block" aria-hidden="true" />
+          <a href="tel:+18076247222" className="transition-colors hover:text-white/75">
             (807) 624-7222
           </a>
         </div>

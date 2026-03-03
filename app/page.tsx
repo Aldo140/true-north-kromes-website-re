@@ -1,11 +1,21 @@
 import { Hero } from "@/components/hero"
-import { HomePreview } from "@/components/home-preview"
+import { TrustStrip } from "@/components/trust-strip"
+import { Process } from "@/components/process"
+import { Services } from "@/components/services"
+import { About } from "@/components/about"
+import { WhyTNK } from "@/components/why-tnk"
+import { CTABanner } from "@/components/cta-banner"
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <HomePreview />
+      <TrustStrip />
+      <Process />
+      <Services />
+      <About />
+      <WhyTNK />
+      <CTABanner />
     </>
   )
 }

@@ -95,7 +95,7 @@ export function ContactForm() {
           <button
             type="button"
             onClick={() => setFollowUp("conversation")}
-            className={`flex items-center gap-3 rounded border-2 p-4 text-left transition-all ${
+            className={`flex items-center gap-3 rounded-md border-2 p-4 text-left transition-all ${
               followUp === "conversation"
                 ? "border-primary bg-primary text-white"
                 : "border-border bg-card text-foreground hover:border-primary/40"
@@ -111,7 +111,7 @@ export function ContactForm() {
           <button
             type="button"
             onClick={() => setFollowUp("portal")}
-            className={`flex items-center gap-3 rounded border-2 p-4 text-left transition-all ${
+            className={`flex items-center gap-3 rounded-md border-2 p-4 text-left transition-all ${
               followUp === "portal"
                 ? "border-primary bg-primary text-white"
                 : "border-border bg-card text-foreground hover:border-primary/40"
@@ -139,7 +139,7 @@ export function ContactForm() {
               id="fullName"
               name="fullName"
               required
-              className="w-full rounded border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              className="w-full rounded-md border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="John Smith"
             />
             {errors.fullName && (
@@ -157,7 +157,7 @@ export function ContactForm() {
               id="clinicName"
               name="clinicName"
               required
-              className="w-full rounded border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              className="w-full rounded-md border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="ABC Dental Lab"
             />
             {errors.clinicName && (
@@ -175,7 +175,7 @@ export function ContactForm() {
               id="telephone"
               name="telephone"
               required
-              className="w-full rounded border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              className="w-full rounded-md border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="(807) 555-1234"
             />
             {errors.telephone && (
@@ -193,7 +193,7 @@ export function ContactForm() {
               name="address"
               required
               rows={3}
-              className="w-full rounded border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              className="w-full rounded-md border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="123 Main St, Cochrane, AB, Canada"
             />
             {errors.address && (
@@ -211,7 +211,7 @@ export function ContactForm() {
               id="email"
               name="email"
               required
-              className="w-full rounded border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              className="w-full rounded-md border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="john@abcdental.ca"
             />
             {errors.email && (
@@ -229,7 +229,7 @@ export function ContactForm() {
               name="frames"
               required
               defaultValue=""
-              className="w-full rounded border border-border bg-card px-4 py-2.5 text-sm text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              className="w-full rounded-md border border-border bg-card px-4 py-2.5 text-sm text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
             >
               <option value="" disabled className="text-muted-foreground">
                 Select an option...
@@ -253,7 +253,7 @@ export function ContactForm() {
               name="caseMethod"
               required
               defaultValue=""
-              className="w-full rounded border border-border bg-card px-4 py-2.5 text-sm text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              className="w-full rounded-md border border-border bg-card px-4 py-2.5 text-sm text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
             >
               <option value="" disabled className="text-muted-foreground">
                 Select an option...
@@ -299,7 +299,7 @@ export function ContactForm() {
 
           <button
             type="submit"
-            className="mt-2 w-full rounded-md bg-primary py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-[#2e6aa3] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            className="mt-2 w-full rounded-md bg-primary py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-[#164a74] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           >
             Submit Inquiry
           </button>
