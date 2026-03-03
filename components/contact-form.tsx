@@ -59,9 +59,9 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <section className="bg-background py-20 lg:py-28" aria-label="Contact">
-        <div className="mx-auto max-w-2xl px-4 text-center lg:px-8">
-          <h2 className="font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-bold text-foreground">
+      <section className="bg-background py-16 lg:py-24" aria-label="Contact">
+        <div className="mx-auto max-w-2xl px-5 text-center">
+          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-black text-foreground">
             Thank you!
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
@@ -73,36 +73,36 @@ export function ContactForm() {
   }
 
   return (
-    <section className="bg-background py-20 lg:py-28" aria-label="Send Your First Case">
+    <section className="bg-background py-16 lg:py-24" aria-label="Send Your First Case">
       <div
         ref={ref}
-        className={`mx-auto max-w-2xl px-4 lg:px-8 ${
+        className={`mx-auto max-w-2xl px-5 ${
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <div className="mb-10 text-center">
-          <h2 className="font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-bold text-foreground text-balance">
+        <div className="mb-8">
+          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-black text-foreground text-balance">
             Send Your First Case
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
             {"Ready to get started? Fill out the form below and we'll be in touch."}
           </p>
         </div>
 
         {/* Follow-up option cards */}
-        <div className="mb-8 grid gap-4 sm:grid-cols-2">
+        <div className="mb-6 grid gap-4 sm:grid-cols-2">
           <button
             type="button"
             onClick={() => setFollowUp("conversation")}
-            className={`flex items-center gap-4 rounded-lg border-2 p-5 text-left transition-all ${
+            className={`flex items-center gap-3 rounded border-2 p-4 text-left transition-all ${
               followUp === "conversation"
-                ? "border-foreground bg-foreground text-primary-foreground"
-                : "border-border bg-card text-foreground hover:border-foreground/30"
+                ? "border-primary bg-primary text-white"
+                : "border-border bg-card text-foreground hover:border-primary/40"
             }`}
             aria-pressed={followUp === "conversation"}
           >
-            <Phone className="h-6 w-6 shrink-0" />
-            <span className="text-sm font-semibold">
+            <Phone className="h-5 w-5 shrink-0" />
+            <span className="text-sm font-bold">
               Request a Follow-Up Conversation
             </span>
           </button>
@@ -110,27 +110,27 @@ export function ContactForm() {
           <button
             type="button"
             onClick={() => setFollowUp("portal")}
-            className={`flex items-center gap-4 rounded-lg border-2 p-5 text-left transition-all ${
+            className={`flex items-center gap-3 rounded border-2 p-4 text-left transition-all ${
               followUp === "portal"
-                ? "border-foreground bg-foreground text-primary-foreground"
-                : "border-border bg-card text-foreground hover:border-foreground/30"
+                ? "border-primary bg-primary text-white"
+                : "border-border bg-card text-foreground hover:border-primary/40"
             }`}
             aria-pressed={followUp === "portal"}
           >
-            <LinkIcon className="h-6 w-6 shrink-0" />
-            <span className="text-sm font-semibold">
+            <LinkIcon className="h-5 w-5 shrink-0" />
+            <span className="text-sm font-bold">
               Get Me a Portal Link to Send My First Case
             </span>
           </button>
         </div>
         {errors.followUp && (
-          <p className="-mt-6 mb-6 text-sm text-destructive">{errors.followUp}</p>
+          <p className="-mt-4 mb-4 text-sm text-destructive">{errors.followUp}</p>
         )}
 
         <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
           {/* Full Name */}
           <div>
-            <label htmlFor="fullName" className="mb-1.5 block text-sm font-medium text-foreground">
+            <label htmlFor="fullName" className="mb-1.5 block text-sm font-bold text-foreground">
               Full Name <span className="text-destructive">*</span>
             </label>
             <input
@@ -138,7 +138,7 @@ export function ContactForm() {
               id="fullName"
               name="fullName"
               required
-              className="w-full rounded-lg border border-border bg-card px-4 py-3 text-base text-foreground placeholder-muted-foreground transition-colors focus:border-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
+              className="w-full rounded border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="John Smith"
             />
             {errors.fullName && (
@@ -148,7 +148,7 @@ export function ContactForm() {
 
           {/* Clinic Name */}
           <div>
-            <label htmlFor="clinicName" className="mb-1.5 block text-sm font-medium text-foreground">
+            <label htmlFor="clinicName" className="mb-1.5 block text-sm font-bold text-foreground">
               Clinic Name <span className="text-destructive">*</span>
             </label>
             <input
@@ -156,7 +156,7 @@ export function ContactForm() {
               id="clinicName"
               name="clinicName"
               required
-              className="w-full rounded-lg border border-border bg-card px-4 py-3 text-base text-foreground placeholder-muted-foreground transition-colors focus:border-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
+              className="w-full rounded border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="ABC Dental Lab"
             />
             {errors.clinicName && (
@@ -166,7 +166,7 @@ export function ContactForm() {
 
           {/* Telephone */}
           <div>
-            <label htmlFor="telephone" className="mb-1.5 block text-sm font-medium text-foreground">
+            <label htmlFor="telephone" className="mb-1.5 block text-sm font-bold text-foreground">
               Telephone Number <span className="text-destructive">*</span>
             </label>
             <input
@@ -174,7 +174,7 @@ export function ContactForm() {
               id="telephone"
               name="telephone"
               required
-              className="w-full rounded-lg border border-border bg-card px-4 py-3 text-base text-foreground placeholder-muted-foreground transition-colors focus:border-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
+              className="w-full rounded border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="(807) 555-1234"
             />
             {errors.telephone && (
@@ -184,7 +184,7 @@ export function ContactForm() {
 
           {/* Full Address */}
           <div>
-            <label htmlFor="address" className="mb-1.5 block text-sm font-medium text-foreground">
+            <label htmlFor="address" className="mb-1.5 block text-sm font-bold text-foreground">
               Full Address <span className="text-destructive">*</span>
             </label>
             <textarea
@@ -192,7 +192,7 @@ export function ContactForm() {
               name="address"
               required
               rows={3}
-              className="w-full rounded-lg border border-border bg-card px-4 py-3 text-base text-foreground placeholder-muted-foreground transition-colors focus:border-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
+              className="w-full rounded border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="123 Main St, Cochrane, AB, Canada"
             />
             {errors.address && (
@@ -202,7 +202,7 @@ export function ContactForm() {
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-foreground">
+            <label htmlFor="email" className="mb-1.5 block text-sm font-bold text-foreground">
               Email Address <span className="text-destructive">*</span>
             </label>
             <input
@@ -210,7 +210,7 @@ export function ContactForm() {
               id="email"
               name="email"
               required
-              className="w-full rounded-lg border border-border bg-card px-4 py-3 text-base text-foreground placeholder-muted-foreground transition-colors focus:border-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
+              className="w-full rounded border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               placeholder="john@abcdental.ca"
             />
             {errors.email && (
@@ -220,7 +220,7 @@ export function ContactForm() {
 
           {/* Frames per month */}
           <div>
-            <label htmlFor="frames" className="mb-1.5 block text-sm font-medium text-foreground">
+            <label htmlFor="frames" className="mb-1.5 block text-sm font-bold text-foreground">
               Approx. frames per month <span className="text-destructive">*</span>
             </label>
             <select
@@ -228,7 +228,7 @@ export function ContactForm() {
               name="frames"
               required
               defaultValue=""
-              className="w-full rounded-lg border border-border bg-card px-4 py-3 text-base text-foreground transition-colors focus:border-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
+              className="w-full rounded border border-border bg-card px-4 py-2.5 text-sm text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
             >
               <option value="" disabled className="text-muted-foreground">
                 Select an option...
@@ -244,7 +244,7 @@ export function ContactForm() {
 
           {/* Case method */}
           <div>
-            <label htmlFor="caseMethod" className="mb-1.5 block text-sm font-medium text-foreground">
+            <label htmlFor="caseMethod" className="mb-1.5 block text-sm font-bold text-foreground">
               How will your cases be sent? <span className="text-destructive">*</span>
             </label>
             <select
@@ -252,7 +252,7 @@ export function ContactForm() {
               name="caseMethod"
               required
               defaultValue=""
-              className="w-full rounded-lg border border-border bg-card px-4 py-3 text-base text-foreground transition-colors focus:border-foreground focus:outline-none focus:ring-1 focus:ring-foreground"
+              className="w-full rounded border border-border bg-card px-4 py-2.5 text-sm text-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
             >
               <option value="" disabled className="text-muted-foreground">
                 Select an option...
@@ -267,7 +267,7 @@ export function ContactForm() {
 
           {/* Follow-up radio */}
           <fieldset>
-            <legend className="mb-3 text-sm font-medium text-foreground">
+            <legend className="mb-3 text-sm font-bold text-foreground">
               How can we follow up with you? <span className="text-destructive">*</span>
             </legend>
             <div className="flex flex-col gap-3">
@@ -278,9 +278,9 @@ export function ContactForm() {
                   value="conversation"
                   checked={followUp === "conversation"}
                   onChange={() => setFollowUp("conversation")}
-                  className="h-4 w-4 accent-foreground"
+                  className="h-4 w-4 accent-primary"
                 />
-                <span className="text-base text-foreground">Request a follow-up conversation</span>
+                <span className="text-sm text-foreground">Request a follow-up conversation</span>
               </label>
               <label className="flex cursor-pointer items-center gap-3">
                 <input
@@ -289,16 +289,16 @@ export function ContactForm() {
                   value="portal"
                   checked={followUp === "portal"}
                   onChange={() => setFollowUp("portal")}
-                  className="h-4 w-4 accent-foreground"
+                  className="h-4 w-4 accent-primary"
                 />
-                <span className="text-base text-foreground">Get me a portal link to send my first case</span>
+                <span className="text-sm text-foreground">Get me a portal link to send my first case</span>
               </label>
             </div>
           </fieldset>
 
           <button
             type="submit"
-            className="mt-4 w-full rounded-lg bg-foreground py-4 text-base font-semibold text-primary-foreground transition-colors hover:bg-foreground/90 focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
+            className="mt-2 w-full rounded bg-primary py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#225da6] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           >
             Submit Inquiry
           </button>

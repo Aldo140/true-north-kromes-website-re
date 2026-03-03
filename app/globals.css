@@ -5,30 +5,30 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #18181b;
+  --foreground: #333333;
   --card: #ffffff;
-  --card-foreground: #18181b;
+  --card-foreground: #333333;
   --popover: #ffffff;
-  --popover-foreground: #18181b;
-  --primary: #18181b;
+  --popover-foreground: #333333;
+  --primary: #2a6ebb;
   --primary-foreground: #ffffff;
-  --secondary: #f4f4f5;
-  --secondary-foreground: #18181b;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --accent: #3b82f6;
+  --secondary: #f7f7f7;
+  --secondary-foreground: #333333;
+  --muted: #f7f7f7;
+  --muted-foreground: #666666;
+  --accent: #2a6ebb;
   --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
-  --border: #e4e4e7;
-  --input: #e4e4e7;
-  --ring: #18181b;
-  --radius: 0.5rem;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #2a6ebb;
+  --radius: 0.25rem;
 }
 
 @theme inline {
-  --font-sans: 'DM Sans', sans-serif;
-  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Lato', sans-serif;
+  --font-serif: 'Lato', sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -48,10 +48,10 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
 }
 
 @layer base {
@@ -67,15 +67,10 @@ html {
   scroll-behavior: smooth;
 }
 
-.chrome-band {
-  height: 2px;
-  background: linear-gradient(90deg, #d4d4d8, #a1a1aa, #d4d4d8);
-}
-
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -84,5 +79,5 @@ html {
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
+  animation: fade-in-up 0.5s ease-out forwards;
 }

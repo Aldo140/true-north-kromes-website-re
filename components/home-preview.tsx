@@ -1,51 +1,43 @@
 "use client"
 
 import Link from "next/link"
-import {
-  Layers,
-  Users,
-  Image as ImageIcon,
-  Newspaper,
-  HelpCircle,
-  Mail,
-  ArrowRight,
-} from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const sections = [
   {
     href: "/services",
-    icon: Layers,
+    image: "/images/service-printing.jpg",
     title: "Our Services",
     description: "3D design, metal printing, and professional post-processing for dental frameworks.",
   },
   {
     href: "/about",
-    icon: Users,
+    image: "/images/about.jpg",
     title: "About TNK",
     description: "Learn about our mission, capabilities, and why dental professionals choose us.",
   },
   {
     href: "/gallery",
-    icon: ImageIcon,
+    image: "/images/gallery-1.jpg",
     title: "Our Work",
     description: "Browse our portfolio of precision-crafted dental frameworks and partial dentures.",
   },
   {
     href: "/updates",
-    icon: Newspaper,
+    image: "/images/service-design.jpg",
     title: "Latest Updates",
     description: "Stay informed with the latest news, insights, and developments from TNK.",
   },
   {
     href: "/faq",
-    icon: HelpCircle,
+    image: "/images/service-postprocessing.jpg",
     title: "FAQ",
     description: "Answers to common questions about our services, processes, and technology.",
   },
   {
     href: "/contact",
-    icon: Mail,
+    image: "/images/hero.jpg",
     title: "Contact Us",
     description: "Ready to get started? Send your first case or request a follow-up conversation.",
   },
@@ -55,47 +47,48 @@ export function HomePreview() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="bg-secondary py-20 lg:py-28" aria-label="Explore TNK">
+    <section className="bg-background py-16 lg:py-24" aria-label="Explore TNK">
       <div
         ref={ref}
-        className={`mx-auto max-w-7xl px-4 lg:px-8 ${
+        className={`mx-auto max-w-6xl px-5 ${
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <div className="mb-12 text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.15em] text-muted-foreground">
-            Explore
-          </p>
-          <h2 className="mt-3 font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-bold text-foreground text-balance">
-            Everything You Need, In One Place
-          </h2>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {sections.map((section) => {
-            const Icon = section.icon
-            return (
-              <Link
-                key={section.href}
-                href={section.href}
-                className="group flex flex-col rounded-lg border border-border bg-card p-8 transition-shadow hover:shadow-md"
-              >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-secondary">
-                  <Icon className="h-5 w-5 text-foreground" />
-                </div>
-                <h3 className="text-base font-semibold text-foreground">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {sections.map((section) => (
+            <Link
+              key={section.href}
+              href={section.href}
+              className="group overflow-hidden rounded border border-border bg-card transition-shadow hover:shadow-md"
+            >
+              <div className="aspect-[16/10] overflow-hidden">
+                <img
+                  src={section.image}
+                  alt={section.title}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="text-lg font-bold text-foreground">
                   {section.title}
                 </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {section.description}
                 </p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-colors group-hover:text-muted-foreground">
-                  Learn more
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-primary transition-colors group-hover:text-[#225da6]">
+                  Explore
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </span>
-              </Link>
-            )
-          })}
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-base text-muted-foreground">
+            All products are designed and fabricated <strong className="text-foreground">digitally</strong> in <strong className="text-foreground">Canada</strong>.
+          </p>
         </div>
       </div>
     </section>

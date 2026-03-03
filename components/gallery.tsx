@@ -4,7 +4,7 @@ import { useState, useCallback, useEffect } from "react"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
-{/* 63 placeholder images — replace with actual lab photography */}
+{/* 63 placeholder images -- replace with actual lab photography */}
 const galleryImages = Array.from({ length: 63 }, (_, i) => ({
   id: i + 1,
   src: "/images/gallery-1.jpg",
@@ -44,23 +44,19 @@ export function Gallery() {
   }, [lightboxIndex, goNext, goPrev])
 
   return (
-    <section className="bg-secondary py-20 lg:py-28" aria-label="Our Work Gallery">
+    <section className="bg-background py-16 lg:py-24" aria-label="Our Work Gallery">
       <div
         ref={ref}
-        className={`mx-auto max-w-7xl px-4 lg:px-8 ${
+        className={`mx-auto max-w-6xl px-5 ${
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <h2 className="mb-12 text-center font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-bold text-foreground text-balance">
-          Our Work
-        </h2>
-
         <div className="grid grid-cols-3 gap-2 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-9">
           {galleryImages.map((image, index) => (
             <button
               key={image.id}
               onClick={() => openLightbox(index)}
-              className="group aspect-square overflow-hidden rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+              className="group aspect-square overflow-hidden rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               aria-label={`View ${image.alt}`}
             >
               <img
@@ -116,7 +112,7 @@ export function Gallery() {
           <img
             src={galleryImages[lightboxIndex].src}
             alt={galleryImages[lightboxIndex].alt}
-            className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain"
+            className="max-h-[85vh] max-w-[90vw] rounded object-contain"
             onClick={(e) => e.stopPropagation()}
           />
 

@@ -8,14 +8,14 @@ export function About() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="bg-background py-20 lg:py-28" aria-label="About TNK">
+    <section className="bg-background py-16 lg:py-24" aria-label="About TNK">
       <div
         ref={ref}
-        className={`mx-auto max-w-4xl px-4 lg:px-8 ${
+        className={`mx-auto max-w-3xl px-5 ${
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <div className="overflow-hidden rounded-lg">
+        <div className="overflow-hidden rounded">
           <img
             src="/images/about.jpg"
             alt="True North Kromes dental laboratory facility"
@@ -24,14 +24,14 @@ export function About() {
           />
         </div>
 
-        <h2 className="mt-10 font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-bold text-foreground text-balance">
+        <h2 className="mt-10 text-[clamp(1.5rem,3vw,2.25rem)] font-black text-foreground text-balance">
           Your Digital Partner in Partial Denture Manufacturing
         </h2>
 
-        <p className="mt-6 text-base leading-[1.75] text-muted-foreground">
+        <p className="mt-5 text-base leading-[1.8] text-muted-foreground">
           True North Kromes (TNK) provides complete support throughout the entire
           production cycle. Our workflow delivers high precision, high efficiency,
-          and significant cost savings — enabling laboratories and clinics to
+          and significant cost savings -- enabling laboratories and clinics to
           produce frameworks that are more accurate, consistent, and customized than
           ever before. With TNK as your digital partner, you gain a streamlined,
           reliable, and modern approach to partial denture manufacturing.
@@ -41,7 +41,7 @@ export function About() {
           {stats.map((stat) => (
             <span
               key={stat}
-              className="rounded-full border border-border px-5 py-2 text-sm font-medium text-foreground"
+              className="rounded border border-border px-4 py-2 text-sm font-bold text-foreground"
             >
               {stat}
             </span>

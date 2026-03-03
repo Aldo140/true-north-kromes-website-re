@@ -11,23 +11,22 @@ export function PageHeader({ title, subtitle }: PageHeaderProps) {
   const { ref, isVisible } = useScrollAnimation(0.1)
 
   return (
-    <section className="relative bg-[#18181b] py-20 lg:py-28">
+    <section className="border-b border-border bg-secondary py-14 lg:py-20">
       <div
         ref={ref}
-        className={`mx-auto max-w-7xl px-4 text-center lg:px-8 ${
+        className={`mx-auto max-w-6xl px-5 ${
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <h1 className="font-serif text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-tight text-white text-balance">
+        <h1 className="text-[clamp(1.75rem,4vw,2.75rem)] font-black leading-tight text-foreground text-balance">
           {title}
         </h1>
         {subtitle && (
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/60 lg:text-lg">
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
             {subtitle}
           </p>
         )}
       </div>
-      <div className="chrome-band absolute bottom-0 left-0 right-0" />
     </section>
   )
 }

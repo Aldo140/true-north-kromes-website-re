@@ -18,28 +18,26 @@ export function Navigation() {
   const pathname = usePathname()
 
   return (
-    <header className="sticky top-0 z-50">
-      <nav className="bg-[#18181b]" aria-label="Main navigation">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
+    <header className="sticky top-0 z-50 bg-[#333333] shadow-sm">
+      <nav aria-label="Main navigation">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
           {/* Logo */}
-          <Link href="/" aria-label="True North Kromes - Home">
+          <Link href="/" className="shrink-0" aria-label="True North Kromes - Home">
             <img
               src="/images/logo.png"
               alt="True North Kromes"
-              className="h-10 w-auto brightness-[2] invert sm:h-12"
+              className="h-12 w-auto brightness-[2] invert"
             />
           </Link>
 
           {/* Desktop nav links */}
-          <div className="hidden items-center gap-8 lg:flex">
+          <div className="hidden items-center gap-6 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium tracking-wide transition-colors hover:text-white ${
-                  pathname === link.href
-                    ? "text-white"
-                    : "text-white/50"
+                className={`text-[13px] font-bold uppercase tracking-wide transition-colors hover:text-white ${
+                  pathname === link.href ? "text-white" : "text-white/60"
                 }`}
               >
                 {link.label}
@@ -60,17 +58,15 @@ export function Navigation() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="border-t border-white/10 bg-[#18181b] px-4 pb-6 pt-4 lg:hidden">
-            <div className="flex flex-col gap-4">
+          <div className="border-t border-white/10 bg-[#333333] px-5 pb-5 pt-3 lg:hidden">
+            <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`text-sm font-medium tracking-wide transition-colors hover:text-white ${
-                    pathname === link.href
-                      ? "text-white"
-                      : "text-white/50"
+                  className={`text-[13px] font-bold uppercase tracking-wide transition-colors hover:text-white ${
+                    pathname === link.href ? "text-white" : "text-white/60"
                   }`}
                 >
                   {link.label}
@@ -80,7 +76,6 @@ export function Navigation() {
           </div>
         )}
       </nav>
-      <div className="chrome-band" />
     </header>
   )
 }

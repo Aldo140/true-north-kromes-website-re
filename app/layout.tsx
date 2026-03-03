@@ -1,21 +1,14 @@
 import type { Metadata } from "next"
-import { DM_Sans, Playfair_Display } from "next/font/google"
+import { Lato } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import "./globals.css"
 
-const dmSans = DM_Sans({
+const lato = Lato({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "700", "900"],
   style: ["normal", "italic"],
-})
-
-const playfairDisplay = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  weight: ["700", "800"],
 })
 
 export const metadata: Metadata = {
@@ -43,7 +36,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport = {
-  themeColor: "#18181b",
+  themeColor: "#333333",
 }
 
 export default function RootLayout({
@@ -52,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${playfairDisplay.variable}`}>
+    <html lang="en" className={lato.className}>
       <body className="font-sans antialiased">
         <Navigation />
         <main>{children}</main>

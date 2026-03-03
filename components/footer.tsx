@@ -17,10 +17,8 @@ const serviceLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#18181b]" aria-label="Site footer">
-      <div className="chrome-band" />
-
-      <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
+    <footer className="bg-[#333333]" aria-label="Site footer">
+      <div className="mx-auto max-w-6xl px-5 py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Col 1: Logo + tagline */}
           <div>
@@ -31,17 +29,17 @@ export function Footer() {
                 className="h-12 w-auto brightness-[2] invert"
               />
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-white/40">
+            <p className="mt-4 text-sm leading-relaxed text-white/50">
               One-Stop Metal Printing Service.
             </p>
           </div>
 
           {/* Col 2: About */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold text-white">
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-white">
               About
             </h4>
-            <ul className="flex flex-col gap-2.5">
+            <ul className="flex flex-col gap-2">
               {aboutLinks.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -57,10 +55,10 @@ export function Footer() {
 
           {/* Col 3: Services */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold text-white">
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-white">
               Services
             </h4>
-            <ul className="flex flex-col gap-2.5">
+            <ul className="flex flex-col gap-2">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -76,7 +74,7 @@ export function Footer() {
 
           {/* Col 4: Contact */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold text-white">
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-white">
               Contact Us
             </h4>
             <ul className="flex flex-col gap-3">
@@ -107,7 +105,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
           <div className="flex items-center gap-4">
             {/* Instagram */}
             <a

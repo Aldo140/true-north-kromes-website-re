@@ -25,14 +25,14 @@ export function LatestUpdates() {
   const { ref, isVisible } = useScrollAnimation()
 
   return (
-    <section className="bg-background py-20 lg:py-28" aria-label="Latest Updates">
+    <section className="bg-background py-16 lg:py-24" aria-label="Latest Updates">
       <div
         ref={ref}
-        className={`mx-auto max-w-7xl px-4 lg:px-8 ${
+        className={`mx-auto max-w-6xl px-5 ${
           isVisible ? "animate-fade-in-up" : "opacity-0"
         }`}
       >
-        <h2 className="mb-12 text-center font-serif text-[clamp(1.8rem,3.5vw,3rem)] font-bold text-foreground text-balance">
+        <h2 className="mb-10 text-center text-[clamp(1.5rem,3vw,2.25rem)] font-black text-foreground text-balance">
           Latest Updates
         </h2>
 
@@ -40,20 +40,20 @@ export function LatestUpdates() {
           {articles.map((article, index) => (
             <div
               key={index}
-              className="rounded-lg border border-border bg-card p-6"
+              className="rounded border border-border bg-card p-6"
             >
-              <h4 className="text-base font-semibold text-foreground">
-                <a href="#" className="transition-colors hover:text-muted-foreground">
+              <h4 className="text-base font-bold text-foreground">
+                <a href="#" className="transition-colors hover:text-primary">
                   {article.title}
                 </a>
               </h4>
-              <p className="mt-2 text-sm text-muted-foreground">{article.date}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{article.date}</p>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {article.excerpt}
               </p>
               <a
                 href="#"
-                className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-foreground transition-colors hover:text-muted-foreground"
+                className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-primary transition-colors hover:text-[#225da6]"
               >
                 Read More
                 <ArrowRight className="h-4 w-4" />
