@@ -7,19 +7,19 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 const sections = [
   {
     href: "/services",
-    image: "/images/printer-window.jpg",
+    image: "/images/lab-facility.jpg",
     title: "Our Services",
     description: "3D design, metal printing, and professional post-processing for dental frameworks.",
   },
   {
     href: "/about",
-    image: "/images/team-lab.jpg",
+    image: "/images/team-selfie.jpg",
     title: "About TNK",
     description: "Learn about our mission, capabilities, and why dental professionals choose us.",
   },
   {
     href: "/gallery",
-    image: "/images/framework-polished.jpg",
+    image: "/images/framework-hero.jpg",
     title: "Our Work",
     description: "Browse our portfolio of precision-crafted dental frameworks and partial dentures.",
   },
@@ -31,13 +31,13 @@ const sections = [
   },
   {
     href: "/downloads",
-    image: "/images/framework-raw.jpg",
+    image: "/images/framework-lower.jpg",
     title: "Downloads",
     description: "Order forms, submission guides, and technical documents for dental professionals.",
   },
   {
     href: "/faq",
-    image: "/images/framework-clasps.jpg",
+    image: "/images/palatal-plate.jpg",
     title: "FAQ",
     description: "Answers to common questions about our services, processes, and technology.",
   },
