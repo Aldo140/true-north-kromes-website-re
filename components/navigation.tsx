@@ -19,7 +19,7 @@ export function Navigation() {
   const pathname = usePathname()
 
   return (
-    <header className="sticky top-0 z-50 bg-[#333333] shadow-sm">
+    <header className="sticky top-0 z-50 border-b border-border bg-background shadow-sm">
       <nav aria-label="Main navigation">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
           {/* Logo */}
@@ -27,7 +27,7 @@ export function Navigation() {
             <img
               src="/images/logo.png"
               alt="True North Kromes"
-              className="h-12 w-auto brightness-[2] invert"
+              className="h-12 w-auto"
             />
           </Link>
 
@@ -37,8 +37,8 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[13px] font-bold uppercase tracking-wide transition-colors hover:text-white ${
-                  pathname === link.href ? "text-white" : "text-white/60"
+                className={`text-[13px] font-bold uppercase tracking-wide transition-colors hover:text-primary ${
+                  pathname === link.href ? "text-primary" : "text-foreground/60"
                 }`}
               >
                 {link.label}
@@ -48,7 +48,7 @@ export function Navigation() {
 
           {/* Mobile hamburger */}
           <button
-            className="text-white lg:hidden"
+            className="text-foreground lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -59,15 +59,15 @@ export function Navigation() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="border-t border-white/10 bg-[#333333] px-5 pb-5 pt-3 lg:hidden">
+          <div className="border-t border-border bg-background px-5 pb-5 pt-3 lg:hidden">
             <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`text-[13px] font-bold uppercase tracking-wide transition-colors hover:text-white ${
-                    pathname === link.href ? "text-white" : "text-white/60"
+                  className={`text-[13px] font-bold uppercase tracking-wide transition-colors hover:text-primary ${
+                    pathname === link.href ? "text-primary" : "text-foreground/60"
                   }`}
                 >
                   {link.label}

@@ -65,7 +65,7 @@ export function Downloads() {
         <div className="mt-10 rounded border border-border bg-secondary p-5 text-center">
           <p className="text-sm text-muted-foreground">
             {"Need a document that's not listed here? "}
-            <a href="/contact" className="font-bold text-primary hover:text-[#225da6]">
+            <a href="/contact" className="font-bold text-primary hover:text-[#2e6aa3]">
               Contact us
             </a>
             {" and we'll be happy to help."}

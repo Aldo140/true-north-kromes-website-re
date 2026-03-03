@@ -18,7 +18,7 @@ const serviceLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#333333]" aria-label="Site footer">
+    <footer className="border-t border-border bg-secondary" aria-label="Site footer">
       <div className="mx-auto max-w-6xl px-5 py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Col 1: Logo + tagline */}
@@ -27,17 +27,17 @@ export function Footer() {
               <img
                 src="/images/logo.png"
                 alt="True North Kromes"
-                className="h-12 w-auto brightness-[2] invert"
+                className="h-12 w-auto"
               />
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-white/50">
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               One-Stop Metal Printing Service.
             </p>
           </div>
 
           {/* Col 2: About */}
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-white">
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-foreground">
               About
             </h4>
             <ul className="flex flex-col gap-2">
@@ -45,7 +45,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/50 transition-colors hover:text-white"
+                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
                     {link.label}
                   </Link>
@@ -56,7 +56,7 @@ export function Footer() {
 
           {/* Col 3: Services */}
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-white">
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-foreground">
               Services
             </h4>
             <ul className="flex flex-col gap-2">
@@ -64,7 +64,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/50 transition-colors hover:text-white"
+                    className="text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
                     {link.label}
                   </Link>
@@ -75,14 +75,14 @@ export function Footer() {
 
           {/* Col 4: Contact */}
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-white">
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-foreground">
               Contact Us
             </h4>
             <ul className="flex flex-col gap-3">
               <li>
                 <a
                   href="mailto:truenorthkromes@gmail.com"
-                  className="flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-white"
+                  className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
                   <Mail className="h-4 w-4 shrink-0" />
                   truenorthkromes@gmail.com
@@ -91,13 +91,13 @@ export function Footer() {
               <li>
                 <a
                   href="tel:+18076247222"
-                  className="flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-white"
+                  className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
                   <Phone className="h-4 w-4 shrink-0" />
                   (807) 624-7222
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-sm text-white/50">
+              <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 shrink-0" />
                 Cochrane, AB, Canada
               </li>
@@ -106,12 +106,12 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
           <div className="flex items-center gap-4">
             {/* Instagram */}
             <a
               href="#"
-              className="text-white/30 transition-colors hover:text-white/60"
+              className="text-muted-foreground/50 transition-colors hover:text-primary"
               aria-label="Instagram"
             >
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -125,7 +125,7 @@ export function Footer() {
             {/* Facebook */}
             <a
               href="#"
-              className="text-white/30 transition-colors hover:text-white/60"
+              className="text-muted-foreground/50 transition-colors hover:text-primary"
               aria-label="Facebook"
             >
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -138,7 +138,7 @@ export function Footer() {
             </a>
           </div>
 
-          <p className="text-sm text-white/30">
+          <p className="text-sm text-muted-foreground/50">
             {"© 2026 True North Kromes Inc. All rights reserved."}
           </p>
         </div>

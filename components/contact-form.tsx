@@ -298,7 +298,7 @@ export function ContactForm() {
 
           <button
             type="submit"
-            className="mt-2 w-full rounded bg-primary py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#225da6] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            className="mt-2 w-full rounded bg-primary py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#2e6aa3] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           >
             Submit Inquiry
           </button>

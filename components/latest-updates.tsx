@@ -53,7 +53,7 @@ export function LatestUpdates() {
               </p>
               <a
                 href="#"
-                className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-primary transition-colors hover:text-[#225da6]"
+                className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-primary transition-colors hover:text-[#2e6aa3]"
               >
                 Read More
                 <ArrowRight className="h-4 w-4" />

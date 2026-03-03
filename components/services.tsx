@@ -63,7 +63,7 @@ export function Services() {
                 </p>
                 <Link
                   href="/contact"
-                  className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-primary transition-colors hover:text-[#225da6]"
+                  className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-primary transition-colors hover:text-[#2e6aa3]"
                 >
                   {service.link}
                   <ArrowRight className="h-4 w-4" />

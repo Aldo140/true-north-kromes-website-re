@@ -5,24 +5,24 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #333333;
+  --foreground: #2d3340;
   --card: #ffffff;
-  --card-foreground: #333333;
+  --card-foreground: #2d3340;
   --popover: #ffffff;
-  --popover-foreground: #333333;
-  --primary: #2a6ebb;
+  --popover-foreground: #2d3340;
+  --primary: #3a7abf;
   --primary-foreground: #ffffff;
-  --secondary: #f7f7f7;
-  --secondary-foreground: #333333;
-  --muted: #f7f7f7;
-  --muted-foreground: #666666;
-  --accent: #2a6ebb;
+  --secondary: #f4f6f9;
+  --secondary-foreground: #2d3340;
+  --muted: #f4f6f9;
+  --muted-foreground: #6b7585;
+  --accent: #3a7abf;
   --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
-  --border: #e5e5e5;
-  --input: #e5e5e5;
-  --ring: #2a6ebb;
+  --border: #dfe3ea;
+  --input: #dfe3ea;
+  --ring: #3a7abf;
   --radius: 0.25rem;
 }
 

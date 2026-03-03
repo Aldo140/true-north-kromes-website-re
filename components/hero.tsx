@@ -16,7 +16,7 @@ export function Hero() {
           className="h-full w-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-[rgba(51,51,51,0.72)]" />
+        <div className="absolute inset-0 bg-[rgba(35,75,120,0.78)]" />
       </div>
 
       {/* Content */}
@@ -39,7 +39,7 @@ export function Hero() {
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <Link
             href="/contact"
-            className="inline-flex items-center rounded bg-primary px-7 py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#225da6]"
+            className="inline-flex items-center rounded bg-primary px-7 py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#2e6aa3]"
           >
             Email or Call Us Today
           </Link>
