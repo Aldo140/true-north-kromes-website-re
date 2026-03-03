@@ -22,12 +22,18 @@ const galleryImages = [
   { id: 25, src: "/images/framework-profile.jpg", alt: "Polished chrome framework side profile held in blue glove" },
   { id: 26, src: "/images/framework-upper-side.jpg", alt: "Upper framework on model, side view" },
   { id: 27, src: "/images/framework-mandrel.jpg", alt: "Framework on mandrel during inspection" },
+  { id: 40, src: "/images/gallery-framework-standalone.jpg", alt: "Polished standalone framework on countertop" },
+  { id: 41, src: "/images/gallery-polished-framework-gray.jpg", alt: "Mirror-polished framework on gray surface" },
 
   // Finished Partials
   { id: 28, src: "/images/partial-front.jpg", alt: "Finished upper partial denture with teeth, front view" },
   { id: 29, src: "/images/partial-palatal.jpg", alt: "Upper partial denture palatal view with framework" },
   { id: 30, src: "/images/partial-bite.jpg", alt: "Partial denture on articulated model, bite view" },
   { id: 31, src: "/images/partial-lower.jpg", alt: "Lower partial denture on model with chrome framework" },
+  { id: 50, src: "/images/gallery-finished-model-1.jpg", alt: "Polished framework fitted on resin dental model, side view" },
+  { id: 51, src: "/images/gallery-finished-model-2.jpg", alt: "Chrome partial framework on resin model, angled view" },
+  { id: 52, src: "/images/gallery-finished-model-3.jpg", alt: "Framework seated on dental model showing clasp detail" },
+  { id: 53, src: "/images/gallery-finished-model-4.jpg", alt: "Lower partial denture framework on resin model" },
 
   // 3D Printing
   { id: 14, src: "/images/implant-bar.jpg", alt: "Raw implant bar with attachment cylinders" },
@@ -35,10 +41,20 @@ const galleryImages = [
   { id: 16, src: "/images/powder-bed.jpg", alt: "Raw framework emerging from metal powder bed" },
   { id: 17, src: "/images/framework-raw.jpg", alt: "Raw 3D printed framework before finishing" },
   { id: 20, src: "/images/printer-buildplate.jpg", alt: "Build plate with frameworks next to NCL-M150 printer" },
+  { id: 42, src: "/images/gallery-raw-print-supports.jpg", alt: "Raw 3D printed framework with support structures in blue glove" },
+  { id: 43, src: "/images/gallery-raw-print-side.jpg", alt: "Raw printed framework side view showing print texture" },
+  { id: 44, src: "/images/gallery-raw-print-detail.jpg", alt: "Close-up of raw 3D printed metal framework detail" },
+  { id: 45, src: "/images/gallery-raw-print-batch.jpg", alt: "Batch of raw printed frameworks on build plate" },
 
   // Post-Processing
   { id: 18, src: "/images/polishing-process.jpg", alt: "Framework during DLyte electropolishing process" },
   { id: 23, src: "/images/dlyte-polishing.jpg", alt: "DLyte mini electropolishing machine in operation" },
+  { id: 46, src: "/images/gallery-dlyte-operator.jpg", alt: "Operator programming the DLyte mini polishing machine" },
+  { id: 47, src: "/images/gallery-dlyte-polishing-action.jpg", alt: "Framework held in tongs during DLyte electropolishing" },
+  { id: 48, src: "/images/gallery-dlyte-sintering.jpg", alt: "DLyte sintering process in progress" },
+  { id: 54, src: "/images/gallery-mesh-partial-1.jpg", alt: "Polished mesh palatal plate held in blue glove, front" },
+  { id: 55, src: "/images/gallery-mesh-partial-2.jpg", alt: "Polished mesh palatal plate held in blue glove, reverse" },
+  { id: 56, src: "/images/gallery-mesh-partial-3.jpg", alt: "Polished mesh palatal plate held in blue glove, angled" },
 
   // Design
   { id: 32, src: "/images/cad-design.png", alt: "3D CAD digital design of dental framework" },
@@ -47,10 +63,14 @@ const galleryImages = [
   { id: 21, src: "/images/printer-branded.jpg", alt: "True North Kromes build plate in 3D printer" },
   { id: 22, src: "/images/printer-window.jpg", alt: "View through 3D metal printer during printing" },
   { id: 24, src: "/images/lab-facility.jpg", alt: "TNK production facility with Chamlion 3D printers" },
+  { id: 49, src: "/images/gallery-lab-wide.jpg", alt: "Wide view of TNK lab with dual Chamlion SLM printers" },
 
   // Other
   { id: 19, src: "/images/grillz.jpg", alt: "Custom metal dental grillz on model" },
   { id: 34, src: "/images/team-lab.jpg", alt: "True North Kromes team at work" },
+  { id: 35, src: "/images/gallery-grillz-close.jpg", alt: "Custom PARADA grillz close-up on dental model" },
+  { id: 36, src: "/images/gallery-grillz-full.jpg", alt: "Custom PARADA grillz full view on dental model" },
+  { id: 37, src: "/images/gallery-instagram-post.jpg", alt: "True North Kromes Instagram post featuring printed frameworks" },
 ]
 
 export function Gallery() {
