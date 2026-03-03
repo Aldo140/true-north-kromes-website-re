@@ -69,7 +69,7 @@ export function Services() {
               </p>
 
               {/* CTA */}
-              <span className="mt-3 inline-block text-sm font-semibold text-primary transition-colors group-hover:text-[#164a74]">
+              <span className="mt-3 inline-block text-sm font-semibold text-primary transition-colors group-hover:text-accent">
                 {service.cta}
               </span>
             </Link>

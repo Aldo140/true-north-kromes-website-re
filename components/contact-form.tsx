@@ -299,7 +299,7 @@ export function ContactForm() {
 
           <button
             type="submit"
-            className="mt-2 w-full rounded-md bg-primary py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-[#164a74] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            className="mt-2 w-full rounded-md bg-primary py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-accent focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           >
             [Placeholder]
           </button>

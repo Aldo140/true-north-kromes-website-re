@@ -24,7 +24,7 @@ export function CTABanner() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-md bg-white px-8 py-3 text-sm font-semibold uppercase tracking-wider text-primary transition-colors hover:bg-white/90"
+            className="inline-flex items-center gap-2 rounded-md bg-white px-8 py-3 text-sm font-semibold uppercase tracking-wider text-foreground transition-colors hover:bg-chrome-light"
           >
             [Placeholder]
             <ArrowRight className="h-4 w-4" />

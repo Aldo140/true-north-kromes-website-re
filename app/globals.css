@@ -4,26 +4,29 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #1a2332;
+  --background: #f8f9fa;
+  --foreground: #1b2530;
   --card: #ffffff;
-  --card-foreground: #1a2332;
+  --card-foreground: #1b2530;
   --popover: #ffffff;
-  --popover-foreground: #1a2332;
-  --primary: #1e5a8a;
-  --primary-foreground: #ffffff;
-  --secondary: #f5f7fa;
-  --secondary-foreground: #1a2332;
-  --muted: #f5f7fa;
-  --muted-foreground: #5c6a7a;
-  --accent: #1e5a8a;
+  --popover-foreground: #1b2530;
+  --primary: #2c3e50;
+  --primary-foreground: #eef1f4;
+  --secondary: #e8ecf0;
+  --secondary-foreground: #1b2530;
+  --muted: #e8ecf0;
+  --muted-foreground: #5a6878;
+  --accent: #4a7c9b;
   --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
-  --border: #e2e6ec;
-  --input: #e2e6ec;
-  --ring: #1e5a8a;
+  --border: #c8ced6;
+  --input: #d0d6de;
+  --ring: #4a7c9b;
   --radius: 0.375rem;
+  --chrome-light: #d4dbe2;
+  --chrome-mid: #a8b5c2;
+  --chrome-dark: #6b7d8e;
 }
 
 @theme inline {
@@ -52,6 +55,9 @@
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 2px);
   --radius-xl: calc(var(--radius) + 6px);
+  --color-chrome-light: var(--chrome-light);
+  --color-chrome-mid: var(--chrome-mid);
+  --color-chrome-dark: var(--chrome-dark);
 }
 
 @layer base {

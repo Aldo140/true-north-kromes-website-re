@@ -59,7 +59,7 @@ export function LatestUpdates() {
               </p>
               <a
                 href={article.href}
-                className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-primary transition-colors hover:text-[#164a74]"
+                className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-primary transition-colors hover:text-accent"
               >
                 Read More
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -72,7 +72,7 @@ export function LatestUpdates() {
         <div className="mt-12 text-center">
           <Link
             href="/updates"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-[#164a74]"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-accent"
           >
             View All Updates
             <ArrowRight className="h-4 w-4" />

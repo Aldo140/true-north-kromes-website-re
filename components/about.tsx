@@ -30,7 +30,7 @@ export function About() {
           </div>
 
           <div>
-            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-primary">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">
               About TNK
             </p>
             <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground text-balance">
