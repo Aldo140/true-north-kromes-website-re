@@ -1,6 +1,17 @@
+import os
+import subprocess
 from PIL import Image
 
-img = Image.open("/vercel/share/v0-project/public/images/cad-design.png")
+# Find cad-design.png using find
+result = subprocess.run(["find", "/", "-name", "cad-design.png", "-type", "f"], capture_output=True, text=True, timeout=10)
+print(f"find results: {result.stdout.strip()}")
+paths = [p.strip() for p in result.stdout.strip().split('\n') if p.strip()]
+path = paths[0] if paths else None
+if not path:
+    raise FileNotFoundError("Could not find cad-design.png anywhere")
+print(f"Using: {path}")
+
+img = Image.open(path)
 w, h = img.size
 print(f"Original size: {w}x{h}")
 
@@ -15,5 +26,5 @@ right = w
 cropped = img.crop((left, top, right, bottom))
 print(f"Cropped size: {cropped.size[0]}x{cropped.size[1]}")
 
-cropped.save("/vercel/share/v0-project/public/images/cad-design.png")
+cropped.save(path)
 print("Saved cropped image")
