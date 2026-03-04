@@ -63,7 +63,7 @@ export default function ServicesPage() {
           <div className="flex flex-col gap-20">
             {services.map((service, i) => (
               <div
-                key={service.title}
+                key={i}
                 className={`flex flex-col items-center gap-10 lg:flex-row ${
                   i % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}

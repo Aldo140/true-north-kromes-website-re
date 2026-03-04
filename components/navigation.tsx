@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, UserCircle } from "lucide-react"
@@ -57,16 +57,10 @@ export function Navigation() {
         <div className="relative hidden items-center justify-center gap-14 pb-3 lg:flex">
           {navLinks.map((link) => {
             const isActive = pathname === link.href
-            const Tag = link.external ? "a" : Link
-            const extraProps = link.external
-              ? { target: "_blank", rel: "noopener noreferrer" }
-              : {}
-
             return (
-              <Tag
-                key={link.href + link.label}
+              <Link
+                key={link.href}
                 href={link.href}
-                {...extraProps}
                 className={`font-sans text-[15px] font-normal tracking-[0.08em] transition-colors ${
                   isActive
                     ? "text-[#8b7d3c]"
@@ -74,7 +68,7 @@ export function Navigation() {
                 }`}
               >
                 {link.label}
-              </Tag>
+              </Link>
             )
           })}
 
@@ -96,16 +90,10 @@ export function Navigation() {
             <div className="flex flex-col gap-5">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href
-                const Tag = link.external ? "a" : Link
-                const extraProps = link.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {}
-
                 return (
-                  <Tag
-                    key={link.href + link.label}
+                  <Link
+                    key={link.href}
                     href={link.href}
-                    {...extraProps}
                     onClick={() => setMobileOpen(false)}
                     className={`font-sans text-[15px] font-normal tracking-[0.08em] transition-colors ${
                       isActive
@@ -114,7 +102,7 @@ export function Navigation() {
                     }`}
                   >
                     {link.label}
-                  </Tag>
+                  </Link>
                 )
               })}
             </div>

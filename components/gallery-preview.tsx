@@ -1,12 +1,12 @@
 import Link from "next/link"
 
 const previewImages = [
-  { src: "/images/framework-polished.jpg", alt: "Polished chrome partial denture framework" },
-  { src: "/images/framework-detail.jpg", alt: "Close-up detail of metal framework" },
-  { src: "/images/framework-full.jpg", alt: "Full upper partial denture framework" },
-  { src: "/images/framework-clasps.jpg", alt: "Framework with precision clasps" },
-  { src: "/images/dlyte-polishing.jpg", alt: "DLyte electro-polishing process" },
-  { src: "/images/printer-buildplate.jpg", alt: "3D printed frameworks on build plate" },
+  { src: "/images/gallery-polished-framework-gray.jpg", alt: "Polished chrome framework on gray background" },
+  { src: "/images/gallery-finished-model-1.jpg", alt: "Finished framework seated on dental model" },
+  { src: "/images/gallery-mesh-partial-1.jpg", alt: "Precision mesh partial denture framework" },
+  { src: "/images/gallery-framework-standalone.jpg", alt: "Standalone chrome framework detail" },
+  { src: "/images/gallery-finished-model-3.jpg", alt: "Completed framework on model" },
+  { src: "/images/gallery-dlyte-sintering.jpg", alt: "DLyte sintering process in action" },
 ]
 
 export function GalleryPreview() {
