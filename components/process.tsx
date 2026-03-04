@@ -42,9 +42,9 @@ export function Process() {
           {steps.map((step) => (
             <div key={step.step} className="text-center">
               <div className="mx-auto flex h-16 w-16 items-center justify-center border border-border">
-                <step.icon className="h-7 w-7 text-[#8b7d3c]" strokeWidth={1.5} />
+                <step.icon className="h-7 w-7 text-[#8a9aab]" strokeWidth={1.5} />
               </div>
-              <p className="mt-5 text-xs font-semibold tracking-[0.2em] text-[#8b7d3c]">
+              <p className="mt-5 text-xs font-semibold tracking-[0.2em] text-[#8a9aab]">
                 STEP {step.step}
               </p>
               <h3 className="mt-2 text-lg font-semibold text-foreground">

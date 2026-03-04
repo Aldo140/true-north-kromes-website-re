@@ -13,7 +13,7 @@ export function CTABanner() {
           className="h-full w-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-[#2c2c2c]/80" />
+        <div className="absolute inset-0 bg-[#1c1f26]/80" />
       </div>
 
       <div className="relative mx-auto max-w-3xl px-5 text-center">

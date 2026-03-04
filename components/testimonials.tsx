@@ -36,7 +36,7 @@ export function Testimonials() {
                 {[...Array(5)].map((_, j) => (
                   <Star
                     key={j}
-                    className="h-4 w-4 fill-[#8b7d3c] text-[#8b7d3c]"
+                    className="h-4 w-4 fill-[#8a9aab] text-[#8a9aab]"
                   />
                 ))}
               </div>
