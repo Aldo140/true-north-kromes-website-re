@@ -7,9 +7,13 @@ import { Menu, X } from "lucide-react"
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "Meet Amelia", href: "/about" },
+  { label: "Why Naturopathy", href: "/why-naturopathy" },
+  { label: "Services", href: "/services" },
+  { label: "Plans", href: "/plans" },
+  { label: "Blog", href: "/blog" },
+  { label: "Essential Reading", href: "/essential-reading" },
   { label: "Contact", href: "/contact" },
-  { label: "Client Portal", href: "#", external: true },
 ]
 
 export function Navigation() {
