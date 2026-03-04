@@ -6,13 +6,9 @@ import { X } from "lucide-react"
 const images = [
   { src: "/images/gallery-polished-framework-gray.jpg", alt: "[Placeholder]" },
   { src: "/images/gallery-finished-model-1.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-mesh-partial-1.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-framework-standalone.jpg", alt: "[Placeholder]" },
   { src: "/images/gallery-finished-model-2.jpg", alt: "[Placeholder]" },
   { src: "/images/gallery-finished-model-3.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-mesh-partial-2.jpg", alt: "[Placeholder]" },
   { src: "/images/gallery-finished-model-4.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-mesh-partial-3.jpg", alt: "[Placeholder]" },
   { src: "/images/gallery-raw-print-batch.jpg", alt: "[Placeholder]" },
   { src: "/images/gallery-raw-print-detail.jpg", alt: "[Placeholder]" },
   { src: "/images/gallery-raw-print-supports.jpg", alt: "[Placeholder]" },
@@ -21,9 +17,6 @@ const images = [
   { src: "/images/gallery-dlyte-polishing-action.jpg", alt: "[Placeholder]" },
   { src: "/images/gallery-grillz-full.jpg", alt: "[Placeholder]" },
   { src: "/images/gallery-lab-wide.jpg", alt: "[Placeholder]" },
-  { src: "/images/palatal-plate.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-lab-operator.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-lab-printer-closeup.jpg", alt: "[Placeholder]" },
 ]
 
 export default function GalleryPage() {

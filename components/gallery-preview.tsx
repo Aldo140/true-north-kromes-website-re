@@ -1,12 +1,12 @@
 import Link from "next/link"
 
 const previewImages = [
-  { src: "/images/gallery-polished-framework-gray.jpg", alt: "Polished chrome framework", span: "row-span-2" },
-  { src: "/images/gallery-finished-model-1.jpg", alt: "Finished framework on dental model", span: "" },
-  { src: "/images/gallery-mesh-partial-1.jpg", alt: "Precision mesh partial framework", span: "" },
-  { src: "/images/gallery-framework-standalone.jpg", alt: "Chrome framework detail", span: "row-span-2" },
-  { src: "/images/gallery-finished-model-3.jpg", alt: "Completed framework on model", span: "" },
-  { src: "/images/gallery-dlyte-sintering.jpg", alt: "DLyte sintering process", span: "" },
+  { src: "/images/gallery-polished-framework-gray.jpg", alt: "[Placeholder]", span: "row-span-2" },
+  { src: "/images/gallery-finished-model-1.jpg", alt: "[Placeholder]", span: "" },
+  { src: "/images/gallery-raw-print-batch.jpg", alt: "[Placeholder]", span: "" },
+  { src: "/images/gallery-dlyte-operator.jpg", alt: "[Placeholder]", span: "row-span-2" },
+  { src: "/images/gallery-finished-model-3.jpg", alt: "[Placeholder]", span: "" },
+  { src: "/images/gallery-dlyte-sintering.jpg", alt: "[Placeholder]", span: "" },
 ]
 
 export function GalleryPreview() {
