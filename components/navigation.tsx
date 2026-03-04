@@ -22,7 +22,7 @@ export function Navigation() {
     <header className="fixed left-0 right-0 top-0 z-50 bg-white">
       <nav aria-label="Main navigation">
         {/* Logo */}
-        <div className="relative flex items-center justify-between px-6 pt-3 pb-1 lg:justify-center">
+        <div className="flex items-center justify-between px-6 pt-3 pb-1 lg:justify-center">
           <Link href="/" className="shrink-0" aria-label="True North Kromes - Home">
             <img
               src="/images/logo.png"
@@ -31,8 +31,8 @@ export function Navigation() {
             />
           </Link>
 
-          {/* Client Portal icon - top right */}
-          <div className="flex items-center gap-3 lg:absolute lg:right-6 lg:top-1/2 lg:-translate-y-1/2">
+          {/* Mobile hamburger only */}
+          <div className="flex items-center gap-3 lg:hidden">
             <a
               href="#"
               target="_blank"
@@ -43,7 +43,7 @@ export function Navigation() {
               <UserCircle className="h-7 w-7" />
             </a>
             <button
-              className="text-foreground lg:hidden"
+              className="text-foreground"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
@@ -53,8 +53,8 @@ export function Navigation() {
           </div>
         </div>
 
-        {/* Desktop links */}
-        <div className="hidden items-center justify-center gap-14 pb-3 lg:flex">
+        {/* Desktop links + portal icon */}
+        <div className="relative hidden items-center justify-center gap-14 pb-3 lg:flex">
           {navLinks.map((link) => {
             const isActive = pathname === link.href
             const Tag = link.external ? "a" : Link
@@ -77,6 +77,17 @@ export function Navigation() {
               </Tag>
             )
           })}
+
+          {/* Client Portal icon - right aligned */}
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Client Portal Login"
+            className="absolute right-6 text-[#999] transition-colors hover:text-foreground"
+          >
+            <UserCircle className="h-6 w-6" />
+          </a>
         </div>
 
         {/* Mobile menu */}
