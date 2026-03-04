@@ -15,7 +15,7 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative mx-auto flex max-w-6xl flex-col justify-center px-5 pt-32 pb-24 lg:pt-40 lg:pb-36">
+      <div className="relative mx-auto flex max-w-6xl flex-col justify-center px-5 pt-36 pb-24 lg:pt-48 lg:pb-36">
         <p className="text-sm font-medium uppercase tracking-widest text-white/50">
           True North Kromes
         </p>
