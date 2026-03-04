@@ -3,7 +3,7 @@ export function About() {
     <section className="bg-white pt-36 pb-20 lg:pt-44 lg:pb-28" aria-label="About TNK">
       <div className="grid lg:grid-cols-2">
         {/* Image -- flush to left edge like client */}
-        <div className="flex items-center justify-center overflow-hidden bg-[#e8e8e8]">
+        <div className="flex items-center justify-center overflow-hidden bg-white">
           <img
             src="/images/palatal-plate.jpg"
             alt="Polished chrome palatal plate framework held in a blue glove"
