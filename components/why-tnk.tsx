@@ -47,11 +47,12 @@ export function WhyTNK() {
       <div className="relative min-h-[500px] pb-16 lg:pb-24">
         <div className="absolute inset-0">
           <img
-            src="/images/forest-bg.jpg"
+            src="/images/gallery-lab-wide.jpg"
             alt=""
             className="h-full w-full object-cover"
             loading="lazy"
           />
+          <div className="absolute inset-0 bg-black/60" />
         </div>
 
         <div className="relative mx-auto max-w-5xl px-5 pt-8 lg:pt-16">
