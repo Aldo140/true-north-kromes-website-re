@@ -8,8 +8,8 @@ export function CTABanner() {
     >
       <div className="absolute inset-0">
         <img
-          src="/images/printer-branded.jpg"
-          alt=""
+          src="/placeholder.svg?height=600&width=1920"
+          alt="[Placeholder image]"
           className="h-full w-full object-cover"
           loading="lazy"
         />
