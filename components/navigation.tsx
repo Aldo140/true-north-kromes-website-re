@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
+import { Menu, X, UserCircle } from "lucide-react"
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -12,7 +12,6 @@ const navLinks = [
   { label: "Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
-  { label: "Client Portal", href: "#", external: true },
 ]
 
 export function Navigation() {
@@ -23,7 +22,7 @@ export function Navigation() {
     <header className="fixed left-0 right-0 top-0 z-50 bg-white">
       <nav aria-label="Main navigation">
         {/* Logo */}
-        <div className="flex items-center justify-between px-6 pt-3 pb-1 lg:justify-center">
+        <div className="relative flex items-center justify-between px-6 pt-3 pb-1 lg:justify-center">
           <Link href="/" className="shrink-0" aria-label="True North Kromes - Home">
             <img
               src="/images/logo.png"
@@ -31,14 +30,27 @@ export function Navigation() {
               className="h-[90px] w-auto lg:h-[110px]"
             />
           </Link>
-          <button
-            className="text-foreground lg:hidden"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+
+          {/* Client Portal icon - top right */}
+          <div className="flex items-center gap-3 lg:absolute lg:right-6 lg:top-1/2 lg:-translate-y-1/2">
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Client Portal Login"
+              className="text-[#999] transition-colors hover:text-foreground"
+            >
+              <UserCircle className="h-7 w-7" />
+            </a>
+            <button
+              className="text-foreground lg:hidden"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+            >
+              {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Desktop links */}
