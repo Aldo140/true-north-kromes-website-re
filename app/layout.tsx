@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { DM_Sans, Playfair_Display } from "next/font/google"
 import "./globals.css"
-
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { StickyQuote } from "@/components/sticky-quote"
@@ -54,9 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${dmSans.variable} ${playfair.variable} font-sans antialiased`}
-      >
+      <body className={`${dmSans.variable} ${playfair.variable} font-sans antialiased`}>
         <Navigation />
         <main>{children}</main>
         <Footer />

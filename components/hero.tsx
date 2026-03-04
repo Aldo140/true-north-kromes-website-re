@@ -1,10 +1,8 @@
 import Link from "next/link"
-import { ChevronDown } from "lucide-react"
 
 export function Hero() {
   return (
     <section className="relative min-h-[520px] lg:min-h-[600px]" aria-label="Hero">
-      {/* Background image with side margins like client */}
       <div className="absolute inset-x-4 inset-y-0 lg:inset-x-12">
         <img
           src="/images/printer-buildplate.jpg"
@@ -15,23 +13,23 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
       </div>
 
-      {/* Content */}
-      <div className="relative mx-auto flex max-w-4xl flex-col items-center justify-center px-5 pt-44 pb-24 text-center lg:pt-56 lg:pb-32">
+      {/* Left-aligned content instead of centered -- Fix #1 */}
+      <div className="relative mx-auto flex max-w-5xl flex-col justify-end px-8 pt-44 pb-16 lg:px-16 lg:pt-56 lg:pb-20">
         <h1 className="font-[family-name:var(--font-heading)] text-[clamp(2.25rem,5.5vw,4rem)] font-normal leading-[1.1] text-white text-balance">
           Welcome to True North Kromes
         </h1>
-        <p className="mt-6 max-w-2xl text-[clamp(0.9rem,1.5vw,1.15rem)] font-light tracking-wider text-white/80">
+        <p className="mt-5 max-w-lg text-[clamp(0.9rem,1.5vw,1.15rem)] font-light leading-relaxed text-white/75">
           A Dental Lab Specializing in 3D Printing Metal Partial Denture Frameworks
         </p>
-        <div className="mt-10">
+        {/* Solid filled button -- Fix #3 */}
+        <div className="mt-8">
           <Link
             href="/contact"
-            className="inline-flex items-center border border-white bg-white px-10 py-3 text-sm tracking-wider text-foreground transition-colors hover:bg-transparent hover:text-white"
+            className="inline-flex items-center bg-white px-8 py-3 text-sm font-medium tracking-wider text-foreground transition-opacity hover:opacity-90"
           >
             Contact Us
           </Link>
         </div>
-        <ChevronDown className="mt-8 h-6 w-6 text-white/60" aria-hidden="true" />
       </div>
     </section>
   )

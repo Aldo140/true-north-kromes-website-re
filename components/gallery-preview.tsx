@@ -1,30 +1,45 @@
 import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 
 const previewImages = [
-  { src: "/images/gallery-polished-framework-gray.jpg", alt: "[Placeholder]", span: "row-span-2" },
-  { src: "/images/gallery-finished-model-1.jpg", alt: "[Placeholder]", span: "" },
-  { src: "/images/gallery-raw-print-batch.jpg", alt: "[Placeholder]", span: "" },
-  { src: "/images/gallery-dlyte-operator.jpg", alt: "[Placeholder]", span: "row-span-2" },
-  { src: "/images/gallery-finished-model-3.jpg", alt: "[Placeholder]", span: "" },
-  { src: "/images/gallery-dlyte-sintering.jpg", alt: "[Placeholder]", span: "" },
+  { src: "/images/gallery-polished-framework-gray.jpg", alt: "[Placeholder]", tall: true },
+  { src: "/images/gallery-finished-model-1.jpg", alt: "[Placeholder]", tall: false },
+  { src: "/images/gallery-raw-print-batch.jpg", alt: "[Placeholder]", tall: false },
+  { src: "/images/gallery-dlyte-operator.jpg", alt: "[Placeholder]", tall: true },
+  { src: "/images/gallery-finished-model-3.jpg", alt: "[Placeholder]", tall: false },
+  { src: "/images/gallery-dlyte-sintering.jpg", alt: "[Placeholder]", tall: false },
 ]
 
 export function GalleryPreview() {
   return (
-    <section className="bg-secondary py-20 lg:py-28" aria-label="Gallery Preview">
+    <section className="bg-secondary py-14 lg:py-20" aria-label="Gallery Preview">
       <div className="mx-auto max-w-6xl px-5">
-        <h2 className="font-[family-name:var(--font-heading)] text-center text-[clamp(1.5rem,3vw,2.5rem)] font-normal text-foreground">
-          [Placeholder Heading]
-        </h2>
-        <p className="mt-2 text-center text-sm tracking-wider text-muted-foreground">
-          [Placeholder subtitle]
-        </p>
+        {/* Left-aligned header with inline link -- Fix #1, #3 */}
+        <div className="flex items-end justify-between">
+          <div>
+            <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground">
+              OUR WORK
+            </p>
+            <h2 className="mt-2 font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.5rem)] font-normal text-foreground">
+              [Placeholder Heading]
+            </h2>
+          </div>
+          {/* Text link instead of bordered button -- Fix #3 */}
+          <Link
+            href="/gallery"
+            className="group hidden items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-muted-foreground md:flex"
+          >
+            View all
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
 
-        <div className="mt-14 grid auto-rows-[200px] grid-cols-2 gap-3 md:grid-cols-3">
+        {/* Asymmetric masonry grid -- Fix #5 */}
+        <div className="mt-10 grid auto-rows-[180px] grid-cols-2 gap-2.5 md:grid-cols-3 lg:auto-rows-[220px]">
           {previewImages.map((img, i) => (
             <div
               key={i}
-              className={`group overflow-hidden ${img.span}`}
+              className={`group overflow-hidden ${img.tall ? "row-span-2" : ""}`}
             >
               <img
                 src={img.src}
@@ -36,12 +51,14 @@ export function GalleryPreview() {
           ))}
         </div>
 
-        <div className="mt-10 text-center">
+        {/* Mobile-only link */}
+        <div className="mt-8 md:hidden">
           <Link
             href="/gallery"
-            className="inline-flex items-center border border-foreground px-10 py-3 text-sm tracking-wider text-foreground transition-colors hover:bg-foreground hover:text-white"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-foreground"
           >
-            View Full Gallery
+            View all work
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
       </div>

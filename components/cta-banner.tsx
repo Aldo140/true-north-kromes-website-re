@@ -1,9 +1,10 @@
 import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 
 export function CTABanner() {
   return (
     <section
-      className="relative py-20 lg:py-28"
+      className="relative py-16 lg:py-24"
       aria-label="Call to action"
     >
       <div className="absolute inset-0">
@@ -16,25 +17,30 @@ export function CTABanner() {
         <div className="absolute inset-0 bg-[#1c1f26]/80" />
       </div>
 
-      <div className="relative mx-auto max-w-3xl px-5 text-center">
-        <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3.5vw,2.5rem)] font-normal text-white text-balance">
-          [Placeholder Heading]
-        </h2>
-        <p className="mt-4 text-base leading-relaxed text-white/75">
-          [Placeholder description -- client to supply CTA copy.]
-        </p>
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+      {/* Left-aligned with asymmetric two-column -- Fix #1, varied spacing -- Fix #2 */}
+      <div className="relative mx-auto flex max-w-5xl flex-col gap-8 px-8 lg:flex-row lg:items-center lg:justify-between lg:px-16">
+        <div className="max-w-lg">
+          <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3.5vw,2.5rem)] font-normal text-white text-balance">
+            [Placeholder Heading]
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-white/65">
+            [Placeholder description -- client to supply CTA copy.]
+          </p>
+        </div>
+        {/* Different button styles side by side -- Fix #3 */}
+        <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
           <Link
             href="/contact"
-            className="inline-flex items-center border border-white bg-white px-10 py-3 text-sm tracking-wider text-foreground transition-colors hover:bg-transparent hover:text-white"
+            className="group inline-flex items-center gap-2 bg-white px-8 py-3 text-sm font-medium tracking-wider text-foreground transition-opacity hover:opacity-90"
           >
             Get Started
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <a
             href="tel:+18076247222"
-            className="inline-flex items-center border border-white/50 px-10 py-3 text-sm tracking-wider text-white transition-colors hover:bg-white hover:text-foreground"
+            className="inline-flex items-center px-8 py-3 text-sm tracking-wider text-white/80 underline underline-offset-4 decoration-white/30 transition-colors hover:text-white hover:decoration-white/60"
           >
-            Call 807.624.7222
+            807.624.7222
           </a>
         </div>
       </div>

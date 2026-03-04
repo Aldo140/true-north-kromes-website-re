@@ -1,5 +1,3 @@
-import { ChevronDown } from "lucide-react"
-
 const reasons = [
   {
     title: "Custom Metal Frameworks",
@@ -32,18 +30,17 @@ const reasons = [
 export function WhyTNK() {
   return (
     <section className="bg-white" aria-label="Why Choose TNK">
-      {/* Top heading on white */}
-      <div className="py-14 text-center lg:py-20">
-        <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.5rem)] font-normal text-foreground">
-          Why Choose True North Kromes?
-        </h2>
-        <p className="mt-2 text-sm tracking-wider text-muted-foreground">
-          Our Services Can Help With
+      {/* Left-aligned heading -- Fix #1, no chevron -- Fix #4 */}
+      <div className="mx-auto max-w-5xl px-5 pt-16 pb-6 lg:pt-24 lg:pb-10">
+        <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground">
+          WHY CHOOSE US
         </p>
-        <ChevronDown className="mx-auto mt-3 h-5 w-5 text-foreground/40" aria-hidden="true" />
+        <h2 className="mt-2 font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.5rem)] font-normal text-foreground">
+          Why True North Kromes?
+        </h2>
       </div>
 
-      {/* Forest background with card overlay */}
+      {/* Lab background with asymmetric card grid -- Fix #5 */}
       <div className="relative min-h-[500px] pb-16 lg:pb-24">
         <div className="absolute inset-0">
           <img
@@ -57,16 +54,32 @@ export function WhyTNK() {
 
         <div className="relative mx-auto max-w-5xl px-5 pt-8 lg:pt-16">
           <div className="bg-white/95 backdrop-blur-sm">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-              {reasons.map((reason, i) => (
+            {/* 2-column top row, full-width bottom -- Fix #5 breaks grid symmetry */}
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              {reasons.slice(0, 4).map((reason) => (
                 <div
                   key={reason.title}
-                  className={`border border-border/60 p-7 lg:p-9 ${i >= 3 ? "" : ""}`}
+                  className="border border-border/40 p-7 lg:p-9"
                 >
-                  <h3 className="text-lg font-semibold text-foreground">
+                  <h3 className="text-base font-semibold text-foreground">
                     {reason.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {reason.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              {reasons.slice(4).map((reason) => (
+                <div
+                  key={reason.title}
+                  className="border border-border/40 p-7 lg:p-9"
+                >
+                  <h3 className="text-base font-semibold text-foreground">
+                    {reason.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {reason.description}
                   </p>
                 </div>
