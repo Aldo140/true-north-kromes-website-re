@@ -1,23 +1,18 @@
 import type { Metadata } from "next"
-import { PageHeader } from "@/components/page-header"
 import { ContactForm } from "@/components/contact-form"
-import { GoogleProfile } from "@/components/google-profile"
+import { ContactInfo } from "@/components/contact-info"
 
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "[Placeholder meta description -- client to supply before launch.]",
+    "Get in touch with True North Kromes. Contact us for 3D printed partial denture frameworks.",
 }
 
 export default function ContactPage() {
   return (
     <>
-      <PageHeader
-        title="Contact Us"
-        subtitle="[Placeholder subtitle -- client to supply before launch.]"
-      />
       <ContactForm />
-      <GoogleProfile />
+      <ContactInfo />
     </>
   )
 }

@@ -1,27 +1,13 @@
 import Link from "next/link"
 import { Mail, Phone, MapPin } from "lucide-react"
 
-const aboutLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Our Work", href: "/gallery" },
-  { label: "Latest Updates", href: "/updates" },
-  { label: "FAQ", href: "/faq" },
-]
-
-const productLinks = [
-  { label: "3D Design", href: "/services" },
-  { label: "3D Printing", href: "/services" },
-  { label: "Post-Processing", href: "/services" },
-  { label: "Downloads", href: "/downloads" },
-]
-
 export function Footer() {
   return (
     <footer className="dark-chrome text-chrome-light" aria-label="Site footer">
       <div className="h-px bg-chrome-dark/40" />
       <div className="mx-auto max-w-6xl px-5 py-16">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Col 1: Logo + badge */}
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Col 1: Logo */}
           <div>
             <Link href="/" className="inline-block" aria-label="True North Kromes - Home">
               <img
@@ -31,50 +17,40 @@ export function Footer() {
               />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-chrome-mid">
-              One-Stop Metal Printing Service
+              A Dental Lab Specializing in 3D Printing Metal Partial Denture Frameworks
             </p>
-
           </div>
 
-          {/* Col 2: About Us */}
+          {/* Col 2: Navigation */}
           <div>
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-white">
-              About Us
+              Navigation
             </h4>
             <ul className="flex flex-col gap-2">
-              {aboutLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-chrome-mid transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="/" className="text-sm text-chrome-mid transition-colors hover:text-white">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-sm text-chrome-mid transition-colors hover:text-white">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm text-chrome-mid transition-colors hover:text-white">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer" className="text-sm text-chrome-mid transition-colors hover:text-white">
+                  Client Portal
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Col 3: Products */}
-          <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-white">
-              Products
-            </h4>
-            <ul className="flex flex-col gap-2">
-              {productLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-chrome-mid transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Col 4: Contact Us */}
+          {/* Col 3: Contact Us */}
           <div>
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-wider text-white">
               Contact Us
@@ -82,7 +58,7 @@ export function Footer() {
             <ul className="flex flex-col gap-3">
               <li className="flex items-start gap-2 text-sm text-chrome-mid">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                105 1st Street West, #107, Cochrane, AB T4C 0A4
+                107-105 1st Street W, Cochrane, Alberta, T4C0A4
               </li>
               <li>
                 <a
@@ -99,7 +75,7 @@ export function Footer() {
                   className="flex items-center gap-2 text-sm text-chrome-mid transition-colors hover:text-white"
                 >
                   <Phone className="h-4 w-4 shrink-0" />
-                  (807) 624-7222
+                  807.624.7222
                 </a>
               </li>
             </ul>

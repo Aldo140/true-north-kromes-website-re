@@ -67,16 +67,12 @@ export function ContactForm() {
     "w-full rounded-md border border-border bg-card px-4 py-2.5 text-sm text-foreground placeholder-muted-foreground transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
 
   return (
-    <section className="bg-background py-16 lg:py-24" aria-label="Contact Form">
+    <section className="bg-background pt-36 pb-16 lg:pt-44 lg:pb-24" aria-label="Contact Form">
       <div className="mx-auto max-w-2xl px-5">
-        <div className="mb-10">
-          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground text-balance">
-            {"Let's Get Started"}
+        <div className="mb-10 text-center">
+          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-light italic tracking-tight text-foreground">
+            Get in Touch
           </h2>
-          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-            Fill out the form below and we will send you a personal link to upload your files.
-            Our pricing depends on your volume, so we can provide a custom quote tailored to your needs.
-          </p>
         </div>
 
         <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
