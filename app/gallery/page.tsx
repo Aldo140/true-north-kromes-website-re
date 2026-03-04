@@ -3,30 +3,30 @@
 import { useState } from "react"
 import { X } from "lucide-react"
 
-const categories = ["All", "Frameworks", "Process", "Lab"]
+const categories = ["All", "[Placeholder]", "[Placeholder]", "[Placeholder]"]
 
 const images = [
-  { src: "/images/framework-polished.jpg", alt: "Polished chrome framework", category: "Frameworks" },
-  { src: "/images/framework-detail.jpg", alt: "Framework detail close-up", category: "Frameworks" },
-  { src: "/images/framework-full.jpg", alt: "Full upper framework", category: "Frameworks" },
-  { src: "/images/framework-clasps.jpg", alt: "Framework with clasps", category: "Frameworks" },
-  { src: "/images/framework-clasps2.jpg", alt: "Precision clasps detail", category: "Frameworks" },
-  { src: "/images/framework-lower.jpg", alt: "Lower partial framework", category: "Frameworks" },
-  { src: "/images/framework-profile.jpg", alt: "Framework side profile", category: "Frameworks" },
-  { src: "/images/framework-overhead.jpg", alt: "Overhead framework view", category: "Frameworks" },
-  { src: "/images/palatal-framework.jpg", alt: "Palatal framework", category: "Frameworks" },
-  { src: "/images/palatal-plate.jpg", alt: "Palatal plate held in glove", category: "Frameworks" },
-  { src: "/images/framework-raw.jpg", alt: "Raw printed framework", category: "Process" },
-  { src: "/images/printer-buildplate.jpg", alt: "Frameworks on build plate", category: "Process" },
-  { src: "/images/printer-window.jpg", alt: "3D printer in operation", category: "Process" },
-  { src: "/images/printer-branded.jpg", alt: "TNK branded printer", category: "Process" },
-  { src: "/images/dlyte-polishing.jpg", alt: "DLyte electro-polishing", category: "Process" },
-  { src: "/images/polishing-process.jpg", alt: "Polishing in progress", category: "Process" },
-  { src: "/images/powder-bed.jpg", alt: "Metal powder bed", category: "Process" },
-  { src: "/images/team-selfie.jpg", alt: "The TNK team", category: "Lab" },
-  { src: "/images/team-lab.jpg", alt: "Team in the lab", category: "Lab" },
-  { src: "/images/team-building.jpg", alt: "Team outside the building", category: "Lab" },
-  { src: "/images/lab-facility.jpg", alt: "Lab facility", category: "Lab" },
+  { src: "/images/framework-polished.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/framework-detail.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/framework-full.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/framework-clasps.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/framework-clasps2.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/framework-lower.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/framework-profile.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/framework-overhead.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/palatal-framework.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/palatal-plate.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/framework-raw.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/printer-buildplate.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/printer-window.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/printer-branded.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/dlyte-polishing.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/polishing-process.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/powder-bed.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/team-selfie.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/team-lab.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/team-building.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
+  { src: "/images/lab-facility.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
 ]
 
 export default function GalleryPage() {
@@ -43,7 +43,7 @@ export default function GalleryPage() {
             Gallery
           </h1>
           <p className="mt-2 text-center text-sm tracking-wider text-muted-foreground">
-            A Look at Our Work and Process
+            [Placeholder subtitle]
           </p>
 
           {/* Filter tabs */}

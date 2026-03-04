@@ -23,10 +23,10 @@ export function Testimonials() {
     <section className="bg-white py-20 lg:py-28" aria-label="Testimonials">
       <div className="mx-auto max-w-5xl px-5">
         <h2 className="text-center text-[clamp(1.5rem,3vw,2.5rem)] font-light text-foreground">
-          What Our Clients Say
+          [Placeholder Heading]
         </h2>
         <p className="mt-2 text-center text-sm tracking-wider text-muted-foreground">
-          Trusted by Dental Labs and Clinics Across Canada
+          [Placeholder subtitle]
         </p>
 
         <div className="mt-14 grid gap-8 md:grid-cols-3">

@@ -4,26 +4,26 @@ const steps = [
   {
     icon: Upload,
     step: "01",
-    title: "Send Your Scans",
-    description: "Upload your digital scans or ship your models through our secure client portal.",
+    title: "[Placeholder Step Title]",
+    description: "[Placeholder -- client to supply step 1 description.]",
   },
   {
     icon: PenTool,
     step: "02",
-    title: "Digital Design",
-    description: "Our technicians design your framework using advanced CAD software for a precise fit.",
+    title: "[Placeholder Step Title]",
+    description: "[Placeholder -- client to supply step 2 description.]",
   },
   {
     icon: Printer,
     step: "03",
-    title: "3D Metal Printing",
-    description: "Frameworks are 3D printed in Mediloy RPD alloy using laser sintering technology.",
+    title: "[Placeholder Step Title]",
+    description: "[Placeholder -- client to supply step 3 description.]",
   },
   {
     icon: Package,
     step: "04",
-    title: "Finish & Deliver",
-    description: "Each piece is polished, quality-checked, and shipped back to your lab or clinic.",
+    title: "[Placeholder Step Title]",
+    description: "[Placeholder -- client to supply step 4 description.]",
   },
 ]
 
@@ -32,10 +32,10 @@ export function Process() {
     <section className="bg-white py-20 lg:py-28" aria-label="Our Process">
       <div className="mx-auto max-w-5xl px-5">
         <h2 className="text-center text-[clamp(1.5rem,3vw,2.5rem)] font-light text-foreground">
-          How It Works
+          [Placeholder Heading]
         </h2>
         <p className="mt-2 text-center text-sm tracking-wider text-muted-foreground">
-          From Scan to Finished Framework
+          [Placeholder subtitle]
         </p>
 
         <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">

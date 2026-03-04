@@ -8,21 +8,21 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    title: "3D Metal Printing",
+    title: "[Placeholder Service Title]",
     description:
-      "We use state-of-the-art laser sintering technology to produce partial denture frameworks from Mediloy RPD alloy. Every framework is printed with micron-level accuracy for a precise, consistent fit.",
+      "[Placeholder -- client to supply service description.]",
     image: "/images/service-printing.jpg",
   },
   {
-    title: "Digital CAD Design",
+    title: "[Placeholder Service Title]",
     description:
-      "Our technicians design each framework digitally using industry-leading CAD software. Digital design eliminates traditional wax-up errors and allows for repeatable, high-precision results every time.",
+      "[Placeholder -- client to supply service description.]",
     image: "/images/cad-design.png",
   },
   {
-    title: "DLyte Electro-Polishing",
+    title: "[Placeholder Service Title]",
     description:
-      "We finish every framework using DLyte dry electro-polishing technology, achieving a mirror-smooth surface that is biocompatible, comfortable for patients, and consistent across every unit.",
+      "[Placeholder -- client to supply service description.]",
     image: "/images/dlyte-polishing.jpg",
   },
 ]
@@ -52,7 +52,7 @@ export default function ServicesPage() {
             Our Services
           </h1>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-            A fully integrated digital workflow — from scan to finished framework.
+            [Placeholder subtitle]
           </p>
         </div>
       </section>
@@ -113,10 +113,10 @@ export default function ServicesPage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-3xl px-5 text-center">
           <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-light text-foreground">
-            Ready to Get Started?
+            [Placeholder Heading]
           </h2>
           <p className="mt-3 text-base text-muted-foreground">
-            Contact us to discuss your needs or request a personal upload link for your digital files.
+            [Placeholder -- client to supply CTA description.]
           </p>
           <div className="mt-8">
             <Link

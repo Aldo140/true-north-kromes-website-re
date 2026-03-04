@@ -18,11 +18,10 @@ export function CTABanner() {
 
       <div className="relative mx-auto max-w-3xl px-5 text-center">
         <h2 className="text-[clamp(1.5rem,3.5vw,2.5rem)] font-light text-white text-balance">
-          Ready to Streamline Your Workflow?
+          [Placeholder Heading]
         </h2>
         <p className="mt-4 text-base leading-relaxed text-white/75">
-          Get started with True North Kromes today. Send us your scans and
-          receive precision 3D-printed frameworks delivered to your door.
+          [Placeholder description -- client to supply CTA copy.]
         </p>
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link
