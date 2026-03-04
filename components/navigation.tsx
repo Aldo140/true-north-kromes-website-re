@@ -32,25 +32,14 @@ export function Navigation() {
           </Link>
 
           {/* Mobile hamburger only */}
-          <div className="flex items-center gap-3 lg:hidden">
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Client Portal Login"
-              className="text-[#999] transition-colors hover:text-foreground"
-            >
-              <UserCircle className="h-7 w-7" />
-            </a>
-            <button
-              className="text-foreground"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileOpen}
-            >
-              {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
+          <button
+            className="text-foreground lg:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
 
         {/* Desktop links + portal icon */}
@@ -105,6 +94,16 @@ export function Navigation() {
                   </Link>
                 )
               })}
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center gap-2 border-t border-border/30 pt-5 font-sans text-[15px] font-normal tracking-[0.08em] text-[#999] transition-colors hover:text-foreground"
+              >
+                <UserCircle className="h-5 w-5" />
+                Client Portal
+              </a>
             </div>
           </div>
         )}
