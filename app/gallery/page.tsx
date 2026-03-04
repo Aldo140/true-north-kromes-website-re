@@ -3,8 +3,6 @@
 import { useState } from "react"
 import { X } from "lucide-react"
 
-const categories = ["All", "[Placeholder]", "[Placeholder]", "[Placeholder]"]
-
 const images = [
   { src: "/images/framework-polished.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
   { src: "/images/framework-detail.jpg", alt: "[Placeholder]", category: "[Placeholder]" },
@@ -30,10 +28,7 @@ const images = [
 ]
 
 export default function GalleryPage() {
-  const [filter, setFilter] = useState("All")
   const [lightbox, setLightbox] = useState<string | null>(null)
-
-  const filtered = filter === "All" ? images : images.filter((img) => img.category === filter)
 
   return (
     <>
@@ -46,26 +41,9 @@ export default function GalleryPage() {
             [Placeholder subtitle]
           </p>
 
-          {/* Filter tabs */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setFilter(cat)}
-                className={`border px-6 py-2 text-sm tracking-wider transition-colors ${
-                  filter === cat
-                    ? "border-foreground bg-foreground text-white"
-                    : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
           {/* Image grid */}
           <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
-            {filtered.map((img, i) => (
+            {images.map((img, i) => (
               <button
                 key={img.src + i}
                 onClick={() => setLightbox(img.src)}
