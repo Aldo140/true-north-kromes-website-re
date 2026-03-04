@@ -20,7 +20,6 @@ export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
-  const isHome = pathname === "/"
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -29,45 +28,26 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  const isTransparent = isHome && !scrolled && !mobileOpen
-  const solidClass = "bg-background/95 shadow-sm backdrop-blur-sm"
-  const transparentClass = "bg-transparent"
-
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        isTransparent ? transparentClass : solidClass
+      className={`fixed left-0 right-0 top-0 z-50 bg-white transition-shadow duration-300 ${
+        scrolled ? "shadow-sm" : ""
       }`}
     >
-      {/* Thin metallic accent bar */}
-      <div
-        className={`h-[2px] transition-opacity duration-300 ${
-          isTransparent ? "opacity-0" : "opacity-100"
-        }`}
-        style={{
-          background:
-            "linear-gradient(90deg, var(--primary) 0%, var(--accent) 50%, var(--primary) 100%)",
-        }}
-      />
-
       <nav aria-label="Main navigation">
-        {/* Top row: centered logo + mobile hamburger */}
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 pt-4 pb-2 lg:justify-center">
+        {/* Top row: large centered logo + mobile hamburger */}
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 pt-5 pb-3 lg:justify-center">
           <Link href="/" className="shrink-0" aria-label="True North Kromes - Home">
             <img
               src="/images/logo.png"
               alt="True North Kromes"
-              className={`h-16 w-auto transition-all duration-300 lg:h-20 ${
-                isTransparent ? "brightness-0 invert" : ""
-              }`}
+              className="h-20 w-auto lg:h-24"
             />
           </Link>
 
           {/* Mobile hamburger */}
           <button
-            className={`transition-colors lg:hidden ${
-              isTransparent ? "text-white" : "text-foreground"
-            }`}
+            className="text-foreground transition-colors lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -77,42 +57,25 @@ export function Navigation() {
         </div>
 
         {/* Desktop nav links row: centered below logo */}
-        <div className="mx-auto hidden max-w-6xl items-center justify-center gap-8 px-5 pb-3 lg:flex">
+        <div className="mx-auto hidden max-w-5xl items-center justify-center gap-10 px-5 pb-4 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`relative font-[family-name:var(--font-heading)] text-[13px] font-semibold uppercase tracking-wider transition-colors ${
-                isTransparent
-                  ? pathname === link.href
-                    ? "text-white"
-                    : "text-white/70 hover:text-white"
-                  : pathname === link.href
-                    ? "text-primary"
-                    : "text-foreground/70 hover:text-primary"
+              className={`text-[15px] tracking-wide transition-colors ${
+                pathname === link.href
+                  ? "text-[#8b7d3c]"
+                  : "text-foreground/60 hover:text-foreground"
               }`}
             >
               {link.label}
-              {pathname === link.href && (
-                <span
-                  className={`absolute -bottom-2 left-0 right-0 h-[2px] transition-colors duration-300 ${
-                    isTransparent ? "bg-white" : "bg-primary"
-                  }`}
-                />
-              )}
             </Link>
           ))}
-
-          {/* Client Portal button */}
           <a
             href="#"
             target="_blank"
             rel="noopener noreferrer"
-            className={`ml-2 rounded border px-4 py-1.5 font-[family-name:var(--font-heading)] text-[13px] font-semibold uppercase tracking-wider transition-colors ${
-              isTransparent
-                ? "border-white/40 text-white hover:bg-white/10"
-                : "border-primary/40 text-primary hover:bg-primary/5"
-            }`}
+            className="text-[15px] tracking-wide text-foreground/60 transition-colors hover:text-foreground"
           >
             Client Portal
           </a>
@@ -120,15 +83,17 @@ export function Navigation() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="border-t border-border bg-background px-5 pb-5 pt-4 lg:hidden">
+          <div className="border-t border-border/50 bg-white px-5 pb-5 pt-4 lg:hidden">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`font-[family-name:var(--font-heading)] text-[13px] font-semibold uppercase tracking-wider transition-colors hover:text-primary ${
-                    pathname === link.href ? "text-primary" : "text-foreground/70"
+                  className={`text-[15px] tracking-wide transition-colors ${
+                    pathname === link.href
+                      ? "text-[#8b7d3c]"
+                      : "text-foreground/60 hover:text-foreground"
                   }`}
                 >
                   {link.label}
@@ -139,7 +104,7 @@ export function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 rounded border border-primary/40 px-4 py-2 text-center font-[family-name:var(--font-heading)] text-[13px] font-semibold uppercase tracking-wider text-primary transition-colors hover:bg-primary/5"
+                className="text-[15px] tracking-wide text-foreground/60 transition-colors hover:text-foreground"
               >
                 Client Portal
               </a>
@@ -147,13 +112,6 @@ export function Navigation() {
           </div>
         )}
       </nav>
-
-      {/* Bottom separator line */}
-      <div
-        className={`h-px transition-all duration-300 ${
-          isTransparent ? "bg-transparent" : "bg-border"
-        }`}
-      />
     </header>
   )
 }
