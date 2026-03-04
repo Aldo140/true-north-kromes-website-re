@@ -86,6 +86,18 @@ export function Navigation() {
                 )}
               </Link>
             ))}
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`ml-2 rounded border px-4 py-2 font-[family-name:var(--font-heading)] text-[13px] font-semibold uppercase tracking-wider transition-colors ${
+                isTransparent
+                  ? "border-white/40 text-white hover:bg-white/10"
+                  : "border-primary/40 text-primary hover:bg-primary/5"
+              }`}
+            >
+              Client Portal
+            </a>
           </div>
 
           {/* Mobile hamburger */}
@@ -115,6 +127,15 @@ export function Navigation() {
                   {link.label}
                 </Link>
               ))}
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileOpen(false)}
+                className="mt-2 rounded border border-primary/40 px-4 py-2 text-center font-[family-name:var(--font-heading)] text-[13px] font-semibold uppercase tracking-wider text-primary transition-colors hover:bg-primary/5"
+              >
+                Client Portal
+              </a>
             </div>
           </div>
         )}
