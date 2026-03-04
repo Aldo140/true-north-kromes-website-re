@@ -48,7 +48,7 @@ export default function ServicesPage() {
       {/* Header */}
       <section className="bg-white pt-44 pb-16 lg:pt-52 lg:pb-20">
         <div className="mx-auto max-w-4xl px-5 text-center">
-          <h1 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-light text-foreground">
+          <h1 className="font-[family-name:var(--font-heading)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-foreground">
             Our Services
           </h1>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
@@ -93,7 +93,7 @@ export default function ServicesPage() {
       {/* Additional services */}
       <section className="bg-secondary py-20 lg:py-28">
         <div className="mx-auto max-w-5xl px-5">
-          <h2 className="text-center text-[clamp(1.5rem,3vw,2.25rem)] font-light text-foreground">
+          <h2 className="font-[family-name:var(--font-heading)] text-center text-[clamp(1.5rem,3vw,2.25rem)] font-normal text-foreground">
             Additional Services
           </h2>
           <div className="mt-14 grid gap-8 md:grid-cols-3">
@@ -112,7 +112,7 @@ export default function ServicesPage() {
       {/* CTA */}
       <section className="bg-white py-20 lg:py-28">
         <div className="mx-auto max-w-3xl px-5 text-center">
-          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-light text-foreground">
+          <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.25rem)] font-normal text-foreground">
             [Placeholder Heading]
           </h2>
           <p className="mt-3 text-base text-muted-foreground">

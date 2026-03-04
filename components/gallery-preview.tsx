@@ -13,7 +13,7 @@ export function GalleryPreview() {
   return (
     <section className="bg-secondary py-20 lg:py-28" aria-label="Gallery Preview">
       <div className="mx-auto max-w-6xl px-5">
-        <h2 className="text-center text-[clamp(1.5rem,3vw,2.5rem)] font-light text-foreground">
+        <h2 className="font-[family-name:var(--font-heading)] text-center text-[clamp(1.5rem,3vw,2.5rem)] font-normal text-foreground">
           [Placeholder Heading]
         </h2>
         <p className="mt-2 text-center text-sm tracking-wider text-muted-foreground">

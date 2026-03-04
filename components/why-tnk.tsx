@@ -34,7 +34,7 @@ export function WhyTNK() {
     <section className="bg-white" aria-label="Why Choose TNK">
       {/* Top heading on white */}
       <div className="py-14 text-center lg:py-20">
-        <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-light text-foreground">
+        <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.5rem)] font-normal text-foreground">
           Why Choose True North Kromes?
         </h2>
         <p className="mt-2 text-sm tracking-wider text-muted-foreground">

@@ -48,7 +48,7 @@ export function ContactForm() {
     return (
       <section className="bg-white py-16 lg:py-24" aria-label="Contact">
         <div className="mx-auto max-w-2xl px-5 text-center">
-          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-light italic text-foreground">
+          <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.25rem)] font-normal italic text-foreground">
             Thank You!
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -69,7 +69,7 @@ export function ContactForm() {
     <section className="bg-white pt-36 pb-16 lg:pt-44 lg:pb-24" aria-label="Contact Form">
       <div className="mx-auto max-w-2xl px-5">
         <div className="mb-14 text-center">
-          <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-light italic text-foreground">
+          <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.5rem)] font-normal italic text-foreground">
             Get in Touch
           </h2>
         </div>

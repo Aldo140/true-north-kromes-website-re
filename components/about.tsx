@@ -14,7 +14,7 @@ export function About() {
 
         {/* Text content */}
         <div className="px-8 py-12 lg:px-14 lg:py-16">
-          <h2 className="text-[clamp(1.75rem,3vw,2.5rem)] font-light text-foreground">
+          <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.75rem,3vw,2.5rem)] font-normal text-foreground">
             Our Mission
           </h2>
 

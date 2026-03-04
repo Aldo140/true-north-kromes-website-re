@@ -1,13 +1,14 @@
 import type { Metadata } from "next"
-import { Cormorant_Garamond } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
-import "./globals.css"
+import { DM_Sans, Playfair_Display } from "next/font/google"
 
-const _cormorant = Cormorant_Garamond({
+const _dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+})
+
+const _playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 })
 
 export const metadata: Metadata = {

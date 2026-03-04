@@ -17,7 +17,7 @@ export function CTABanner() {
       </div>
 
       <div className="relative mx-auto max-w-3xl px-5 text-center">
-        <h2 className="text-[clamp(1.5rem,3.5vw,2.5rem)] font-light text-white text-balance">
+        <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3.5vw,2.5rem)] font-normal text-white text-balance">
           [Placeholder Heading]
         </h2>
         <p className="mt-4 text-base leading-relaxed text-white/75">

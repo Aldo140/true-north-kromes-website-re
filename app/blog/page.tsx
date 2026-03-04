@@ -49,7 +49,7 @@ export default function BlogPage() {
   return (
     <section className="bg-white pt-44 pb-20 lg:pt-52 lg:pb-28">
       <div className="mx-auto max-w-5xl px-5">
-        <h1 className="text-center font-sans text-[clamp(1.75rem,3.5vw,2.5rem)] font-light text-foreground">
+        <h1 className="font-[family-name:var(--font-heading)] text-center text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-foreground">
           Blog
         </h1>
         <p className="mt-2 text-center text-base text-muted-foreground">

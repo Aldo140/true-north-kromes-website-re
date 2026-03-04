@@ -17,7 +17,7 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative mx-auto flex max-w-4xl flex-col items-center justify-center px-5 pt-44 pb-24 text-center lg:pt-56 lg:pb-32">
-        <h1 className="text-[clamp(2.25rem,5.5vw,4rem)] font-light leading-[1.1] text-white text-balance">
+        <h1 className="font-[family-name:var(--font-heading)] text-[clamp(2.25rem,5.5vw,4rem)] font-normal leading-[1.1] text-white text-balance">
           Welcome to True North Kromes
         </h1>
         <p className="mt-6 max-w-2xl text-[clamp(0.9rem,1.5vw,1.15rem)] font-light tracking-wider text-white/80">
