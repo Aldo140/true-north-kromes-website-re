@@ -87,16 +87,32 @@ export function About() {
 
           <div>
             <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-foreground">
-              About TNK
+              Our Mission
             </h2>
 
-            <p className="mt-5 text-base leading-[1.8] text-muted-foreground">
-              True North Kromes (TNK) provides complete support throughout the entire
-              production cycle. Our workflow delivers high precision, high efficiency,
-              and significant cost savings — enabling laboratories and clinics to
-              produce frameworks that are more accurate, consistent, and customized than
-              ever before.
-            </p>
+            <div className="mt-5 flex flex-col gap-4 text-base leading-[1.8] text-muted-foreground">
+              <p>
+                True North Kromes was established to address the need for superior partial
+                denture frames that truly meet the needs of patients. With a foundation
+                built on the combined expertise of a Denturist and a Lab Technologist, we
+                have a deep understanding of the challenges faced by both dental labs and
+                clinicians. This unique blend of experience allows us to bridge the gap
+                between these two crucial areas of dental care, ensuring we deliver
+                products that not only meet but exceed expectations.
+              </p>
+              <p>
+                We specialize in one thing, and one thing only — partial denture
+                frameworks. By narrowing our focus, we have been able to hone our craft
+                and develop solutions that are tailored specifically to this area of dental
+                technology. Our goal is simple yet powerful: to help both current and
+                future customers utilize the full potential of technology to streamline their
+                processes, increase efficiency, and ultimately improve the quality of care
+                they provide to their patients. We are committed to staying at the
+                forefront of innovation in denture technology, ensuring that our clients are
+                equipped with the best tools available to enhance both their workflow and
+                the outcomes they deliver.
+              </p>
+            </div>
           </div>
         </div>
       </div>
