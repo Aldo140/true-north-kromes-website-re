@@ -11,19 +11,19 @@ const services = [
     title: "[Placeholder Service Title]",
     description:
       "[Placeholder -- client to supply service description.]",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/gallery-raw-print-batch.jpg",
   },
   {
     title: "[Placeholder Service Title]",
     description:
       "[Placeholder -- client to supply service description.]",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/gallery-dlyte-sintering.jpg",
   },
   {
     title: "[Placeholder Service Title]",
     description:
       "[Placeholder -- client to supply service description.]",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/gallery-polished-framework-gray.jpg",
   },
 ]
 

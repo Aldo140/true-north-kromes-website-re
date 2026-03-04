@@ -8,12 +8,12 @@ export function CTABanner() {
     >
       <div className="absolute inset-0">
         <img
-          src="/placeholder.svg?height=600&width=1920"
-          alt="[Placeholder image]"
+          src="/images/gallery-lab-wide.jpg"
+          alt=""
           className="h-full w-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-[#2c2c2c]/80" />
       </div>
 
       <div className="relative mx-auto max-w-3xl px-5 text-center">

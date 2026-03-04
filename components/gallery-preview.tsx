@@ -1,12 +1,12 @@
 import Link from "next/link"
 
 const previewImages = [
-  { src: "/images/gallery-polished-framework-gray.jpg", alt: "Polished chrome framework on gray background" },
-  { src: "/images/gallery-finished-model-1.jpg", alt: "Finished framework seated on dental model" },
-  { src: "/images/gallery-mesh-partial-1.jpg", alt: "Precision mesh partial denture framework" },
-  { src: "/images/gallery-framework-standalone.jpg", alt: "Standalone chrome framework detail" },
-  { src: "/images/gallery-finished-model-3.jpg", alt: "Completed framework on model" },
-  { src: "/images/gallery-dlyte-sintering.jpg", alt: "DLyte sintering process in action" },
+  { src: "/images/gallery-polished-framework-gray.jpg", alt: "Polished chrome framework", span: "row-span-2" },
+  { src: "/images/gallery-finished-model-1.jpg", alt: "Finished framework on dental model", span: "" },
+  { src: "/images/gallery-mesh-partial-1.jpg", alt: "Precision mesh partial framework", span: "" },
+  { src: "/images/gallery-framework-standalone.jpg", alt: "Chrome framework detail", span: "row-span-2" },
+  { src: "/images/gallery-finished-model-3.jpg", alt: "Completed framework on model", span: "" },
+  { src: "/images/gallery-dlyte-sintering.jpg", alt: "DLyte sintering process", span: "" },
 ]
 
 export function GalleryPreview() {
@@ -20,13 +20,16 @@ export function GalleryPreview() {
           [Placeholder subtitle]
         </p>
 
-        <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-3">
+        <div className="mt-14 grid auto-rows-[200px] grid-cols-2 gap-3 md:grid-cols-3">
           {previewImages.map((img, i) => (
-            <div key={i} className="group overflow-hidden">
+            <div
+              key={i}
+              className={`group overflow-hidden ${img.span}`}
+            >
               <img
                 src={img.src}
                 alt={img.alt}
-                className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
             </div>

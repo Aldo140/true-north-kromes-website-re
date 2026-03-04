@@ -4,13 +4,7 @@ import "./globals.css"
 
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-
-let Analytics: React.ComponentType
-try {
-  Analytics = require("@vercel/analytics/next").Analytics
-} catch {
-  Analytics = () => null
-}
+import { StickyQuote } from "@/components/sticky-quote"
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -60,11 +54,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dmSans.variable} ${playfair.variable} font-sans antialiased`}>
+      <body
+        className={`${dmSans.variable} ${playfair.variable} font-sans antialiased`}
+      >
         <Navigation />
         <main>{children}</main>
         <Footer />
-        <Analytics />
+        <StickyQuote />
       </body>
     </html>
   )
