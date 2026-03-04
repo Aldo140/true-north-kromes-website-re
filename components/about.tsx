@@ -13,8 +13,11 @@ export function About() {
         </div>
 
         {/* Text content */}
-        <div className="px-8 py-12 lg:px-14 lg:py-16">
-          <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.75rem,3vw,2.5rem)] font-normal text-foreground">
+        <div className="px-8 py-12 lg:px-16 lg:py-16">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground/60">
+            About us
+          </p>
+          <h2 className="mt-3 font-serif text-[clamp(1.75rem,3vw,2.5rem)] text-foreground">
             Our Mission
           </h2>
 

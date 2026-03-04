@@ -1,10 +1,8 @@
 import Link from "next/link"
-import { ChevronDown } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="relative min-h-[520px] lg:min-h-[600px]" aria-label="Hero">
-      {/* Background image with side margins like client */}
+    <section className="relative min-h-[540px] lg:min-h-[620px]" aria-label="Hero">
       <div className="absolute inset-x-4 inset-y-0 lg:inset-x-12">
         <img
           src="/images/printer-buildplate.jpg"
@@ -12,26 +10,34 @@ export function Hero() {
           className="h-full w-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30" />
       </div>
 
-      {/* Content */}
-      <div className="relative mx-auto flex max-w-4xl flex-col items-center justify-center px-5 pt-44 pb-24 text-center lg:pt-56 lg:pb-32">
-        <h1 className="font-[family-name:var(--font-heading)] text-[clamp(2.25rem,5.5vw,4rem)] font-normal leading-[1.1] text-white text-balance">
-          Welcome to True North Kromes
-        </h1>
-        <p className="mt-6 max-w-2xl text-[clamp(0.9rem,1.5vw,1.15rem)] font-light tracking-wider text-white/80">
-          A Dental Lab Specializing in 3D Printing Metal Partial Denture Frameworks
+      {/* Left-aligned content -- not centered like every AI template */}
+      <div className="relative mx-auto flex max-w-6xl flex-col justify-end px-8 pt-48 pb-16 lg:px-16 lg:pt-56 lg:pb-20">
+        <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/50">
+          Dental Lab / 3D Metal Printing
         </p>
-        <div className="mt-10">
+        <h1 className="mt-4 max-w-xl font-serif text-[clamp(2rem,5vw,3.5rem)] leading-[1.1] text-white">
+          Precision-printed chrome frameworks
+        </h1>
+        <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/70">
+          A fully integrated digital workflow that transforms how dental professionals manufacture partial dentures.
+        </p>
+        <div className="mt-8 flex items-center gap-4">
           <Link
             href="/contact"
-            className="inline-flex items-center border border-white bg-white px-10 py-3 text-sm tracking-wider text-foreground transition-colors hover:bg-transparent hover:text-white"
+            className="bg-white px-7 py-3 text-sm font-medium tracking-wide text-foreground transition-colors hover:bg-white/90"
           >
-            Contact Us
+            Work with us
+          </Link>
+          <Link
+            href="/gallery"
+            className="border-b border-white/40 pb-0.5 text-sm text-white/70 transition-colors hover:border-white hover:text-white"
+          >
+            See our work
           </Link>
         </div>
-        <ChevronDown className="mt-8 h-6 w-6 text-white/60" aria-hidden="true" />
       </div>
     </section>
   )

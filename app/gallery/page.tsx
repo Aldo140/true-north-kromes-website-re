@@ -25,13 +25,13 @@ export default function GalleryPage() {
   return (
     <>
       <section className="bg-white pt-44 pb-20 lg:pt-52 lg:pb-28">
-        <div className="mx-auto max-w-6xl px-5">
-          <h1 className="font-[family-name:var(--font-heading)] text-center text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-foreground">
+        <div className="mx-auto max-w-6xl px-8 lg:px-16">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground/60">
+            Our work
+          </p>
+          <h1 className="mt-3 font-serif text-[clamp(1.75rem,3.5vw,2.5rem)] text-foreground">
             Gallery
           </h1>
-          <p className="mt-2 text-center text-sm tracking-wider text-muted-foreground">
-            [Placeholder subtitle]
-          </p>
 
           {/* Image grid */}
           <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">

@@ -19,7 +19,7 @@ export function Navigation() {
   const pathname = usePathname()
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 bg-white">
+    <header className="fixed left-0 right-0 top-0 z-50 bg-white/95 backdrop-blur-sm">
       <nav aria-label="Main navigation">
         {/* Logo */}
         <div className="flex items-center justify-between px-6 pt-3 pb-1 lg:justify-center">

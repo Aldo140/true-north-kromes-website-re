@@ -9,20 +9,17 @@ export const metadata: Metadata = {
 const services = [
   {
     title: "[Placeholder Service Title]",
-    description:
-      "[Placeholder -- client to supply service description.]",
+    description: "[Placeholder -- client to supply service description.]",
     image: "/images/gallery-raw-print-batch.jpg",
   },
   {
     title: "[Placeholder Service Title]",
-    description:
-      "[Placeholder -- client to supply service description.]",
+    description: "[Placeholder -- client to supply service description.]",
     image: "/images/gallery-dlyte-sintering.jpg",
   },
   {
     title: "[Placeholder Service Title]",
-    description:
-      "[Placeholder -- client to supply service description.]",
+    description: "[Placeholder -- client to supply service description.]",
     image: "/images/gallery-polished-framework-gray.jpg",
   },
 ]
@@ -47,28 +44,31 @@ export default function ServicesPage() {
     <main>
       {/* Header */}
       <section className="bg-white pt-44 pb-16 lg:pt-52 lg:pb-20">
-        <div className="mx-auto max-w-4xl px-5 text-center">
-          <h1 className="font-[family-name:var(--font-heading)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-foreground">
+        <div className="mx-auto max-w-6xl px-8 lg:px-16">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground/60">
+            What we do
+          </p>
+          <h1 className="mt-3 font-serif text-[clamp(1.75rem,3.5vw,2.5rem)] text-foreground">
             Our Services
           </h1>
-          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+          <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
             [Placeholder subtitle]
           </p>
         </div>
       </section>
 
-      {/* Main services with alternating layout */}
-      <section className="bg-white pb-20 lg:pb-28">
-        <div className="mx-auto max-w-5xl px-5">
-          <div className="flex flex-col gap-20">
+      {/* Main services */}
+      <section className="bg-white pb-24 lg:pb-32">
+        <div className="mx-auto max-w-6xl px-8 lg:px-16">
+          <div className="flex flex-col gap-24">
             {services.map((service, i) => (
               <div
                 key={i}
-                className={`flex flex-col items-center gap-10 lg:flex-row ${
+                className={`flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-16 ${
                   i % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
               >
-                <div className="w-full lg:w-1/2">
+                <div className="w-full overflow-hidden lg:w-1/2">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -77,7 +77,10 @@ export default function ServicesPage() {
                   />
                 </div>
                 <div className="w-full lg:w-1/2">
-                  <h2 className="text-2xl font-semibold text-foreground">
+                  <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground/40">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h2 className="mt-3 font-serif text-2xl text-foreground">
                     {service.title}
                   </h2>
                   <p className="mt-4 text-sm leading-[1.8] text-muted-foreground">
@@ -91,15 +94,18 @@ export default function ServicesPage() {
       </section>
 
       {/* Additional services */}
-      <section className="bg-secondary py-20 lg:py-28">
-        <div className="mx-auto max-w-5xl px-5">
-          <h2 className="font-[family-name:var(--font-heading)] text-center text-[clamp(1.5rem,3vw,2.25rem)] font-normal text-foreground">
+      <section className="border-t border-border bg-secondary py-24 lg:py-32">
+        <div className="mx-auto max-w-6xl px-8 lg:px-16">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground/60">
+            Also available
+          </p>
+          <h2 className="mt-3 font-serif text-[clamp(1.5rem,3vw,2.25rem)] text-foreground">
             Additional Services
           </h2>
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
+          <div className="mt-12 grid gap-px bg-border md:grid-cols-3">
             {additionalServices.map((s) => (
-              <div key={s.title} className="border border-border bg-white p-8">
-                <h3 className="text-lg font-semibold text-foreground">{s.title}</h3>
+              <div key={s.title} className="bg-white p-8 lg:p-10">
+                <h3 className="text-[17px] font-medium text-foreground">{s.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   {s.description}
                 </p>
@@ -110,20 +116,22 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-white py-20 lg:py-28">
-        <div className="mx-auto max-w-3xl px-5 text-center">
-          <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.25rem)] font-normal text-foreground">
-            [Placeholder Heading]
-          </h2>
-          <p className="mt-3 text-base text-muted-foreground">
-            [Placeholder -- client to supply CTA description.]
-          </p>
-          <div className="mt-8">
+      <section className="border-t border-border bg-white py-24 lg:py-32">
+        <div className="mx-auto max-w-6xl px-8 lg:px-16">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+            <div>
+              <h2 className="font-serif text-[clamp(1.5rem,3vw,2.25rem)] text-foreground">
+                [Placeholder Heading]
+              </h2>
+              <p className="mt-2 max-w-md text-sm text-muted-foreground">
+                [Placeholder -- client to supply CTA description.]
+              </p>
+            </div>
             <Link
               href="/contact"
-              className="inline-flex items-center border border-foreground px-10 py-3 text-sm tracking-wider text-foreground transition-colors hover:bg-foreground hover:text-white"
+              className="shrink-0 bg-foreground px-7 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:bg-foreground/90"
             >
-              Contact Us
+              Contact us
             </Link>
           </div>
         </div>
