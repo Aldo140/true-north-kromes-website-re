@@ -6,7 +6,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   return (
     <article className="bg-white pt-44 pb-20 lg:pt-52 lg:pb-28">
-      <div className="mx-auto max-w-3xl px-8 lg:px-16">
+      <div className="mx-auto max-w-3xl px-5">
+        {/* Back link */}
         <Link
           href="/blog"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -15,7 +16,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           Back to Blog
         </Link>
 
-        <div className="mt-8 aspect-[16/9] w-full overflow-hidden bg-muted">
+        {/* Hero image */}
+        <div className="mt-8 aspect-[16/9] w-full bg-muted">
           <img
             src="/placeholder.svg?height=500&width=900"
             alt="[Placeholder]"
@@ -23,45 +25,52 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           />
         </div>
 
+        {/* Meta */}
         <div className="mt-8">
-          <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground/50">
+          <p className="text-xs tracking-widest text-muted-foreground/60 uppercase">
             [Placeholder Date]
           </p>
-          <h1 className="mt-3 font-serif text-[clamp(1.5rem,3vw,2.25rem)] leading-tight text-foreground">
+          <h1 className="font-[family-name:var(--font-heading)] mt-3 text-[clamp(1.5rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
             [Placeholder Blog Title]
           </h1>
         </div>
 
+        {/* Divider */}
         <hr className="mt-6 mb-8 border-border" />
 
-        <div className="space-y-6 text-[15px] leading-[1.9] text-muted-foreground">
+        {/* Body */}
+        <div className="space-y-6 text-base leading-[1.9] text-muted-foreground">
           <p>
-            [Placeholder -- first paragraph of the blog post goes here. Client to supply actual blog content before launch.]
+            [Placeholder -- first paragraph of the blog post goes here. Client to supply actual blog content before launch. This is where the main introduction and hook for the article would be placed.]
           </p>
           <p>
-            [Placeholder -- second paragraph continues the article. Discuss relevant dental industry topics, 3D printing technology updates, or case studies.]
+            [Placeholder -- second paragraph continues the article. Discuss relevant dental industry topics, 3D printing technology updates, or case studies that showcase True North Kromes expertise.]
           </p>
-          <h2 className="text-xl font-medium text-foreground">
+          <h2 className="text-xl font-semibold text-foreground">
             [Placeholder Subheading]
           </h2>
           <p>
-            [Placeholder -- additional content under the subheading.]
+            [Placeholder -- additional content under the subheading. Can include details about processes, materials, patient outcomes, or industry developments.]
           </p>
           <p>
-            [Placeholder -- concluding paragraph with a call to action.]
+            [Placeholder -- concluding paragraph with a call to action. Encourage readers to contact True North Kromes for more information or to get started with their services.]
           </p>
         </div>
 
-        <div className="mt-16 border-t border-border pt-10">
-          <p className="text-sm text-muted-foreground">
-            {"Interested in working with us? "}
-            <Link
-              href="/contact"
-              className="border-b border-foreground/30 pb-0.5 text-foreground transition-colors hover:border-foreground"
-            >
-              Get in touch
-            </Link>
+        {/* Bottom CTA */}
+        <div className="mt-14 border border-border p-8 text-center">
+          <h3 className="text-lg font-semibold text-foreground">
+            Interested in Learning More?
+          </h3>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Contact us to discuss how we can help streamline your workflow.
           </p>
+          <Link
+            href="/contact"
+            className="mt-5 inline-flex items-center border border-foreground px-8 py-3 text-sm tracking-wider text-foreground transition-colors hover:bg-foreground hover:text-white"
+          >
+            Get in Touch
+          </Link>
         </div>
       </div>
     </article>
