@@ -8,7 +8,7 @@ export function CTABanner() {
     >
       <div className="absolute inset-0">
         <img
-          src="/images/gallery-lab-wide.jpg"
+          src="/images/gallery-raw-print-batch.jpg"
           alt=""
           className="h-full w-full object-cover"
           loading="lazy"
