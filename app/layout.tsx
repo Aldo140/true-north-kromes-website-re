@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import { DM_Sans, Playfair_Display } from "next/font/google"
 import "./globals.css"
 
-/* Components */
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { StickyQuote } from "@/components/sticky-quote"
