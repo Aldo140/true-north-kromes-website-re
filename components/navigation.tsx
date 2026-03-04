@@ -30,8 +30,8 @@ export function Navigation() {
       }`}
     >
       <nav aria-label="Main navigation">
-        {/* Top row: large centered logo + mobile hamburger */}
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 pt-5 pb-3 lg:justify-center">
+        {/* Logo row */}
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 pt-4 pb-2 lg:justify-center">
           <Link href="/" className="shrink-0" aria-label="True North Kromes - Home">
             <img
               src="/images/logo.png"
@@ -39,10 +39,8 @@ export function Navigation() {
               className="h-20 w-auto lg:h-24"
             />
           </Link>
-
-          {/* Mobile hamburger */}
           <button
-            className="text-foreground transition-colors lg:hidden"
+            className="text-foreground lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -51,16 +49,16 @@ export function Navigation() {
           </button>
         </div>
 
-        {/* Desktop nav links row: centered below logo */}
-        <div className="mx-auto hidden max-w-5xl items-center justify-center gap-10 px-5 pb-4 lg:flex">
+        {/* Desktop links */}
+        <div className="mx-auto hidden max-w-4xl items-center justify-center gap-12 px-5 pb-4 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`text-[15px] tracking-wide transition-colors ${
+              className={`text-[17px] tracking-wide transition-colors ${
                 pathname === link.href
-                  ? "text-[#8b7d3c]"
-                  : "text-foreground/60 hover:text-foreground"
+                  ? "text-accent"
+                  : "text-foreground/50 hover:text-foreground"
               }`}
             >
               {link.label}
@@ -70,7 +68,7 @@ export function Navigation() {
             href="#"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[15px] tracking-wide text-foreground/60 transition-colors hover:text-foreground"
+            className="text-[17px] tracking-wide text-foreground/50 transition-colors hover:text-foreground"
           >
             Client Portal
           </a>
@@ -85,10 +83,10 @@ export function Navigation() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`text-[15px] tracking-wide transition-colors ${
+                  className={`text-[17px] tracking-wide transition-colors ${
                     pathname === link.href
-                      ? "text-[#8b7d3c]"
-                      : "text-foreground/60 hover:text-foreground"
+                      ? "text-accent"
+                      : "text-foreground/50 hover:text-foreground"
                   }`}
                 >
                   {link.label}
@@ -99,7 +97,7 @@ export function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="text-[15px] tracking-wide text-foreground/60 transition-colors hover:text-foreground"
+                className="text-[17px] tracking-wide text-foreground/50 transition-colors hover:text-foreground"
               >
                 Client Portal
               </a>

@@ -1,18 +1,13 @@
 import type { Metadata } from "next"
-import { Barlow, Barlow_Semi_Condensed } from "next/font/google"
+import { Cormorant_Garamond } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import "./globals.css"
 
-const _barlow = Barlow({
+const _cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-})
-
-const _barlowSC = Barlow_Semi_Condensed({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
 })
 
 export const metadata: Metadata = {
@@ -41,7 +36,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport = {
-  themeColor: "#222d3a",
+  themeColor: "#ffffff",
 }
 
 export default function RootLayout({

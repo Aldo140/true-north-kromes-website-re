@@ -1,3 +1,5 @@
+import { ChevronDown } from "lucide-react"
+
 const reasons = [
   {
     title: "Custom Metal Frameworks",
@@ -17,7 +19,8 @@ const reasons = [
   },
   {
     title: "Collaborative Expertise",
-    description: "Our team combines expertise in denturism and lab technology for exceptional outcomes.",
+    description:
+      "Our team combines expertise in denturism and lab technology for exceptional outcomes.",
   },
   {
     title: "Quality Assurance",
@@ -28,44 +31,46 @@ const reasons = [
 
 export function WhyTNK() {
   return (
-    <section className="relative py-20 lg:py-28" aria-label="Why Choose TNK">
-      {/* Forest background */}
-      <div className="absolute inset-0">
-        <img
-          src="/images/forest-bg.jpg"
-          alt=""
-          className="h-full w-full object-cover"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-black/30" />
+    <section className="bg-white" aria-label="Why Choose TNK">
+      {/* Top heading on white */}
+      <div className="py-14 text-center lg:py-20">
+        <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-light text-foreground">
+          Why Choose True North Kromes?
+        </h2>
+        <p className="mt-2 text-sm tracking-wider text-muted-foreground">
+          Our Services Can Help With
+        </p>
+        <ChevronDown className="mx-auto mt-3 h-5 w-5 text-foreground/40" aria-hidden="true" />
       </div>
 
-      <div className="relative mx-auto max-w-5xl px-5">
-        {/* Heading */}
-        <div className="mb-10 text-center">
-          <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold tracking-tight text-white">
-            Why Choose True North Kromes?
-          </h2>
-          <p className="mt-2 text-base text-white/70">Our Services Can Help With</p>
-          <div className="mx-auto mt-4 text-white/50" aria-hidden="true">&#8595;</div>
+      {/* Forest background with card overlay */}
+      <div className="relative min-h-[500px] pb-16 lg:pb-24">
+        <div className="absolute inset-0">
+          <img
+            src="/images/forest-bg.jpg"
+            alt=""
+            className="h-full w-full object-cover"
+            loading="lazy"
+          />
         </div>
 
-        {/* Cards panel */}
-        <div className="rounded bg-white/95 p-6 shadow-lg backdrop-blur-sm lg:p-10">
-          <div className="grid gap-px border border-border sm:grid-cols-2 md:grid-cols-3">
-            {reasons.map((reason) => (
-              <div
-                key={reason.title}
-                className="border border-border p-6 lg:p-8"
-              >
-                <h4 className="text-base font-semibold text-foreground">
-                  {reason.title}
-                </h4>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {reason.description}
-                </p>
-              </div>
-            ))}
+        <div className="relative mx-auto max-w-5xl px-5 pt-8 lg:pt-16">
+          <div className="bg-white/95 backdrop-blur-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+              {reasons.map((reason, i) => (
+                <div
+                  key={reason.title}
+                  className={`border border-border/60 p-7 lg:p-9 ${i >= 3 ? "" : ""}`}
+                >
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {reason.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {reason.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
