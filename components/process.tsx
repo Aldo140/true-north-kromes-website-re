@@ -29,28 +29,31 @@ const steps = [
 
 export function Process() {
   return (
-    <section className="bg-background py-24 lg:py-32" aria-label="Our Process">
-      <div className="mx-auto max-w-5xl px-5">
-        <h2 className="font-[family-name:var(--font-heading)] text-center text-[clamp(1.5rem,3vw,2.5rem)] text-foreground">
-          How It Works
-        </h2>
-        <p className="mt-3 text-center text-sm tracking-wider text-[#c9a227]">
-          A STREAMLINED DIGITAL WORKFLOW
-        </p>
+    <section className="bg-[#eeeee8] py-28 lg:py-36" aria-label="Our Process">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="text-center">
+          <p className="text-xs font-medium tracking-[0.3em] text-[#6b6b6b] uppercase">
+            Our Process
+          </p>
+          <h2 className="font-[family-name:var(--font-heading)] mt-4 text-[clamp(2rem,4vw,3.5rem)] font-normal leading-[1.1] text-[#1a1a1a]">
+            A streamlined<br />
+            <span className="italic">digital workflow</span>
+          </h2>
+        </div>
 
-        <div className="mt-20 grid gap-16 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-20 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step) => (
             <div key={step.step} className="text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center border border-[#c9a227]/30 bg-white">
-                <step.icon className="h-7 w-7 text-[#c9a227]" strokeWidth={1.5} />
+              <div className="mx-auto flex h-20 w-20 items-center justify-center border border-[#1a1a1a]">
+                <step.icon className="h-8 w-8 text-[#1a1a1a]" strokeWidth={1} />
               </div>
-              <p className="mt-5 text-xs font-semibold tracking-[0.2em] text-[#c9a227]">
+              <p className="mt-8 text-xs font-medium tracking-[0.3em] text-[#6b6b6b]">
                 STEP {step.step}
               </p>
-              <h3 className="font-[family-name:var(--font-heading)] mt-2 text-lg text-foreground">
+              <h3 className="font-[family-name:var(--font-heading)] mt-3 text-xl font-normal text-[#1a1a1a]">
                 {step.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-3 text-sm leading-relaxed text-[#6b6b6b]">
                 {step.description}
               </p>
             </div>
