@@ -28,6 +28,14 @@ const images: { src: string; alt: string }[] = [
   { src: "/images/gallery-raw-horseshoe.jpg", alt: "Raw horseshoe framework with supports" },
   { src: "/images/gallery-framework-surface.jpg", alt: "Polished partial framework on surface" },
   { src: "/images/gallery-parada-grillz-2.jpg", alt: "PARADA grillz alternate angle" },
+  { src: "/images/gallery-dlyte-framework-1.jpg", alt: "Polished framework on DLyte machine arm" },
+  { src: "/images/gallery-dlyte-framework-2.jpg", alt: "Polished framework on DLyte arm - alternate view" },
+  { src: "/images/gallery-dlyte-operator-1.jpg", alt: "Technician operating DLyte mini polishing machine" },
+  { src: "/images/gallery-dlyte-operator-2.jpg", alt: "Technician using DLyte mini controls" },
+  { src: "/images/gallery-two-frameworks.jpg", alt: "Two polished frameworks with mesh retention" },
+  { src: "/images/gallery-lab-chamlion.jpg", alt: "Full lab view with Chamlion 3D printers" },
+  { src: "/images/gallery-mesh-tray.jpg", alt: "Perforated mesh tray framework - gloved hand" },
+  { src: "/images/gallery-dlyte-polishing.jpg", alt: "Frameworks in DLyte polishing bath" },
 ]
 
 export default function GalleryPage() {
