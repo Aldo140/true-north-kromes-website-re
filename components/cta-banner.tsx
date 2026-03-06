@@ -4,21 +4,12 @@ import { ArrowRight } from "lucide-react"
 export function CTABanner() {
   return (
     <section
-      className="relative py-20 lg:py-28"
+      className="relative bg-[#1a1d21] py-20 lg:py-28"
       aria-label="Call to action"
     >
-      <div className="absolute inset-0">
-        <img
-          src="/images/gallery-raw-print-batch.jpg"
-          alt=""
-          className="h-full w-full object-cover"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-[#1a1d21]/85" />
-      </div>
 
-      {/* Left-aligned with asymmetric two-column -- Fix #1, varied spacing -- Fix #2 */}
-      <div className="relative mx-auto flex max-w-5xl flex-col gap-8 px-8 lg:flex-row lg:items-center lg:justify-between lg:px-16">
+      {/* Left-aligned with asymmetric two-column */}
+      <div className="mx-auto flex max-w-5xl flex-col gap-8 px-8 lg:flex-row lg:items-center lg:justify-between lg:px-16">
         <div className="max-w-lg">
           <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3.5vw,2.5rem)] font-normal text-white text-balance">
             Ready to streamline your lab workflow?
