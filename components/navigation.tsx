@@ -20,7 +20,7 @@ export function Navigation() {
   const isHome = pathname === "/"
 
   return (
-    <header className={`absolute left-0 right-0 top-0 z-50 ${isHome ? "bg-transparent" : "bg-white"}`}>
+    <header className="absolute left-0 right-0 top-0 z-50 bg-transparent">
       <nav aria-label="Main navigation">
         {/* Logo */}
         <div className="flex items-center justify-between px-6 pt-4 pb-2 lg:justify-center lg:pt-6">
@@ -28,13 +28,13 @@ export function Navigation() {
             <img
               src="/images/logo.png"
               alt="True North Kromes"
-              className={`h-[80px] w-auto lg:h-[100px] ${isHome ? "brightness-0 invert" : ""}`}
+              className="h-[80px] w-auto lg:h-[100px]"
             />
           </Link>
 
           {/* Mobile hamburger only */}
           <button
-            className={`lg:hidden ${isHome ? "text-white" : "text-[#1a1a1a]"}`}
+            className="text-[#1a1a1a] lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -52,13 +52,9 @@ export function Navigation() {
                 key={link.href}
                 href={link.href}
                 className={`text-[14px] font-normal tracking-[0.08em] transition-colors ${
-                  isHome
-                    ? isActive
-                      ? "text-white"
-                      : "text-white/70 hover:text-white"
-                    : isActive
-                      ? "text-[#1a1a1a]"
-                      : "text-[#6b7280] hover:text-[#1a1a1a]"
+                  isActive
+                    ? "text-[#1a1a1a]"
+                    : "text-[#6b7280] hover:text-[#1a1a1a]"
                 }`}
               >
                 {link.label}
@@ -72,7 +68,7 @@ export function Navigation() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Client Portal Login"
-            className={`absolute right-6 transition-colors ${isHome ? "text-white/70 hover:text-white" : "text-[#6b7280] hover:text-[#1a1a1a]"}`}
+            className="absolute right-6 text-[#6b7280] transition-colors hover:text-[#1a1a1a]"
           >
             <UserCircle className="h-6 w-6" />
           </a>
