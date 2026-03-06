@@ -83,7 +83,7 @@ export function Footer() {
             <div className="mt-4 flex flex-col gap-3">
               <p className="text-sm text-white/60">[Placeholder -- business hours]</p>
               <a
-                href="#"
+                href="https://truenorthkromes.seazona.net"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 inline-flex w-fit items-center border border-[#a0a0a0] px-6 py-2 text-sm tracking-wider text-[#a0a0a0] transition-colors hover:bg-[#a0a0a0] hover:text-white"

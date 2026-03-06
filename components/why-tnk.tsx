@@ -1,41 +1,40 @@
 const reasons = [
   {
-    title: "Digital-First Workflow",
-    description: "Submit STL files directly through our portal. No physical impressions required for most cases.",
+    title: "Custom Metal Frameworks",
+    description: "We specialize in crafting custom metal frameworks for dental prosthetics.",
   },
   {
-    title: "Chrome Cobalt Alloy",
-    description: "Medical-grade chrome cobalt for superior strength, biocompatibility, and corrosion resistance.",
+    title: "Precision 3D Printing",
+    description: "Utilizing advanced 3D printing technology to ensure precision and quality.",
   },
   {
-    title: "Consistent Fit",
-    description: "3D printing eliminates casting variables. Every framework matches your digital design exactly.",
+    title: "Durable Solutions",
+    description: "Offering durable and long-lasting metal framework solutions for dental restorations.",
   },
   {
-    title: "Fast Turnaround",
-    description: "Standard cases returned within [X] business days. Rush service available for urgent cases.",
+    title: "Client-Centric Approach",
+    description: "We prioritize the unique needs and preferences of each client for tailored solutions.",
   },
   {
-    title: "DLyte Finishing",
-    description: "Electropolishing technology delivers mirror-smooth surfaces impossible with traditional methods.",
+    title: "Collaborative Expertise",
+    description: "Our team combines expertise in denturism and lab technology for exceptional outcomes.",
   },
   {
-    title: "Technical Support",
-    description: "Questions about design or specs? Our team is available to consult on complex cases.",
+    title: "Quality Assurance",
+    description: "Committed to upholding the highest standards of quality and precision in our work utilizing industry leading materials.",
   },
 ]
 
 export function WhyTNK() {
   return (
     <section className="bg-white" aria-label="Why Choose TNK">
-      {/* Left-aligned heading -- Fix #1, no chevron -- Fix #4 */}
-      <div className="mx-auto max-w-5xl px-5 pt-16 pb-6 lg:pt-24 lg:pb-10">
-        <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground">
-          WHY CHOOSE US
-        </p>
-        <h2 className="mt-2 font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.5rem)] font-normal text-foreground">
-          Why True North Kromes?
+      <div className="mx-auto max-w-5xl px-5 pt-16 pb-6 lg:pt-24 lg:pb-10 text-center">
+        <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.5rem)] font-normal text-foreground">
+          Why Choose True North Kromes?
         </h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Our Services Can Help With
+        </p>
       </div>
 
       {/* Lab background with asymmetric card grid -- Fix #5 */}

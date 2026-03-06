@@ -9,8 +9,8 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Submit Case", href: "/submit-case" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ]
 
@@ -63,7 +63,7 @@ export function Navigation() {
 
           {/* Client Portal icon - right aligned */}
           <a
-            href="#"
+            href="https://truenorthkromes.seazona.net"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Client Portal Login"
@@ -95,7 +95,7 @@ export function Navigation() {
                 )
               })}
               <a
-                href="#"
+                href="https://truenorthkromes.seazona.net"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
