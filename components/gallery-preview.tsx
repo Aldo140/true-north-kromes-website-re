@@ -6,8 +6,8 @@ const previewImages: { src: string; alt: string; tall: boolean }[] = [
   { src: "/images/gallery-framework-closeup-1.jpg", alt: "Polished partial denture framework on dental model", tall: false },
   { src: "/images/gallery-upper-partial-blue-glove.jpg", alt: "Upper partial framework held with blue glove", tall: false },
   { src: "/images/gallery-denture-articulated-front.jpg", alt: "Articulated denture models - front view", tall: true },
-  { src: "/images/gallery-implant-bar-1.jpg", alt: "Implant bar with screw holes - gloved hand", tall: false },
-  { src: "/images/gallery-dlyte-framework-1.jpg", alt: "Polished framework on DLyte machine arm", tall: false },
+  { src: "/images/gallery-lower-partial-model-1.jpg", alt: "Lower partial framework on dental model", tall: false },
+  { src: "/images/gallery-two-frameworks.jpg", alt: "Two polished frameworks with mesh retention", tall: false },
 ]
 
 export function GalleryPreview() {

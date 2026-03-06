@@ -13,67 +13,64 @@ const images: { src: string; alt: string }[] = [
   // Row 2: Mix of frameworks and specialty
   { src: "/images/gallery-upper-partial-blue-glove.jpg", alt: "Upper partial framework held with blue glove" },
   { src: "/images/gallery-lower-partial-model-1.jpg", alt: "Lower partial framework on dental model - front view" },
-  { src: "/images/gallery-implant-bar-1.jpg", alt: "Implant bar with screw holes - gloved hand" },
   { src: "/images/gallery-framework-closeup-2.jpg", alt: "Polished upper partial framework on model" },
+  { src: "/images/gallery-mesh-tray.jpg", alt: "Perforated mesh tray framework - gloved hand" },
 
   // Row 3: Different products
   { src: "/images/gallery-parada-grillz-1.jpg", alt: "Custom PARADA lettered grillz on model" },
   { src: "/images/gallery-upper-framework-acrylic-2.jpg", alt: "Upper framework with acrylic saddles" },
-  { src: "/images/gallery-mesh-tray.jpg", alt: "Perforated mesh tray framework - gloved hand" },
   { src: "/images/gallery-lower-partial-model-2.jpg", alt: "Lower partial framework on dental model - side view" },
+  { src: "/images/gallery-mesh-tray-2.jpg", alt: "Perforated mesh tray framework - alternate angle" },
 
   // Row 4: Craftsmanship details
   { src: "/images/gallery-framework-gloved-1.jpg", alt: "Gloved hand holding polished partial framework" },
   { src: "/images/gallery-denture-articulated-side.jpg", alt: "Articulated denture models - side view" },
   { src: "/images/gallery-two-frameworks.jpg", alt: "Two polished frameworks with mesh retention" },
-  { src: "/images/gallery-implant-bar-2.jpg", alt: "Implant bar detail view" },
+  { src: "/images/gallery-upper-partial-1.jpg", alt: "Upper partial framework with mesh retention" },
 
   // Row 5: More variety
-  { src: "/images/gallery-upper-partial-1.jpg", alt: "Upper partial framework with mesh retention" },
   { src: "/images/gallery-partial-framework-only.jpg", alt: "Polished partial framework - no model" },
   { src: "/images/gallery-lower-partial-model-3.jpg", alt: "Lower partial framework on dental model - angled view" },
   { src: "/images/gallery-parada-grillz-2.jpg", alt: "PARADA grillz alternate angle" },
+  { src: "/images/gallery-upper-partial-2.jpg", alt: "Upper partial framework detail view" },
 
   // Row 6: Different products continued
-  { src: "/images/gallery-mesh-tray-2.jpg", alt: "Perforated mesh tray framework - alternate angle" },
   { src: "/images/gallery-framework-gloved-2.jpg", alt: "Polished upper partial with clasps" },
   { src: "/images/gallery-clasps-model.jpg", alt: "Metal clasps on dental model" },
   { src: "/images/gallery-dlyte-framework-1.jpg", alt: "Polished framework on DLyte machine arm" },
+  { src: "/images/gallery-framework-surface.jpg", alt: "Polished partial framework on surface" },
 
   // Row 7: More frameworks and process
-  { src: "/images/gallery-upper-partial-2.jpg", alt: "Upper partial framework detail view" },
   { src: "/images/gallery-lower-partial-model-4.jpg", alt: "Lower partial framework on dental model - underside" },
   { src: "/images/gallery-partial-framework-only-2.jpg", alt: "Polished partial framework - alternate view" },
   { src: "/images/gallery-mesh-tray-3.jpg", alt: "Large perforated mesh tray framework" },
+  { src: "/images/gallery-dlyte-polishing.jpg", alt: "Frameworks in DLyte polishing bath" },
 
   // Row 8: Process and craftsmanship
-  { src: "/images/gallery-upper-framework-occlusal.jpg", alt: "Upper framework occlusal view on model" },
-  { src: "/images/gallery-dlyte-polishing.jpg", alt: "Frameworks in DLyte polishing bath" },
   { src: "/images/gallery-partial-framework-only-3.jpg", alt: "Polished partial framework with clasps" },
   { src: "/images/gallery-lower-partial-model-5.jpg", alt: "Lower partial framework on dental model - occlusal view" },
-
-  // Row 9: DLyte and finishing process
-  { src: "/images/gallery-framework-surface.jpg", alt: "Polished partial framework on surface" },
   { src: "/images/gallery-dlyte-framework-2.jpg", alt: "Polished framework on DLyte arm - alternate view" },
   { src: "/images/gallery-dlyte-operator-1.jpg", alt: "Technician operating DLyte mini polishing machine" },
-  { src: "/images/gallery-raw-framework-side.jpg", alt: "Raw printed framework with supports - side view" },
 
-  // Row 10: Raw prints and equipment
+  // Row 9: DLyte and finishing process
+  { src: "/images/gallery-raw-framework-side.jpg", alt: "Raw printed framework with supports - side view" },
   { src: "/images/gallery-dlyte-operator-2.jpg", alt: "Technician using DLyte mini controls" },
   { src: "/images/gallery-raw-framework-supports.jpg", alt: "Raw printed framework with support structures" },
   { src: "/images/gallery-printer-window-1.jpg", alt: "Metal frameworks inside 3D printer chamber" },
-  { src: "/images/gallery-raw-horseshoe.jpg", alt: "Raw horseshoe framework with supports" },
 
-  // Row 11: 3D printing process
+  // Row 10: Raw prints and equipment
+  { src: "/images/gallery-raw-horseshoe.jpg", alt: "Raw horseshoe framework with supports" },
   { src: "/images/gallery-build-plate-printer.jpg", alt: "Build plate with multiple frameworks in printer" },
   { src: "/images/gallery-raw-build-plate.jpg", alt: "Raw printed build plate with framework supports" },
   { src: "/images/gallery-printer-window-2.jpg", alt: "Frameworks being handled inside printer" },
-  { src: "/images/gallery-technician-printer.jpg", alt: "Technician holding build plate at NCL-M150 printer" },
 
-  // Row 12: Lab and team
+  // Row 11: 3D printing process
+  { src: "/images/gallery-technician-printer.jpg", alt: "Technician holding build plate at NCL-M150 printer" },
   { src: "/images/gallery-printer-chamber.jpg", alt: "3D printer chamber view" },
   { src: "/images/gallery-lab-chamlion.jpg", alt: "Full lab view with Chamlion 3D printers" },
   { src: "/images/gallery-team-lab.jpg", alt: "TNK team in the lab with Chamlion printer" },
+
+  // Row 12: Team
   { src: "/images/gallery-team-building.jpg", alt: "Team outside TNK building entrance" },
 ]
 
