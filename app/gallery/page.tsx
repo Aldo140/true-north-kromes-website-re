@@ -23,15 +23,12 @@ const images: { src: string; alt: string }[] = [
   
   // Grillz
   { src: "/images/gallery-grillz-polished.jpg", alt: "Polished metal grillz on dental model" },
-  { src: "/images/gallery-parada-grillz-1.jpg", alt: "Custom PARADA lettered grillz on model" },
   
   // Process - DLyte polishing
   { src: "/images/gallery-dlyte-framework-1.jpg", alt: "Polished framework on DLyte machine arm" },
-  { src: "/images/gallery-dlyte-operator-1.jpg", alt: "Technician operating DLyte polishing machine" },
   
   // Process - 3D printing
   { src: "/images/gallery-printer-window-1.jpg", alt: "Metal frameworks inside 3D printer chamber" },
-  { src: "/images/gallery-raw-build-plate.jpg", alt: "Raw printed build plate with framework supports" },
   { src: "/images/gallery-technician-printer.jpg", alt: "Technician holding build plate at printer" },
   
   // Lab and team
