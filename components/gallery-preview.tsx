@@ -1,13 +1,9 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
-const previewImages = [
-  { src: "/images/gallery-polished-framework-gray.jpg", alt: "[Placeholder]", tall: true },
-  { src: "/images/gallery-finished-model-1.jpg", alt: "[Placeholder]", tall: false },
-  { src: "/images/gallery-raw-print-batch.jpg", alt: "[Placeholder]", tall: false },
-  { src: "/images/gallery-dlyte-operator.jpg", alt: "[Placeholder]", tall: true },
-  { src: "/images/gallery-finished-model-3.jpg", alt: "[Placeholder]", tall: false },
-  { src: "/images/gallery-dlyte-sintering.jpg", alt: "[Placeholder]", tall: false },
+const previewImages: { src: string; alt: string; tall: boolean }[] = [
+  // Add your images here in the format:
+  // { src: "/images/your-image.jpg", alt: "Description", tall: true/false },
 ]
 
 export function GalleryPreview() {

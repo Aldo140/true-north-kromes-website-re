@@ -3,20 +3,9 @@
 import { useState } from "react"
 import { X } from "lucide-react"
 
-const images = [
-  { src: "/images/gallery-polished-framework-gray.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-finished-model-1.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-finished-model-2.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-finished-model-3.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-finished-model-4.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-raw-print-batch.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-raw-print-detail.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-raw-print-supports.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-dlyte-sintering.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-dlyte-operator.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-dlyte-polishing-action.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-grillz-full.jpg", alt: "[Placeholder]" },
-  { src: "/images/gallery-lab-wide.jpg", alt: "[Placeholder]" },
+const images: { src: string; alt: string }[] = [
+  // Add your images here in the format:
+  // { src: "/images/your-image.jpg", alt: "Description" },
 ]
 
 export default function GalleryPage() {
