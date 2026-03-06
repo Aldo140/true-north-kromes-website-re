@@ -70,7 +70,7 @@ export function Footer() {
               </a>
               <div className="flex items-start gap-3 text-sm text-white/60">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#a0a0a0]" />
-                <span>Thunder Bay, Ontario,<br />Canada</span>
+                <span>107-105 1st Street W,<br />Cochrane, Alberta,<br />Canada, T4C0A4</span>
               </div>
             </div>
           </div>
