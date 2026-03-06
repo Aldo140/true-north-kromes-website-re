@@ -28,7 +28,7 @@ export function Navigation() {
             <img
               src="/images/logo.png"
               alt="True North Kromes"
-              className={`h-[90px] w-auto lg:h-[110px] ${isHome ? "brightness-0 invert" : ""}`}
+              className="h-[90px] w-auto lg:h-[110px]"
             />
           </Link>
 
