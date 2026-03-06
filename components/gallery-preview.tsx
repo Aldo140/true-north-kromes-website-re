@@ -6,6 +6,8 @@ const previewImages: { src: string; alt: string; tall: boolean }[] = [
   { src: "/images/gallery-framework-closeup-1.jpg", alt: "Polished partial denture framework on dental model", tall: false },
   { src: "/images/gallery-denture-articulated-front.jpg", alt: "Articulated denture models - front view", tall: false },
   { src: "/images/gallery-two-frameworks.jpg", alt: "Two polished frameworks with mesh retention", tall: true },
+  { src: "/images/gallery-grillz-polished.jpg", alt: "Polished metal grillz on dental model", tall: false },
+  { src: "/images/gallery-mesh-tray.jpg", alt: "Perforated mesh tray framework", tall: false },
 ]
 
 export function GalleryPreview() {
