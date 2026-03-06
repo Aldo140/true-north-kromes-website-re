@@ -21,7 +21,7 @@ export function About() {
 
             <div className="mt-6 h-px w-20 bg-border" />
 
-            <div className="mt-8 flex flex-col gap-5 text-[15px] leading-[1.8] text-[#6b7280]">
+            <div className="mt-8 flex flex-col gap-5 text-[15px] leading-[1.8] text-[#9ca3af]">
               <p>
                 True North Kromes was established to address the need for superior partial
                 denture frames that truly meet the needs of patients. With a foundation

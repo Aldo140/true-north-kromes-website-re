@@ -54,7 +54,7 @@ export function Navigation() {
                 className={`text-[14px] font-normal tracking-[0.08em] transition-colors ${
                   isActive
                     ? "text-[#1a1a1a]"
-                    : "text-[#6b7280] hover:text-[#1a1a1a]"
+                    : "text-[#9ca3af] hover:text-[#1a1a1a]"
                 }`}
               >
                 {link.label}
@@ -68,7 +68,7 @@ export function Navigation() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Client Portal Login"
-            className="absolute right-6 text-[#6b7280] transition-colors hover:text-[#1a1a1a]"
+            className="absolute right-6 text-[#9ca3af] transition-colors hover:text-[#1a1a1a]"
           >
             <UserCircle className="h-6 w-6" />
           </a>
@@ -88,7 +88,7 @@ export function Navigation() {
                     className={`text-[14px] font-normal tracking-[0.08em] transition-colors ${
                       isActive
                         ? "text-[#1a1a1a]"
-                        : "text-[#6b7280] hover:text-[#1a1a1a]"
+                        : "text-[#9ca3af] hover:text-[#1a1a1a]"
                     }`}
                   >
                     {link.label}
@@ -100,7 +100,7 @@ export function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-2 border-t border-border pt-5 text-[14px] font-normal tracking-[0.08em] text-[#6b7280] transition-colors hover:text-[#1a1a1a]"
+                className="flex items-center gap-2 border-t border-border pt-5 text-[14px] font-normal tracking-[0.08em] text-[#9ca3af] transition-colors hover:text-[#1a1a1a]"
               >
                 <UserCircle className="h-5 w-5" />
                 Client Portal

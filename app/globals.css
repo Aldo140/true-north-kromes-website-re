@@ -14,17 +14,17 @@
   --primary-foreground: #ffffff;
   --secondary: #f8f9fa;
   --secondary-foreground: #1a1a1a;
-  --muted: #f4f5f6;
-  --muted-foreground: #6b7280;
-  --accent: #4a90a4;
+  --muted: #f7f7f7;
+  --muted-foreground: #9ca3af;
+  --accent: #1a1a1a;
   --accent-foreground: #ffffff;
-  --accent-warm: #4a90a4;
-  --accent-warm-muted: #6ba3b5;
+  --accent-warm: #1a1a1a;
+  --accent-warm-muted: #4a4a4a;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
-  --border: #e5e7eb;
-  --input: #e5e7eb;
-  --ring: #4a90a4;
+  --border: #e8e8e8;
+  --input: #e8e8e8;
+  --ring: #1a1a1a;
   --radius: 0rem;
 }
 

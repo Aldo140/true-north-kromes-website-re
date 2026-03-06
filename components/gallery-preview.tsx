@@ -15,7 +15,7 @@ export function GalleryPreview() {
         {/* Header */}
         <div className="flex items-end justify-between">
           <div>
-            <p className="text-xs font-medium tracking-[0.2em] text-[#4a90a4] uppercase">
+            <p className="text-xs font-medium tracking-[0.2em] text-[#9ca3af] uppercase">
               Our Work
             </p>
             <h2 className="font-[family-name:var(--font-heading)] mt-3 text-[clamp(1.75rem,4vw,2.5rem)] font-normal text-[#1a1a1a]">
@@ -24,7 +24,7 @@ export function GalleryPreview() {
           </div>
           <Link
             href="/gallery"
-            className="group hidden items-center gap-2 text-sm font-medium tracking-wider text-[#1a1a1a] transition-colors hover:text-[#6b7280] md:flex"
+            className="group hidden items-center gap-2 text-sm font-medium tracking-wider text-[#1a1a1a] transition-colors hover:text-[#9ca3af] md:flex"
           >
             View All
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

@@ -12,7 +12,7 @@ export function CTABanner() {
           <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3.5vw,2.25rem)] font-normal text-[#1a1a1a] text-balance">
             Ready to streamline your lab workflow?
           </h2>
-          <p className="mt-3 text-base leading-relaxed text-[#6b7280]">
+          <p className="mt-3 text-base leading-relaxed text-[#9ca3af]">
             Email or call us today to get started with TNK.
           </p>
         </div>
@@ -26,7 +26,7 @@ export function CTABanner() {
           </Link>
           <a
             href="tel:+18076247222"
-            className="inline-flex items-center px-8 py-3 text-sm tracking-wider text-[#6b7280] underline underline-offset-4 decoration-border transition-colors hover:text-[#1a1a1a] hover:decoration-[#1a1a1a]"
+            className="inline-flex items-center px-8 py-3 text-sm tracking-wider text-[#9ca3af] underline underline-offset-4 decoration-border transition-colors hover:text-[#1a1a1a] hover:decoration-[#1a1a1a]"
           >
             807.624.7222
           </a>

@@ -34,7 +34,7 @@ export function WhyTNK() {
           <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.75rem,4vw,2.5rem)] font-normal text-[#1a1a1a]">
             Why Choose True North Kromes?
           </h2>
-          <p className="mt-3 text-base text-[#6b7280]">
+          <p className="mt-3 text-base text-[#9ca3af]">
             Our Services Can Help With
           </p>
         </div>
@@ -49,7 +49,7 @@ export function WhyTNK() {
               <h3 className="font-[family-name:var(--font-heading)] text-lg font-normal text-[#1a1a1a]">
                 {reason.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#6b7280]">
+              <p className="mt-3 text-sm leading-relaxed text-[#9ca3af]">
                 {reason.description}
               </p>
             </div>

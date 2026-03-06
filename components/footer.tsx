@@ -17,7 +17,7 @@ export function Footer() {
                 className="h-16 w-auto"
               />
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-[#6b7280]">
+            <p className="mt-4 text-sm leading-relaxed text-[#9ca3af]">
               A dental lab specializing in 3D printing metal partial denture frameworks.
             </p>
             <div className="mt-6 flex gap-4">
@@ -44,12 +44,12 @@ export function Footer() {
               Quick Links
             </h3>
             <nav className="mt-4 flex flex-col gap-3">
-              <Link href="/" className="text-sm text-[#6b7280] transition-colors hover:text-[#1a1a1a]">Home</Link>
-              <Link href="/about" className="text-sm text-[#6b7280] transition-colors hover:text-[#1a1a1a]">About</Link>
-              <Link href="/services" className="text-sm text-[#6b7280] transition-colors hover:text-[#1a1a1a]">Services</Link>
-              <Link href="/gallery" className="text-sm text-[#6b7280] transition-colors hover:text-[#1a1a1a]">Gallery</Link>
-              <Link href="/blog" className="text-sm text-[#6b7280] transition-colors hover:text-[#1a1a1a]">Blog</Link>
-              <Link href="/contact" className="text-sm text-[#6b7280] transition-colors hover:text-[#1a1a1a]">Contact</Link>
+              <Link href="/" className="text-sm text-[#9ca3af] transition-colors hover:text-[#1a1a1a]">Home</Link>
+              <Link href="/about" className="text-sm text-[#9ca3af] transition-colors hover:text-[#1a1a1a]">About</Link>
+              <Link href="/services" className="text-sm text-[#9ca3af] transition-colors hover:text-[#1a1a1a]">Services</Link>
+              <Link href="/gallery" className="text-sm text-[#9ca3af] transition-colors hover:text-[#1a1a1a]">Gallery</Link>
+              <Link href="/blog" className="text-sm text-[#9ca3af] transition-colors hover:text-[#1a1a1a]">Blog</Link>
+              <Link href="/contact" className="text-sm text-[#9ca3af] transition-colors hover:text-[#1a1a1a]">Contact</Link>
             </nav>
           </div>
 
@@ -59,16 +59,16 @@ export function Footer() {
               Contact
             </h3>
             <div className="mt-4 flex flex-col gap-4">
-              <a href="tel:+18076247222" className="flex items-start gap-3 text-sm text-[#6b7280] transition-colors hover:text-[#1a1a1a]">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#9ca3af]" />
+              <a href="tel:+18076247222" className="flex items-start gap-3 text-sm text-[#9ca3af] transition-colors hover:text-[#1a1a1a]">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#c4c4c4]" />
                 807.624.7222
               </a>
-              <a href="mailto:truenorthkromes@gmail.com" className="flex items-start gap-3 text-sm text-[#6b7280] transition-colors hover:text-[#1a1a1a]">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#9ca3af]" />
+              <a href="mailto:truenorthkromes@gmail.com" className="flex items-start gap-3 text-sm text-[#9ca3af] transition-colors hover:text-[#1a1a1a]">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#c4c4c4]" />
                 truenorthkromes@gmail.com
               </a>
-              <div className="flex items-start gap-3 text-sm text-[#6b7280]">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#9ca3af]" />
+              <div className="flex items-start gap-3 text-sm text-[#9ca3af]">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#c4c4c4]" />
                 <span>107-105 1st Street W,<br />Cochrane, Alberta,<br />Canada, T4C0A4</span>
               </div>
             </div>
@@ -84,7 +84,7 @@ export function Footer() {
                 href="/downloads/mediloy-rpd-licence.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-[#6b7280] transition-colors hover:text-[#1a1a1a]"
+                className="text-sm text-[#9ca3af] transition-colors hover:text-[#1a1a1a]"
               >
                 Mediloy RPD Licence
               </a>
@@ -92,7 +92,7 @@ export function Footer() {
                 href="/downloads/credit-card-authorization.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-[#6b7280] transition-colors hover:text-[#1a1a1a]"
+                className="text-sm text-[#9ca3af] transition-colors hover:text-[#1a1a1a]"
               >
                 Credit Card Authorization
               </a>

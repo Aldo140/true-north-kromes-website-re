@@ -17,7 +17,7 @@ export function Hero() {
         <h1 className="font-[family-name:var(--font-heading)] text-[clamp(2.25rem,6vw,4rem)] font-normal leading-[1.1] text-[#1a1a1a]">
           Welcome to True North Kromes
         </h1>
-        <p className="mt-6 max-w-2xl text-[clamp(1rem,1.5vw,1.25rem)] font-light leading-relaxed text-[#6b7280]">
+        <p className="mt-6 max-w-2xl text-[clamp(1rem,1.5vw,1.25rem)] font-light leading-relaxed text-[#9ca3af]">
           A Dental Lab Specializing in 3D Printing Metal Partial Denture Frameworks
         </p>
         <div className="mt-10">
