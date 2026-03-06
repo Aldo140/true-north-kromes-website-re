@@ -37,10 +37,10 @@ export function CTABanner() {
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <a
-            href="tel:+14039810337"
+            href="tel:+18076247222"
             className="inline-flex items-center px-8 py-3 text-sm tracking-wider text-white/80 underline underline-offset-4 decoration-white/30 transition-colors hover:text-white hover:decoration-white/60"
           >
-            403.981.0337
+            807.624.7222
           </a>
         </div>
       </div>

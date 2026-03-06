@@ -9,37 +9,37 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    title: "[Placeholder Service Title]",
+    title: "3D Design",
     description:
-      "[Placeholder -- client to supply service description.]",
-    image: "/images/gallery-raw-print-batch.jpg",
+      "Expert digital framework design tailored to each case. Our CAD specialists create precise partial denture designs that account for optimal fit, retention, and patient comfort. We work with all major file formats and can accommodate custom specifications.",
+    image: "/images/gallery-printer-chamber.jpg",
   },
   {
-    title: "[Placeholder Service Title]",
+    title: "3D Printing",
     description:
-      "[Placeholder -- client to supply service description.]",
-    image: "/images/gallery-dlyte-sintering.jpg",
+      "High-resolution metal printing using advanced SLM (Selective Laser Melting) technology. Our Chamlion printers produce frameworks with exceptional accuracy and consistency, ensuring reliable results case after case.",
+    image: "/images/gallery-technician-printer.jpg",
   },
   {
-    title: "[Placeholder Service Title]",
+    title: "Post-Processing",
     description:
-      "[Placeholder -- client to supply service description.]",
-    image: "/images/gallery-polished-framework-gray.jpg",
+      "Professional finishing, DLyte electro-polishing, and rigorous quality assurance. Every framework is polished to a mirror finish and inspected before delivery, ensuring it meets our exacting standards.",
+    image: "/images/gallery-dlyte-framework-1.jpg",
   },
 ]
 
 const additionalServices = [
   {
     title: "Custom Partial Frameworks",
-    description: "[Placeholder -- describe the types of partial frameworks offered, materials, and customization options.]",
+    description: "Upper and lower partial denture frameworks in CoCr alloy. Includes cast clasps, mesh retention, and precision-fit designs tailored to your case specifications.",
   },
   {
     title: "Implant Bars & Attachments",
-    description: "[Placeholder -- describe implant bar services, supported systems, and materials.]",
+    description: "Custom implant bars with precision screw holes for overdenture retention. Designed to your implant system specifications.",
   },
   {
-    title: "Rush Orders",
-    description: "[Placeholder -- describe expedited turnaround options and pricing.]",
+    title: "Metal Mesh Trays",
+    description: "Custom perforated metal trays for impression taking and specialized prosthetic applications.",
   },
 ]
 
@@ -56,7 +56,7 @@ export default function ServicesPage() {
             Our Services
           </h1>
           <p className="mt-3 max-w-lg text-base leading-relaxed text-muted-foreground">
-            [Placeholder subtitle]
+            A fully integrated digital 3D-printing solution that transforms the way dental professionals design and manufacture partial dentures.
           </p>
         </div>
       </section>
@@ -120,10 +120,10 @@ export default function ServicesPage() {
       <section className="bg-white py-16 lg:py-24">
         <div className="mx-auto max-w-5xl px-8 lg:px-16">
           <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.25rem)] font-normal text-foreground">
-            [Placeholder Heading]
+            Ready to Get Started?
           </h2>
           <p className="mt-3 max-w-lg text-base text-muted-foreground">
-            [Placeholder -- client to supply CTA description.]
+            Email or call us today to discuss your case requirements. We provide complete support throughout the entire production cycle.
           </p>
           <div className="mt-6">
             <Link

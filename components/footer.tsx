@@ -60,9 +60,9 @@ export function Footer() {
               Contact
             </h3>
             <div className="mt-4 flex flex-col gap-4">
-              <a href="tel:+14039810337" className="flex items-start gap-3 text-sm text-white/60 transition-colors hover:text-white">
+              <a href="tel:+18076247222" className="flex items-start gap-3 text-sm text-white/60 transition-colors hover:text-white">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#a0a0a0]" />
-                403.981.0337
+                807.624.7222
               </a>
               <a href="mailto:truenorthkromes@gmail.com" className="flex items-start gap-3 text-sm text-white/60 transition-colors hover:text-white">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#a0a0a0]" />
@@ -70,7 +70,7 @@ export function Footer() {
               </a>
               <div className="flex items-start gap-3 text-sm text-white/60">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#a0a0a0]" />
-                <span>107-105 1st Street W,<br />Cochrane, Alberta,<br />Canada, T4C0A4</span>
+                <span>Thunder Bay, Ontario,<br />Canada</span>
               </div>
             </div>
           </div>

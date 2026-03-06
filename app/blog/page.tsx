@@ -8,40 +8,22 @@ export const metadata: Metadata = {
 
 const posts = [
   {
-    slug: "post-1",
-    title: "[Placeholder Blog Title]",
-    excerpt: "[Placeholder -- short summary of the blog post goes here. Client to supply before launch.]",
-    date: "[Placeholder Date]",
+    slug: "benefits-of-3d-printed-frameworks",
+    title: "Benefits of 3D Printed Partial Denture Frameworks",
+    excerpt: "Discover how SLM technology delivers more accurate, consistent, and customized frameworks compared to traditional casting methods.",
+    date: "Coming Soon",
   },
   {
-    slug: "post-2",
-    title: "[Placeholder Blog Title]",
-    excerpt: "[Placeholder -- short summary of the blog post goes here. Client to supply before launch.]",
-    date: "[Placeholder Date]",
+    slug: "digital-workflow-guide",
+    title: "A Guide to the Digital Denture Workflow",
+    excerpt: "Learn how to streamline your lab processes and increase efficiency with a fully integrated digital 3D-printing solution.",
+    date: "Coming Soon",
   },
   {
-    slug: "post-3",
-    title: "[Placeholder Blog Title]",
-    excerpt: "[Placeholder -- short summary of the blog post goes here. Client to supply before launch.]",
-    date: "[Placeholder Date]",
-  },
-  {
-    slug: "post-4",
-    title: "[Placeholder Blog Title]",
-    excerpt: "[Placeholder -- short summary of the blog post goes here. Client to supply before launch.]",
-    date: "[Placeholder Date]",
-  },
-  {
-    slug: "post-5",
-    title: "[Placeholder Blog Title]",
-    excerpt: "[Placeholder -- short summary of the blog post goes here. Client to supply before launch.]",
-    date: "[Placeholder Date]",
-  },
-  {
-    slug: "post-6",
-    title: "[Placeholder Blog Title]",
-    excerpt: "[Placeholder -- short summary of the blog post goes here. Client to supply before launch.]",
-    date: "[Placeholder Date]",
+    slug: "dlyte-polishing-technology",
+    title: "DLyte Electro-Polishing: The Future of Metal Finishing",
+    excerpt: "Explore how DLyte technology achieves a superior mirror finish while maintaining the precision of 3D printed frameworks.",
+    date: "Coming Soon",
   },
 ]
 
@@ -53,7 +35,7 @@ export default function BlogPage() {
           Blog
         </h1>
         <p className="mt-2 text-center text-base text-muted-foreground">
-          [Placeholder -- Blog subtitle goes here]
+          News and insights from True North Kromes
         </p>
 
         <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
@@ -63,7 +45,7 @@ export default function BlogPage() {
                 <div className="aspect-[16/10] w-full bg-muted">
                   <img
                     src={`/placeholder.svg?height=280&width=450`}
-                    alt="[Placeholder]"
+                    alt="Blog post cover"
                     className="h-full w-full object-cover"
                   />
                 </div>

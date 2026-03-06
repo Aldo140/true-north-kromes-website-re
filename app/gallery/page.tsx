@@ -88,7 +88,7 @@ export default function GalleryPage() {
             Gallery
           </h1>
           <p className="mt-2 text-center text-sm tracking-wider text-muted-foreground">
-            [Placeholder subtitle]
+            A SHOWCASE OF OUR PRECISION CRAFTSMANSHIP
           </p>
 
           {/* Image grid */}

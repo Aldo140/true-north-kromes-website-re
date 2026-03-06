@@ -4,26 +4,26 @@ const steps = [
   {
     icon: Upload,
     step: "01",
-    title: "[Placeholder Step Title]",
-    description: "[Placeholder -- client to supply step 1 description.]",
+    title: "Submit Your Case",
+    description: "Send us your digital scan or case files via email. We accept all major file formats.",
   },
   {
     icon: PenTool,
     step: "02",
-    title: "[Placeholder Step Title]",
-    description: "[Placeholder -- client to supply step 2 description.]",
+    title: "3D Design",
+    description: "Expert digital framework design tailored to each case using advanced CAD software.",
   },
   {
     icon: Printer,
     step: "03",
-    title: "[Placeholder Step Title]",
-    description: "[Placeholder -- client to supply step 3 description.]",
+    title: "3D Printing",
+    description: "High-resolution metal printing using advanced SLM technology for precision results.",
   },
   {
     icon: Package,
     step: "04",
-    title: "[Placeholder Step Title]",
-    description: "[Placeholder -- client to supply step 4 description.]",
+    title: "Post-Processing",
+    description: "Professional finishing, DLyte polishing, and quality assurance before delivery.",
   },
 ]
 
@@ -32,10 +32,10 @@ export function Process() {
     <section className="bg-white py-20 lg:py-28" aria-label="Our Process">
       <div className="mx-auto max-w-5xl px-5">
         <h2 className="text-center text-[clamp(1.5rem,3vw,2.5rem)] font-light text-foreground">
-          [Placeholder Heading]
+          How It Works
         </h2>
         <p className="mt-2 text-center text-sm tracking-wider text-muted-foreground">
-          [Placeholder subtitle]
+          A STREAMLINED DIGITAL WORKFLOW
         </p>
 
         <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">

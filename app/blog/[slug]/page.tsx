@@ -20,7 +20,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <div className="mt-8 aspect-[16/9] w-full bg-muted">
           <img
             src="/placeholder.svg?height=500&width=900"
-            alt="[Placeholder]"
+            alt="Article cover image"
             className="h-full w-full object-cover"
           />
         </div>
@@ -28,10 +28,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         {/* Meta */}
         <div className="mt-8">
           <p className="text-xs tracking-widest text-muted-foreground/60 uppercase">
-            [Placeholder Date]
+            Coming Soon
           </p>
           <h1 className="font-[family-name:var(--font-heading)] mt-3 text-[clamp(1.5rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
-            [Placeholder Blog Title]
+            Article Coming Soon
           </h1>
         </div>
 
@@ -41,19 +41,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         {/* Body */}
         <div className="space-y-6 text-base leading-[1.9] text-muted-foreground">
           <p>
-            [Placeholder -- first paragraph of the blog post goes here. Client to supply actual blog content before launch. This is where the main introduction and hook for the article would be placed.]
+            This article is currently being written. Check back soon for insights on digital dental workflows, 3D printing technology, and how True North Kromes is transforming partial denture manufacturing.
           </p>
           <p>
-            [Placeholder -- second paragraph continues the article. Discuss relevant dental industry topics, 3D printing technology updates, or case studies that showcase True North Kromes expertise.]
-          </p>
-          <h2 className="text-xl font-semibold text-foreground">
-            [Placeholder Subheading]
-          </h2>
-          <p>
-            [Placeholder -- additional content under the subheading. Can include details about processes, materials, patient outcomes, or industry developments.]
-          </p>
-          <p>
-            [Placeholder -- concluding paragraph with a call to action. Encourage readers to contact True North Kromes for more information or to get started with their services.]
+            In the meantime, feel free to explore our gallery to see examples of our work, or contact us directly to learn more about our services.
           </p>
         </div>
 
