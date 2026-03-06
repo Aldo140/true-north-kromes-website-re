@@ -22,14 +22,14 @@ export function StickyQuote() {
     <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2">
       <Link
         href="/contact"
-        className="flex items-center gap-2 bg-[#8a9aab] px-5 py-3 text-sm font-medium tracking-wider text-white shadow-lg transition-all hover:bg-[#6e7a8a]"
+        className="flex items-center gap-2 bg-[#1a1a1a] px-5 py-3 text-sm font-medium tracking-wider text-white shadow-lg transition-all hover:bg-[#333333]"
       >
         <MessageSquare className="h-4 w-4" />
         Get a Quote
       </Link>
       <button
         onClick={() => setDismissed(true)}
-        className="bg-[#8a9aab] p-2 text-white shadow-lg transition-colors hover:bg-[#6e7a8a]"
+        className="bg-[#1a1a1a] p-2 text-white shadow-lg transition-colors hover:bg-[#333333]"
         aria-label="Dismiss"
       >
         <X className="h-4 w-4" />

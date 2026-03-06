@@ -52,7 +52,7 @@ export function Navigation() {
                 href={link.href}
                 className={`font-sans text-[15px] font-normal tracking-[0.08em] transition-colors ${
                   isActive
-                    ? "text-[#8a9aab]"
+                    ? "text-[#1a1a1a]"
                     : "text-[#999] hover:text-foreground"
                 }`}
               >
@@ -86,7 +86,7 @@ export function Navigation() {
                     onClick={() => setMobileOpen(false)}
                     className={`font-sans text-[15px] font-normal tracking-[0.08em] transition-colors ${
                       isActive
-                        ? "text-[#8a9aab]"
+                        ? "text-[#1a1a1a]"
                         : "text-[#999] hover:text-foreground"
                     }`}
                   >

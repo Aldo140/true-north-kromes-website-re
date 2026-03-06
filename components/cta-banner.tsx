@@ -14,7 +14,7 @@ export function CTABanner() {
           className="h-full w-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-[#1c1f26]/80" />
+        <div className="absolute inset-0 bg-[#1a1a1a]/80" />
       </div>
 
       {/* Left-aligned with asymmetric two-column -- Fix #1, varied spacing -- Fix #2 */}

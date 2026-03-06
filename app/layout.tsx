@@ -1,20 +1,14 @@
 import type { Metadata } from "next"
-import { DM_Sans, Playfair_Display } from "next/font/google"
+import { Inter } from "next/font/google"
 import "./globals.css"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { StickyQuote } from "@/components/sticky-quote"
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-dm-sans",
-})
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-playfair",
+  variable: "--font-inter",
 })
 
 export const metadata: Metadata = {
@@ -53,7 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dmSans.variable} ${playfair.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased`}>
         <Navigation />
         <main>{children}</main>
         <Footer />

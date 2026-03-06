@@ -71,13 +71,13 @@ export default function BlogPage() {
                   <p className="text-xs tracking-widest text-muted-foreground/60 uppercase">
                     {post.date}
                   </p>
-                  <h2 className="mt-2 font-sans text-lg font-semibold text-foreground group-hover:text-[#8a9aab] transition-colors">
+                  <h2 className="mt-2 font-sans text-lg font-semibold text-foreground group-hover:text-[#1a1a1a] transition-colors">
                     {post.title}
                   </h2>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {post.excerpt}
                   </p>
-                  <span className="mt-4 inline-block text-sm font-medium text-[#8a9aab] tracking-wide">
+                  <span className="mt-4 inline-block text-sm font-medium text-[#1a1a1a] tracking-wide">
                     Read More
                   </span>
                 </div>
