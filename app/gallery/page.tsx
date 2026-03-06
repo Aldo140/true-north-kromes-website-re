@@ -44,6 +44,14 @@ const images: { src: string; alt: string }[] = [
   { src: "/images/gallery-lower-partial-model-5.jpg", alt: "Lower partial framework on dental model - occlusal view" },
   { src: "/images/gallery-partial-framework-only.jpg", alt: "Polished partial framework - no model" },
   { src: "/images/gallery-mesh-tray-3.jpg", alt: "Large perforated mesh tray framework" },
+  { src: "/images/gallery-upper-framework-acrylic-1.jpg", alt: "Upper framework with acrylic teeth on model" },
+  { src: "/images/gallery-partial-framework-only-2.jpg", alt: "Polished partial framework - alternate view" },
+  { src: "/images/gallery-upper-framework-occlusal.jpg", alt: "Upper framework occlusal view on model" },
+  { src: "/images/gallery-denture-articulated-side.jpg", alt: "Articulated denture models - side view" },
+  { src: "/images/gallery-partial-framework-only-3.jpg", alt: "Polished partial framework with clasps" },
+  { src: "/images/gallery-denture-articulated-front.jpg", alt: "Articulated denture models - front view" },
+  { src: "/images/gallery-upper-framework-acrylic-2.jpg", alt: "Upper framework with acrylic saddles" },
+  { src: "/images/gallery-upper-partial-blue-glove.jpg", alt: "Upper partial framework held with blue glove" },
 ]
 
 export default function GalleryPage() {
