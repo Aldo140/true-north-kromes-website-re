@@ -92,7 +92,7 @@ export default function GalleryPage() {
           </p>
 
           {/* Image grid */}
-          <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {images.map((img, i) => (
               <button
                 key={img.src + i}
