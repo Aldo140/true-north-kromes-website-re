@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react"
 export function CTABanner() {
   return (
     <section
-      className="relative py-16 lg:py-24"
+      className="relative py-20 lg:py-28"
       aria-label="Call to action"
     >
       <div className="absolute inset-0">
@@ -14,7 +14,7 @@ export function CTABanner() {
           className="h-full w-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-[#1a1a1a]/80" />
+        <div className="absolute inset-0 bg-[#1a1d21]/85" />
       </div>
 
       {/* Left-aligned with asymmetric two-column -- Fix #1, varied spacing -- Fix #2 */}

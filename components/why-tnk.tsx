@@ -28,17 +28,17 @@ const reasons = [
 export function WhyTNK() {
   return (
     <section className="bg-white" aria-label="Why Choose TNK">
-      <div className="mx-auto max-w-5xl px-5 pt-16 pb-6 lg:pt-24 lg:pb-10 text-center">
+      <div className="mx-auto max-w-5xl px-5 pt-20 pb-8 lg:pt-28 lg:pb-12 text-center">
         <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.5rem)] font-normal text-foreground">
           Why Choose True North Kromes?
         </h2>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <p className="mt-3 text-sm text-muted-foreground">
           Our Services Can Help With
         </p>
       </div>
 
       {/* Lab background with asymmetric card grid -- Fix #5 */}
-      <div className="relative min-h-[500px] pb-16 lg:pb-24">
+      <div className="relative min-h-[500px] pb-20 lg:pb-28">
         <div className="absolute inset-0">
           <img
             src="/images/gallery-lab-wide.jpg"

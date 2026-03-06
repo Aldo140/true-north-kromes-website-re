@@ -12,7 +12,7 @@ const previewImages: { src: string; alt: string; tall: boolean }[] = [
 
 export function GalleryPreview() {
   return (
-    <section className="bg-secondary py-14 lg:py-20" aria-label="Gallery Preview">
+    <section className="bg-secondary py-20 lg:py-28" aria-label="Gallery Preview">
       <div className="mx-auto max-w-6xl px-5">
         {/* Left-aligned header with inline link -- Fix #1, #3 */}
         <div className="flex items-end justify-between">

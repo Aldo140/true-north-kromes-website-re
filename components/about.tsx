@@ -1,6 +1,6 @@
 export function About() {
   return (
-    <section className="bg-white pt-36 pb-20 lg:pt-44 lg:pb-28" aria-label="About TNK">
+    <section className="bg-white pt-36 pb-24 lg:pt-44 lg:pb-32" aria-label="About TNK">
       <div className="grid lg:grid-cols-2">
         {/* Image -- flush to left edge like client */}
         <div className="flex items-center justify-center overflow-hidden bg-white">

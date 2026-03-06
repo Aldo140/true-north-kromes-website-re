@@ -20,23 +20,23 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="bg-white py-20 lg:py-28" aria-label="Testimonials">
+    <section className="bg-white py-24 lg:py-32" aria-label="Testimonials">
       <div className="mx-auto max-w-5xl px-5">
         <h2 className="text-center text-[clamp(1.5rem,3vw,2.5rem)] font-light text-foreground">
           What Our Partners Say
         </h2>
-        <p className="mt-2 text-center text-sm tracking-wider text-muted-foreground">
+        <p className="mt-3 text-center text-sm tracking-wider text-muted-foreground">
           TRUSTED BY DENTAL PROFESSIONALS
         </p>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-3">
+        <div className="mt-16 grid gap-10 md:grid-cols-3">
           {testimonials.map((t, i) => (
-            <div key={i} className="border border-border p-8">
+            <div key={i} className="border border-border bg-background p-10">
               <div className="flex gap-1">
                 {[...Array(5)].map((_, j) => (
                   <Star
                     key={j}
-                    className="h-4 w-4 fill-[#a0a0a0] text-[#a0a0a0]"
+                    className="h-4 w-4 fill-accent text-accent"
                   />
                 ))}
               </div>

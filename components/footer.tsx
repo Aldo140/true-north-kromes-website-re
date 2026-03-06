@@ -3,9 +3,9 @@ import { Phone, Mail, MapPin, Instagram, Facebook } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-[#1a1a1a] text-white" aria-label="Site footer">
-      {/* Gold accent line */}
-      <div className="h-1 bg-[#a0a0a0]" />
+    <footer className="bg-[#1a1d21] text-white" aria-label="Site footer">
+      {/* Steel accent line */}
+      <div className="h-1 bg-accent" />
 
       <div className="mx-auto max-w-6xl px-5 py-14">
         <div className="grid gap-12 md:grid-cols-4">
@@ -25,14 +25,14 @@ export function Footer() {
               <a
                 href="#"
                 aria-label="Instagram"
-                className="text-white/40 transition-colors hover:text-[#a0a0a0]"
+                className="text-white/40 transition-colors hover:text-accent"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
                 aria-label="Facebook"
-                className="text-white/40 transition-colors hover:text-[#a0a0a0]"
+                className="text-white/40 transition-colors hover:text-accent"
               >
                 <Facebook className="h-5 w-5" />
               </a>
@@ -41,7 +41,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-semibold tracking-wider text-[#a0a0a0]">
+            <h3 className="text-sm font-semibold tracking-wider text-accent">
               Quick Links
             </h3>
             <nav className="mt-4 flex flex-col gap-3">
@@ -56,20 +56,20 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-sm font-semibold tracking-wider text-[#a0a0a0]">
+            <h3 className="text-sm font-semibold tracking-wider text-accent">
               Contact
             </h3>
             <div className="mt-4 flex flex-col gap-4">
               <a href="tel:+18076247222" className="flex items-start gap-3 text-sm text-white/60 transition-colors hover:text-white">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#a0a0a0]" />
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 807.624.7222
               </a>
               <a href="mailto:truenorthkromes@gmail.com" className="flex items-start gap-3 text-sm text-white/60 transition-colors hover:text-white">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#a0a0a0]" />
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 truenorthkromes@gmail.com
               </a>
               <div className="flex items-start gap-3 text-sm text-white/60">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#a0a0a0]" />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <span>107-105 1st Street W,<br />Cochrane, Alberta,<br />Canada, T4C0A4</span>
               </div>
             </div>
@@ -77,7 +77,7 @@ export function Footer() {
 
           {/* Downloads & Portal */}
           <div>
-            <h3 className="text-sm font-semibold tracking-wider text-[#a0a0a0]">
+            <h3 className="text-sm font-semibold tracking-wider text-accent">
               Downloads
             </h3>
             <div className="mt-4 flex flex-col gap-3">
@@ -101,7 +101,7 @@ export function Footer() {
                 href="https://truenorthkromes.seazona.net"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-flex w-fit items-center border border-[#a0a0a0] px-6 py-2 text-sm tracking-wider text-[#a0a0a0] transition-colors hover:bg-[#a0a0a0] hover:text-white"
+                className="mt-2 inline-flex w-fit items-center border border-accent px-6 py-2 text-sm tracking-wider text-accent transition-colors hover:bg-accent hover:text-[#1a1d21]"
               >
                 Client Portal
               </a>
