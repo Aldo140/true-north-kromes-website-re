@@ -12,7 +12,7 @@ const services = [
     title: "3D Design",
     description:
       "Expert digital framework design tailored to each case. Our CAD specialists create precise partial denture designs that account for optimal fit, retention, and patient comfort. We work with all major file formats and can accommodate custom specifications.",
-    image: "/images/gallery-printer-chamber.jpg",
+    image: "/images/service-3d-design.jpg",
   },
   {
     title: "3D Printing",
