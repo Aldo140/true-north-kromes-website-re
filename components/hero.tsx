@@ -13,21 +13,23 @@ export function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-white/85 via-white/70 to-white/85" />
         
-        {/* Content overlay */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
-          <h1 className="font-[family-name:var(--font-heading)] text-[clamp(2.25rem,6vw,4rem)] font-normal leading-[1.1] text-[#1a1a1a]">
-            Welcome to True North Kromes
-          </h1>
-          <p className="mt-6 max-w-2xl text-[clamp(1rem,1.5vw,1.25rem)] font-light leading-relaxed text-[#9ca3af]">
-            A Dental Lab Specializing in 3D Printing Metal Partial Denture Frameworks
-          </p>
-          <div className="mt-10">
-            <Link
-              href="/contact"
-              className="inline-flex items-center border border-[#1a1a1a] bg-[#1a1a1a] px-10 py-3 text-sm font-medium tracking-wider text-white transition-all hover:bg-transparent hover:text-[#1a1a1a]"
-            >
-              Contact Us
-            </Link>
+        {/* Content overlay - left aligned for editorial feel */}
+        <div className="absolute inset-0 flex items-center">
+          <div className="mx-auto w-full max-w-6xl px-8 lg:px-12">
+            <h1 className="font-[family-name:var(--font-heading)] text-[clamp(2.5rem,7vw,5rem)] font-medium leading-[1.05] tracking-[-0.02em] text-[#1a1a1a]">
+              True North<br />Kromes
+            </h1>
+            <p className="mt-5 max-w-md text-[clamp(0.95rem,1.2vw,1.1rem)] leading-relaxed text-[#71717a]">
+              A Dental Lab Specializing in 3D Printing Metal Partial Denture Frameworks
+            </p>
+            <div className="mt-8">
+              <Link
+                href="/contact"
+                className="inline-flex items-center border-b border-[#1a1a1a] pb-1 text-sm font-medium tracking-wide text-[#1a1a1a] transition-all hover:border-[#71717a] hover:text-[#71717a]"
+              >
+                Get in Touch
+              </Link>
+            </div>
           </div>
         </div>
       </div>

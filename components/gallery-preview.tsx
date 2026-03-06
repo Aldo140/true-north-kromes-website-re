@@ -12,29 +12,29 @@ const previewImages: { src: string; alt: string; tall: boolean }[] = [
 
 export function GalleryPreview() {
   return (
-    <section className="bg-white py-20 lg:py-28" aria-label="Gallery Preview">
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
-        {/* Header */}
-        <div className="flex items-end justify-between">
-          <div>
-            <p className="text-xs font-medium tracking-[0.2em] text-[#9ca3af] uppercase">
-              Our Work
+    <section className="bg-white py-24 lg:py-32" aria-label="Gallery Preview">
+      <div className="mx-auto max-w-6xl px-6 lg:px-12">
+        {/* Header - left aligned */}
+        <div className="mb-12 flex items-end justify-between">
+          <div className="max-w-xl">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#a1a1aa]">
+              Portfolio
             </p>
-            <h2 className="font-[family-name:var(--font-heading)] mt-3 text-[clamp(1.75rem,4vw,2.5rem)] font-normal text-[#1a1a1a]">
+            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.02em] text-[#1a1a1a]">
               Recent Cases
             </h2>
           </div>
           <Link
             href="/gallery"
-            className="group hidden items-center gap-2 text-sm font-medium tracking-wider text-[#1a1a1a] transition-colors hover:text-[#9ca3af] md:flex"
+            className="group hidden items-center gap-2 border-b border-[#1a1a1a] pb-1 text-sm font-medium tracking-wide text-[#1a1a1a] transition-all hover:border-[#71717a] hover:text-[#71717a] md:flex"
           >
             View All
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
         {/* Grid */}
-        <div className="mt-10 grid auto-rows-[180px] grid-cols-2 gap-3 md:grid-cols-3 lg:auto-rows-[220px]">
+        <div className="grid auto-rows-[180px] grid-cols-2 gap-2 md:grid-cols-3 lg:auto-rows-[240px] lg:gap-3">
           {previewImages.map((img, i) => (
             <div
               key={i}
@@ -43,7 +43,7 @@ export function GalleryPreview() {
               <img
                 src={img.src}
                 alt={img.alt}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 loading="lazy"
               />
             </div>
@@ -51,13 +51,13 @@ export function GalleryPreview() {
         </div>
 
         {/* Mobile link */}
-        <div className="mt-8 md:hidden">
+        <div className="mt-10 md:hidden">
           <Link
             href="/gallery"
-            className="group inline-flex items-center gap-2 text-sm font-medium tracking-wider text-[#1a1a1a]"
+            className="inline-flex items-center gap-2 border-b border-[#1a1a1a] pb-1 text-sm font-medium tracking-wide text-[#1a1a1a]"
           >
             View All Work
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>

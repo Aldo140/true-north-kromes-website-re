@@ -1,27 +1,28 @@
 export function About() {
   return (
-    <section className="bg-[#f8f9fa] pt-40 pb-20 lg:pt-48 lg:pb-28" aria-label="About TNK">
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Image */}
-          <div className="flex items-center justify-center">
+    <section className="bg-[#fafafa] pt-44 pb-24 lg:pt-52 lg:pb-32" aria-label="About TNK">
+      <div className="mx-auto max-w-6xl px-6 lg:px-12">
+        <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
+          {/* Image - takes up less space */}
+          <div className="lg:col-span-5">
             <img
               src="/images/palatal-plate.jpg"
               alt="Polished chrome palatal plate framework held in a blue glove"
-              className="h-auto w-full max-w-md object-contain"
+              className="h-auto w-full object-contain"
               loading="lazy"
             />
           </div>
 
-          {/* Text content */}
-          <div className="flex flex-col justify-center">
-            <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.75rem,4vw,2.5rem)] font-normal text-[#1a1a1a]">
+          {/* Text content - larger area */}
+          <div className="flex flex-col justify-center lg:col-span-7">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#a1a1aa]">
+              About Us
+            </p>
+            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.02em] text-[#1a1a1a]">
               Our Mission
             </h2>
 
-            <div className="mt-6 h-px w-20 bg-border" />
-
-            <div className="mt-8 flex flex-col gap-5 text-[15px] leading-[1.8] text-[#9ca3af]">
+            <div className="mt-10 flex flex-col gap-6 text-[15px] leading-[1.85] text-[#71717a]">
               <p>
                 True North Kromes was established to address the need for superior partial
                 denture frames that truly meet the needs of patients. With a foundation

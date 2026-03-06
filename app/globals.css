@@ -30,7 +30,7 @@
 
 @theme inline {
   --font-sans: var(--font-sans), 'Inter', 'system-ui', sans-serif;
-  --font-heading: var(--font-heading), 'DM Serif Display', 'Georgia', serif;
+  --font-heading: var(--font-heading), 'Cormorant Garamond', 'Georgia', serif;
   --color-accent-warm: var(--accent-warm);
   --color-accent-warm-muted: var(--accent-warm-muted);
   --color-background: var(--background);

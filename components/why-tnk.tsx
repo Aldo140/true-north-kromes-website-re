@@ -27,29 +27,32 @@ const reasons = [
 
 export function WhyTNK() {
   return (
-    <section className="bg-white py-20 lg:py-28" aria-label="Why Choose TNK">
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center">
-          <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.75rem,4vw,2.5rem)] font-normal text-[#1a1a1a]">
+    <section className="bg-white py-24 lg:py-32" aria-label="Why Choose TNK">
+      <div className="mx-auto max-w-6xl px-6 lg:px-12">
+        {/* Header - left aligned */}
+        <div className="mb-16 max-w-xl">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#a1a1aa]">
+            Our Services
+          </p>
+          <h2 className="mt-4 font-[family-name:var(--font-heading)] text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.02em] text-[#1a1a1a]">
             Why Choose True North Kromes?
           </h2>
-          <p className="mt-3 text-base text-[#9ca3af]">
-            Our Services Can Help With
-          </p>
         </div>
 
-        {/* Grid */}
-        <div className="mt-14 grid grid-cols-1 gap-px bg-border border border-border md:grid-cols-2 lg:grid-cols-3">
-          {reasons.map((reason) => (
+        {/* Asymmetric grid */}
+        <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:gap-x-16 md:gap-y-14 lg:grid-cols-3">
+          {reasons.map((reason, index) => (
             <div
               key={reason.title}
-              className="bg-white p-8"
+              className="group"
             >
-              <h3 className="font-[family-name:var(--font-heading)] text-lg font-normal text-[#1a1a1a]">
+              <span className="text-xs font-medium text-[#d4d4d8]">
+                0{index + 1}
+              </span>
+              <h3 className="mt-3 font-[family-name:var(--font-heading)] text-xl font-medium text-[#1a1a1a]">
                 {reason.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#9ca3af]">
+              <p className="mt-3 text-[15px] leading-relaxed text-[#71717a]">
                 {reason.description}
               </p>
             </div>

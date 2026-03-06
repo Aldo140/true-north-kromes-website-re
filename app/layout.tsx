@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter, DM_Serif_Display } from "next/font/google"
+import { Inter, Cormorant_Garamond } from "next/font/google"
 import "./globals.css"
 
 import { Navigation } from "@/components/navigation"
@@ -12,8 +12,8 @@ const inter = Inter({
   variable: "--font-sans",
 })
 
-const dmSerif = DM_Serif_Display({
-  weight: "400",
+const cormorant = Cormorant_Garamond({
+  weight: ["400", "500", "600"],
   subsets: ["latin"],
   variable: "--font-heading",
 })
@@ -54,7 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${dmSerif.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${cormorant.variable} font-sans antialiased`}>
         <Navigation />
         <main>{children}</main>
         <Footer />
