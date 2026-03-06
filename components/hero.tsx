@@ -2,19 +2,19 @@ import Link from "next/link"
 
 export function Hero() {
   return (
-    <section className="relative min-h-[520px] lg:min-h-[600px]" aria-label="Hero">
-      <div className="absolute inset-x-4 inset-y-0 lg:inset-x-12">
+    <section className="relative min-h-[600px] lg:min-h-[700px]" aria-label="Hero">
+      <div className="absolute inset-0">
         <img
           src="/images/framework-hero.jpg"
           alt=""
           className="h-full w-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
       </div>
 
-      {/* Left-aligned content instead of centered -- Fix #1 */}
-      <div className="relative mx-auto flex max-w-5xl flex-col justify-end px-8 pt-44 pb-16 lg:px-16 lg:pt-56 lg:pb-20">
+      {/* Left-aligned content */}
+      <div className="relative mx-auto flex min-h-[600px] max-w-5xl flex-col justify-end px-8 pb-16 lg:min-h-[700px] lg:px-16 lg:pb-24">
         <h1 className="font-[family-name:var(--font-heading)] text-center text-[clamp(2rem,5vw,3.5rem)] font-normal leading-[1.1] text-white lg:text-left">
           Welcome to True North Kromes
         </h1>
