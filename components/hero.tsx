@@ -5,12 +5,12 @@ export function Hero() {
     <section className="relative min-h-[600px] lg:min-h-[700px]" aria-label="Hero">
       <div className="absolute inset-0">
         <img
-          src="/images/framework-hero.jpg"
+          src="/images/gallery-two-frameworks.jpg"
           alt=""
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-center"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/30 to-black/70" />
       </div>
 
       {/* Left-aligned content */}

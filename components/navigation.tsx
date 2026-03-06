@@ -34,7 +34,7 @@ export function Navigation() {
 
           {/* Mobile hamburger only */}
           <button
-            className={`lg:hidden ${isHome ? "text-white" : "text-foreground"}`}
+            className="text-foreground lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -52,13 +52,9 @@ export function Navigation() {
                 key={link.href}
                 href={link.href}
                 className={`font-sans text-[15px] font-normal tracking-[0.08em] transition-colors ${
-                  isHome
-                    ? isActive
-                      ? "text-white"
-                      : "text-white/70 hover:text-white"
-                    : isActive
-                      ? "text-[#1a1a1a]"
-                      : "text-[#999] hover:text-foreground"
+                  isActive
+                    ? "text-[#1a1a1a]"
+                    : "text-[#999] hover:text-foreground"
                 }`}
               >
                 {link.label}
@@ -72,7 +68,7 @@ export function Navigation() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Client Portal Login"
-            className={`absolute right-6 transition-colors ${isHome ? "text-white/70 hover:text-white" : "text-[#999] hover:text-foreground"}`}
+            className="absolute right-6 text-[#999] transition-colors hover:text-foreground"
           >
             <UserCircle className="h-6 w-6" />
           </a>
