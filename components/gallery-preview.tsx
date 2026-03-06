@@ -4,10 +4,8 @@ import { ArrowRight } from "lucide-react"
 const previewImages: { src: string; alt: string; tall: boolean }[] = [
   { src: "/images/gallery-upper-framework-acrylic-1.jpg", alt: "Upper framework with acrylic teeth on model", tall: true },
   { src: "/images/gallery-framework-closeup-1.jpg", alt: "Polished partial denture framework on dental model", tall: false },
-  { src: "/images/gallery-upper-partial-blue-glove.jpg", alt: "Upper partial framework held with blue glove", tall: false },
-  { src: "/images/gallery-denture-articulated-front.jpg", alt: "Articulated denture models - front view", tall: true },
-  { src: "/images/gallery-lower-partial-model-1.jpg", alt: "Lower partial framework on dental model", tall: false },
-  { src: "/images/gallery-two-frameworks.jpg", alt: "Two polished frameworks with mesh retention", tall: false },
+  { src: "/images/gallery-denture-articulated-front.jpg", alt: "Articulated denture models - front view", tall: false },
+  { src: "/images/gallery-two-frameworks.jpg", alt: "Two polished frameworks with mesh retention", tall: true },
 ]
 
 export function GalleryPreview() {
