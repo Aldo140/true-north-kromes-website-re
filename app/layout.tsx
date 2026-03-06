@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter, Playfair_Display } from "next/font/google"
+import { Inter, DM_Serif_Display } from "next/font/google"
 import "./globals.css"
 
 import { Navigation } from "@/components/navigation"
@@ -12,8 +12,8 @@ const inter = Inter({
   variable: "--font-sans",
 })
 
-const playfair = Playfair_Display({
-  weight: ["400", "500", "600"],
+const dmSerif = DM_Serif_Display({
+  weight: "400",
   subsets: ["latin"],
   variable: "--font-heading",
 })
@@ -54,7 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${dmSerif.variable} font-sans antialiased`}>
         <Navigation />
         <main>{children}</main>
         <Footer />

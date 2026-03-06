@@ -4,33 +4,33 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #f5f5f0;
+  --background: #ffffff;
   --foreground: #1a1a1a;
   --card: #ffffff;
   --card-foreground: #1a1a1a;
   --popover: #ffffff;
   --popover-foreground: #1a1a1a;
   --primary: #1a1a1a;
-  --primary-foreground: #f5f5f0;
-  --secondary: #eeeee8;
+  --primary-foreground: #ffffff;
+  --secondary: #f8f9fa;
   --secondary-foreground: #1a1a1a;
-  --muted: #e8e8e2;
-  --muted-foreground: #6b6b6b;
-  --accent: #1a1a1a;
-  --accent-foreground: #f5f5f0;
-  --accent-warm: #1a1a1a;
-  --accent-warm-muted: #3a3a3a;
+  --muted: #f4f5f6;
+  --muted-foreground: #6b7280;
+  --accent: #4a90a4;
+  --accent-foreground: #ffffff;
+  --accent-warm: #4a90a4;
+  --accent-warm-muted: #6ba3b5;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #ffffff;
-  --border: #d4d4cc;
-  --input: #d4d4cc;
-  --ring: #1a1a1a;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #4a90a4;
   --radius: 0rem;
 }
 
 @theme inline {
   --font-sans: var(--font-sans), 'Inter', 'system-ui', sans-serif;
-  --font-heading: var(--font-heading), 'Playfair Display', 'Georgia', serif;
+  --font-heading: var(--font-heading), 'DM Serif Display', 'Georgia', serif;
   --color-accent-warm: var(--accent-warm);
   --color-accent-warm-muted: var(--accent-warm-muted);
   --color-background: var(--background);

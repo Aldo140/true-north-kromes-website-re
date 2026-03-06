@@ -10,21 +10,21 @@ const previewImages: { src: string; alt: string; tall: boolean }[] = [
 
 export function GalleryPreview() {
   return (
-    <section className="bg-[#f5f5f0] py-28 lg:py-36" aria-label="Gallery Preview">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+    <section className="bg-white py-20 lg:py-28" aria-label="Gallery Preview">
+      <div className="mx-auto max-w-5xl px-6 lg:px-8">
         {/* Header */}
         <div className="flex items-end justify-between">
           <div>
-            <p className="text-xs font-medium tracking-[0.3em] text-[#6b6b6b] uppercase">
+            <p className="text-xs font-medium tracking-[0.2em] text-[#4a90a4] uppercase">
               Our Work
             </p>
-            <h2 className="font-[family-name:var(--font-heading)] mt-4 text-[clamp(2rem,4vw,3.5rem)] font-normal leading-[1.1] text-[#1a1a1a]">
-              Recent <span className="italic">cases</span>
+            <h2 className="font-[family-name:var(--font-heading)] mt-3 text-[clamp(1.75rem,4vw,2.5rem)] font-normal text-[#1a1a1a]">
+              Recent Cases
             </h2>
           </div>
           <Link
             href="/gallery"
-            className="group hidden items-center gap-2 text-sm font-medium tracking-wider text-[#1a1a1a] transition-colors hover:text-[#6b6b6b] md:flex"
+            className="group hidden items-center gap-2 text-sm font-medium tracking-wider text-[#1a1a1a] transition-colors hover:text-[#6b7280] md:flex"
           >
             View All
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -32,7 +32,7 @@ export function GalleryPreview() {
         </div>
 
         {/* Grid */}
-        <div className="mt-12 grid auto-rows-[200px] grid-cols-2 gap-3 md:grid-cols-3 lg:auto-rows-[260px]">
+        <div className="mt-10 grid auto-rows-[180px] grid-cols-2 gap-3 md:grid-cols-3 lg:auto-rows-[220px]">
           {previewImages.map((img, i) => (
             <div
               key={i}
@@ -41,7 +41,7 @@ export function GalleryPreview() {
               <img
                 src={img.src}
                 alt={img.alt}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
             </div>
@@ -49,7 +49,7 @@ export function GalleryPreview() {
         </div>
 
         {/* Mobile link */}
-        <div className="mt-10 md:hidden">
+        <div className="mt-8 md:hidden">
           <Link
             href="/gallery"
             className="group inline-flex items-center gap-2 text-sm font-medium tracking-wider text-[#1a1a1a]"

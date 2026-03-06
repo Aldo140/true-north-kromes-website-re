@@ -3,57 +3,52 @@ import { Upload, PenTool, Printer, Package } from "lucide-react"
 const steps = [
   {
     icon: Upload,
-    step: "01",
     title: "Submit Your Case",
-    description: "Send us your digital scan or case files via email. We accept all major file formats.",
+    description: "Send us your digital scan or case files. We accept all major file formats.",
   },
   {
     icon: PenTool,
-    step: "02",
     title: "3D Design",
-    description: "Expert digital framework design tailored to each case using advanced CAD software.",
+    description: "Expert digital framework design tailored to each case.",
   },
   {
     icon: Printer,
-    step: "03",
     title: "3D Printing",
-    description: "High-resolution metal printing using advanced SLM technology for precision results.",
+    description: "High-resolution metal printing using advanced SLM technology.",
   },
   {
     icon: Package,
-    step: "04",
     title: "Post-Processing",
-    description: "Professional finishing, DLyte polishing, and quality assurance before delivery.",
+    description: "Professional finishing, polishing, and quality assurance.",
   },
 ]
 
 export function Process() {
   return (
-    <section className="bg-[#eeeee8] py-28 lg:py-36" aria-label="Our Process">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+    <section className="bg-white py-20 lg:py-28" aria-label="Our Process">
+      <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <div className="text-center">
-          <p className="text-xs font-medium tracking-[0.3em] text-[#6b6b6b] uppercase">
-            Our Process
+          <p className="text-xs font-medium tracking-[0.2em] text-[#4a90a4] uppercase">
+            A Streamlined Digital Workflow
           </p>
-          <h2 className="font-[family-name:var(--font-heading)] mt-4 text-[clamp(2rem,4vw,3.5rem)] font-normal leading-[1.1] text-[#1a1a1a]">
-            A streamlined<br />
-            <span className="italic">digital workflow</span>
+          <h2 className="font-[family-name:var(--font-heading)] mt-4 text-[clamp(1.75rem,4vw,2.5rem)] font-normal text-[#1a1a1a]">
+            Our Process
           </h2>
         </div>
 
-        <div className="mt-20 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step) => (
-            <div key={step.step} className="text-center">
-              <div className="mx-auto flex h-20 w-20 items-center justify-center border border-[#1a1a1a]">
-                <step.icon className="h-8 w-8 text-[#1a1a1a]" strokeWidth={1} />
+        <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step, index) => (
+            <div key={step.title} className="text-center">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center border border-[#4a90a4]/30 bg-white">
+                <step.icon className="h-7 w-7 text-[#4a90a4]" strokeWidth={1.5} />
               </div>
-              <p className="mt-8 text-xs font-medium tracking-[0.3em] text-[#6b6b6b]">
-                STEP {step.step}
+              <p className="mt-5 text-xs font-semibold tracking-[0.2em] text-[#4a90a4]">
+                STEP {String(index + 1).padStart(2, '0')}
               </p>
-              <h3 className="font-[family-name:var(--font-heading)] mt-3 text-xl font-normal text-[#1a1a1a]">
+              <h3 className="mt-2 text-base font-medium text-[#1a1a1a]">
                 {step.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#6b6b6b]">
+              <p className="mt-2 text-sm leading-relaxed text-[#6b7280]">
                 {step.description}
               </p>
             </div>
