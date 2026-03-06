@@ -20,7 +20,7 @@ export function Navigation() {
   const isHome = pathname === "/"
 
   return (
-    <header className="absolute left-0 right-0 top-0 z-50 bg-transparent">
+    <header className="absolute left-0 right-0 top-0 z-50 bg-white/95 backdrop-blur-sm">
       <nav aria-label="Main navigation">
         {/* Logo */}
         <div className="flex items-center justify-between px-6 pt-4 pb-2 lg:justify-center lg:pt-6">
