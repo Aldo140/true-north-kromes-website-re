@@ -12,18 +12,21 @@ const posts = [
     title: "Benefits of 3D Printed Partial Denture Frameworks",
     excerpt: "Discover how SLM technology delivers more accurate, consistent, and customized frameworks compared to traditional casting methods.",
     date: "Coming Soon",
+    image: "/images/blog-3d-printed-frameworks.jpg",
   },
   {
     slug: "digital-workflow-guide",
     title: "A Guide to the Digital Denture Workflow",
     excerpt: "Learn how to streamline your lab processes and increase efficiency with a fully integrated digital 3D-printing solution.",
     date: "Coming Soon",
+    image: "/images/blog-digital-workflow.jpg",
   },
   {
     slug: "dlyte-polishing-technology",
     title: "DLyte Electro-Polishing: The Future of Metal Finishing",
     excerpt: "Explore how DLyte technology achieves a superior mirror finish while maintaining the precision of 3D printed frameworks.",
     date: "Coming Soon",
+    image: "/images/blog-dlyte-polishing.jpg",
   },
 ]
 
@@ -44,8 +47,8 @@ export default function BlogPage() {
               <Link href={`/blog/${post.slug}`}>
                 <div className="aspect-[16/10] w-full bg-muted">
                   <img
-                    src={`/placeholder.svg?height=280&width=450`}
-                    alt="Blog post cover"
+                    src={post.image}
+                    alt={post.title}
                     className="h-full w-full object-cover"
                   />
                 </div>
