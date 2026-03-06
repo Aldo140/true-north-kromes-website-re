@@ -4,14 +4,14 @@ import { useState } from "react"
 import { X } from "lucide-react"
 
 const images: { src: string; alt: string }[] = [
-  { src: "/images/gallery-01.jpg", alt: "Metal frameworks inside 3D printer chamber" },
-  { src: "/images/gallery-02.jpg", alt: "Build plate with multiple frameworks in printer" },
-  { src: "/images/gallery-03.jpg", alt: "Raw printed build plate with framework supports" },
-  { src: "/images/gallery-04.jpg", alt: "3D printer chamber view" },
-  { src: "/images/gallery-05.jpg", alt: "Technician holding build plate at NCL-M150 printer" },
-  { src: "/images/gallery-06.jpg", alt: "Polished partial denture framework on dental model" },
-  { src: "/images/gallery-07.jpg", alt: "Frameworks being handled inside printer" },
-  { src: "/images/gallery-08.jpg", alt: "Polished upper partial framework on model" },
+  { src: "/images/gallery-printer-window-1.jpg", alt: "Metal frameworks inside 3D printer chamber" },
+  { src: "/images/gallery-build-plate-printer.jpg", alt: "Build plate with multiple frameworks in printer" },
+  { src: "/images/gallery-raw-build-plate.jpg", alt: "Raw printed build plate with framework supports" },
+  { src: "/images/gallery-printer-chamber.jpg", alt: "3D printer chamber view" },
+  { src: "/images/gallery-technician-printer.jpg", alt: "Technician holding build plate at NCL-M150 printer" },
+  { src: "/images/gallery-framework-closeup-1.jpg", alt: "Polished partial denture framework on dental model" },
+  { src: "/images/gallery-printer-window-2.jpg", alt: "Frameworks being handled inside printer" },
+  { src: "/images/gallery-framework-closeup-2.jpg", alt: "Polished upper partial framework on model" },
 ]
 
 export default function GalleryPage() {
