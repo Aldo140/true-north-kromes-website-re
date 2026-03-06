@@ -15,7 +15,7 @@ export function GalleryPreview() {
         {/* Left-aligned header with inline link -- Fix #1, #3 */}
         <div className="flex items-end justify-between">
           <div>
-            <p className="text-xs font-medium tracking-[0.2em] text-[#6b8fa3]">
+            <p className="text-xs font-medium tracking-[0.2em] text-[#c9a227]">
               OUR WORK
             </p>
             <h2 className="mt-2 font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.5rem)] font-normal text-foreground">

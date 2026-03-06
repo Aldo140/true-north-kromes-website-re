@@ -14,12 +14,12 @@ export function About() {
 
         {/* Text content */}
         <div className="px-8 py-12 lg:px-14 lg:py-16">
-          <p className="text-xs font-medium tracking-[0.2em] text-[#6b8fa3]">ABOUT US</p>
+          <p className="text-xs font-medium tracking-[0.2em] text-[#c9a227]">ABOUT US</p>
           <h2 className="font-[family-name:var(--font-heading)] mt-2 text-[clamp(1.75rem,3vw,2.5rem)] text-foreground">
             Our Mission
           </h2>
 
-          <div className="mt-6 h-px w-16 bg-[#6b8fa3]" />
+          <div className="mt-6 h-px w-16 bg-[#c9a227]" />
 
           <div className="mt-8 flex flex-col gap-5 text-[15px] leading-[1.85] text-muted-foreground">
             <p>
