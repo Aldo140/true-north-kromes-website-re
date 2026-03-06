@@ -5,8 +5,8 @@ export function Hero() {
     <section className="relative min-h-[600px] lg:min-h-[700px]" aria-label="Hero">
       <div className="absolute inset-0">
         <img
-          src="/images/gallery-two-frameworks.jpg"
-          alt="Precision 3D printed dental frameworks"
+          src="/images/hero-framework.jpg"
+          alt="Raw 3D printed metal partial denture framework"
           className="h-full w-full object-cover"
           loading="eager"
         />
