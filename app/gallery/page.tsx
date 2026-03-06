@@ -20,6 +20,14 @@ const images: { src: string; alt: string }[] = [
   { src: "/images/gallery-framework-gloved-1.jpg", alt: "Gloved hand holding polished partial framework" },
   { src: "/images/gallery-clasps-model.jpg", alt: "Metal clasps on dental model" },
   { src: "/images/gallery-framework-gloved-2.jpg", alt: "Polished upper partial with clasps" },
+  { src: "/images/gallery-raw-framework-side.jpg", alt: "Raw printed framework with supports - side view" },
+  { src: "/images/gallery-parada-grillz-1.jpg", alt: "Custom PARADA lettered grillz on model" },
+  { src: "/images/gallery-raw-framework-supports.jpg", alt: "Raw printed framework with support structures" },
+  { src: "/images/gallery-implant-bar-1.jpg", alt: "Implant bar with screw holes - gloved hand" },
+  { src: "/images/gallery-implant-bar-2.jpg", alt: "Implant bar detail view" },
+  { src: "/images/gallery-raw-horseshoe.jpg", alt: "Raw horseshoe framework with supports" },
+  { src: "/images/gallery-framework-surface.jpg", alt: "Polished partial framework on surface" },
+  { src: "/images/gallery-parada-grillz-2.jpg", alt: "PARADA grillz alternate angle" },
 ]
 
 export default function GalleryPage() {
