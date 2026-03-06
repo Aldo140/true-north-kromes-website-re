@@ -37,20 +37,10 @@ export function WhyTNK() {
         </p>
       </div>
 
-      {/* Lab background with asymmetric card grid -- Fix #5 */}
-      <div className="relative min-h-[500px] pb-20 lg:pb-28">
-        <div className="absolute inset-0">
-          <img
-            src="/images/gallery-lab-wide.jpg"
-            alt=""
-            className="h-full w-full object-cover"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
-
-        <div className="relative mx-auto max-w-5xl px-5 pt-8 lg:pt-16">
-          <div className="bg-white/95 backdrop-blur-sm">
+      {/* Card grid */}
+      <div className="pb-20 lg:pb-28">
+        <div className="mx-auto max-w-5xl px-5">
+          <div className="border border-border">
             {/* 2-column top row, full-width bottom -- Fix #5 breaks grid symmetry */}
             <div className="grid grid-cols-1 md:grid-cols-2">
               {reasons.slice(0, 4).map((reason) => (
