@@ -11,7 +11,7 @@ export function Hero() {
           className="w-full h-auto"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/85 via-white/70 to-white/85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/40 to-transparent" />
         
         {/* Content overlay - left aligned for editorial feel */}
         <div className="absolute inset-0 flex items-center">
