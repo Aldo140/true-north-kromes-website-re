@@ -18,7 +18,7 @@ const services = [
     title: "3D Printing",
     description:
       "High-resolution metal printing using advanced SLM (Selective Laser Melting) technology. Our Chamlion printers produce frameworks with exceptional accuracy and consistency, ensuring reliable results case after case.",
-    image: "/images/gallery-technician-printer.jpg",
+    image: "/images/service-3d-printing.jpg",
   },
   {
     title: "Post-Processing",
