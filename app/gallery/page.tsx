@@ -12,6 +12,14 @@ const images: { src: string; alt: string }[] = [
   { src: "/images/gallery-framework-closeup-1.jpg", alt: "Polished partial denture framework on dental model" },
   { src: "/images/gallery-printer-window-2.jpg", alt: "Frameworks being handled inside printer" },
   { src: "/images/gallery-framework-closeup-2.jpg", alt: "Polished upper partial framework on model" },
+  { src: "/images/gallery-grillz-polished.jpg", alt: "Polished metal grillz on dental model" },
+  { src: "/images/gallery-upper-partial-1.jpg", alt: "Upper partial framework with mesh retention" },
+  { src: "/images/gallery-upper-partial-2.jpg", alt: "Upper partial framework detail view" },
+  { src: "/images/gallery-team-lab.jpg", alt: "TNK team in the lab with Chamlion printer" },
+  { src: "/images/gallery-team-building.jpg", alt: "Team outside TNK building entrance" },
+  { src: "/images/gallery-framework-gloved-1.jpg", alt: "Gloved hand holding polished partial framework" },
+  { src: "/images/gallery-clasps-model.jpg", alt: "Metal clasps on dental model" },
+  { src: "/images/gallery-framework-gloved-2.jpg", alt: "Polished upper partial with clasps" },
 ]
 
 export default function GalleryPage() {
