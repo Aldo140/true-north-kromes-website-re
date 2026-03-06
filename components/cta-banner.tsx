@@ -21,19 +21,19 @@ export function CTABanner() {
       <div className="relative mx-auto flex max-w-5xl flex-col gap-8 px-8 lg:flex-row lg:items-center lg:justify-between lg:px-16">
         <div className="max-w-lg">
           <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3.5vw,2.5rem)] font-normal text-white text-balance">
-            [Placeholder Heading]
+            Ready to streamline your lab workflow?
           </h2>
           <p className="mt-3 text-base leading-relaxed text-white/65">
-            [Placeholder description -- client to supply CTA copy.]
+            Join dental practices across Canada who trust TNK for precise, 
+            consistent frameworks delivered on time.
           </p>
         </div>
-        {/* Different button styles side by side -- Fix #3 */}
         <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
           <Link
-            href="/contact"
+            href="/submit-case"
             className="group inline-flex items-center gap-2 bg-white px-8 py-3 text-sm font-medium tracking-wider text-foreground transition-opacity hover:opacity-90"
           >
-            Get Started
+            Submit Your First Case
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <a

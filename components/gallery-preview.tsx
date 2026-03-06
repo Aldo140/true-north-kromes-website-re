@@ -21,7 +21,7 @@ export function GalleryPreview() {
               OUR WORK
             </p>
             <h2 className="mt-2 font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.5rem)] font-normal text-foreground">
-              [Placeholder Heading]
+              Recent Cases
             </h2>
           </div>
           {/* Text link instead of bordered button -- Fix #3 */}

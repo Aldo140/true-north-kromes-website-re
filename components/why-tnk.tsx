@@ -1,29 +1,27 @@
 const reasons = [
   {
-    title: "Custom Metal Frameworks",
-    description: "We specialize in crafting custom metal frameworks for dental prosthetics.",
+    title: "Digital-First Workflow",
+    description: "Submit STL files directly through our portal. No physical impressions required for most cases.",
   },
   {
-    title: "Precision 3D Printing",
-    description: "Utilizing advanced 3D printing technology to ensure precision and quality.",
+    title: "Chrome Cobalt Alloy",
+    description: "Medical-grade chrome cobalt for superior strength, biocompatibility, and corrosion resistance.",
   },
   {
-    title: "Durable Solutions",
-    description: "Offering durable and long-lasting metal framework solutions for dental restorations.",
+    title: "Consistent Fit",
+    description: "3D printing eliminates casting variables. Every framework matches your digital design exactly.",
   },
   {
-    title: "Client-Centric Approach",
-    description: "We prioritize the unique needs and preferences of each client for tailored solutions.",
+    title: "Fast Turnaround",
+    description: "Standard cases returned within [X] business days. Rush service available for urgent cases.",
   },
   {
-    title: "Collaborative Expertise",
-    description:
-      "Our team combines expertise in denturism and lab technology for exceptional outcomes.",
+    title: "DLyte Finishing",
+    description: "Electropolishing technology delivers mirror-smooth surfaces impossible with traditional methods.",
   },
   {
-    title: "Quality Assurance",
-    description:
-      "Committed to upholding the highest standards of quality and precision in our work utilizing industry leading materials.",
+    title: "Technical Support",
+    description: "Questions about design or specs? Our team is available to consult on complex cases.",
   },
 ]
 

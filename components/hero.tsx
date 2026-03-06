@@ -19,15 +19,21 @@ export function Hero() {
           True North Kromes
         </h1>
         <p className="mt-4 max-w-md text-[clamp(0.9rem,1.5vw,1.1rem)] font-normal leading-relaxed text-white/80">
-          Precision 3D-printed metal partial denture frameworks
+          Precision 3D-printed chrome cobalt frameworks for dental professionals. 
+          Faster turnaround. Consistent fit. Every case.
         </p>
-        {/* Solid filled button -- Fix #3 */}
-        <div className="mt-8">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Link
-            href="/contact"
+            href="/submit-case"
             className="inline-flex items-center bg-white px-8 py-3 text-sm font-medium tracking-wider text-foreground transition-opacity hover:opacity-90"
           >
-            Contact Us
+            Submit a Case
+          </Link>
+          <Link
+            href="/services"
+            className="inline-flex items-center px-8 py-3 text-sm font-medium tracking-wider text-white/80 underline underline-offset-4 transition-colors hover:text-white"
+          >
+            View Services
           </Link>
         </div>
       </div>
