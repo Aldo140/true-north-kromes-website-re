@@ -2,12 +2,12 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
 const previewImages: { src: string; alt: string; tall: boolean }[] = [
-  { src: "/images/gallery-upper-framework-acrylic-1.jpg", alt: "Upper framework with acrylic teeth on model", tall: true },
+  { src: "/images/gallery-technician-printer.jpg", alt: "Technician holding build plate at NCL-M150 printer", tall: true },
   { src: "/images/gallery-framework-closeup-1.jpg", alt: "Polished partial denture framework on dental model", tall: false },
-  { src: "/images/gallery-grillz-polished.jpg", alt: "Polished metal grillz on dental model", tall: false },
-  { src: "/images/gallery-denture-articulated-front.jpg", alt: "Articulated denture models - front view", tall: true },
-  { src: "/images/gallery-upper-partial-blue-glove.jpg", alt: "Upper partial framework held with blue glove", tall: false },
-  { src: "/images/gallery-dlyte-framework-1.jpg", alt: "Polished framework on DLyte machine arm", tall: false },
+  { src: "/images/gallery-raw-build-plate.jpg", alt: "Raw printed build plate with framework supports", tall: false },
+  { src: "/images/gallery-framework-closeup-2.jpg", alt: "Polished upper partial framework on model", tall: true },
+  { src: "/images/gallery-build-plate-printer.jpg", alt: "Build plate with multiple frameworks in printer", tall: false },
+  { src: "/images/gallery-printer-window-1.jpg", alt: "Metal frameworks inside 3D printer chamber", tall: false },
 ]
 
 export function GalleryPreview() {
