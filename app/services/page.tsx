@@ -24,7 +24,7 @@ const services = [
     title: "Post-Processing",
     description:
       "Professional finishing, DLyte electro-polishing, and rigorous quality assurance. Every framework is polished to a mirror finish and inspected before delivery, ensuring it meets our exacting standards.",
-    image: "/images/gallery-dlyte-framework-1.jpg",
+    image: "/images/service-post-processing.jpg",
   },
 ]
 
