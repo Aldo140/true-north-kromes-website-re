@@ -28,13 +28,13 @@ export function Navigation() {
             <img
               src="/images/logo.png"
               alt="True North Kromes"
-              className="h-[90px] w-auto lg:h-[110px]"
+              className={`h-[90px] w-auto lg:h-[110px] ${isHome ? "brightness-0 invert" : ""}`}
             />
           </Link>
 
           {/* Mobile hamburger only */}
           <button
-            className="text-foreground lg:hidden"
+            className={`lg:hidden ${isHome ? "text-white" : "text-foreground"}`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -52,9 +52,13 @@ export function Navigation() {
                 key={link.href}
                 href={link.href}
                 className={`font-sans text-[15px] font-normal tracking-[0.08em] transition-colors ${
-                  isActive
-                    ? "text-[#1a1a1a]"
-                    : "text-[#999] hover:text-foreground"
+                  isHome
+                    ? isActive
+                      ? "text-white"
+                      : "text-white/70 hover:text-white"
+                    : isActive
+                      ? "text-[#1a1a1a]"
+                      : "text-[#999] hover:text-foreground"
                 }`}
               >
                 {link.label}
@@ -68,7 +72,7 @@ export function Navigation() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Client Portal Login"
-            className="absolute right-6 text-[#999] transition-colors hover:text-foreground"
+            className={`absolute right-6 transition-colors ${isHome ? "text-white/70 hover:text-white" : "text-[#999] hover:text-foreground"}`}
           >
             <UserCircle className="h-6 w-6" />
           </a>
