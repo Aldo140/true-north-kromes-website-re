@@ -36,6 +36,14 @@ const images: { src: string; alt: string }[] = [
   { src: "/images/gallery-lab-chamlion.jpg", alt: "Full lab view with Chamlion 3D printers" },
   { src: "/images/gallery-mesh-tray.jpg", alt: "Perforated mesh tray framework - gloved hand" },
   { src: "/images/gallery-dlyte-polishing.jpg", alt: "Frameworks in DLyte polishing bath" },
+  { src: "/images/gallery-mesh-tray-2.jpg", alt: "Perforated mesh tray framework - alternate angle" },
+  { src: "/images/gallery-lower-partial-model-1.jpg", alt: "Lower partial framework on dental model - front view" },
+  { src: "/images/gallery-lower-partial-model-2.jpg", alt: "Lower partial framework on dental model - side view" },
+  { src: "/images/gallery-lower-partial-model-3.jpg", alt: "Lower partial framework on dental model - angled view" },
+  { src: "/images/gallery-lower-partial-model-4.jpg", alt: "Lower partial framework on dental model - underside" },
+  { src: "/images/gallery-lower-partial-model-5.jpg", alt: "Lower partial framework on dental model - occlusal view" },
+  { src: "/images/gallery-partial-framework-only.jpg", alt: "Polished partial framework - no model" },
+  { src: "/images/gallery-mesh-tray-3.jpg", alt: "Large perforated mesh tray framework" },
 ]
 
 export default function GalleryPage() {
