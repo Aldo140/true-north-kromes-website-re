@@ -1,6 +1,6 @@
 export function About() {
   return (
-    <section className="bg-[#f8f9fa] py-20 lg:py-28" aria-label="About TNK">
+    <section className="bg-[#f8f9fa] pt-40 pb-20 lg:pt-48 lg:pb-28" aria-label="About TNK">
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Image */}
