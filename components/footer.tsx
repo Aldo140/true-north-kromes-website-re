@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Phone, Mail, MapPin, Instagram, Facebook } from "lucide-react"
+import { Phone, Mail, MapPin, Instagram } from "lucide-react"
 
 export function Footer() {
   return (
@@ -20,20 +20,15 @@ export function Footer() {
             <p className="mt-4 text-sm leading-relaxed text-[#9ca3af]">
               A dental lab specializing in 3D printing metal partial denture frameworks.
             </p>
-            <div className="mt-6 flex gap-4">
+            <div className="mt-6">
               <a
-                href="#"
+                href="https://www.instagram.com/truenorthkromes/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
                 className="text-[#9ca3af] transition-colors hover:text-[#1a1a1a]"
               >
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                aria-label="Facebook"
-                className="text-[#9ca3af] transition-colors hover:text-[#1a1a1a]"
-              >
-                <Facebook className="h-5 w-5" />
               </a>
             </div>
           </div>
