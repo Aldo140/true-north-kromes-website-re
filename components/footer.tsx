@@ -60,9 +60,9 @@ export function Footer() {
               Contact
             </h3>
             <div className="mt-4 flex flex-col gap-4">
-              <a href="tel:+18076247222" className="flex items-start gap-3 text-sm text-white/60 transition-colors hover:text-white">
+              <a href="tel:+14039810337" className="flex items-start gap-3 text-sm text-white/60 transition-colors hover:text-white">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-[#a0a0a0]" />
-                807.624.7222
+                403.981.0337
               </a>
               <a href="mailto:truenorthkromes@gmail.com" className="flex items-start gap-3 text-sm text-white/60 transition-colors hover:text-white">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#a0a0a0]" />
@@ -75,13 +75,28 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Hours & Portal */}
+          {/* Downloads & Portal */}
           <div>
             <h3 className="text-sm font-semibold tracking-wider text-[#a0a0a0]">
-              Hours & Access
+              Downloads
             </h3>
             <div className="mt-4 flex flex-col gap-3">
-              <p className="text-sm text-white/60">[Placeholder -- business hours]</p>
+              <a
+                href="/downloads/mediloy-rpd-licence.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-white/60 transition-colors hover:text-white"
+              >
+                Mediloy RPD Licence (PDF)
+              </a>
+              <a
+                href="/downloads/credit-card-authorization.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-white/60 transition-colors hover:text-white"
+              >
+                Credit Card Authorization (PDF)
+              </a>
               <a
                 href="https://truenorthkromes.seazona.net"
                 target="_blank"

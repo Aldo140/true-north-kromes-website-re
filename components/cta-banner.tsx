@@ -30,17 +30,17 @@ export function CTABanner() {
         </div>
         <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
           <Link
-            href="/submit-case"
+            href="/contact"
             className="group inline-flex items-center gap-2 bg-white px-8 py-3 text-sm font-medium tracking-wider text-foreground transition-opacity hover:opacity-90"
           >
-            Submit Your First Case
+            Get Started
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <a
-            href="tel:+18076247222"
+            href="tel:+14039810337"
             className="inline-flex items-center px-8 py-3 text-sm tracking-wider text-white/80 underline underline-offset-4 decoration-white/30 transition-colors hover:text-white hover:decoration-white/60"
           >
-            807.624.7222
+            403.981.0337
           </a>
         </div>
       </div>

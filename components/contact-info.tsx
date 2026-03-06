@@ -13,10 +13,10 @@ export function ContactInfo() {
             <div className="border-b px-6 py-8 text-center sm:border-b-0 sm:border-r sm:border-foreground/20">
               <h3 className="text-base font-semibold text-foreground">Phone</h3>
               <a
-                href="tel:+18076247222"
+                href="tel:+14039810337"
                 className="mt-2 block text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
-                807.624.7222
+                403.981.0337
               </a>
             </div>
 
