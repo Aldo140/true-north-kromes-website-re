@@ -49,7 +49,7 @@ export default function ServicesPage() {
       {/* Header -- left aligned, tighter spacing -- Fix #1 #2 */}
       <section className="bg-white pt-44 pb-10 lg:pt-52 lg:pb-14">
         <div className="mx-auto max-w-5xl px-8 lg:px-16">
-          <p className="text-xs font-medium tracking-[0.2em] text-[#c9a227]">
+          <p className="text-xs font-medium tracking-[0.2em] text-[#6b8fa3]">
             WHAT WE DO
           </p>
           <h1 className="mt-2 font-[family-name:var(--font-heading)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-foreground">
@@ -97,7 +97,7 @@ export default function ServicesPage() {
       {/* Additional services -- 2-col not 3 for asymmetry -- Fix #5 */}
       <section className="bg-secondary py-16 lg:py-20">
         <div className="mx-auto max-w-5xl px-8 lg:px-16">
-          <p className="text-xs font-medium tracking-[0.2em] text-[#c9a227]">
+          <p className="text-xs font-medium tracking-[0.2em] text-[#6b8fa3]">
             ALSO AVAILABLE
           </p>
           <h2 className="mt-2 font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.25rem)] font-normal text-foreground">

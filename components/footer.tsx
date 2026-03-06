@@ -101,7 +101,7 @@ export function Footer() {
                 href="https://truenorthkromes.seazona.net"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-flex w-fit items-center border border-[#1a1d21] px-6 py-2 text-sm tracking-wider text-[#1a1d21] transition-colors hover:bg-[#1a1d21] hover:text-white"
+                className="mt-2 inline-flex w-fit items-center border border-[#6b8fa3] px-6 py-2 text-sm tracking-wider text-[#6b8fa3] transition-colors hover:bg-[#6b8fa3] hover:text-white"
               >
                 Client Portal
               </a>

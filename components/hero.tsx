@@ -24,7 +24,7 @@ export function Hero() {
         <div className="mt-10 flex justify-center lg:justify-start">
           <Link
             href="/contact"
-            className="inline-flex items-center border border-[#1a1d21] bg-[#1a1d21] px-10 py-3 text-sm font-medium tracking-wider text-white transition-all hover:bg-transparent hover:text-[#1a1d21]"
+            className="inline-flex items-center border border-[#5a6875] bg-[#5a6875] px-10 py-3 text-sm font-medium tracking-wider text-white transition-all hover:bg-transparent hover:text-[#5a6875]"
           >
             Contact Us
           </Link>

@@ -21,7 +21,7 @@ export function CTABanner() {
         <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 border border-[#1a1d21] bg-[#1a1d21] px-8 py-3 text-sm font-medium tracking-wider text-white transition-all hover:bg-transparent hover:text-[#1a1d21]"
+            className="group inline-flex items-center gap-2 border border-[#6b8fa3] bg-[#6b8fa3] px-8 py-3 text-sm font-medium tracking-wider text-white transition-all hover:bg-transparent hover:text-[#6b8fa3]"
           >
             Get Started
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
