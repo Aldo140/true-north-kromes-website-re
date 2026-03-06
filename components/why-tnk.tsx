@@ -58,7 +58,7 @@ export function WhyTNK() {
                   key={reason.title}
                   className="border border-border/40 p-7 lg:p-9"
                 >
-                  <h3 className="text-base font-semibold text-foreground">
+                  <h3 className="font-[family-name:var(--font-heading)] text-lg text-foreground">
                     {reason.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -73,7 +73,7 @@ export function WhyTNK() {
                   key={reason.title}
                   className="border border-border/40 p-7 lg:p-9"
                 >
-                  <h3 className="text-base font-semibold text-foreground">
+                  <h3 className="font-[family-name:var(--font-heading)] text-lg text-foreground">
                     {reason.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">

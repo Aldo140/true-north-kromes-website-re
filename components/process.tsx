@@ -31,23 +31,23 @@ export function Process() {
   return (
     <section className="bg-background py-24 lg:py-32" aria-label="Our Process">
       <div className="mx-auto max-w-5xl px-5">
-        <h2 className="text-center text-[clamp(1.5rem,3vw,2.5rem)] font-light text-foreground">
+        <h2 className="font-[family-name:var(--font-heading)] text-center text-[clamp(1.5rem,3vw,2.5rem)] text-foreground">
           How It Works
         </h2>
-        <p className="mt-3 text-center text-sm tracking-wider text-muted-foreground">
+        <p className="mt-3 text-center text-sm tracking-wider text-[#c9a227]">
           A STREAMLINED DIGITAL WORKFLOW
         </p>
 
         <div className="mt-20 grid gap-16 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step) => (
             <div key={step.step} className="text-center">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center border border-border bg-white">
-                <step.icon className="h-7 w-7 text-accent" strokeWidth={1.5} />
+              <div className="mx-auto flex h-16 w-16 items-center justify-center border border-[#c9a227]/30 bg-white">
+                <step.icon className="h-7 w-7 text-[#c9a227]" strokeWidth={1.5} />
               </div>
-              <p className="mt-5 text-xs font-semibold tracking-[0.2em] text-accent">
+              <p className="mt-5 text-xs font-semibold tracking-[0.2em] text-[#c9a227]">
                 STEP {step.step}
               </p>
-              <h3 className="mt-2 text-lg font-semibold text-foreground">
+              <h3 className="font-[family-name:var(--font-heading)] mt-2 text-lg text-foreground">
                 {step.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">

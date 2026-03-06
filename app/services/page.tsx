@@ -49,7 +49,7 @@ export default function ServicesPage() {
       {/* Header -- left aligned, tighter spacing -- Fix #1 #2 */}
       <section className="bg-white pt-44 pb-10 lg:pt-52 lg:pb-14">
         <div className="mx-auto max-w-5xl px-8 lg:px-16">
-          <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground">
+          <p className="text-xs font-medium tracking-[0.2em] text-[#c9a227]">
             WHAT WE DO
           </p>
           <h1 className="mt-2 font-[family-name:var(--font-heading)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-foreground">
@@ -81,7 +81,7 @@ export default function ServicesPage() {
                   />
                 </div>
                 <div className="w-full lg:w-[45%]">
-                  <h2 className="text-xl font-semibold text-foreground">
+                  <h2 className="font-[family-name:var(--font-heading)] text-2xl text-foreground">
                     {service.title}
                   </h2>
                   <p className="mt-3 text-sm leading-[1.8] text-muted-foreground">
@@ -97,7 +97,7 @@ export default function ServicesPage() {
       {/* Additional services -- 2-col not 3 for asymmetry -- Fix #5 */}
       <section className="bg-secondary py-16 lg:py-20">
         <div className="mx-auto max-w-5xl px-8 lg:px-16">
-          <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground">
+          <p className="text-xs font-medium tracking-[0.2em] text-[#c9a227]">
             ALSO AVAILABLE
           </p>
           <h2 className="mt-2 font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.25rem)] font-normal text-foreground">
@@ -106,7 +106,7 @@ export default function ServicesPage() {
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {additionalServices.map((s) => (
               <div key={s.title} className="border border-border bg-white p-7">
-                <h3 className="text-base font-semibold text-foreground">{s.title}</h3>
+                <h3 className="font-[family-name:var(--font-heading)] text-lg text-foreground">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {s.description}
                 </p>

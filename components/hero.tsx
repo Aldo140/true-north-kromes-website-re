@@ -15,16 +15,16 @@ export function Hero() {
 
       {/* Left-aligned content instead of centered -- Fix #1 */}
       <div className="relative mx-auto flex max-w-5xl flex-col justify-end px-8 pt-44 pb-16 lg:px-16 lg:pt-56 lg:pb-20">
-        <h1 className="text-center text-[clamp(2rem,5vw,3.5rem)] font-normal leading-[1.1] tracking-tight text-white lg:text-left">
+        <h1 className="font-[family-name:var(--font-heading)] text-center text-[clamp(2rem,5vw,3.5rem)] font-normal leading-[1.1] text-white lg:text-left">
           Welcome to True North Kromes
         </h1>
-        <p className="mt-6 max-w-lg text-center text-[clamp(0.95rem,1.5vw,1.15rem)] font-light italic leading-relaxed text-white/90 lg:text-left">
+        <p className="mt-6 max-w-lg text-center text-[clamp(0.95rem,1.5vw,1.15rem)] font-light leading-relaxed text-white/80 lg:text-left">
           A Dental Lab Specializing in 3D Printing Metal Partial Denture Frameworks
         </p>
         <div className="mt-10 flex justify-center lg:justify-start">
           <Link
             href="/contact"
-            className="inline-flex items-center bg-white px-10 py-3 text-sm font-normal tracking-wider text-foreground transition-opacity hover:opacity-90"
+            className="inline-flex items-center border-2 border-[#c9a227] bg-transparent px-10 py-3 text-sm font-medium tracking-wider text-white transition-all hover:bg-[#c9a227] hover:text-[#1a1d21]"
           >
             Contact Us
           </Link>
