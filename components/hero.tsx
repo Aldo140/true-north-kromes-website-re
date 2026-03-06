@@ -5,7 +5,7 @@ export function Hero() {
     <section className="relative min-h-[520px] lg:min-h-[600px]" aria-label="Hero">
       <div className="absolute inset-x-4 inset-y-0 lg:inset-x-12">
         <img
-          src="/images/gallery-technician-printer.jpg"
+          src="/images/framework-hero.jpg"
           alt=""
           className="h-full w-full object-cover"
           loading="eager"
