@@ -1,10 +1,10 @@
 export function About() {
   return (
-    <section className="bg-[#fafafa] pt-44 pb-24 lg:pt-52 lg:pb-32" aria-label="About TNK">
+    <section className="bg-white py-28 lg:py-40" aria-label="About TNK">
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
-        <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
-          {/* Image - takes up less space */}
-          <div className="lg:col-span-5">
+        <div className="grid gap-20 lg:grid-cols-12 lg:gap-24">
+          {/* Image - smaller left side */}
+          <div className="lg:col-span-4 lg:row-span-2 flex items-center">
             <img
               src="/images/palatal-plate.jpg"
               alt="Polished chrome palatal plate framework held in a blue glove"
@@ -13,16 +13,18 @@ export function About() {
             />
           </div>
 
-          {/* Text content - larger area */}
-          <div className="flex flex-col justify-center lg:col-span-7">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#a1a1aa]">
-              About Us
-            </p>
-            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.02em] text-[#1a1a1a]">
-              Our Mission
-            </h2>
+          {/* Text content - larger right side */}
+          <div className="lg:col-span-8 space-y-12">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#a1a1aa]">
+                Our Story
+              </p>
+              <h2 className="mt-4 font-[family-name:var(--font-heading)] text-[clamp(1.75rem,3.5vw,2.75rem)] font-medium leading-[1.1] tracking-[-0.02em] text-[#1a1a1a]">
+                Our Mission
+              </h2>
+            </div>
 
-            <div className="mt-10 flex flex-col gap-6 text-[15px] leading-[1.85] text-[#71717a]">
+            <div className="space-y-6 text-base leading-[1.8] text-[#71717a]">
               <p>
                 True North Kromes was established to address the need for superior partial
                 denture frames that truly meet the needs of patients. With a foundation
