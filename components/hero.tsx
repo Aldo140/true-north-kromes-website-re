@@ -13,16 +13,16 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/60 to-white/30" />
         
         <div className="absolute inset-0 flex items-center">
-          <div className="mx-auto w-full max-w-6xl px-6 lg:px-12">
-            <h1 className="font-sans text-[clamp(2.5rem,6vw,4.5rem)] font-medium leading-[1.1] text-[#1a1a1a]">
+          <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-12">
+            <h1 className="font-sans text-[clamp(1.75rem,5vw,4.5rem)] font-medium leading-[1.15] text-[#1a1a1a]">
               True North Kromes
             </h1>
-            <p className="mt-4 max-w-lg text-base text-[#71717a]">
+            <p className="mt-3 max-w-md text-sm sm:text-base text-[#71717a]">
               A Dental Lab Specializing in 3D Printing Metal Partial Denture Frameworks
             </p>
             <Link
               href="/contact"
-              className="mt-8 inline-block text-sm text-[#1a1a1a] border-b border-[#1a1a1a] pb-0.5 hover:text-[#71717a] hover:border-[#71717a]"
+              className="mt-6 sm:mt-8 inline-block text-sm text-[#1a1a1a] border-b border-[#1a1a1a] pb-0.5 hover:text-[#71717a] hover:border-[#71717a]"
             >
               Get in Touch
             </Link>

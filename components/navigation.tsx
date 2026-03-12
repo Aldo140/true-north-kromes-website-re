@@ -20,14 +20,14 @@ export function Navigation() {
 
   return (
     <header className="absolute left-0 right-0 top-0 z-50">
-      <nav aria-label="Main navigation" className="mx-auto max-w-6xl px-6 lg:px-12">
-        <div className="flex items-center justify-between py-6">
+      <nav aria-label="Main navigation" className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
+        <div className="flex items-center justify-between py-4 sm:py-6">
           {/* Logo */}
           <Link href="/" className="shrink-0" aria-label="True North Kromes - Home">
             <img
               src="/images/logo.png"
               alt="True North Kromes"
-              className="h-[60px] w-auto lg:h-[70px]"
+              className="h-[50px] w-auto sm:h-[60px] lg:h-[70px]"
             />
           </Link>
 
@@ -70,7 +70,7 @@ export function Navigation() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="border-t border-[#e5e5e5] bg-white px-6 py-6 lg:hidden">
+          <div className="border-t border-[#e5e5e5] bg-white px-5 py-5 lg:hidden">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href

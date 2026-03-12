@@ -3,7 +3,7 @@ import Link from "next/link"
 export function Footer() {
   return (
     <footer className="border-t border-[#e5e5e5] bg-white" aria-label="Site footer">
-      <div className="mx-auto max-w-6xl px-6 py-12 lg:px-12">
+      <div className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-12">
         <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
           {/* Left */}
           <div className="max-w-xs">
@@ -31,7 +31,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-[#e5e5e5]">
-        <div className="mx-auto max-w-6xl px-6 py-6 lg:px-12 flex flex-col sm:flex-row sm:justify-between gap-2 text-xs text-[#a1a1aa]">
+        <div className="mx-auto max-w-6xl px-5 py-5 sm:px-6 sm:py-6 lg:px-12 flex flex-col sm:flex-row sm:justify-between gap-2 text-xs text-[#a1a1aa]">
           <span>2026 True North Kromes</span>
           <a href="https://promptandpixel.ca" target="_blank" rel="noopener noreferrer" className="hover:text-[#1a1a1a]">
             Prompt & Pixel

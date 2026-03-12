@@ -27,13 +27,13 @@ const reasons = [
 
 export function WhyTNK() {
   return (
-    <section className="bg-[#fafafa] py-20 lg:py-28" aria-label="Why Choose TNK">
-      <div className="mx-auto max-w-6xl px-6 lg:px-12">
-        <h2 className="font-sans text-[clamp(1.75rem,3vw,2.5rem)] font-medium text-[#1a1a1a]">
+    <section className="bg-[#fafafa] py-16 sm:py-20 lg:py-28" aria-label="Why Choose TNK">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
+        <h2 className="font-sans text-[clamp(1.5rem,3vw,2.5rem)] font-medium text-[#1a1a1a]">
           Why Choose Us
         </h2>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 sm:mt-12 grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map((reason) => (
             <div key={reason.title} className="border-t border-[#e5e5e5] pt-6">
               <h3 className="font-medium text-[#1a1a1a]">
