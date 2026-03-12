@@ -40,8 +40,11 @@ export default function BlogPage() {
 
         <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
-            <article key={post.slug} className="group border-b border-[#e5e5e5] pb-6">
+            <article key={post.slug} className="group">
               <Link href={`/blog/${post.slug}`}>
+                <div className="aspect-[4/3] w-full bg-[#f0f0f0] flex items-center justify-center border border-[#e5e5e5] mb-4">
+                  <p className="text-sm text-[#a1a1aa]">{post.title}</p>
+                </div>
                 <p className="text-xs text-[#a1a1aa] uppercase">
                   {post.date}
                 </p>

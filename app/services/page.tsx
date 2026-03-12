@@ -73,12 +73,9 @@ export default function ServicesPage() {
                 }`}
               >
                 <div className="w-full lg:w-[55%]">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="aspect-[4/3] w-full object-cover"
-                    loading="lazy"
-                  />
+                  <div className="aspect-[4/3] w-full bg-[#f0f0f0] flex items-center justify-center border border-[#e5e5e5]">
+                    <p className="text-sm text-[#a1a1aa]">{service.title}</p>
+                  </div>
                 </div>
                 <div className="w-full lg:w-[45%]">
                   <h2 className="font-[family-name:var(--font-heading)] text-2xl text-foreground">
