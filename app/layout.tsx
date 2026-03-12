@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter, Cormorant_Garamond } from "next/font/google"
+import { Inter } from "next/font/google"
 import "./globals.css"
 
 import { Navigation } from "@/components/navigation"
@@ -10,12 +10,6 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-sans",
-})
-
-const cormorant = Cormorant_Garamond({
-  weight: ["400", "500", "600"],
-  subsets: ["latin"],
-  variable: "--font-heading",
 })
 
 export const metadata: Metadata = {
@@ -54,7 +48,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${cormorant.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased`}>
         <Navigation />
         <main>{children}</main>
         <Footer />

@@ -4,7 +4,7 @@ export function CTABanner() {
   return (
     <section className="bg-white py-20 lg:py-28" aria-label="Call to action">
       <div className="mx-auto max-w-3xl px-6 lg:px-12 text-center">
-        <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.75rem,3vw,2.5rem)] font-medium text-[#1a1a1a]">
+        <h2 className="font-sans text-[clamp(1.75rem,3vw,2.5rem)] font-medium text-[#1a1a1a]">
           Ready to streamline your workflow?
         </h2>
         <p className="mt-4 text-base text-[#71717a]">

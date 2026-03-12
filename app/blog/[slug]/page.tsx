@@ -30,7 +30,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           <p className="text-xs tracking-widest text-muted-foreground/60 uppercase">
             Coming Soon
           </p>
-          <h1 className="font-[family-name:var(--font-heading)] mt-3 text-[clamp(1.5rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
+          <h1 className="font-sans mt-3 text-[clamp(1.5rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
             Article Coming Soon
           </h1>
         </div>

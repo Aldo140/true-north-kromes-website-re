@@ -29,7 +29,7 @@ export function WhyTNK() {
   return (
     <section className="bg-[#fafafa] py-20 lg:py-28" aria-label="Why Choose TNK">
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
-        <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.75rem,3vw,2.5rem)] font-medium text-[#1a1a1a]">
+        <h2 className="font-sans text-[clamp(1.75rem,3vw,2.5rem)] font-medium text-[#1a1a1a]">
           Why Choose Us
         </h2>
 

@@ -14,7 +14,7 @@ export function Hero() {
         
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-6xl px-6 lg:px-12">
-            <h1 className="font-[family-name:var(--font-heading)] text-[clamp(2.5rem,6vw,4.5rem)] font-medium leading-[1.1] text-[#1a1a1a]">
+            <h1 className="font-sans text-[clamp(2.5rem,6vw,4.5rem)] font-medium leading-[1.1] text-[#1a1a1a]">
               True North Kromes
             </h1>
             <p className="mt-4 max-w-lg text-base text-[#71717a]">

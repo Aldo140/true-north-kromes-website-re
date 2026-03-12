@@ -52,7 +52,7 @@ export default function ServicesPage() {
           <p className="text-xs font-medium tracking-[0.2em] text-[#c9a227]">
             WHAT WE DO
           </p>
-          <h1 className="mt-2 font-[family-name:var(--font-heading)] text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-foreground">
+          <h1 className="mt-2 font-sans text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-foreground">
             Our Services
           </h1>
           <p className="mt-3 max-w-lg text-base leading-relaxed text-muted-foreground">
@@ -78,7 +78,7 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <div className="w-full lg:w-[45%]">
-                  <h2 className="font-[family-name:var(--font-heading)] text-2xl text-foreground">
+                  <h2 className="font-sans text-2xl text-foreground">
                     {service.title}
                   </h2>
                   <p className="mt-3 text-sm leading-[1.8] text-muted-foreground">
@@ -97,13 +97,13 @@ export default function ServicesPage() {
           <p className="text-xs font-medium tracking-[0.2em] text-[#c9a227]">
             ALSO AVAILABLE
           </p>
-          <h2 className="mt-2 font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.25rem)] font-normal text-foreground">
+          <h2 className="mt-2 font-sans text-[clamp(1.5rem,3vw,2.25rem)] font-normal text-foreground">
             Additional Services
           </h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {additionalServices.map((s) => (
               <div key={s.title} className="border border-border bg-white p-7">
-                <h3 className="font-[family-name:var(--font-heading)] text-lg text-foreground">{s.title}</h3>
+                <h3 className="font-sans text-lg text-foreground">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {s.description}
                 </p>
@@ -116,7 +116,7 @@ export default function ServicesPage() {
       {/* CTA -- left aligned with text link -- Fix #1 #3 */}
       <section className="bg-white py-16 lg:py-24">
         <div className="mx-auto max-w-5xl px-8 lg:px-16">
-          <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.5rem,3vw,2.25rem)] font-normal text-foreground">
+          <h2 className="font-sans text-[clamp(1.5rem,3vw,2.25rem)] font-normal text-foreground">
             Ready to Get Started?
           </h2>
           <p className="mt-3 max-w-lg text-base text-muted-foreground">

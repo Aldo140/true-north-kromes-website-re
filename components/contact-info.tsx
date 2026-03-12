@@ -4,7 +4,7 @@ export function ContactInfo() {
       {/* Contact Information */}
       <section className="bg-white py-16" aria-label="Contact Information">
         <div className="mx-auto max-w-4xl px-5">
-          <h2 className="font-[family-name:var(--font-heading)] mb-10 text-center text-[clamp(1.5rem,3vw,2.5rem)] font-normal italic text-foreground">
+          <h2 className="font-sans mb-10 text-center text-[clamp(1.5rem,3vw,2.5rem)] font-normal italic text-foreground">
             Contact Information
           </h2>
 
