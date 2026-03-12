@@ -12,21 +12,18 @@ const posts = [
     title: "Benefits of 3D Printed Partial Denture Frameworks",
     excerpt: "Discover how SLM technology delivers more accurate, consistent, and customized frameworks compared to traditional casting methods.",
     date: "Coming Soon",
-    image: "/images/gallery-two-frameworks.jpg",
   },
   {
     slug: "digital-workflow-guide",
     title: "A Guide to the Digital Denture Workflow",
     excerpt: "Learn how to streamline your lab processes and increase efficiency with a fully integrated digital 3D-printing solution.",
     date: "Coming Soon",
-    image: "/images/service-3d-design.jpg",
   },
   {
     slug: "dlyte-polishing-technology",
     title: "DLyte Electro-Polishing: The Future of Metal Finishing",
     excerpt: "Explore how DLyte technology achieves a superior mirror finish while maintaining the precision of 3D printed frameworks.",
     date: "Coming Soon",
-    image: "/images/gallery-dlyte-framework-1.jpg",
   },
 ]
 
@@ -41,31 +38,22 @@ export default function BlogPage() {
           News and insights from True North Kromes
         </p>
 
-        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
-            <article key={post.slug} className="group border border-border">
+            <article key={post.slug} className="group border-b border-[#e5e5e5] pb-6">
               <Link href={`/blog/${post.slug}`}>
-                <div className="aspect-[16/10] w-full bg-muted">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="p-5">
-                  <p className="text-xs tracking-widest text-muted-foreground/60 uppercase">
-                    {post.date}
-                  </p>
-                  <h2 className="mt-2 font-sans text-lg font-semibold text-foreground group-hover:text-[#1a1a1a] transition-colors">
-                    {post.title}
-                  </h2>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {post.excerpt}
-                  </p>
-                  <span className="mt-4 inline-block text-sm font-medium text-[#1a1a1a] tracking-wide">
-                    Read More
-                  </span>
-                </div>
+                <p className="text-xs text-[#a1a1aa] uppercase">
+                  {post.date}
+                </p>
+                <h2 className="mt-3 font-[family-name:var(--font-heading)] text-lg font-medium text-[#1a1a1a]">
+                  {post.title}
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-[#71717a]">
+                  {post.excerpt}
+                </p>
+                <span className="mt-4 inline-block text-sm text-[#1a1a1a] border-b border-[#1a1a1a] pb-0.5 hover:text-[#71717a] hover:border-[#71717a]">
+                  Read More
+                </span>
               </Link>
             </article>
           ))}
