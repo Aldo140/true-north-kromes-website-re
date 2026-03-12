@@ -11,8 +11,8 @@ export default function Home() {
       <Hero />
       <About />
       <WhyTNK />
-      <Process />
       <GalleryPreview />
+      <Process />
       <CTABanner />
     </>
   )

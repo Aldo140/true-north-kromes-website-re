@@ -27,47 +27,23 @@ const reasons = [
 
 export function WhyTNK() {
   return (
-    <section className="bg-white py-28 lg:py-40" aria-label="Why Choose TNK">
+    <section className="bg-[#fafafa] py-20 lg:py-28" aria-label="Why Choose TNK">
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
-        {/* Asymmetric grid - editorial layout */}
-        <div className="grid gap-20 lg:grid-cols-3 lg:gap-32">
-          {/* Left column - larger items */}
-          <div className="lg:col-span-2 space-y-28">
-            {reasons.slice(0, 2).map((reason, index) => (
-              <div key={reason.title} className="pb-24 border-b border-[#e5e5e5] last:border-b-0">
-                <div className="flex gap-12">
-                  <span className="text-4xl font-light text-[#d4d4d8] leading-none pt-1 shrink-0">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <div>
-                    <h3 className="font-[family-name:var(--font-heading)] text-2xl font-medium text-[#1a1a1a]">
-                      {reason.title}
-                    </h3>
-                    <p className="mt-4 text-base leading-relaxed text-[#71717a]">
-                      {reason.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <h2 className="font-[family-name:var(--font-heading)] text-[clamp(1.75rem,3vw,2.5rem)] font-medium text-[#1a1a1a]">
+          Why Choose Us
+        </h2>
 
-          {/* Right column - smaller items in stacked grid */}
-          <div className="lg:col-span-1 space-y-20">
-            {reasons.slice(2).map((reason, index) => (
-              <div key={reason.title}>
-                <span className="text-2xl font-light text-[#d4d4d8]">
-                  {String(index + 3).padStart(2, '0')}
-                </span>
-                <h3 className="mt-3 font-[family-name:var(--font-heading)] text-lg font-medium text-[#1a1a1a]">
-                  {reason.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#71717a]">
-                  {reason.description}
-                </p>
-              </div>
-            ))}
-          </div>
+        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {reasons.map((reason) => (
+            <div key={reason.title} className="border-t border-[#e5e5e5] pt-6">
+              <h3 className="font-medium text-[#1a1a1a]">
+                {reason.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-[#71717a]">
+                {reason.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
