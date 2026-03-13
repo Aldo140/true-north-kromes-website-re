@@ -192,7 +192,7 @@ export function ContactForm() {
               type="submit"
               className="w-full border border-foreground bg-foreground px-8 py-3 text-sm font-medium tracking-wider text-background transition-colors hover:bg-transparent hover:text-foreground"
             >
-              {"Let's Get Started and send me my personal link to upload files!"}
+              Submit
             </button>
           </div>
         </form>
