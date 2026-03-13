@@ -3,13 +3,18 @@ import Link from "next/link"
 export function Hero() {
   return (
     <section className="relative pt-[70px] sm:pt-[80px] lg:pt-[100px]" aria-label="Hero">
-      <div className="relative w-full">
-        <img
-          src="/images/hero-framework.jpg"
-          alt="Raw 3D printed metal partial denture framework"
-          className="w-full h-auto"
-          loading="eager"
-        />
+      <div className="relative w-full overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-auto block"
+        >
+          <source src="/videos/printer-demo.mp4" type="video/mp4" />
+        </video>
+        
         <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-white/40" />
         
         <div className="absolute inset-0 flex items-center">
