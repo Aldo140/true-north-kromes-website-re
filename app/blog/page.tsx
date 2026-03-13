@@ -19,12 +19,6 @@ const posts = [
     excerpt: "Learn how to streamline your lab processes and increase efficiency with a fully integrated digital 3D-printing solution.",
     date: "Coming Soon",
   },
-  {
-    slug: "dlyte-polishing-technology",
-    title: "DLyte Electro-Polishing: The Future of Metal Finishing",
-    excerpt: "Explore how DLyte technology achieves a superior mirror finish while maintaining the precision of 3D printed frameworks.",
-    date: "Coming Soon",
-  },
 ]
 
 export default function BlogPage() {
