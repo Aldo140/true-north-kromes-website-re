@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { ComparisonTable } from "@/components/comparison-table"
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -23,7 +24,9 @@ const posts = [
 
 export default function BlogPage() {
   return (
-    <section className="bg-white pt-44 pb-20 lg:pt-52 lg:pb-28">
+    <>
+      <ComparisonTable />
+      <section className="bg-white pt-44 pb-20 lg:pt-52 lg:pb-28">
       <div className="mx-auto max-w-5xl px-5">
         <h1 className="font-sans text-center text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-foreground">
           Blog
@@ -57,5 +60,6 @@ export default function BlogPage() {
         </div>
       </div>
     </section>
+    </>
   )
 }
