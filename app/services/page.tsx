@@ -35,12 +35,16 @@ const additionalServices = [
     description: "Upper and lower partial denture frameworks in CoCr alloy. Includes cast clasps, mesh retention, and precision-fit designs tailored to your case specifications.",
   },
   {
-    title: "Implant Bars & Attachments",
-    description: "Custom implant bars with precision screw holes for overdenture retention. Designed to your implant system specifications.",
+    title: "Duplicate Models",
+    description: "Additional replica models created from your original case. Perfect for laboratory reference, patient education, and clinical documentation.",
   },
   {
-    title: "Metal Mesh Trays",
-    description: "Custom perforated metal trays for impression taking and specialized prosthetic applications.",
+    title: "Special Attachment Models and Frames with Attachments",
+    description: "Custom frameworks featuring specialized attachments and retention systems. Precisely designed and manufactured for complex clinical requirements.",
+  },
+  {
+    title: "Flexible Clasps (Acetal)",
+    description: "Advanced acetal resin clasps offering superior flexibility and esthetic properties. An excellent alternative to metal clasps for select clinical applications.",
   },
 ]
 
