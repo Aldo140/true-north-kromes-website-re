@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export function Hero() {
   return (
-    <section className="relative w-full aspect-video" aria-label="Hero">
+    <section className="relative w-full aspect-video mt-[70px] sm:mt-0" aria-label="Hero">
       {/* Video Background */}
       <video
         autoPlay
