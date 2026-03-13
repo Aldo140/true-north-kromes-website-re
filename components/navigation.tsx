@@ -63,12 +63,12 @@ export function Navigation() {
 
           {/* Mobile hamburger */}
           <button
-            className={`lg:hidden ${isHome ? "text-white" : "text-[#1a1a1a]"}`}
+            className={`lg:hidden p-2 transition-colors ${isHome ? "text-white hover:text-white/80" : "text-[#1a1a1a] hover:text-[#71717a]"}`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
           >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
