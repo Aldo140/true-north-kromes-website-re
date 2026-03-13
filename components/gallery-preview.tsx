@@ -1,10 +1,10 @@
 import Link from "next/link"
 
 const previewImages = [
-  "/images/gallery-upper-framework-acrylic-1.jpg",
-  "/images/gallery-framework-closeup-1.jpg",
-  "/images/gallery-denture-articulated-front.jpg",
-  "/images/gallery-two-frameworks.jpg",
+  "/images/gallery-lower-partial-model-3.jpg",
+  "/images/gallery-framework-gloved-1.jpg",
+  "/images/gallery-finished-model-2.jpg",
+  "/images/gallery-partial-framework-only-3.jpg",
 ]
 
 export function GalleryPreview() {
