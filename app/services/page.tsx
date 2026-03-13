@@ -23,7 +23,7 @@ const services = [
   {
     title: "Post-Processing",
     description:
-      "Professional finishing, DLyte electro-polishing, and rigorous quality assurance. Every framework is polished to a mirror finish and inspected before delivery, ensuring it meets our exacting standards.",
+      "Professional finishing using our AP10 Plasma Polishing Machine. Plasma polishing is a high-precision, high-efficiency, environmentally-friendly processing method for metal surfaces. The polishing of the workpiece is achieved by forming an envelope gas layer between the workpiece and the polishing liquid and generating plasma discharge to remove impurities. Every framework is polished to a mirror finish and inspected before delivery, ensuring it meets our exacting standards.",
     image: "/images/service-post-processing.jpg",
   },
 ]
