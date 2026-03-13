@@ -11,7 +11,7 @@ const services = [
   {
     title: "3D Design",
     description:
-      "Expert digital framework design tailored to each case. Our CAD specialists create precise partial denture designs that account for optimal fit, retention, and patient comfort. We work with all major file formats and can accommodate custom specifications.",
+      "Expert digital framework design tailored to each case. Our CAD specialist team is around 250 strong and also combined with an AI program that utilizes the databases to create precise partial denture designs that account for optimal fit, retention, and patient comfort. The process of design will allow the client to view their design before it is printed to obtain predictable results. We work with all major file formats and can accommodate custom specifications.",
     image: "/images/service-3d-design.jpg",
   },
   {
