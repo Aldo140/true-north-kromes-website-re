@@ -40,7 +40,9 @@ export function Navigation() {
                   key={link.href}
                   href={link.href}
                   className={`text-sm transition-colors ${
-                    isActive ? "text-[#1a1a1a]" : "text-[#71717a] hover:text-[#1a1a1a]"
+                    isHome
+                      ? isActive ? "text-white" : "text-white/80 hover:text-white"
+                      : isActive ? "text-[#1a1a1a]" : "text-[#71717a] hover:text-[#1a1a1a]"
                   }`}
                 >
                   {link.label}
@@ -51,7 +53,9 @@ export function Navigation() {
               href="https://truenorthkromes.seazona.net"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-[#71717a] transition-colors hover:text-[#1a1a1a]"
+              className={`text-sm transition-colors ${
+                isHome ? "text-white/80 hover:text-white" : "text-[#71717a] hover:text-[#1a1a1a]"
+              }`}
             >
               Portal
             </a>
@@ -59,7 +63,7 @@ export function Navigation() {
 
           {/* Mobile hamburger */}
           <button
-            className="text-[#1a1a1a] lg:hidden"
+            className={`lg:hidden ${isHome ? "text-white" : "text-[#1a1a1a]"}`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
