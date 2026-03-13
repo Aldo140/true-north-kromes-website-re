@@ -70,14 +70,13 @@ export function ContactForm() {
 
   return (
     <section className="bg-white pt-36 pb-16 lg:pt-44 lg:pb-24" aria-label="Contact Form">
-      {/* CTA Banner */}
-      <div className="mb-12 bg-[#1a1a1a] px-5 py-6 text-center">
-        <p className="text-lg font-medium text-white">
-          Let's Get Started with your personal link to upload files!
-        </p>
-      </div>
-
       <div className="mx-auto max-w-2xl px-5">
+        <div className="mb-8 text-center">
+          <p className="text-sm font-medium text-foreground">
+            Let's Get Started with your personal link to upload files!
+          </p>
+        </div>
+
         <div className="mb-14 text-center">
           <h2 className="font-sans text-[clamp(1.5rem,3vw,2.5rem)] font-normal text-foreground">
             Get Started
