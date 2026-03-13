@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { Comparison } from "@/components/comparison"
 
 export const metadata: Metadata = {
   title: "Services",
@@ -112,6 +113,9 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Comparison section */}
+      <Comparison />
 
       {/* CTA -- left aligned with text link -- Fix #1 #3 */}
       <section className="bg-white py-16 lg:py-24">
