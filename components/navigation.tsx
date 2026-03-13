@@ -74,7 +74,7 @@ export function Navigation() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="border-t border-[#1a1a1a] bg-black px-5 py-5 lg:hidden">
+          <div className="border-t border-[#e5e5e5] bg-white px-5 py-5 lg:hidden">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href
@@ -84,7 +84,7 @@ export function Navigation() {
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
                     className={`text-sm ${
-                      isActive ? "text-white" : "text-white/70"
+                      isActive ? "text-[#1a1a1a] font-medium" : "text-[#71717a]"
                     }`}
                   >
                     {link.label}
@@ -96,7 +96,7 @@ export function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="text-sm text-white/70 pt-4 border-t border-[#333]"
+                className="text-sm text-[#71717a] pt-4 border-t border-[#e5e5e5]"
               >
                 Portal
               </a>
