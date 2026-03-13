@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+import { ComparisonTable } from "@/components/comparison-table"
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
@@ -16,22 +17,15 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           Back to Blog
         </Link>
 
-        {/* Hero image */}
-        <div className="mt-8 aspect-[16/9] w-full bg-muted">
-          <img
-            src="/placeholder.svg?height=500&width=900"
-            alt="Article cover image"
-            className="h-full w-full object-cover"
-          />
-        </div>
-
         {/* Meta */}
         <div className="mt-8">
           <p className="text-xs tracking-widest text-muted-foreground/60 uppercase">
             Coming Soon
           </p>
           <h1 className="font-sans mt-3 text-[clamp(1.5rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
-            Article Coming Soon
+            {slug === "comparison-traditional-vs-3d-printed"
+              ? "Comparison of Traditional RPDs and 3D Printed Ones"
+              : "Article Coming Soon"}
           </h1>
         </div>
 
@@ -39,14 +33,28 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <hr className="mt-6 mb-8 border-border" />
 
         {/* Body */}
-        <div className="space-y-6 text-base leading-[1.9] text-muted-foreground">
-          <p>
-            This article is currently being written. Check back soon for insights on digital dental workflows, 3D printing technology, and how True North Kromes is transforming partial denture manufacturing.
-          </p>
-          <p>
-            In the meantime, feel free to explore our gallery to see examples of our work, or contact us directly to learn more about our services.
-          </p>
-        </div>
+        {slug === "comparison-traditional-vs-3d-printed" ? (
+          <div className="space-y-8">
+            <ComparisonTable />
+            <div className="space-y-6 text-base leading-[1.9] text-muted-foreground">
+              <p>
+                The evolution of partial denture manufacturing has taken a significant leap with the advent of 3D printing technology. True North Kromes utilizes selective laser melting (SLM) technology to produce partial denture frameworks that surpass traditional hand-casted methods in nearly every measurable way.
+              </p>
+              <p>
+                From enhanced precision and reduced defects to improved biocompatibility and environmental friendliness, 3D printed frameworks represent the future of dental laboratory manufacturing. Our commitment to this technology ensures that every partial denture we produce meets the highest standards of quality, fit, and patient comfort.
+              </p>
+            </div>
+          </div>
+        ) : (
+          <div className="space-y-6 text-base leading-[1.9] text-muted-foreground">
+            <p>
+              This article is currently being written. Check back soon for insights on digital dental workflows, 3D printing technology, and how True North Kromes is transforming partial denture manufacturing.
+            </p>
+            <p>
+              In the meantime, feel free to explore our gallery to see examples of our work, or contact us directly to learn more about our services.
+            </p>
+          </div>
+        )}
 
         {/* Bottom CTA */}
         <div className="mt-14 border border-border p-8 text-center">

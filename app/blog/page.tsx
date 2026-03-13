@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ComparisonTable } from "@/components/comparison-table"
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -20,13 +19,17 @@ const posts = [
     excerpt: "Learn how to streamline your lab processes and increase efficiency with a fully integrated digital 3D-printing solution.",
     date: "Coming Soon",
   },
+  {
+    slug: "comparison-traditional-vs-3d-printed",
+    title: "Comparison of Traditional RPDs and 3D Printed Ones",
+    excerpt: "Explore the key differences between hand-casted and 3D printed removable partial dentures, and why 3D printing is revolutionizing the industry.",
+    date: "Coming Soon",
+  },
 ]
 
 export default function BlogPage() {
   return (
-    <>
-      <ComparisonTable />
-      <section className="bg-white pt-44 pb-20 lg:pt-52 lg:pb-28">
+    <section className="bg-white pt-44 pb-20 lg:pt-52 lg:pb-28">
       <div className="mx-auto max-w-5xl px-5">
         <h1 className="font-sans text-center text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-foreground">
           Blog
@@ -60,6 +63,5 @@ export default function BlogPage() {
         </div>
       </div>
     </section>
-    </>
   )
 }
