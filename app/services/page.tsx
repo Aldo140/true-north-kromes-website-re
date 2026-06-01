@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { VideoSection } from "@/components/video-section"
 
 export const metadata: Metadata = {
   title: "Services",
@@ -94,6 +95,9 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Video Section */}
+      <VideoSection />
 
       {/* Additional services -- 2-col not 3 for asymmetry -- Fix #5 */}
       <section className="bg-secondary py-16 lg:py-20">
