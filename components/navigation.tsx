@@ -50,7 +50,7 @@ export function Navigation() {
               )
             })}
             <a
-              href="https://truenorthkromes.seazona.net"
+              href="https://truenorthkromes.seazona.cloud/Login.aspx?ReturnUrl=%2fCustomer.aspx"
               target="_blank"
               rel="noopener noreferrer"
               className={`text-sm transition-colors ${
@@ -92,7 +92,7 @@ export function Navigation() {
                 )
               })}
               <a
-                href="https://truenorthkromes.seazona.net"
+                href="https://truenorthkromes.seazona.cloud/Login.aspx?ReturnUrl=%2fCustomer.aspx"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
