@@ -20,12 +20,16 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         {/* Meta */}
         <div className="mt-8">
           <p className="text-xs tracking-widest text-muted-foreground/60 uppercase">
-            Coming Soon
+            {slug === "denturism-canada-feature"
+              ? "Denturism Canada — Spring 2026"
+              : "Coming Soon"}
           </p>
           <h1 className="font-sans mt-3 text-[clamp(1.5rem,3vw,2.25rem)] font-semibold leading-tight text-foreground">
             {slug === "comparison-traditional-vs-3d-printed"
               ? "Comparison of Traditional RPDs and 3D Printed Ones"
-              : "Article Coming Soon"}
+              : slug === "denturism-canada-feature"
+                ? "Reimagining Partial Dentures: From Analog Frustration to Digital Precision"
+                : "Article Coming Soon"}
           </h1>
         </div>
 
@@ -33,7 +37,46 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <hr className="mt-6 mb-8 border-border" />
 
         {/* Body */}
-        {slug === "comparison-traditional-vs-3d-printed" ? (
+        {slug === "denturism-canada-feature" ? (
+          <div className="space-y-8">
+            <div className="space-y-6 text-base leading-[1.9] text-muted-foreground">
+              <p>
+                We are proud to be featured in the Spring 2026 issue of{" "}
+                <span className="font-medium text-foreground">Denturism Canada</span> — The Journal of Canadian Denturism. The article, written by Luke LaRocque-Walker, DD, explores his journey from traditional analog partial dentures to a fully digital, 3D-printed workflow.
+              </p>
+              <p>
+                From overcoming early challenges with intraoral scanning to producing metal-framed partial dentures with accuracy and fit that surpasses traditional casting, the piece highlights how digital technology is reshaping the profession — and the role True North Kromes plays in that transformation.
+              </p>
+            </div>
+
+            <figure className="border border-border">
+              <img
+                src="/images/denturism-canada-cover.jpg"
+                alt="Denturism Canada Spring 2026 magazine cover"
+                className="w-full"
+                loading="lazy"
+              />
+            </figure>
+
+            <figure className="border border-border">
+              <img
+                src="/images/denturism-canada-article-1.jpg"
+                alt="Reimagining Partial Dentures article — page one"
+                className="w-full"
+                loading="lazy"
+              />
+            </figure>
+
+            <figure className="border border-border">
+              <img
+                src="/images/denturism-canada-article-2.jpg"
+                alt="Reimagining Partial Dentures article — page two with True North Kromes feature"
+                className="w-full"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        ) : slug === "comparison-traditional-vs-3d-printed" ? (
           <div className="space-y-8">
             <ComparisonTable />
             <div className="space-y-6 text-base leading-[1.9] text-muted-foreground">

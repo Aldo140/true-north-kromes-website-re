@@ -78,8 +78,13 @@ export default function ServicesPage() {
                 }`}
               >
                 <div className="w-full lg:w-[55%]">
-                  <div className="aspect-[4/3] w-full bg-[#f0f0f0] flex items-center justify-center border border-[#e5e5e5]">
-                    <p className="text-sm text-[#a1a1aa]">{service.title}</p>
+                  <div className="aspect-[4/3] w-full overflow-hidden border border-[#e5e5e5] bg-[#f0f0f0]">
+                    <img
+                      src={service.image || "/placeholder.svg"}
+                      alt={service.title}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
                 <div className="w-full lg:w-[45%]">

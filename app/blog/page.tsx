@@ -8,22 +8,32 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    slug: "denturism-canada-feature",
+    title: "Featured in Denturism Canada: Reimagining Partial Dentures",
+    excerpt: "True North Kromes is featured in the Spring 2026 issue of Denturism Canada. Read \"From Analog Frustration to Digital Precision\" by Luke LaRocque-Walker, DD.",
+    date: "Spring 2026",
+    image: "/images/denturism-canada-cover.jpg",
+  },
+  {
     slug: "benefits-of-3d-printed-frameworks",
     title: "Benefits of 3D Printed Partial Denture Frameworks",
     excerpt: "Discover how SLM technology delivers more accurate, consistent, and customized frameworks compared to traditional casting methods.",
     date: "Coming Soon",
+    image: "",
   },
   {
     slug: "digital-workflow-guide",
     title: "A Guide to the Digital Denture Workflow",
     excerpt: "Learn how to streamline your lab processes and increase efficiency with a fully integrated digital 3D-printing solution.",
     date: "Coming Soon",
+    image: "",
   },
   {
     slug: "comparison-traditional-vs-3d-printed",
     title: "Comparison of Traditional RPDs and 3D Printed Ones",
     excerpt: "Explore the key differences between hand-casted and 3D printed removable partial dentures, and why 3D printing is revolutionizing the industry.",
     date: "Coming Soon",
+    image: "",
   },
 ]
 
@@ -42,8 +52,17 @@ export default function BlogPage() {
           {posts.map((post) => (
             <article key={post.slug} className="group">
               <Link href={`/blog/${post.slug}`}>
-                <div className="aspect-[4/3] w-full bg-[#f0f0f0] flex items-center justify-center border border-[#e5e5e5] mb-4">
-                  <p className="text-sm text-[#a1a1aa]">{post.title}</p>
+                <div className="aspect-[4/3] w-full overflow-hidden bg-[#f0f0f0] flex items-center justify-center border border-[#e5e5e5] mb-4">
+                  {post.image ? (
+                    <img
+                      src={post.image || "/placeholder.svg"}
+                      alt={post.title}
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <p className="text-sm text-[#a1a1aa] px-4 text-center">{post.title}</p>
+                  )}
                 </div>
                 <p className="text-xs text-[#a1a1aa] uppercase">
                   {post.date}
