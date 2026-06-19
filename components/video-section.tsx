@@ -4,13 +4,13 @@ export function VideoSection() {
   const videos = [
     {
       id: "UeDTzSWzHEk",
-      title: "3D Metal Printing in Action",
-      description: "Watch our advanced SLM technology in action as it creates precise partial denture frameworks with exceptional accuracy.",
+      title: "iOS scan repair with medit design",
+      description: "A simple instructional video just to show you what is possible within the medit ecosystem to repair scans that may have some issues.",
     },
     {
       id: "Y5asA4FIYoQ",
-      title: "Finishing & Quality Process",
-      description: "See our post-processing workflow, from plasma polishing to final inspection, ensuring every framework meets our exacting standards.",
+      title: "Scanning with an impression to fix problem extension areas",
+      description: "Here's a video showing how to use the impression scan button within the medit ecosystem.",
     },
   ]
 
