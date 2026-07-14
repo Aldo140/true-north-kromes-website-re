@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useRef } from "react"
 import {
   motion,
   useScroll,
@@ -17,9 +17,9 @@ import { sitePath } from "@/lib/site-path"
  * through four equal segments, one per stage. Everything is mapped
  * with useTransform from a single scrollYProgress — no per-frame state.
  *
- * SSR / no-JS / mobile / reduced-motion render a plain stacked list of
- * the same four stages; the pinned version only mounts client-side on
- * lg+ viewports without prefers-reduced-motion.
+ * SSR / no-JS / mobile render a plain stacked list of the same four stages;
+ * the pinned version is kept stable behind a responsive CSS boundary on
+ * lg+ viewports. This avoids a hydration-time layout swap.
  */
 
 const STAGES = [
@@ -62,32 +62,20 @@ const ZONE = 0.06
 const ARIA_LABEL = "Production process, step by step"
 const MONO = "font-mono text-[11px] uppercase tracking-[0.18em]"
 
-/* ------------------------------------------------------------------ */
-/* Mount-time capability gate. SSR renders the stacked fallback (state */
-/* starts false), then swaps to the pinned cinema after hydration on   */
-/* lg+ viewports without prefers-reduced-motion. Hard rule: content    */
-/* must exist in the server HTML for no-JS / slow connections.         */
-/* ------------------------------------------------------------------ */
-
-function usePinnedCapable() {
-  const [capable, setCapable] = useState(false)
-  useEffect(() => {
-    const width = window.matchMedia("(min-width: 1024px)")
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)")
-    const update = () => setCapable(width.matches && !reduce.matches)
-    update()
-    width.addEventListener("change", update)
-    reduce.addEventListener("change", update)
-    return () => {
-      width.removeEventListener("change", update)
-      reduce.removeEventListener("change", update)
-    }
-  }, [])
-  return capable
-}
-
 export function ProcessCinema() {
-  return usePinnedCapable() ? <PinnedCinema /> : <StackedFallback />
+  // Keep both responsive variants in the DOM from the first render. Swapping
+  // the entire section after hydration changed its height and desynchronised
+  // the page scroll position.
+  return (
+    <>
+      <div className="hidden lg:block">
+        <PinnedCinema />
+      </div>
+      <div className="lg:hidden">
+        <StackedFallback />
+      </div>
+    </>
+  )
 }
 
 /* ------------------------------------------------------------------ */

@@ -109,7 +109,29 @@ export function Hero() {
   // Fast-forward the printer footage.
   const videoRef = useRef<HTMLVideoElement>(null)
   useEffect(() => {
-    if (videoRef.current) videoRef.current.playbackRate = VIDEO_RATE
+    const video = videoRef.current
+    if (!video) return
+
+    video.defaultMuted = true
+    video.muted = true
+    video.playbackRate = VIDEO_RATE
+
+    const attemptPlay = () => {
+      video.play().catch(() => {
+        // The poster remains visible if a browser still requires activation.
+      })
+    }
+
+    video.addEventListener("canplay", attemptPlay)
+    video.addEventListener("loadeddata", attemptPlay)
+    document.addEventListener("visibilitychange", attemptPlay)
+    attemptPlay()
+
+    return () => {
+      video.removeEventListener("canplay", attemptPlay)
+      video.removeEventListener("loadeddata", attemptPlay)
+      document.removeEventListener("visibilitychange", attemptPlay)
+    }
   }, [])
 
   // Subtle parallax: video scales 1 -> 1.06 as the hero scrolls out. Text static.
@@ -136,6 +158,7 @@ export function Hero() {
         <video
           ref={videoRef}
           autoPlay
+          defaultMuted
           muted
           loop
           playsInline

@@ -174,8 +174,12 @@ function PostProcessingVideo() {
               controls
               loop
               muted
+              defaultMuted
               playsInline
               preload="auto"
+              onCanPlay={(event) => {
+                event.currentTarget.play().catch(() => undefined)
+              }}
               poster={sitePath("/images/opt/post-processing-video-poster.jpg")}
               className="absolute inset-0 block h-full w-full bg-black object-cover"
               aria-label="Plasma polishing process at True North Kromes"

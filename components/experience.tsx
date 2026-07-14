@@ -69,8 +69,9 @@ export function MachinedLines({ lines, as: Tag = "h2", className, delay = 0 }: M
         <span key={i} className="block overflow-hidden">
           <motion.span
             className="block"
+            initial={{ y: "0%" }}
             variants={{
-              hidden: { y: "110%" },
+              hidden: { y: "0%" },
               visible: {
                 y: "0%",
                 transition: { duration: DUR.slow, delay: delay + i * 0.09, ease: EASE_MECH },
