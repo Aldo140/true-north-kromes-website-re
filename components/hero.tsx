@@ -158,7 +158,6 @@ export function Hero() {
         <video
           ref={videoRef}
           autoPlay
-          defaultMuted
           muted
           loop
           playsInline
