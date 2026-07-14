@@ -4,6 +4,12 @@ The True North Kromes marketing site for digital dental framework production: CA
 
 The site uses an industrial, precision-led visual system with ink and paper surfaces, gold registration marks, mono technical labels, image-led process storytelling, and restrained mechanical motion.
 
+## Project links
+
+- [Live Vercel project](https://v0-true-north-kromes.vercel.app)
+- [Preserved pre-change Vercel build](https://v0-true-north-kromes-p6ffxomnu-prompt-and-pixel-projects.vercel.app)
+- [GitHub repository](https://github.com/Aldo140/true-north-kromes-website-re)
+
 ## Tech stack
 
 - Next.js 16 with the App Router
@@ -54,6 +60,8 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+The production project is hosted on [Vercel](https://v0-true-north-kromes.vercel.app). The `main` branch is the source of truth for the repository and GitHub Pages deployment workflow.
 
 Available scripts:
 
