@@ -22,7 +22,7 @@ const posts = [
     title: "Benefits of 3D Printed Partial Denture Frameworks",
     excerpt: "Discover how SLM technology delivers more accurate, consistent, and customized frameworks compared to traditional casting methods.",
     date: "Frameworks · SLM",
-    image: sitePath("/images/framework-tweezers.jpg"),
+    image: sitePath("/images/benefits-framework.png"),
   },
   {
     slug: "digital-workflow-guide",

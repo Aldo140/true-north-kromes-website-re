@@ -116,20 +116,14 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </div>
             <figure className="overflow-hidden border border-line-dark bg-[#eaf6ff]">
               <img
-                src={sitePath("/images/framework-tweezers.jpg")}
-                alt="Co-Cr partial denture framework held for inspection"
-                width={2048}
-                height={1152}
+                src={sitePath("/images/benefits-framework.png")}
+                alt="Benefits of 3D printed partial denture frameworks: lighter and thinner, greater comfort, durable and defect-free, healthier wear, and high aesthetics"
+                width={1333}
+                height={1173}
                 className="aspect-[16/9] w-full object-cover"
                 loading="lazy"
               />
-              <figcaption className="grid gap-px border-t border-line-dark bg-line-dark sm:grid-cols-2 lg:grid-cols-5">
-                {["Lighter & Thinner", "Greater Comfort", "Durable and Defect-Free", "Designed for Healthier Wear", "High Aesthetics"].map((benefit) => (
-                  <span key={benefit} className="bg-paper px-4 py-4 font-mono text-[10px] uppercase leading-relaxed tracking-[0.12em] text-ink">
-                    {benefit}
-                  </span>
-                ))}
-              </figcaption>
+
             </figure>
             <div className="space-y-6 text-base leading-[1.8] text-ink/75">
               <h2 className="font-sans text-2xl font-medium tracking-[-0.02em] text-ink">Printed vs. traditional</h2>
