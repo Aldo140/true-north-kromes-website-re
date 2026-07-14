@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     description:
       "A fully integrated digital 3D-printing solution that transforms the way dental professionals design and manufacture partial dentures.",
     type: "website",
-    url: "https://tnkromes.ca",
+    url: "https://aldo140.github.io/true-north-kromes-website-re/",
   },
-  metadataBase: new URL("https://tnkromes.ca"),
+  metadataBase: new URL("https://aldo140.github.io/true-north-kromes-website-re/"),
 }
 
 export const viewport = {
@@ -58,6 +58,29 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body className={`${inter.variable} ${plexMono.variable} font-sans antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "True North Kromes Inc",
+              description: "A dental lab specializing in 3D printing metal partial denture frameworks.",
+              url: "https://aldo140.github.io/true-north-kromes-website-re/",
+              telephone: "+1-807-624-7222",
+              email: "truenorthkromes@gmail.com",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "107-105 1st Street W",
+                addressLocality: "Cochrane",
+                addressRegion: "AB",
+                postalCode: "T4C 0A4",
+                addressCountry: "CA",
+              },
+              sameAs: ["https://www.instagram.com/truenorthkromes/"],
+            }),
+          }}
+        />
         <SmoothScroll />
         <BootScreen />
         <PrecisionCursor />

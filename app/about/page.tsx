@@ -90,6 +90,67 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ============ Location — make the lab easy to find ============ */}
+      <section className="bg-ink py-16 text-paper sm:py-20 lg:py-28" aria-label="Find True North Kromes">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-16">
+            <div>
+              <Reveal y={10}>
+                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold">
+                  Find the lab
+                </p>
+                <h2 className="mt-5 max-w-[15ch] text-balance font-sans text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-paper">
+                  Built in Cochrane. Easy to reach.
+                </h2>
+                <p className="mt-6 max-w-[34ch] text-sm leading-[1.8] text-paper/70 sm:text-base">
+                  True North Kromes is based in Cochrane, Alberta. Drop a pin,
+                  get directions, or contact the lab before you send your first case.
+                </p>
+              </Reveal>
+
+              <div className="mt-8 border-y border-line py-5">
+                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper/45">
+                  Address
+                </p>
+                <address className="mt-3 not-italic text-sm leading-relaxed text-paper sm:text-base">
+                  107-105 1st Street W<br />
+                  Cochrane, Alberta, Canada<br />
+                  T4C 0A4
+                </address>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=107-105+1st+Street+W%2C+Cochrane%2C+Alberta%2C+Canada%2C+T4C+0A4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-11 items-center justify-center border border-gold bg-gold px-5 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:bg-transparent hover:text-gold"
+                  >
+                    Get directions ↗
+                  </a>
+                  <Link
+                    href="/contact"
+                    className="inline-flex min-h-11 items-center justify-center border border-paper/40 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-paper transition-colors hover:border-paper"
+                  >
+                    Contact the lab
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <Reveal y={18} amount={0.2}>
+              <div className="overflow-hidden border border-line bg-ink-soft">
+                <iframe
+                  title="Map showing True North Kromes at 107-105 1st Street W, Cochrane, Alberta"
+                  src="https://www.google.com/maps?q=107-105+1st+Street+W%2C+Cochrane%2C+Alberta%2C+Canada%2C+T4C+0A4&output=embed"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="aspect-[4/3] w-full grayscale contrast-125 sm:aspect-[16/9]"
+                />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* ============ Telemetry strip — lab facts on an endless readout ============ */}
       <Ticker items={TICKER_ITEMS} />
 
