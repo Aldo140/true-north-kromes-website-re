@@ -44,7 +44,7 @@ export function ProcessCinema() {
         <PinnedCinema />
       </div>
       <div className="lg:hidden">
-        <StackedFallback />
+        <MobileSwipeCinema />
       </div>
     </div>
   )
@@ -223,6 +223,103 @@ function PinnedCinema() {
               <span>Production frame</span>
               <span>{STAGES[active].num} / 04</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function MobileSwipeCinema() {
+  const [active, setActive] = useState(0)
+  const sectionRef = useRef<HTMLElement>(null)
+  const activeRef = useRef(0)
+  const touchStartRef = useRef<number | null>(null)
+
+  const changeStage = (direction: 1 | -1) => {
+    const next = activeRef.current + direction
+    if (next < 0 || next >= STAGES.length) return false
+    activeRef.current = next
+    setActive(next)
+    return true
+  }
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+    const onTouchStart = (event: TouchEvent) => {
+      touchStartRef.current = event.touches[0]?.clientY ?? null
+    }
+    const onTouchMove = (event: TouchEvent) => {
+      const start = touchStartRef.current
+      const current = event.touches[0]?.clientY
+      if (start === null || current === undefined || Math.abs(start - current) < 14) return
+      const direction = start > current ? 1 : -1
+      if (activeRef.current + direction >= 0 && activeRef.current + direction < STAGES.length) {
+        event.preventDefault()
+      }
+    }
+    const onTouchEnd = (event: TouchEvent) => {
+      const start = touchStartRef.current
+      const end = event.changedTouches[0]?.clientY
+      touchStartRef.current = null
+      if (start === null || end === undefined || Math.abs(start - end) < 40) return
+      changeStage(start > end ? 1 : -1)
+    }
+    section.addEventListener("touchstart", onTouchStart, { passive: true })
+    section.addEventListener("touchmove", onTouchMove, { passive: false })
+    section.addEventListener("touchend", onTouchEnd, { passive: false })
+    return () => {
+      section.removeEventListener("touchstart", onTouchStart)
+      section.removeEventListener("touchmove", onTouchMove)
+      section.removeEventListener("touchend", onTouchEnd)
+    }
+  }, [])
+
+  return (
+    <section ref={sectionRef} aria-label="Production process, swipe through each stage" className="h-[100svh] min-h-[40rem] overflow-hidden bg-ink text-paper touch-pan-y">
+      <div className="flex items-baseline justify-between border-b border-line px-5 py-4">
+        <p className={`${MONO} text-paper/70`}>THE PROCESS</p>
+        <p className={`${MONO} text-paper/40`}>TNK · {STAGES[active].num} / 04</p>
+      </div>
+      <div className="flex h-[calc(100%-3.25rem)] flex-col px-5 py-6">
+        <div className="relative min-h-0 flex-1 overflow-hidden border border-line bg-ink-soft">
+          {STAGES.map((stage, index) => (
+            <img
+              key={stage.num}
+              src={stage.src}
+              alt={stage.alt}
+              loading={index === 0 ? "eager" : "lazy"}
+              aria-hidden={index !== active}
+              className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${index === active ? "scale-100 opacity-100" : "scale-[1.04] opacity-0"}`}
+            />
+          ))}
+          <div className="pointer-events-none absolute inset-4 border border-paper/20" aria-hidden="true">
+            <span className="absolute -left-px -top-px h-5 w-5 border-l border-t border-gold" />
+            <span className="absolute -right-px -top-px h-5 w-5 border-r border-t border-gold" />
+            <span className="absolute -bottom-px -left-px h-5 w-5 border-b border-l border-gold" />
+            <span className="absolute -bottom-px -right-px h-5 w-5 border-b border-r border-gold" />
+          </div>
+        </div>
+        <div className="shrink-0 pt-5">
+          <p className={`${MONO} text-gold`}>{STAGES[active].num} · {STAGES[active].label}</p>
+          <p className="mt-3 max-w-sm text-base leading-relaxed text-paper/75">{STAGES[active].line}</p>
+          <div className="mt-5 flex items-center justify-between gap-4">
+            <div className="flex gap-2" role="tablist" aria-label="Select production stage">
+              {STAGES.map((stage, index) => (
+                <button
+                  key={stage.num}
+                  type="button"
+                  role="tab"
+                  aria-selected={index === active}
+                  onClick={() => { activeRef.current = index; setActive(index) }}
+                  className={`min-h-10 min-w-10 border px-2 py-2 ${MONO} ${index === active ? "border-gold bg-gold text-ink" : "border-line text-paper/50"}`}
+                >
+                  {stage.num}
+                </button>
+              ))}
+            </div>
+            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-paper/35">Swipe ↑ / ↓</span>
           </div>
         </div>
       </div>
