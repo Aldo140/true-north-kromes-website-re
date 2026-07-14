@@ -8,6 +8,7 @@ import {
   type MotionValue,
 } from "motion/react"
 import { Reveal } from "./motion-primitives"
+import { sitePath } from "@/lib/site-path"
 
 /**
  * ProcessCinema — pinned, scroll-scrubbed walkthrough of the four
@@ -25,28 +26,28 @@ const STAGES = [
   {
     num: "01",
     label: "SCAN / DESIGN",
-    src: "/images/service-design.jpg",
+    src: sitePath("/images/service-design.jpg"),
     alt: "Dental CAD software showing a digital framework design on a monitor",
     line: "Designed digitally. Reviewed before anything is printed.",
   },
   {
     num: "02",
     label: "LASER PRINT",
-    src: "/images/opt/gallery-build-plate-printer.jpg",
+    src: sitePath("/images/opt/gallery-build-plate-printer.jpg"),
     alt: "Co-Cr frameworks being laser-printed inside the SLM machine",
     line: "Co-Cr powder, fused layer by layer. No wax, no casting.",
   },
   {
     num: "03",
     label: "PLASMA POLISH",
-    src: "/images/opt/gallery-dlyte-polishing-action.jpg",
+    src: sitePath("/images/opt/gallery-dlyte-polishing-action.jpg"),
     alt: "Partial denture frameworks being polished in the DLyte finishing machine",
     line: "Plasma discharge strips the surface to a mirror finish.",
   },
   {
     num: "04",
     label: "FINISHED FRAME",
-    src: "/images/opt/framework-polished.jpg",
+    src: sitePath("/images/opt/framework-polished.jpg"),
     alt: "Finished mirror-polished Co-Cr partial denture framework on a clean surface",
     line: "Inspected against its design. Then it ships.",
   },

@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Reveal } from "@/components/motion-primitives"
 import { MachinedLines } from "@/components/experience"
+import { sitePath } from "@/lib/site-path"
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -14,7 +15,7 @@ const posts = [
     title: "Featured in Denturism Canada: Reimagining Partial Dentures",
     excerpt: "True North Kromes is featured in the Spring 2026 issue of Denturism Canada. Read \"From Analog Frustration to Digital Precision\" by Luke LaRocque-Walker, DD.",
     date: "Spring 2026",
-    image: "/images/opt/blog-denturism-cover.jpg",
+    image: sitePath("/images/opt/blog-denturism-cover.jpg"),
   },
   {
     slug: "benefits-of-3d-printed-frameworks",

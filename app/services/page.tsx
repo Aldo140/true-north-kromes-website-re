@@ -4,6 +4,7 @@ import * as motion from "motion/react-client"
 import { VideoSection } from "@/components/video-section"
 import { DrawRule, Reveal } from "@/components/motion-primitives"
 import { MachinedLines, Magnetic, Ticker } from "@/components/experience"
+import { sitePath } from "@/lib/site-path"
 
 // Duplicated from motion-primitives: plain values can't cross the
 // "use client" boundary into this server component, only components can.
@@ -23,7 +24,7 @@ const services = [
     title: "3D Design",
     description:
       "Expert digital framework design tailored to each case. Our CAD specialist team is around 250 strong and also combined with an AI program that utilizes the databases to create precise partial denture designs that account for optimal fit, retention, and patient comfort. The process of design will allow the client to view their design before it is printed to obtain predictable results. We work with all major file formats and can accommodate custom specifications.",
-    image: "/images/opt/service-3d-design.jpg",
+    image: sitePath("/images/opt/service-3d-design.jpg"),
     alt: "Digital CAD design of a partial denture framework on screen",
     contain: false,
   },
@@ -34,7 +35,7 @@ const services = [
     title: "3D Printing",
     description:
       "High-resolution metal printing using advanced SLM (Selective Laser Melting) technology. Our Chamlion printers produce frameworks with exceptional accuracy and consistency, ensuring reliable results case after case.",
-    image: "/images/opt/service-3d-printing.jpg",
+    image: sitePath("/images/opt/service-3d-printing.jpg"),
     alt: "Chamlion SLM metal printer producing Co-Cr partial denture frameworks",
     contain: false,
   },
@@ -45,7 +46,7 @@ const services = [
     title: "Post-Processing",
     description:
       "Professional finishing using our AP10 Plasma Polishing Machine. Plasma polishing is a high-precision, high-efficiency, environmentally-friendly processing method for metal surfaces. The polishing of the workpiece is achieved by forming an envelope gas layer between the workpiece and the polishing liquid and generating plasma discharge to remove impurities. Every framework is polished to a mirror finish and inspected before delivery, ensuring it meets our exacting standards.",
-    image: "/images/opt/service-post-processing.jpg",
+    image: sitePath("/images/opt/service-post-processing.jpg"),
     alt: "AP10 plasma polishing machine used for framework finishing",
     contain: true,
   },
@@ -175,12 +176,12 @@ function PostProcessingVideo() {
               muted
               playsInline
               preload="auto"
-              poster="/images/opt/post-processing-video-poster.jpg"
+              poster={sitePath("/images/opt/post-processing-video-poster.jpg")}
               className="absolute inset-0 block h-full w-full bg-black object-cover"
               aria-label="Plasma polishing process at True North Kromes"
             >
               <source
-                src="/videos/SaveClip.App_AQO8NWpNr0HO2vODn8IC3qAcVWb-jNqqib32IalnbVx3Pe8JSRpIe_1YjTUEcjW9TBHJT-1emMAEnE7kDbzmZRsrZG-LxvcbwA6gviM.mp4"
+                src={sitePath("/videos/SaveClip.App_AQO8NWpNr0HO2vODn8IC3qAcVWb-jNqqib32IalnbVx3Pe8JSRpIe_1YjTUEcjW9TBHJT-1emMAEnE7kDbzmZRsrZG-LxvcbwA6gviM.mp4")}
                 type="video/mp4"
               />
               Your browser does not support the video element.

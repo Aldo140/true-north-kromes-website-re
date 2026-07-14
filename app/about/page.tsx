@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { DrawRule, Reveal } from "@/components/motion-primitives"
 import { MachinedLines, Ticker } from "@/components/experience"
+import { sitePath } from "@/lib/site-path"
 
 export const metadata: Metadata = {
   title: "About",
@@ -71,7 +72,7 @@ export default function AboutPage() {
           <div className="mt-14 lg:mt-20">
             <Reveal y={24} amount={0.2}>
               <img
-                src="/images/opt/gallery-lab-chamlion.jpg"
+                src={sitePath("/images/opt/gallery-lab-chamlion.jpg")}
                 alt="Row of Chamlion SLM metal printers on the True North Kromes production floor"
                 width={1600}
                 height={900}
@@ -134,7 +135,7 @@ export default function AboutPage() {
           <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:mt-24">
             <Reveal y={20} amount={0.2}>
               <img
-                src="/images/opt/gallery-dlyte-sintering.jpg"
+                src={sitePath("/images/opt/gallery-dlyte-sintering.jpg")}
                 alt="Co-Cr partial denture frameworks in the finishing area after printing"
                 width={1200}
                 height={2133}
@@ -147,7 +148,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal y={20} amount={0.2} className="sm:mt-12 lg:mt-20">
               <img
-                src="/images/opt/dlyte-polishing.jpg"
+                src={sitePath("/images/opt/dlyte-polishing.jpg")}
                 alt="DLyte polishing system finishing Co-Cr frameworks in-house"
                 width={1200}
                 height={2133}
@@ -193,7 +194,7 @@ export default function AboutPage() {
             <div className="flex items-end md:col-span-5 md:justify-end">
               <Reveal y={12} delay={0.2}>
                 <a
-                  href="/downloads/mediloy-rpd-licence.pdf"
+                  href={sitePath("/downloads/mediloy-rpd-licence.pdf")}
                   className="border border-line px-5 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-colors hover:border-gold hover:text-gold focus-visible:border-gold"
                 >
                   Material licence (PDF) →
@@ -211,7 +212,7 @@ export default function AboutPage() {
             <div className="lg:col-span-4">
               <Reveal x={-24} y={0} amount={0.25}>
                 <img
-                  src="/images/opt/denturism-canada-cover.jpg"
+                  src={sitePath("/images/opt/denturism-canada-cover.jpg")}
                   alt="Cover of the Denturism Canada magazine, Spring 2026 issue"
                   width={540}
                   height={704}

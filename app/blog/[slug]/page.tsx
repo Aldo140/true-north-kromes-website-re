@@ -3,6 +3,16 @@ import { ArrowLeft } from "lucide-react"
 import { ComparisonTable } from "@/components/comparison-table"
 import { Reveal } from "@/components/motion-primitives"
 import { MachinedLines } from "@/components/experience"
+import { sitePath } from "@/lib/site-path"
+
+export function generateStaticParams() {
+  return [
+    { slug: "denturism-canada-feature" },
+    { slug: "comparison-traditional-vs-3d-printed" },
+    { slug: "benefits-of-3d-printed-frameworks" },
+    { slug: "digital-workflow-guide" },
+  ]
+}
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
@@ -62,7 +72,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
             <figure className="border border-line-dark">
               <img
-                src="/images/opt/blog-denturism-cover.jpg"
+                src={sitePath("/images/opt/blog-denturism-cover.jpg")}
                 alt="Denturism Canada Spring 2026 magazine cover"
                 width={540}
                 height={704}
@@ -73,7 +83,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
             <figure className="border border-line-dark">
               <img
-                src="/images/opt/blog-denturism-article-1.jpg"
+                src={sitePath("/images/opt/blog-denturism-article-1.jpg")}
                 alt="Reimagining Partial Dentures article — page one"
                 width={539}
                 height={702}
@@ -84,7 +94,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
             <figure className="border border-line-dark">
               <img
-                src="/images/opt/blog-denturism-article-2.jpg"
+                src={sitePath("/images/opt/blog-denturism-article-2.jpg")}
                 alt="Reimagining Partial Dentures article — page two with True North Kromes feature"
                 width={541}
                 height={668}

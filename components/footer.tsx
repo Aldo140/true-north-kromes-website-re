@@ -4,6 +4,7 @@ import Link from "next/link"
 import { motion, useReducedMotion } from "motion/react"
 import { EASE_MECH } from "./motion-primitives"
 import { ScrambleText } from "./scramble"
+import { sitePath } from "@/lib/site-path"
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -93,7 +94,7 @@ export function Footer() {
           {/* Column 1: logo + description */}
           <div className="max-w-xs">
             <Link href="/" aria-label="True North Kromes - Home">
-              <img src="/images/logo.png" alt="True North Kromes" className="h-12 w-auto brightness-0 invert" />
+              <img src={sitePath("/images/logo.png")} alt="True North Kromes" className="h-12 w-auto brightness-0 invert" />
             </Link>
             <p className="mt-5 max-w-[28ch] text-sm leading-relaxed text-paper/60">
               A dental lab specializing in 3D-printed metal partial denture

@@ -1,4 +1,5 @@
 export function ContactInfo() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
   const linkClass =
     "font-mono text-xs tracking-[0.02em] text-ink underline decoration-line-dark underline-offset-4 transition-colors hover:decoration-gold-dim hover:text-gold-dim"
 
@@ -62,7 +63,7 @@ export function ContactInfo() {
         </dt>
         <dd>
           <a
-            href="/downloads/credit-card-authorization.pdf"
+            href={`${basePath}/downloads/credit-card-authorization.pdf`}
             className={linkClass}
             download
           >

@@ -10,6 +10,7 @@ import {
   useTransform,
 } from "motion/react"
 import { DUR, EASE_MECH, Reveal } from "@/components/motion-primitives"
+import { sitePath } from "@/lib/site-path"
 
 /** True only on devices with a real hover-capable fine pointer (no touch). */
 function useFinePointer() {
@@ -163,20 +164,20 @@ export function GalleryPreview() {
           {/* Column A — wide anchor image plus two staggered satellites */}
           <motion.div style={{ y: reduced ? 0 : yLeft }} className="lg:col-span-7">
             <Specimen
-              src="/images/opt/framework-tweezers.jpg"
+              src={sitePath("/images/opt/framework-tweezers.jpg")}
               alt="Raw laser-printed cobalt-chrome partial framework standing in the metal powder bed, straight off the printer"
               label="SPEC 019 — AS PRINTED · CO-CR POWDER BED"
               aspectClass="aspect-[16/10]"
             />
             <div className="mt-12 grid grid-cols-2 gap-5 sm:gap-8 lg:mt-16">
               <Specimen
-                src="/images/opt/chrome-crowns.jpg"
+                src={sitePath("/images/opt/chrome-crowns.jpg")}
                 alt="Polished upper partial framework with clasp arms seated over crowns on the master model"
                 label="SPEC 021 — CLASPS ON CROWNS · FIT CHECK"
                 aspectClass="aspect-[4/5]"
               />
               <Specimen
-                src="/images/opt/framework-upper-side.jpg"
+                src={sitePath("/images/opt/framework-upper-side.jpg")}
                 alt="Side profile of a plasma-polished upper partial framework with circumferential clasps, seated on its model"
                 label="SPEC 014 — UPPER · CLASP DETAIL"
                 aspectClass="aspect-[4/5]"
@@ -191,13 +192,13 @@ export function GalleryPreview() {
             className="lg:col-span-4 lg:col-start-9 lg:pt-24"
           >
             <Specimen
-              src="/images/opt/framework-clasps.jpg"
+              src={sitePath("/images/opt/framework-clasps.jpg")}
               alt="Build plate of raw SLM-printed frameworks still on their lattice supports, before removal"
               label="SPEC 007 — BUILD PLATE · SUPPORTS ON"
               aspectClass="aspect-[3/4]"
             />
             <Specimen
-              src="/images/opt/framework-full.jpg"
+              src={sitePath("/images/opt/framework-full.jpg")}
               alt="Plasma-polished upper partial framework with mesh retention, seated on its stone model"
               label="SPEC 011 — UPPER · MESH RETENTION · POLISHED"
               aspectClass="aspect-[4/5]"

@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { ScrambleText } from "./scramble"
+import { sitePath } from "@/lib/site-path"
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -37,7 +38,7 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/" className="shrink-0" aria-label="True North Kromes - Home">
             <img
-              src="/images/logo.png"
+              src={sitePath("/images/logo.png")}
               alt="True North Kromes"
               className={`h-10 w-auto sm:h-[60px] lg:h-[70px] transition-[filter] duration-300 ${
                 isDarkSurface ? "brightness-0 invert" : ""

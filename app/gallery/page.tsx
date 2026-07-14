@@ -6,6 +6,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react"
 import { ArrowUpRight, ChevronLeft, ChevronRight, X } from "lucide-react"
 import { EASE_MECH, Reveal } from "@/components/motion-primitives"
 import { MachinedLines } from "@/components/experience"
+import { sitePath } from "@/lib/site-path"
 
 interface Specimen {
   gridSrc: string
@@ -19,8 +20,8 @@ interface Specimen {
 
 const specimens: Specimen[] = [
   {
-    gridSrc: "/images/opt/g-upper-partial-blue-glove.jpg",
-    fullSrc: "/images/gallery-upper-partial-blue-glove.jpg",
+    gridSrc: sitePath("/images/opt/g-upper-partial-blue-glove.jpg"),
+    fullSrc: sitePath("/images/gallery-upper-partial-blue-glove.jpg"),
     alt: "Upper partial framework held with a blue glove",
     code: "SPEC 025",
     title: "Upper / hand inspection",
@@ -28,8 +29,8 @@ const specimens: Specimen[] = [
     aspect: "portrait",
   },
   {
-    gridSrc: "/images/opt/g-upper-framework-acrylic-1.jpg",
-    fullSrc: "/images/gallery-upper-framework-acrylic-1.jpg",
+    gridSrc: sitePath("/images/opt/g-upper-framework-acrylic-1.jpg"),
+    fullSrc: sitePath("/images/gallery-upper-framework-acrylic-1.jpg"),
     alt: "Upper framework with acrylic teeth on a model",
     code: "SPEC 022",
     title: "Upper / acrylic teeth set",
@@ -37,8 +38,8 @@ const specimens: Specimen[] = [
     aspect: "portrait",
   },
   {
-    gridSrc: "/images/opt/g-denture-articulated-front.jpg",
-    fullSrc: "/images/gallery-denture-articulated-front.jpg",
+    gridSrc: sitePath("/images/opt/g-denture-articulated-front.jpg"),
+    fullSrc: sitePath("/images/gallery-denture-articulated-front.jpg"),
     alt: "Articulated upper and lower denture models",
     code: "SPEC 024",
     title: "Full case / articulated",
@@ -46,8 +47,8 @@ const specimens: Specimen[] = [
     aspect: "portrait",
   },
   {
-    gridSrc: "/images/opt/g-framework-closeup-2.jpg",
-    fullSrc: "/images/gallery-framework-closeup-2.jpg",
+    gridSrc: sitePath("/images/opt/g-framework-closeup-2.jpg"),
+    fullSrc: sitePath("/images/gallery-framework-closeup-2.jpg"),
     alt: "Close-up of a polished upper partial framework",
     code: "SPEC 026",
     title: "Upper / polished frame",
@@ -55,8 +56,8 @@ const specimens: Specimen[] = [
     aspect: "portrait",
   },
   {
-    gridSrc: "/images/opt/g-lower-partial-model-1.jpg",
-    fullSrc: "/images/gallery-lower-partial-model-1.jpg",
+    gridSrc: sitePath("/images/opt/g-lower-partial-model-1.jpg"),
+    fullSrc: sitePath("/images/gallery-lower-partial-model-1.jpg"),
     alt: "Lower partial framework on a dental model",
     code: "SPEC 027",
     title: "Lower / front view",
@@ -64,8 +65,8 @@ const specimens: Specimen[] = [
     aspect: "portrait",
   },
   {
-    gridSrc: "/images/opt/g-framework-gloved-1.jpg",
-    fullSrc: "/images/gallery-framework-gloved-1.jpg",
+    gridSrc: sitePath("/images/opt/g-framework-gloved-1.jpg"),
+    fullSrc: sitePath("/images/gallery-framework-gloved-1.jpg"),
     alt: "Gloved hand holding a polished partial framework",
     code: "SPEC 029",
     title: "Polished frame / in hand",
@@ -73,8 +74,8 @@ const specimens: Specimen[] = [
     aspect: "portrait",
   },
   {
-    gridSrc: "/images/opt/g-upper-framework-acrylic-2.jpg",
-    fullSrc: "/images/gallery-upper-framework-acrylic-2.jpg",
+    gridSrc: sitePath("/images/opt/g-upper-framework-acrylic-2.jpg"),
+    fullSrc: sitePath("/images/gallery-upper-framework-acrylic-2.jpg"),
     alt: "Upper framework with acrylic saddles",
     code: "SPEC 023",
     title: "Upper / acrylic saddles",
@@ -82,8 +83,8 @@ const specimens: Specimen[] = [
     aspect: "portrait",
   },
   {
-    gridSrc: "/images/opt/g-lower-partial-model-5.jpg",
-    fullSrc: "/images/gallery-lower-partial-model-5.jpg",
+    gridSrc: sitePath("/images/opt/g-lower-partial-model-5.jpg"),
+    fullSrc: sitePath("/images/gallery-lower-partial-model-5.jpg"),
     alt: "Lower partial framework on a dental model from the occlusal view",
     code: "SPEC 028",
     title: "Lower / occlusal view",
@@ -91,8 +92,8 @@ const specimens: Specimen[] = [
     aspect: "portrait",
   },
   {
-    gridSrc: "/images/opt/g-finished-model-3.jpg",
-    fullSrc: "/images/gallery-finished-model-3.jpg",
+    gridSrc: sitePath("/images/opt/g-finished-model-3.jpg"),
+    fullSrc: sitePath("/images/gallery-finished-model-3.jpg"),
     alt: "Finished framework on a model in detail",
     code: "SPEC 030",
     title: "Finished case / detail",
@@ -100,8 +101,8 @@ const specimens: Specimen[] = [
     aspect: "portrait",
   },
   {
-    gridSrc: "/images/opt/g-finished-model-4.jpg",
-    fullSrc: "/images/gallery-finished-model-4.jpg",
+    gridSrc: sitePath("/images/opt/g-finished-model-4.jpg"),
+    fullSrc: sitePath("/images/gallery-finished-model-4.jpg"),
     alt: "Finished framework on a model in overview",
     code: "SPEC 031",
     title: "Finished case / overview",

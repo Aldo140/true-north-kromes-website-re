@@ -11,12 +11,13 @@ import {
   useTransform,
 } from "motion/react"
 import { DUR, EASE_MECH } from "./motion-primitives"
+import { sitePath } from "@/lib/site-path"
 
 const STAGES = [
   {
     num: "01",
     label: "SCAN / DESIGN",
-    src: "/images/opt/cad-design.jpg",
+    src: sitePath("/images/opt/cad-design.jpg"),
     alt: "CAD design of a partial denture framework on screen",
     bg: null, // stage 01 opens on the live printer video (runs fast-forwarded)
     bgAlt: "",
@@ -25,27 +26,27 @@ const STAGES = [
   {
     num: "02",
     label: "LASER PRINT",
-    src: "/images/opt/gallery-build-plate-printer.jpg",
+    src: sitePath("/images/opt/gallery-build-plate-printer.jpg"),
     alt: "Co-Cr frameworks on the build plate inside the SLM printer",
-    bg: "/images/opt/bg-laser-print.jpg",
+    bg: sitePath("/images/opt/bg-laser-print.jpg"),
     bgAlt: "Raw laser-printed Co-Cr frameworks on the build plate with True North Kromes printed in metal",
     duration: 4000,
   },
   {
     num: "03",
     label: "PLASMA POLISH",
-    src: "/images/opt/gallery-dlyte-polishing-action.jpg",
+    src: sitePath("/images/opt/gallery-dlyte-polishing-action.jpg"),
     alt: "Framework being plasma-polished in the DLyte machine",
-    bg: "/images/opt/bg-plasma-polish.jpg",
+    bg: sitePath("/images/opt/bg-plasma-polish.jpg"),
     bgAlt: "Mirror-polished framework held over the plasma polishing machine",
     duration: 4000,
   },
   {
     num: "04",
     label: "FINISHED FRAME",
-    src: "/images/opt/framework-polished.jpg",
+    src: sitePath("/images/opt/framework-polished.jpg"),
     alt: "Finished polished metal partial denture framework",
-    bg: "/images/opt/bg-finished-frame.jpg",
+    bg: sitePath("/images/opt/bg-finished-frame.jpg"),
     bgAlt: "Two mirror-finished Co-Cr partial frameworks standing in metal powder",
     duration: 4000,
   },
@@ -138,7 +139,7 @@ export function Hero() {
           muted
           loop
           playsInline
-          poster="/images/opt/video-poster.jpg"
+          poster={sitePath("/images/opt/video-poster.jpg")}
           onLoadedMetadata={(e) => {
             e.currentTarget.playbackRate = VIDEO_RATE
           }}
@@ -146,7 +147,7 @@ export function Hero() {
             active === 0 && !reduced ? "opacity-100" : "opacity-0"
           }`}
         >
-          <source src="/videos/printer-demo.mp4" type="video/mp4" />
+          <source src={sitePath("/videos/printer-demo.mp4")} type="video/mp4" />
         </video>
         {STAGES.map((stage, i) =>
           stage.bg ? (

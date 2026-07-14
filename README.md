@@ -6,7 +6,7 @@ The site uses an industrial, precision-led visual system with ink and paper surf
 
 ## Project links
 
-- [Live Vercel project](https://v0-true-north-kromes.vercel.app)
+- [GitHub Pages site](https://aldo140.github.io/true-north-kromes-website-re/)
 - [Preserved pre-change Vercel build](https://v0-true-north-kromes-p6ffxomnu-prompt-and-pixel-projects.vercel.app)
 - [GitHub repository](https://github.com/Aldo140/true-north-kromes-website-re)
 
@@ -61,7 +61,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-The production project is hosted on [Vercel](https://v0-true-north-kromes.vercel.app). The `main` branch is the source of truth for the repository and GitHub Pages deployment workflow.
+The `main` branch is the source of truth for the repository and GitHub Pages deployment workflow. The preserved Vercel URL above remains available as the pre-change build.
 
 Available scripts:
 

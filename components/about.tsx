@@ -4,6 +4,7 @@ import { useRef } from "react"
 import { motion, useReducedMotion, useScroll } from "motion/react"
 import { DrawRule, Reveal } from "@/components/motion-primitives"
 import { MachinedLines } from "@/components/experience"
+import { sitePath } from "@/lib/site-path"
 
 const FACTS = [
   { label: "MATERIAL", value: "MEDILOY S CO-CR, LICENSED" },
@@ -28,7 +29,7 @@ function LabFigure() {
   return (
     <div ref={ref}>
       <img
-        src="/images/opt/gallery-lab-wide.jpg"
+        src={sitePath("/images/opt/gallery-lab-wide.jpg")}
         alt="Wide view of the True North Kromes production floor with SLM printers and finishing stations"
         loading="lazy"
         className="aspect-[4/3] w-full object-cover"
