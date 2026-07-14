@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { Reveal } from "@/components/motion-primitives"
+import { MachinedLines } from "@/components/experience"
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -12,7 +14,7 @@ const posts = [
     title: "Featured in Denturism Canada: Reimagining Partial Dentures",
     excerpt: "True North Kromes is featured in the Spring 2026 issue of Denturism Canada. Read \"From Analog Frustration to Digital Precision\" by Luke LaRocque-Walker, DD.",
     date: "Spring 2026",
-    image: "/images/denturism-canada-cover.jpg",
+    image: "/images/opt/blog-denturism-cover.jpg",
   },
   {
     slug: "benefits-of-3d-printed-frameworks",
@@ -39,46 +41,74 @@ const posts = [
 
 export default function BlogPage() {
   return (
-    <section className="bg-white pt-44 pb-20 lg:pt-52 lg:pb-28">
-      <div className="mx-auto max-w-5xl px-5">
-        <h1 className="font-sans text-center text-[clamp(1.75rem,3.5vw,2.5rem)] font-normal text-foreground">
-          Blog
-        </h1>
-        <p className="mt-2 text-center text-base text-muted-foreground">
-          News and insights from True North Kromes
-        </p>
+    <section className="bg-paper pt-40 pb-20 lg:pt-48 lg:pb-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
+        {/* Header — eyebrow → machined H1 lines */}
+        <Reveal y={10}>
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">
+            JOURNAL
+          </p>
+        </Reveal>
+        <MachinedLines
+          as="h1"
+          lines={["News and insights", "from True North Kromes"]}
+          delay={0.08}
+          className="mt-4 max-w-3xl text-balance font-sans text-[clamp(1.75rem,3.5vw,2.75rem)] font-medium tracking-[-0.02em] text-ink"
+        />
 
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post) => (
-            <article key={post.slug} className="group">
-              <Link href={`/blog/${post.slug}`}>
-                <div className="aspect-[4/3] w-full overflow-hidden bg-[#f0f0f0] flex items-center justify-center border border-[#e5e5e5] mb-4">
-                  {post.image ? (
-                    <img
-                      src={post.image || "/placeholder.svg"}
-                      alt={post.title}
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <p className="text-sm text-[#a1a1aa] px-4 text-center">{post.title}</p>
-                  )}
-                </div>
-                <p className="text-xs text-[#a1a1aa] uppercase">
-                  {post.date}
-                </p>
-                <h2 className="mt-3 font-sans text-lg font-medium text-[#1a1a1a]">
-                  {post.title}
-                </h2>
-                <p className="mt-3 text-sm leading-relaxed text-[#71717a]">
-                  {post.excerpt}
-                </p>
-                <span className="mt-4 inline-block text-sm text-[#1a1a1a] border-b border-[#1a1a1a] pb-0.5 hover:text-[#71717a] hover:border-[#71717a]">
-                  Read More
-                </span>
-              </Link>
-            </article>
-          ))}
+        {/* Ruled editorial rows */}
+        <div className="mt-14 border-b border-line-dark lg:mt-20">
+          {posts.map((post, index) => {
+            const published = post.date !== "Coming Soon"
+            return (
+              <Reveal key={post.slug} delay={index * 0.08} amount={0.2}>
+                <article className="border-t border-line-dark">
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="group grid gap-4 py-8 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:translate-x-1.5 motion-reduce:transition-none motion-reduce:hover:translate-x-0 sm:py-10 md:grid-cols-12 md:gap-8"
+                  >
+                    {/* Mono date / status */}
+                    <div className="md:col-span-3">
+                      <p
+                        className={`font-mono text-[11px] uppercase tracking-[0.18em] ${
+                          published ? "text-ink/60" : "text-ink/40"
+                        }`}
+                      >
+                        {published ? post.date : "IN PREPARATION"}
+                      </p>
+                    </div>
+
+                    {/* Title + excerpt */}
+                    <div className={post.image ? "md:col-span-6" : "md:col-span-9"}>
+                      <h2 className="text-balance font-sans text-xl font-medium tracking-[-0.02em] text-ink transition-colors group-hover:text-gold-dim sm:text-2xl">
+                        {post.title}
+                      </h2>
+                      <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink/70">
+                        {post.excerpt}
+                      </p>
+                      <span className="mt-5 inline-flex items-baseline gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50 transition-[gap,color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:gap-4 group-hover:text-gold-dim motion-reduce:transition-none motion-reduce:group-hover:gap-2">
+                        READ <span aria-hidden="true">&rarr;</span>
+                      </span>
+                    </div>
+
+                    {/* Thumbnail — only for posts that have one */}
+                    {post.image && (
+                      <div className="md:col-span-3">
+                        <img
+                          src={post.image}
+                          alt="Denturism Canada Spring 2026 magazine cover"
+                          width={540}
+                          height={704}
+                          loading="lazy"
+                          className="aspect-[540/704] w-full max-w-[200px] border border-line-dark object-cover"
+                        />
+                      </div>
+                    )}
+                  </Link>
+                </article>
+              </Reveal>
+            )
+          })}
         </div>
       </div>
     </section>

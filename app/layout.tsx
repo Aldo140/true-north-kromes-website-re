@@ -1,15 +1,24 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, IBM_Plex_Mono } from "next/font/google"
 import "./globals.css"
 
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { StickyQuote } from "@/components/sticky-quote"
+import { SmoothScroll } from "@/components/experience"
+import { BootScreen } from "@/components/boot-screen"
+import { PrecisionCursor } from "@/components/precision-cursor"
 
 const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-sans",
+})
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
 })
 
 export const metadata: Metadata = {
@@ -38,7 +47,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#101113",
 }
 
 export default function RootLayout({
@@ -48,7 +57,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${plexMono.variable} font-sans antialiased`}>
+        <SmoothScroll />
+        <BootScreen />
+        <PrecisionCursor />
+        <div className="grain" aria-hidden="true" />
         <Navigation />
         <main>{children}</main>
         <Footer />

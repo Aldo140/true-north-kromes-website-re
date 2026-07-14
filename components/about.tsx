@@ -1,34 +1,117 @@
+"use client"
+
+import { useRef } from "react"
+import { motion, useReducedMotion, useScroll } from "motion/react"
+import { DrawRule, Reveal } from "@/components/motion-primitives"
+import { MachinedLines } from "@/components/experience"
+
+const FACTS = [
+  { label: "MATERIAL", value: "MEDILOY S CO-CR, LICENSED" },
+  { label: "PROCESS", value: "SLM + PLASMA POLISH, IN-HOUSE" },
+  { label: "CLIENTS", value: "DENTAL LABS & DENTURISTS" },
+] as const
+
+/**
+ * Lab photo + mono caption bar. The gold tick in the caption bar extends
+ * with scroll progress — a fill gauge scrubbed by the reader's scroll,
+ * like a level indicator dialing in as the figure passes the read line.
+ * Contained here so the scroll plumbing stays local to the figure.
+ */
+function LabFigure() {
+  const reduced = useReducedMotion()
+  const ref = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.95", "center 0.4"],
+  })
+
+  return (
+    <div ref={ref}>
+      <img
+        src="/images/opt/gallery-lab-wide.jpg"
+        alt="Wide view of the True North Kromes production floor with SLM printers and finishing stations"
+        loading="lazy"
+        className="aspect-[4/3] w-full object-cover"
+      />
+      <div className="flex items-center justify-between gap-4 bg-ink px-3 py-2">
+        <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper/80">
+          True North Kromes · Canada
+        </span>
+        {reduced ? (
+          <span aria-hidden="true" className="h-px w-6 shrink-0 bg-gold" />
+        ) : (
+          <span
+            aria-hidden="true"
+            className="relative h-px w-16 shrink-0 overflow-hidden bg-paper/15"
+          >
+            <motion.span
+              className="absolute inset-0 origin-left bg-gold"
+              style={{ scaleX: scrollYProgress }}
+            />
+          </span>
+        )}
+      </div>
+    </div>
+  )
+}
+
 export function About() {
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-28" aria-label="About TNK">
-      <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-12">
-        <h2 className="font-sans text-[clamp(1.5rem,3vw,2.5rem)] font-medium text-[#1a1a1a]">
-          Our Mission
-        </h2>
+    <section id="process" className="bg-paper py-24 sm:py-32 lg:py-40" aria-label="About True North Kromes">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
+        {/* Editorial split: oversized statement + facts left, offset image right */}
+        <div className="grid grid-cols-1 gap-x-12 gap-y-14 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <Reveal y={12}>
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">
+                The operation · In-house, end-to-end
+              </p>
+            </Reveal>
 
-        <div className="mt-6 sm:mt-8 space-y-5 sm:space-y-6 text-sm sm:text-base leading-[1.8] text-[#71717a]">
-          <p>
-            True North Kromes was established to address the need for superior partial
-            denture frames that truly meet the needs of patients. With a foundation
-            built on the combined expertise of a Denturist and a Lab Technologist, we
-            have a deep understanding of the challenges faced by both dental labs and
-            clinicians. This unique blend of experience allows us to bridge the gap
-            between these two crucial areas of dental care, ensuring we deliver
-            products that not only meet but exceed expectations.
-          </p>
-          <p>
-            We specialize in one thing, and one thing only—partial denture
-            frameworks. By narrowing our focus, we have been able to hone our craft
-            and develop solutions that are tailored specifically to this area of dental
-            technology. Our goal is simple yet powerful: to help both current and
-            future customers utilize the full potential of technology to streamline their
-            processes, increase efficiency, and ultimately improve the quality of care
-            they provide to their patients. We are committed to staying at the
-            forefront of innovation in denture technology, ensuring that our clients are
-            equipped with the best tools available to enhance both their workflow and
-            the outcomes they deliver.
-          </p>
+            {/* Headline lines rise out of their channels like face-mill passes */}
+            <MachinedLines
+              lines={["A dental lab built", "like a machine shop."]}
+              as="h2"
+              className="mt-5 max-w-[18ch] text-balance font-sans text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-ink"
+            />
+
+            <Reveal y={12} delay={0.1}>
+              <p className="mt-8 max-w-[52ch] text-sm leading-[1.8] text-ink/70 sm:text-base">
+                True North Kromes is a Canadian lab that keeps the entire
+                production line under one roof — CAD design, SLM metal
+                printers, and plasma polishing, end to end. Every framework is
+                printed in Health-Canada-licensed Mediloy S Co-Cr alloy, so
+                what leaves the building is exactly what was designed.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="lg:col-span-5 lg:mt-20">
+            <Reveal x={40} y={0} amount={0.25}>
+              <LabFigure />
+            </Reveal>
+          </div>
         </div>
+
+        {/* Fact lines — hairline rules machined across, staggered */}
+        <dl className="mt-20 lg:mt-24">
+          {FACTS.map((fact, i) => (
+            <div key={fact.label}>
+              <DrawRule className="h-px bg-line-dark" delay={i * 0.12} />
+              <Reveal y={8} delay={i * 0.12 + 0.15}>
+                <div className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-6">
+                  <dt className="w-28 shrink-0 font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">
+                    {fact.label}
+                  </dt>
+                  <dd className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/80">
+                    {fact.value}
+                  </dd>
+                </div>
+              </Reveal>
+            </div>
+          ))}
+          <DrawRule className="h-px bg-line-dark" delay={FACTS.length * 0.12} />
+        </dl>
       </div>
     </section>
   )

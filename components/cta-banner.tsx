@@ -1,29 +1,32 @@
 import Link from "next/link"
+import { DrawRule, Reveal } from "@/components/motion-primitives"
+import { MachinedLines, Magnetic } from "@/components/experience"
 
 export function CTABanner() {
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-28" aria-label="Call to action">
-      <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-12 text-center">
-        <h2 className="font-sans text-[clamp(1.5rem,3vw,2.5rem)] font-medium text-[#1a1a1a]">
-          Ready to streamline your workflow?
-        </h2>
-        <p className="mt-3 sm:mt-4 text-sm sm:text-base text-[#71717a]">
-          Email or call us today to get started with TNK.
-        </p>
-        <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-          <Link
-            href="/contact"
-            className="text-sm text-[#1a1a1a] border-b border-[#1a1a1a] pb-0.5 hover:text-[#71717a] hover:border-[#71717a]"
-          >
-            Contact Us
-          </Link>
-          <a
-            href="tel:+18076247222"
-            className="text-sm text-[#71717a] hover:text-[#1a1a1a]"
-          >
-            807.624.7222
-          </a>
-        </div>
+    <section className="bg-ink py-20 text-paper sm:py-24 lg:py-32" aria-label="Call to action">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
+        <DrawRule className="h-px bg-gold" />
+        {/* Headline rises out of its channel like a face-mill pass */}
+        <MachinedLines
+          lines={["Send your first case."]}
+          as="h2"
+          className="mt-10 max-w-3xl text-balance font-sans text-[clamp(2rem,4.5vw,3.5rem)] font-medium tracking-[-0.02em] sm:mt-12"
+        />
+        <Reveal delay={0.12}>
+          <p className="mt-5 max-w-xl text-base text-paper/65 sm:text-lg">
+            Volume pricing, personal upload link, support through the whole production cycle.
+          </p>
+          {/* Button leans toward the cursor — a part pulled into registration */}
+          <Magnetic className="mt-10">
+            <Link
+              href="/contact"
+              className="inline-flex min-h-12 w-full items-center justify-center border border-paper bg-paper px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-ink transition-colors hover:bg-transparent hover:text-paper sm:w-auto"
+            >
+              Start a case
+            </Link>
+          </Magnetic>
+        </Reveal>
       </div>
     </section>
   )
