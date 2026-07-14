@@ -71,10 +71,10 @@ export default function RootLayout({
               email: "truenorthkromes@gmail.com",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "107-105 1st Street W",
+                streetAddress: "204 A River Avenue",
                 addressLocality: "Cochrane",
                 addressRegion: "AB",
-                postalCode: "T4C 0A4",
+                postalCode: "T4C 2C1",
                 addressCountry: "CA",
               },
               sameAs: ["https://www.instagram.com/truenorthkromes/"],

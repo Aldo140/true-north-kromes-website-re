@@ -35,7 +35,8 @@ export function ContactInfo() {
           Address
         </dt>
         <dd className="font-mono text-xs leading-relaxed tracking-[0.02em] text-ink">
-          107-105 1st Street W, Cochrane, Alberta, Canada, T4C 0A4
+          204 A River Avenue<br />
+          Cochrane, AB T4C 2C1
         </dd>
       </div>
 

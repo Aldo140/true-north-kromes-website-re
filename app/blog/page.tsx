@@ -21,22 +21,15 @@ const posts = [
     slug: "benefits-of-3d-printed-frameworks",
     title: "Benefits of 3D Printed Partial Denture Frameworks",
     excerpt: "Discover how SLM technology delivers more accurate, consistent, and customized frameworks compared to traditional casting methods.",
-    date: "Coming Soon",
-    image: "",
+    date: "Frameworks · SLM",
+    image: sitePath("/images/framework-tweezers.jpg"),
   },
   {
     slug: "digital-workflow-guide",
-    title: "A Guide to the Digital Denture Workflow",
-    excerpt: "Learn how to streamline your lab processes and increase efficiency with a fully integrated digital 3D-printing solution.",
-    date: "Coming Soon",
-    image: "",
-  },
-  {
-    slug: "comparison-traditional-vs-3d-printed",
-    title: "Comparison of Traditional RPDs and 3D Printed Ones",
-    excerpt: "Explore the key differences between hand-casted and 3D printed removable partial dentures, and why 3D printing is revolutionizing the industry.",
-    date: "Coming Soon",
-    image: "",
+    title: "Your New Portal",
+    excerpt: "Explore our easy-to-use client portal for submitting cases, managing orders, and keeping your digital workflow moving.",
+    date: "Client portal",
+    image: sitePath("/images/portal-login.svg"),
   },
 ]
 
@@ -60,7 +53,7 @@ export default function BlogPage() {
         {/* Ruled editorial rows */}
         <div className="mt-14 border-b border-line-dark lg:mt-20">
           {posts.map((post, index) => {
-            const published = post.date !== "Coming Soon"
+            const published = true
             return (
               <Reveal key={post.slug} delay={index * 0.08} amount={0.2}>
                 <article className="border-t border-line-dark">
@@ -88,7 +81,7 @@ export default function BlogPage() {
                         {post.excerpt}
                       </p>
                       <span className="mt-5 inline-flex items-baseline gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50 transition-[gap,color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:gap-4 group-hover:text-gold-dim motion-reduce:transition-none motion-reduce:group-hover:gap-2">
-                        READ <span aria-hidden="true">&rarr;</span>
+                        READ MORE <span aria-hidden="true">&rarr;</span>
                       </span>
                     </div>
 
@@ -97,7 +90,7 @@ export default function BlogPage() {
                       <div className="md:col-span-3">
                         <img
                           src={post.image}
-                          alt="Denturism Canada Spring 2026 magazine cover"
+                          alt={`${post.title} thumbnail`}
                           width={540}
                           height={704}
                           loading="lazy"

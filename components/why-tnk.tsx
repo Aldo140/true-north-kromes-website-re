@@ -178,7 +178,7 @@ export function WhyTNK() {
         {reduced ? (
           <div className="pt-8">
             <Link
-              href="/blog/comparison-traditional-vs-3d-printed"
+              href="/blog/benefits-of-3d-printed-frameworks"
               className="text-sm text-paper underline decoration-line underline-offset-4 transition-colors hover:decoration-gold"
             >
               Full comparison →
@@ -193,7 +193,7 @@ export function WhyTNK() {
             transition={{ duration: DUR.base, delay: 0.2, ease: EASE_MECH }}
           >
             <Link
-              href="/blog/comparison-traditional-vs-3d-printed"
+              href="/blog/benefits-of-3d-printed-frameworks"
               className="text-sm text-paper underline decoration-line underline-offset-4 transition-colors hover:decoration-gold"
             >
               Full comparison →

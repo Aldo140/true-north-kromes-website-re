@@ -15,7 +15,7 @@ const navLinks = [
 ]
 
 const PORTAL_URL =
-  "https://truenorthkromes.seazona.cloud/Login.aspx?ReturnUrl=%2fCustomer.aspx"
+  "https://truenorthkromesclient.seazona.cloud/Login.aspx?ReturnUrl=%2fOrder.aspx"
 
 const monoLabel = "font-mono uppercase text-[11px] tracking-[0.18em]"
 
@@ -130,7 +130,8 @@ export function Footer() {
               <ScrambleText text="truenorthkromes@gmail.com" trigger="hover" />
             </a>
             <span className={`${monoLabel} max-w-[24ch] leading-relaxed text-paper/60`}>
-              107-105 1st Street W, Cochrane, Alberta, Canada, T4C 0A4
+              204 A River Avenue<br />
+              Cochrane, AB T4C 2C1
             </span>
             <a
               href="https://www.instagram.com/truenorthkromes/"

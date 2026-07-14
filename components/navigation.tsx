@@ -18,7 +18,7 @@ const navLinks = [
 const getStartedLink = { label: "Get Started", href: "/contact" }
 
 const PORTAL_URL =
-  "https://truenorthkromes.seazona.cloud/Login.aspx?ReturnUrl=%2fCustomer.aspx"
+  "https://truenorthkromesclient.seazona.cloud/Login.aspx?ReturnUrl=%2fOrder.aspx"
 
 export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)

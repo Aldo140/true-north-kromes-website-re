@@ -113,13 +113,12 @@ export default function AboutPage() {
                   Address
                 </p>
                 <address className="mt-3 not-italic text-sm leading-relaxed text-paper sm:text-base">
-                  107-105 1st Street W<br />
-                  Cochrane, Alberta, Canada<br />
-                  T4C 0A4
+                  204 A River Avenue<br />
+                  Cochrane, AB T4C 2C1
                 </address>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <a
-                    href="https://www.google.com/maps/dir/?api=1&destination=107-105+1st+Street+W%2C+Cochrane%2C+Alberta%2C+Canada%2C+T4C+0A4"
+                    href="https://www.google.com/maps/dir/?api=1&destination=204+A+River+Avenue%2C+Cochrane%2C+AB+T4C+2C1"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex min-h-11 items-center justify-center border border-gold bg-gold px-5 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:bg-transparent hover:text-gold"
@@ -139,8 +138,8 @@ export default function AboutPage() {
             <Reveal y={18} amount={0.2}>
               <div className="overflow-hidden border border-line bg-ink-soft">
                 <iframe
-                  title="Map showing True North Kromes at 107-105 1st Street W, Cochrane, Alberta"
-                  src="https://www.google.com/maps?q=107-105+1st+Street+W%2C+Cochrane%2C+Alberta%2C+Canada%2C+T4C+0A4&output=embed"
+                  title="Map showing True North Kromes at 204 A River Avenue, Cochrane, Alberta"
+                  src="https://www.google.com/maps?q=204+A+River+Avenue%2C+Cochrane%2C+AB+T4C+2C1&output=embed"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="aspect-[4/3] w-full grayscale contrast-125 sm:aspect-[16/9]"

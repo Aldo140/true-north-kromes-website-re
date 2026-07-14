@@ -8,7 +8,6 @@ import { sitePath } from "@/lib/site-path"
 export function generateStaticParams() {
   return [
     { slug: "denturism-canada-feature" },
-    { slug: "comparison-traditional-vs-3d-printed" },
     { slug: "benefits-of-3d-printed-frameworks" },
     { slug: "digital-workflow-guide" },
   ]
@@ -19,11 +18,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   // Headline pre-split into machined lines per post (same copy as before).
   const titleLines =
-    slug === "comparison-traditional-vs-3d-printed"
-      ? ["Comparison of Traditional RPDs", "and 3D Printed Ones"]
-      : slug === "denturism-canada-feature"
-        ? ["Reimagining Partial Dentures:", "From Analog Frustration to Digital Precision"]
-        : ["Article Coming Soon"]
+    slug === "denturism-canada-feature"
+      ? ["Reimagining Partial Dentures:", "From Analog Frustration to Digital Precision"]
+      : slug === "benefits-of-3d-printed-frameworks"
+        ? ["Benefits of 3D Printed", "Partial Denture Frameworks"]
+        : ["Your New Portal"]
 
   return (
     <article className="bg-paper pt-40 pb-20 lg:pt-48 lg:pb-28">
@@ -43,7 +42,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">
               {slug === "denturism-canada-feature"
                 ? "Denturism Canada — Spring 2026"
-                : "Coming Soon"}
+                : slug === "benefits-of-3d-printed-frameworks"
+                  ? "Frameworks · SLM"
+                  : "Client portal"}
             </p>
           </Reveal>
           <MachinedLines
@@ -103,26 +104,70 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               />
             </figure>
           </div>
-        ) : slug === "comparison-traditional-vs-3d-printed" ? (
+        ) : slug === "benefits-of-3d-printed-frameworks" ? (
           <div className="space-y-10">
-            <ComparisonTable />
             <div className="space-y-6 text-base leading-[1.8] text-ink/75">
               <p>
-                The evolution of partial denture manufacturing has taken a significant leap with the advent of 3D printing technology. True North Kromes utilizes selective laser melting (SLM) technology to produce partial denture frameworks that surpass traditional hand-casted methods in nearly every measurable way.
+                Selective laser melting gives dental labs a more controlled path from digital design to finished framework. The result is a lighter, more precise framework with consistent detail from case to case.
               </p>
               <p>
-                From enhanced precision and reduced defects to improved biocompatibility and environmental friendliness, 3D printed frameworks represent the future of dental laboratory manufacturing. Our commitment to this technology ensures that every partial denture we produce meets the highest standards of quality, fit, and patient comfort.
+                The framework is designed directly from the approved scan, printed in Health-Canada-licensed Mediloy S Co-Cr, and plasma-polished in-house at True North Kromes.
               </p>
+            </div>
+            <figure className="overflow-hidden border border-line-dark bg-[#eaf6ff]">
+              <img
+                src={sitePath("/images/framework-tweezers.jpg")}
+                alt="Co-Cr partial denture framework held for inspection"
+                width={2048}
+                height={1152}
+                className="aspect-[16/9] w-full object-cover"
+                loading="lazy"
+              />
+              <figcaption className="grid gap-px border-t border-line-dark bg-line-dark sm:grid-cols-2 lg:grid-cols-5">
+                {["Lighter & Thinner", "Greater Comfort", "Durable and Defect-Free", "Designed for Healthier Wear", "High Aesthetics"].map((benefit) => (
+                  <span key={benefit} className="bg-paper px-4 py-4 font-mono text-[10px] uppercase leading-relaxed tracking-[0.12em] text-ink">
+                    {benefit}
+                  </span>
+                ))}
+              </figcaption>
+            </figure>
+            <div className="space-y-6 text-base leading-[1.8] text-ink/75">
+              <h2 className="font-sans text-2xl font-medium tracking-[-0.02em] text-ink">Printed vs. traditional</h2>
+              <p>
+                Compared with traditional casting, the digital workflow reduces variables, removes wax and burnout steps, and makes the production result easier to repeat. Here is the full comparison behind the benefits of printed frameworks.
+              </p>
+            </div>
+            <div className="border-y border-line-dark py-8">
+              <ComparisonTable />
             </div>
           </div>
         ) : (
-          <div className="space-y-6 text-base leading-[1.8] text-ink/75">
-            <p>
-              This article is currently being written. Check back soon for insights on digital dental workflows, 3D printing technology, and how True North Kromes is transforming partial denture manufacturing.
-            </p>
-            <p>
-              In the meantime, feel free to explore our gallery to see examples of our work, or contact us directly to learn more about our services.
-            </p>
+          <div className="space-y-8">
+            <div className="space-y-6 text-base leading-[1.8] text-ink/75">
+              <p>
+                Interested in trying our services and taking full advantage of our management software? Please send us a request or email us to let us know. Once your account has been set up, the video below will explain the many benefits of our easy-to-use platform.
+              </p>
+            </div>
+            <div className="overflow-hidden border border-line-dark bg-ink">
+              <div className="aspect-video">
+                <iframe
+                  title="True North Kromes client portal walkthrough"
+                  src="https://www.youtube.com/embed/r696RHKKdUg"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="h-full w-full"
+                />
+              </div>
+            </div>
+            <a
+              href="https://truenorthkromesclient.seazona.cloud/Login.aspx?ReturnUrl=%2f"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-ink px-7 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-paper transition-colors hover:bg-gold hover:text-ink"
+            >
+              Access the Client Portal ↗
+            </a>
           </div>
         )}
 
