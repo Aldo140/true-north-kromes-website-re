@@ -79,8 +79,20 @@ function PinnedCinema() {
       return true
     }
 
+    const desktop = window.matchMedia("(min-width: 1024px)")
     const onWheel = (event: WheelEvent) => {
-      if (Math.abs(event.deltaY) >= 8) advance(event.deltaY > 0 ? 1 : -1, event)
+      if (!desktop.matches || Math.abs(event.deltaY) < 8) return
+      const rect = section.getBoundingClientRect()
+      const viewport = window.innerHeight
+      const sectionIsLocked = rect.top <= viewport * 0.45 && rect.bottom >= viewport * 0.55
+      if (!sectionIsLocked) return
+
+      // Pin the section exactly to the viewport before consuming the wheel
+      // gesture. This prevents a large trackpad delta from skipping the frame.
+      if (Math.abs(rect.top) > 2) {
+        window.scrollTo({ top: window.scrollY + rect.top, behavior: "auto" })
+      }
+      advance(event.deltaY > 0 ? 1 : -1, event)
     }
 
     const onTouchStart = (event: TouchEvent) => {
@@ -104,12 +116,12 @@ function PinnedCinema() {
       advance(start > end ? 1 : -1, event)
     }
 
-    section.addEventListener("wheel", onWheel, { passive: false })
+    window.addEventListener("wheel", onWheel, { passive: false, capture: true })
     section.addEventListener("touchstart", onTouchStart, { passive: true })
     section.addEventListener("touchmove", onTouchMove, { passive: false })
     section.addEventListener("touchend", onTouchEnd, { passive: false })
     return () => {
-      section.removeEventListener("wheel", onWheel)
+      window.removeEventListener("wheel", onWheel, { capture: true })
       section.removeEventListener("touchstart", onTouchStart)
       section.removeEventListener("touchmove", onTouchMove)
       section.removeEventListener("touchend", onTouchEnd)
