@@ -68,7 +68,7 @@ function PinnedCinema() {
     <section
       ref={sectionRef}
       aria-label="Production process, step by step"
-      className="relative h-[400vh] bg-ink text-paper"
+      className="relative h-screen min-h-[42rem] bg-ink text-paper"
     >
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden">
         <div className="flex items-baseline justify-between border-b border-line px-5 py-4 sm:px-6 lg:px-12">
