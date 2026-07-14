@@ -57,7 +57,6 @@ function PinnedCinema() {
   const touchStartRef = useRef<number | null>(null)
   const wheelLockedRef = useRef(false)
   const scrollLockedRef = useRef(false)
-  const releasedRef = useRef(false)
   const previousOverflowRef = useRef({ html: "", body: "" })
 
   useEffect(() => {
@@ -103,9 +102,8 @@ function PinnedCinema() {
     const advance = (direction: 1 | -1, event?: Event) => {
       const next = activeRef.current + direction
       if (next < 0 || next >= STAGES.length) {
-        // At either end, release the document so the same gesture can leave
-        // the process section naturally.
-        releasedRef.current = true
+        // Once all four frames have been shown, release the document so the
+        // same downward gesture can continue to the next section.
         setScrollLock(false)
         return false
       }
@@ -125,16 +123,28 @@ function PinnedCinema() {
       if (!desktop.matches || Math.abs(event.deltaY) < 8) return
       const rect = section.getBoundingClientRect()
       const viewport = window.innerHeight
-      const sectionIsEntering = rect.top <= viewport * 0.65 && rect.bottom >= viewport * 0.35
+      const direction = event.deltaY > 0 ? 1 : -1
 
       if (scrollLockedRef.current) {
-        advance(event.deltaY > 0 ? 1 : -1, event)
+        // The cinematic trap is intentionally downward-only. Scrolling back
+        // up exits it immediately and returns control to normal page scroll.
+        if (direction < 0) {
+          setScrollLock(false)
+          return
+        }
+        advance(1, event)
         return
       }
 
-      if (sectionIsEntering && !releasedRef.current) {
+      // Activate only when the section itself reaches the viewport midpoint,
+      // and only while the user is entering it from above.
+      const sectionCenter = rect.top + rect.height / 2
+      const centerOffset = sectionCenter - viewport / 2
+      const sectionAtViewportCenter = Math.abs(centerOffset) <= 64 && rect.top >= -64
+
+      if (direction > 0 && sectionAtViewportCenter) {
         snapToSection()
-        advance(event.deltaY > 0 ? 1 : -1, event)
+        advance(1, event)
       }
     }
 
@@ -143,7 +153,11 @@ function PinnedCinema() {
       const down = event.key === "ArrowDown" || event.key === "PageDown" || event.key === " "
       const up = event.key === "ArrowUp" || event.key === "PageUp"
       if (!down && !up) return
-      advance(down ? 1 : -1, event)
+      if (up) {
+        setScrollLock(false)
+        return
+      }
+      advance(1, event)
     }
 
     const onTouchStart = (event: TouchEvent) => {
@@ -167,25 +181,12 @@ function PinnedCinema() {
       advance(start > end ? 1 : -1, event)
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!desktop.matches) return
-        if (entry.intersectionRatio < 0.15) releasedRef.current = false
-        if (entry.intersectionRatio >= 0.6 && !releasedRef.current && !scrollLockedRef.current) {
-          snapToSection()
-        }
-      },
-      { threshold: [0, 0.15, 0.6, 1] },
-    )
-
-    observer.observe(section)
     document.addEventListener("wheel", onWheel, { passive: false, capture: true })
     document.addEventListener("keydown", onKeyDown, { capture: true })
     section.addEventListener("touchstart", onTouchStart, { passive: true })
     section.addEventListener("touchmove", onTouchMove, { passive: false })
     section.addEventListener("touchend", onTouchEnd, { passive: false })
     return () => {
-      observer.disconnect()
       document.removeEventListener("wheel", onWheel, { capture: true })
       document.removeEventListener("keydown", onKeyDown, { capture: true })
       setScrollLock(false)
