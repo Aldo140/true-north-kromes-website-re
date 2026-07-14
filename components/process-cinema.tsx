@@ -35,7 +35,6 @@ const STAGES = [
   },
 ] as const
 
-const INTERVAL = 5200
 const MONO = "font-mono text-[11px] uppercase tracking-[0.18em]"
 
 export function ProcessCinema() {
@@ -53,22 +52,75 @@ export function ProcessCinema() {
 
 function PinnedCinema() {
   const [active, setActive] = useState(0)
-  const [paused, setPaused] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
+  const activeRef = useRef(0)
+  const touchStartRef = useRef<number | null>(null)
+  const wheelLockedRef = useRef(false)
 
   useEffect(() => {
-    if (paused) return
-    const timer = window.setInterval(() => {
-      setActive((current) => (current + 1) % STAGES.length)
-    }, INTERVAL)
-    return () => window.clearInterval(timer)
-  }, [paused])
+    activeRef.current = active
+  }, [active])
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+
+    const advance = (direction: 1 | -1, event?: Event) => {
+      const next = activeRef.current + direction
+      if (next < 0 || next >= STAGES.length) return false
+      event?.preventDefault()
+      if (wheelLockedRef.current) return true
+      wheelLockedRef.current = true
+      activeRef.current = next
+      setActive(next)
+      window.setTimeout(() => {
+        wheelLockedRef.current = false
+      }, 650)
+      return true
+    }
+
+    const onWheel = (event: WheelEvent) => {
+      if (Math.abs(event.deltaY) >= 8) advance(event.deltaY > 0 ? 1 : -1, event)
+    }
+
+    const onTouchStart = (event: TouchEvent) => {
+      touchStartRef.current = event.touches[0]?.clientY ?? null
+    }
+
+    const onTouchMove = (event: TouchEvent) => {
+      const start = touchStartRef.current
+      const current = event.touches[0]?.clientY
+      if (start === null || current === undefined || Math.abs(start - current) < 14) return
+      const direction = start > current ? 1 : -1
+      const canAdvance = activeRef.current + direction >= 0 && activeRef.current + direction < STAGES.length
+      if (canAdvance) event.preventDefault()
+    }
+
+    const onTouchEnd = (event: TouchEvent) => {
+      const start = touchStartRef.current
+      const end = event.changedTouches[0]?.clientY
+      touchStartRef.current = null
+      if (start === null || end === undefined || Math.abs(start - end) < 40) return
+      advance(start > end ? 1 : -1, event)
+    }
+
+    section.addEventListener("wheel", onWheel, { passive: false })
+    section.addEventListener("touchstart", onTouchStart, { passive: true })
+    section.addEventListener("touchmove", onTouchMove, { passive: false })
+    section.addEventListener("touchend", onTouchEnd, { passive: false })
+    return () => {
+      section.removeEventListener("wheel", onWheel)
+      section.removeEventListener("touchstart", onTouchStart)
+      section.removeEventListener("touchmove", onTouchMove)
+      section.removeEventListener("touchend", onTouchEnd)
+    }
+  }, [])
 
   return (
     <section
       ref={sectionRef}
       aria-label="Production process, step by step"
-      className="relative h-screen min-h-[42rem] bg-ink text-paper"
+      className="relative h-screen min-h-[42rem] touch-pan-y bg-ink text-paper"
     >
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden">
         <div className="flex items-baseline justify-between border-b border-line px-5 py-4 sm:px-6 lg:px-12">
@@ -128,8 +180,8 @@ function PinnedCinema() {
                   role="tab"
                   aria-selected={index === active}
                   onClick={() => {
+                    activeRef.current = index
                     setActive(index)
-                    setPaused(true)
                   }}
                   className={`min-h-10 min-w-10 border px-2 py-2 ${MONO} transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${
                     index === active
@@ -141,6 +193,9 @@ function PinnedCinema() {
                 </button>
               ))}
             </div>
+            <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-paper/35">
+              Scroll or swipe to advance · {active === STAGES.length - 1 ? "Continue down to leave" : `${STAGES.length - active - 1} stages remaining`}
+            </p>
           </div>
 
           <div className="relative w-[60%]">
