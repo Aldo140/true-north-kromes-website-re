@@ -59,11 +59,11 @@ export default function AboutPage() {
           />
           <Reveal y={12} delay={0.22} className="mt-8 max-w-[56ch]">
             <p className="text-sm leading-[1.8] text-ink/70 sm:text-base">
-            True North Kromes is a Canadian dental lab built on the combined
-            expertise of a denturist and a lab technologist. We design,
-            laser-print, and plasma-polish Co-Cr partial denture frameworks
-            entirely in-house — so what ships to your lab is exactly what was
-            designed.
+            True North Kromes is a Canadian dental lab specializing in 3D
+            printing metal partial denture frameworks. Built on the combined
+            expertise of a denturist and a lab technologist, we design,
+            laser-print, and plasma-polish Co-Cr frameworks entirely in-house.
+            What ships to your lab is exactly what was designed.
             </p>
           </Reveal>
 

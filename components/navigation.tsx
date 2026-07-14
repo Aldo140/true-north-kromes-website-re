@@ -14,6 +14,8 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ]
 
+const getStartedLink = { label: "Get Started", href: "/contact" }
+
 const PORTAL_URL =
   "https://truenorthkromes.seazona.cloud/Login.aspx?ReturnUrl=%2fCustomer.aspx"
 
@@ -76,6 +78,16 @@ export function Navigation() {
             >
               <ScrambleText text="Portal" trigger="hover" />
             </a>
+            <Link
+              href={getStartedLink.href}
+              className={`border px-4 py-2 ${desktopLinkBase} ${
+                isDarkSurface
+                  ? "border-gold text-gold hover:bg-gold hover:text-ink"
+                  : "border-ink text-ink hover:bg-ink hover:text-paper"
+              }`}
+            >
+              <ScrambleText text={getStartedLink.label} trigger="hover" />
+            </Link>
           </div>
 
           {/* Mobile hamburger */}
@@ -120,6 +132,13 @@ export function Navigation() {
               >
                 Portal
               </a>
+              <Link
+                href={getStartedLink.href}
+                onClick={() => setMobileOpen(false)}
+                className="py-3.5 font-mono uppercase text-[11px] tracking-[0.18em] text-gold transition-colors hover:text-paper"
+              >
+                Get Started
+              </Link>
             </div>
           </div>
         )}

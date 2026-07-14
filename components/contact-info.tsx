@@ -38,6 +38,23 @@ export function ContactInfo() {
         </dd>
       </div>
 
+      {/* Instagram */}
+      <div className="grid grid-cols-[7rem_1fr] items-baseline gap-4 border-t border-line-dark py-4">
+        <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50">
+          Instagram
+        </dt>
+        <dd>
+          <a
+            href="https://www.instagram.com/truenorthkromes/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={linkClass}
+          >
+            Follow True North Kromes ↗
+          </a>
+        </dd>
+      </div>
+
       {/* Downloads */}
       <div className="grid grid-cols-[7rem_1fr] items-baseline gap-4 border-t border-line-dark py-4">
         <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50">

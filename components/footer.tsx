@@ -96,8 +96,8 @@ export function Footer() {
               <img src="/images/logo.png" alt="True North Kromes" className="h-12 w-auto brightness-0 invert" />
             </Link>
             <p className="mt-5 max-w-[28ch] text-sm leading-relaxed text-paper/60">
-              3D-printed Co-Cr partial denture frameworks. Designed, printed, and polished
-              in-house.
+              A dental lab specializing in 3D-printed metal partial denture
+              frameworks. Designed, printed, and polished in-house.
             </p>
           </div>
 
@@ -117,10 +117,27 @@ export function Footer() {
           {/* Column 3: contact */}
           <div className="flex flex-col items-start gap-3.5 border-l border-line pl-5 sm:pl-6">
             <a
+              href="tel:+18076247222"
+              className={`${monoLabel} text-paper/60 transition-colors hover:text-gold`}
+            >
+              <ScrambleText text="807.624.7222" trigger="hover" />
+            </a>
+            <a
               href="mailto:truenorthkromes@gmail.com"
               className={`${monoLabel} break-all text-paper/60 transition-colors hover:text-gold`}
             >
               <ScrambleText text="truenorthkromes@gmail.com" trigger="hover" />
+            </a>
+            <span className={`${monoLabel} max-w-[24ch] leading-relaxed text-paper/60`}>
+              107-105 1st Street W, Cochrane, Alberta, Canada, T4C 0A4
+            </span>
+            <a
+              href="https://www.instagram.com/truenorthkromes/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${monoLabel} text-paper/60 transition-colors hover:text-gold`}
+            >
+              <ScrambleText text="Instagram" trigger="hover" />
             </a>
             <a
               href={PORTAL_URL}
@@ -130,15 +147,26 @@ export function Footer() {
             >
               <ScrambleText text="Portal" trigger="hover" />
             </a>
+            <Link
+              href="/contact"
+              className={`${monoLabel} text-gold transition-colors hover:text-paper`}
+            >
+              <ScrambleText text="Get Started" trigger="hover" />
+            </Link>
           </div>
         </div>
       </div>
 
       <div className="border-t border-line">
         <div className="mx-auto max-w-6xl px-5 py-5 sm:px-6 lg:px-12">
-          <p className={`${monoLabel} text-paper/40`}>
-            © 2026 TRUE NORTH KROMES INC · CANADA
-          </p>
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <p className={`${monoLabel} text-paper/40`}>
+              © 2026 TRUE NORTH KROMES INC · CANADA
+            </p>
+            <p className={`${monoLabel} text-paper/40`}>
+              Website by Prompt &amp; Pixel
+            </p>
+          </div>
         </div>
       </div>
     </footer>
