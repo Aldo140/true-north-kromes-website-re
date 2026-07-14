@@ -36,6 +36,7 @@ const STAGES = [
 ] as const
 
 const MONO = "font-mono text-[11px] uppercase tracking-[0.18em]"
+const AUTO_ADVANCE_MS = 4500
 
 export function ProcessCinema() {
   return (
@@ -54,146 +55,18 @@ function PinnedCinema() {
   const [active, setActive] = useState(0)
   const sectionRef = useRef<HTMLElement>(null)
   const activeRef = useRef(0)
-  const touchStartRef = useRef<number | null>(null)
-  const wheelLockedRef = useRef(false)
-  const scrollLockedRef = useRef(false)
-  const previousOverflowRef = useRef({ html: "", body: "" })
 
   useEffect(() => {
     activeRef.current = active
   }, [active])
 
   useEffect(() => {
-    const section = sectionRef.current
-    if (!section) return
-
-    const desktop = window.matchMedia("(min-width: 1024px)")
-
-    const setScrollLock = (locked: boolean) => {
-      if (scrollLockedRef.current === locked) return
-      const html = document.documentElement
-      const body = document.body
-
-      if (locked) {
-        previousOverflowRef.current = {
-          html: html.style.overflow,
-          body: body.style.overflow,
-        }
-        html.style.overflow = "hidden"
-        body.style.overflow = "hidden"
-        html.classList.add("lenis-stopped")
-      } else {
-        html.style.overflow = previousOverflowRef.current.html
-        body.style.overflow = previousOverflowRef.current.body
-        html.classList.remove("lenis-stopped")
-      }
-
-      scrollLockedRef.current = locked
-    }
-
-    const snapToSection = () => {
-      const rect = section.getBoundingClientRect()
-      if (Math.abs(rect.top) > 2) {
-        window.scrollTo({ top: window.scrollY + rect.top, behavior: "auto" })
-      }
-      setScrollLock(true)
-    }
-
-    const advance = (direction: 1 | -1, event?: Event) => {
-      const next = activeRef.current + direction
-      if (next < 0 || next >= STAGES.length) {
-        // Once all four frames have been shown, release the document so the
-        // same downward gesture can continue to the next section.
-        setScrollLock(false)
-        return false
-      }
-      event?.preventDefault()
-      event?.stopPropagation()
-      if (wheelLockedRef.current) return true
-      wheelLockedRef.current = true
+    const timer = window.setInterval(() => {
+      const next = (activeRef.current + 1) % STAGES.length
       activeRef.current = next
       setActive(next)
-      window.setTimeout(() => {
-        wheelLockedRef.current = false
-      }, 650)
-      return true
-    }
-
-    const onWheel = (event: WheelEvent) => {
-      if (!desktop.matches || Math.abs(event.deltaY) < 8) return
-      const rect = section.getBoundingClientRect()
-      const viewport = window.innerHeight
-      const direction = event.deltaY > 0 ? 1 : -1
-
-      if (scrollLockedRef.current) {
-        // The cinematic trap is intentionally downward-only. Scrolling back
-        // up exits it immediately and returns control to normal page scroll.
-        if (direction < 0) {
-          setScrollLock(false)
-          return
-        }
-        advance(1, event)
-        return
-      }
-
-      // Activate only when the section itself reaches the viewport midpoint,
-      // and only while the user is entering it from above.
-      const sectionCenter = rect.top + rect.height / 2
-      const centerOffset = sectionCenter - viewport / 2
-      const sectionAtViewportCenter = Math.abs(centerOffset) <= 64 && rect.top >= -64
-
-      if (direction > 0 && sectionAtViewportCenter) {
-        snapToSection()
-        advance(1, event)
-      }
-    }
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (!desktop.matches || !scrollLockedRef.current) return
-      const down = event.key === "ArrowDown" || event.key === "PageDown" || event.key === " "
-      const up = event.key === "ArrowUp" || event.key === "PageUp"
-      if (!down && !up) return
-      if (up) {
-        setScrollLock(false)
-        return
-      }
-      advance(1, event)
-    }
-
-    const onTouchStart = (event: TouchEvent) => {
-      touchStartRef.current = event.touches[0]?.clientY ?? null
-    }
-
-    const onTouchMove = (event: TouchEvent) => {
-      const start = touchStartRef.current
-      const current = event.touches[0]?.clientY
-      if (start === null || current === undefined || Math.abs(start - current) < 14) return
-      const direction = start > current ? 1 : -1
-      const canAdvance = activeRef.current + direction >= 0 && activeRef.current + direction < STAGES.length
-      if (canAdvance) event.preventDefault()
-    }
-
-    const onTouchEnd = (event: TouchEvent) => {
-      const start = touchStartRef.current
-      const end = event.changedTouches[0]?.clientY
-      touchStartRef.current = null
-      if (start === null || end === undefined || Math.abs(start - end) < 40) return
-      advance(start > end ? 1 : -1, event)
-    }
-
-    document.addEventListener("wheel", onWheel, { passive: false, capture: true })
-    document.addEventListener("keydown", onKeyDown, { capture: true })
-    section.addEventListener("touchstart", onTouchStart, { passive: true })
-    section.addEventListener("touchmove", onTouchMove, { passive: false })
-    section.addEventListener("touchend", onTouchEnd, { passive: false })
-    return () => {
-      document.removeEventListener("wheel", onWheel, { capture: true })
-      document.removeEventListener("keydown", onKeyDown, { capture: true })
-      setScrollLock(false)
-      section.removeEventListener("touchstart", onTouchStart)
-      section.removeEventListener("touchmove", onTouchMove)
-      section.removeEventListener("touchend", onTouchEnd)
-    }
+    }, AUTO_ADVANCE_MS)
+    return () => window.clearInterval(timer)
   }, [])
 
   return (
@@ -274,7 +147,7 @@ function PinnedCinema() {
               ))}
             </div>
             <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-paper/35">
-              Scroll or swipe to advance · {active === STAGES.length - 1 ? "Continue down to leave" : `${STAGES.length - active - 1} stages remaining`}
+              Auto-advancing · {AUTO_ADVANCE_MS / 1000}s per stage
             </p>
           </div>
 
@@ -316,52 +189,19 @@ function PinnedCinema() {
 
 function MobileSwipeCinema() {
   const [active, setActive] = useState(0)
-  const sectionRef = useRef<HTMLElement>(null)
   const activeRef = useRef(0)
-  const touchStartRef = useRef<number | null>(null)
-
-  const changeStage = (direction: 1 | -1) => {
-    const next = activeRef.current + direction
-    if (next < 0 || next >= STAGES.length) return false
-    activeRef.current = next
-    setActive(next)
-    return true
-  }
 
   useEffect(() => {
-    const section = sectionRef.current
-    if (!section) return
-    const onTouchStart = (event: TouchEvent) => {
-      touchStartRef.current = event.touches[0]?.clientY ?? null
-    }
-    const onTouchMove = (event: TouchEvent) => {
-      const start = touchStartRef.current
-      const current = event.touches[0]?.clientY
-      if (start === null || current === undefined || Math.abs(start - current) < 14) return
-      const direction = start > current ? 1 : -1
-      if (activeRef.current + direction >= 0 && activeRef.current + direction < STAGES.length) {
-        event.preventDefault()
-      }
-    }
-    const onTouchEnd = (event: TouchEvent) => {
-      const start = touchStartRef.current
-      const end = event.changedTouches[0]?.clientY
-      touchStartRef.current = null
-      if (start === null || end === undefined || Math.abs(start - end) < 40) return
-      changeStage(start > end ? 1 : -1)
-    }
-    section.addEventListener("touchstart", onTouchStart, { passive: true })
-    section.addEventListener("touchmove", onTouchMove, { passive: false })
-    section.addEventListener("touchend", onTouchEnd, { passive: false })
-    return () => {
-      section.removeEventListener("touchstart", onTouchStart)
-      section.removeEventListener("touchmove", onTouchMove)
-      section.removeEventListener("touchend", onTouchEnd)
-    }
+    const timer = window.setInterval(() => {
+      const next = (activeRef.current + 1) % STAGES.length
+      activeRef.current = next
+      setActive(next)
+    }, AUTO_ADVANCE_MS)
+    return () => window.clearInterval(timer)
   }, [])
 
   return (
-    <section ref={sectionRef} aria-label="Production process, swipe through each stage" className="h-[100svh] min-h-[40rem] overflow-hidden bg-ink text-paper touch-pan-y">
+    <section aria-label="Production process, automatically cycling through each stage" className="h-[100svh] min-h-[40rem] overflow-hidden bg-ink text-paper">
       <div className="flex items-baseline justify-between border-b border-line px-5 py-4">
         <p className={`${MONO} text-paper/70`}>THE PROCESS</p>
         <p className={`${MONO} text-paper/40`}>TNK · {STAGES[active].num} / 04</p>
@@ -403,7 +243,7 @@ function MobileSwipeCinema() {
                 </button>
               ))}
             </div>
-            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-paper/35">Swipe ↑ / ↓</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-paper/35">Auto · {AUTO_ADVANCE_MS / 1000}s</span>
           </div>
         </div>
       </div>
