@@ -174,7 +174,6 @@ function PostProcessingVideo() {
               controls
               loop
               muted
-              defaultMuted
               playsInline
               preload="auto"
               poster={sitePath("/images/opt/post-processing-video-poster.jpg")}
