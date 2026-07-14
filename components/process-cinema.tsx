@@ -56,6 +56,9 @@ function PinnedCinema() {
   const activeRef = useRef(0)
   const touchStartRef = useRef<number | null>(null)
   const wheelLockedRef = useRef(false)
+  const scrollLockedRef = useRef(false)
+  const releasedRef = useRef(false)
+  const previousOverflowRef = useRef({ html: "", body: "" })
 
   useEffect(() => {
     activeRef.current = active
@@ -65,10 +68,49 @@ function PinnedCinema() {
     const section = sectionRef.current
     if (!section) return
 
+    const desktop = window.matchMedia("(min-width: 1024px)")
+
+    const setScrollLock = (locked: boolean) => {
+      if (scrollLockedRef.current === locked) return
+      const html = document.documentElement
+      const body = document.body
+
+      if (locked) {
+        previousOverflowRef.current = {
+          html: html.style.overflow,
+          body: body.style.overflow,
+        }
+        html.style.overflow = "hidden"
+        body.style.overflow = "hidden"
+        html.classList.add("lenis-stopped")
+      } else {
+        html.style.overflow = previousOverflowRef.current.html
+        body.style.overflow = previousOverflowRef.current.body
+        html.classList.remove("lenis-stopped")
+      }
+
+      scrollLockedRef.current = locked
+    }
+
+    const snapToSection = () => {
+      const rect = section.getBoundingClientRect()
+      if (Math.abs(rect.top) > 2) {
+        window.scrollTo({ top: window.scrollY + rect.top, behavior: "auto" })
+      }
+      setScrollLock(true)
+    }
+
     const advance = (direction: 1 | -1, event?: Event) => {
       const next = activeRef.current + direction
-      if (next < 0 || next >= STAGES.length) return false
+      if (next < 0 || next >= STAGES.length) {
+        // At either end, release the document so the same gesture can leave
+        // the process section naturally.
+        releasedRef.current = true
+        setScrollLock(false)
+        return false
+      }
       event?.preventDefault()
+      event?.stopPropagation()
       if (wheelLockedRef.current) return true
       wheelLockedRef.current = true
       activeRef.current = next
@@ -79,20 +121,29 @@ function PinnedCinema() {
       return true
     }
 
-    const desktop = window.matchMedia("(min-width: 1024px)")
     const onWheel = (event: WheelEvent) => {
       if (!desktop.matches || Math.abs(event.deltaY) < 8) return
       const rect = section.getBoundingClientRect()
       const viewport = window.innerHeight
-      const sectionIsLocked = rect.top <= viewport * 0.45 && rect.bottom >= viewport * 0.55
-      if (!sectionIsLocked) return
+      const sectionIsEntering = rect.top <= viewport * 0.65 && rect.bottom >= viewport * 0.35
 
-      // Pin the section exactly to the viewport before consuming the wheel
-      // gesture. This prevents a large trackpad delta from skipping the frame.
-      if (Math.abs(rect.top) > 2) {
-        window.scrollTo({ top: window.scrollY + rect.top, behavior: "auto" })
+      if (scrollLockedRef.current) {
+        advance(event.deltaY > 0 ? 1 : -1, event)
+        return
       }
-      advance(event.deltaY > 0 ? 1 : -1, event)
+
+      if (sectionIsEntering && !releasedRef.current) {
+        snapToSection()
+        advance(event.deltaY > 0 ? 1 : -1, event)
+      }
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (!desktop.matches || !scrollLockedRef.current) return
+      const down = event.key === "ArrowDown" || event.key === "PageDown" || event.key === " "
+      const up = event.key === "ArrowUp" || event.key === "PageUp"
+      if (!down && !up) return
+      advance(down ? 1 : -1, event)
     }
 
     const onTouchStart = (event: TouchEvent) => {
@@ -116,12 +167,28 @@ function PinnedCinema() {
       advance(start > end ? 1 : -1, event)
     }
 
-    window.addEventListener("wheel", onWheel, { passive: false, capture: true })
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!desktop.matches) return
+        if (entry.intersectionRatio < 0.15) releasedRef.current = false
+        if (entry.intersectionRatio >= 0.6 && !releasedRef.current && !scrollLockedRef.current) {
+          snapToSection()
+        }
+      },
+      { threshold: [0, 0.15, 0.6, 1] },
+    )
+
+    observer.observe(section)
+    document.addEventListener("wheel", onWheel, { passive: false, capture: true })
+    document.addEventListener("keydown", onKeyDown, { capture: true })
     section.addEventListener("touchstart", onTouchStart, { passive: true })
     section.addEventListener("touchmove", onTouchMove, { passive: false })
     section.addEventListener("touchend", onTouchEnd, { passive: false })
     return () => {
-      window.removeEventListener("wheel", onWheel, { capture: true })
+      observer.disconnect()
+      document.removeEventListener("wheel", onWheel, { capture: true })
+      document.removeEventListener("keydown", onKeyDown, { capture: true })
+      setScrollLock(false)
       section.removeEventListener("touchstart", onTouchStart)
       section.removeEventListener("touchmove", onTouchMove)
       section.removeEventListener("touchend", onTouchEnd)
@@ -219,7 +286,11 @@ function PinnedCinema() {
                 loading={index === 0 ? "eager" : "lazy"}
                 aria-hidden={index !== active}
                 className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                  index === active ? "scale-100 opacity-100" : "scale-[1.04] opacity-0"
+                  index === active
+                    ? "translate-x-0 opacity-100"
+                    : index < active
+                      ? "-translate-x-full opacity-0"
+                      : "translate-x-full opacity-0"
                 }`}
               />
             ))}
