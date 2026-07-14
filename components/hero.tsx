@@ -112,7 +112,6 @@ export function Hero() {
     const video = videoRef.current
     if (!video) return
 
-    video.defaultMuted = true
     video.muted = true
     video.playbackRate = VIDEO_RATE
 
