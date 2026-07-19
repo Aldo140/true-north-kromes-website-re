@@ -24,8 +24,9 @@ export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const pathname = usePathname()
   const isHome = pathname === "/"
-  // These routes open on the ink surface, so the logo and navigation need
+  // These routes open on the ink surface, so the navigation links need
   // the light treatment before the user reaches any later paper sections.
+  // The metallic logo reads on both surfaces, so it needs no filter.
   const isDarkSurface = isHome || pathname === "/services" || pathname === "/gallery"
 
   const desktopLinkBase =
@@ -40,9 +41,7 @@ export function Navigation() {
             <img
               src={sitePath("/images/logo.png")}
               alt="True North Kromes"
-              className={`h-10 w-auto sm:h-[60px] lg:h-[70px] transition-[filter] duration-300 ${
-                isDarkSurface ? "brightness-0 invert" : ""
-              }`}
+              className="h-10 w-auto sm:h-[60px] lg:h-[70px]"
             />
           </Link>
 

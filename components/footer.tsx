@@ -94,7 +94,7 @@ export function Footer() {
           {/* Column 1: logo + description */}
           <div className="max-w-xs">
             <Link href="/" aria-label="True North Kromes - Home">
-              <img src={sitePath("/images/logo.png")} alt="True North Kromes" className="h-12 w-auto brightness-0 invert" />
+              <img src={sitePath("/images/logo.png")} alt="True North Kromes" className="h-12 w-auto" />
             </Link>
             <p className="mt-5 max-w-[28ch] text-sm leading-relaxed text-paper/60">
               A dental lab specializing in 3D-printed metal partial denture
