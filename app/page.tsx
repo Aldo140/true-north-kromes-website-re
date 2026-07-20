@@ -17,8 +17,8 @@ const TELEMETRY = [
 ] as const
 
 export const metadata: Metadata = {
-  title: { absolute: "True North Kromes | 3D Dental Metal Printing in Cochrane, AB" },
-  description: "True North Kromes is a Cochrane, Alberta dental lab producing CAD-designed, SLM-printed, plasma-polished Co-Cr partial denture frameworks.",
+  title: { absolute: "True North Kromes | 3D-Printed Dental Frameworks" },
+  description: "Cochrane, Alberta dental lab producing 3D-printed Co-Cr partial denture frameworks with in-house CAD design, SLM metal printing, and plasma polishing.",
   alternates: { canonical: "/" },
 }
 

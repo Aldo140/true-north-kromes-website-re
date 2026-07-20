@@ -202,13 +202,13 @@ export function Hero() {
         <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold">
           CO-CR · SLM · IN-HOUSE
         </p>
-        <h1 className="mt-4 max-w-[11ch] text-balance font-sans text-[clamp(2.25rem,10vw,4.5rem)] font-medium leading-[0.98] tracking-[-0.03em] text-paper">
-          <span className="block">Metal partial frameworks.</span>
-          <span className="block">Printed, not cast.</span>
+        <h1 className="mt-4 max-w-[14ch] text-balance font-sans text-[clamp(2.25rem,10vw,4.5rem)] font-medium leading-[0.98] tracking-[-0.03em] text-paper">
+          <span className="block">3D-printed dental frameworks.</span>
+          <span className="block">Designed, not cast.</span>
         </h1>
         <p className="mt-5 max-w-xl text-base leading-relaxed text-paper/80 md:text-lg">
-          One-stop digital manufacturing for dental labs — design, laser-print,
-          polish, deliver.
+          CAD design, SLM metal printing, and plasma polishing for dental labs
+          and denturists across Canada — all from our Cochrane, Alberta facility.
         </p>
         <Link
           href="#process"

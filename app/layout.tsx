@@ -24,11 +24,11 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "True North Kromes | 3D Dental Metal Printing in Cochrane, AB",
+    default: "True North Kromes | 3D-Printed Dental Frameworks",
     template: "%s | True North Kromes",
   },
   description:
-    "True North Kromes is a Cochrane, Alberta dental lab specializing in CAD design, SLM 3D printing, and plasma-polished Co-Cr partial frameworks.",
+    "Cochrane, Alberta dental lab producing 3D-printed Co-Cr partial denture frameworks with in-house CAD design, SLM metal printing, and plasma polishing.",
   applicationName: "True North Kromes Inc",
   creator: "True North Kromes Inc",
   publisher: "True North Kromes Inc",
@@ -68,9 +68,9 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     siteName: "True North Kromes",
-    title: "True North Kromes | 3D Dental Metal Printing in Cochrane, AB",
+    title: "True North Kromes | 3D-Printed Dental Frameworks",
     description:
-      "Cochrane, Alberta dental lab for CAD-designed, SLM-printed, plasma-polished Co-Cr partial denture frameworks.",
+      "Cochrane, Alberta dental lab producing 3D-printed Co-Cr partial denture frameworks with in-house CAD design, SLM metal printing, and plasma polishing.",
     type: "website",
     locale: "en_CA",
     url: "https://www.tnkromes.ca/",
@@ -78,8 +78,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "True North Kromes | Cochrane Dental Metal Printing",
-    description: "CAD design, SLM 3D printing, and plasma-polished Co-Cr partial frameworks from Cochrane, Alberta.",
+    title: "True North Kromes | 3D-Printed Dental Frameworks",
+    description: "3D-printed Co-Cr partial denture frameworks with CAD design, SLM metal printing, and plasma polishing in Cochrane, Alberta.",
     images: ["/opengraph-image"],
   },
   alternates: { canonical: "/" },
@@ -142,7 +142,7 @@ export default function RootLayout({
                   name: "True North Kromes",
                   legalName: "True North Kromes Inc",
                   alternateName: "TNK",
-                  description: "A Cochrane, Alberta dental laboratory specializing in CAD design, SLM 3D printing, and plasma polishing of cobalt-chrome partial denture frameworks.",
+                  description: "A Cochrane, Alberta dental laboratory producing 3D-printed cobalt-chrome partial denture frameworks with in-house CAD design, selective laser melting, and plasma polishing.",
                   url: "https://www.tnkromes.ca/",
                   telephone: "+1-807-624-7222",
                   email: "truenorthkromes@gmail.com",

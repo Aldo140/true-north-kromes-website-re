@@ -78,11 +78,13 @@ export function About() {
 
             <Reveal y={12} delay={0.1}>
               <p className="mt-8 max-w-[52ch] text-sm leading-[1.8] text-ink/70 sm:text-base">
-                True North Kromes is a Cochrane, Alberta dental lab that keeps the entire
-                production line under one roof — CAD design, SLM metal
-                printers, and plasma polishing, end to end. Every framework is
-                printed in Health-Canada-licensed Mediloy S Co-Cr alloy, so
-                what leaves the building is exactly what was designed.
+                True North Kromes is a Cochrane, Alberta dental laboratory
+                specializing in 3D-printed cobalt-chrome partial denture
+                frameworks for dental labs and denturists. CAD design,
+                selective laser melting (SLM), and plasma polishing all happen
+                under one roof. Every framework is printed in
+                Health-Canada-licensed Mediloy S Co-Cr alloy, so what leaves
+                the building is exactly what was designed.
               </p>
             </Reveal>
           </div>
