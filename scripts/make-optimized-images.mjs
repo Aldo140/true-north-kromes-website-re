@@ -1,4 +1,6 @@
 // Generates web-sized copies of homepage images into public/images/opt/.
+// Reads originals from assets/source-images/ (kept out of public/ so they
+// aren't deployed/served — they're raw material, not linked from any page).
 // Originals are never modified. Re-run after adding new homepage imagery:
 //   node scripts/make-optimized-images.mjs
 import sharp from "sharp"
@@ -31,7 +33,7 @@ const jobs = [
 ]
 
 for (const { src, width } of jobs) {
-  const input = path.join(root, "public/images", src)
+  const input = path.join(root, "assets/source-images", src)
   const output = path.join(outDir, src.replace(/\.(png|jpeg)$/i, ".jpg"))
   const { size } = fs.statSync(input)
   await sharp(input)
