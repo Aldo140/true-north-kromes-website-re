@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next"
 
 export const dynamic = "force-static"
 
-const baseUrl = "https://aldo140.github.io/true-north-kromes-website-re"
+const baseUrl = "https://www.tnkromes.ca"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/about", "/services", "/gallery", "/blog", "/contact"]
+  const routes = ["", "/about", "/services", "/timeline", "/gallery", "/blog", "/contact"]
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,

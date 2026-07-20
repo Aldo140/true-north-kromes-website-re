@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import * as motion from "motion/react-client"
 import { VideoSection } from "@/components/video-section"
 import { DrawRule, Reveal } from "@/components/motion-primitives"
 import { MachinedLines, Magnetic, Ticker } from "@/components/experience"
+import { TrackedCta } from "@/components/tracked-cta"
 import { sitePath } from "@/lib/site-path"
 
 // Duplicated from motion-primitives: plain values can't cross the
@@ -45,7 +45,7 @@ const services = [
     label: "STATION 03 — POST-PROCESSING",
     title: "Post-Processing",
     description:
-      "Professional finishing using our AP10 Plasma Polishing Machine. Plasma polishing is a high-precision, high-efficiency, environmentally-friendly processing method for metal surfaces. The polishing of the workpiece is achieved by forming an envelope gas layer between the workpiece and the polishing liquid and generating plasma discharge to remove impurities. Every framework is polished to a mirror finish and inspected before delivery, ensuring it meets our exacting standards.",
+      "Professional finishing using our AP10 Plasma Polishing Machine — as far as we know, the only one in Canada. Plasma polishing is a high-precision, high-efficiency, environmentally-friendly processing method for metal surfaces. The polishing of the workpiece is achieved by forming an envelope gas layer between the workpiece and the polishing liquid and generating plasma discharge to remove impurities. Every framework is polished to a mirror finish and inspected before delivery, ensuring it meets our exacting standards.",
     image: sitePath("/images/opt/service-post-processing.jpg"),
     alt: "AP10 plasma polishing machine used for framework finishing",
     contain: true,
@@ -287,6 +287,14 @@ export default function ServicesPage() {
                 </div>
               ))}
             </nav>
+            <TrackedCta
+              href="/timeline"
+              event="cta_click"
+              eventParams={{ location: "services_station_index", label: "see_client_timeline" }}
+              className="mt-4 inline-block font-mono text-[11px] uppercase tracking-[0.18em] text-paper/50 underline decoration-line underline-offset-4 transition-colors hover:text-gold hover:decoration-gold"
+            >
+              See the day-by-day client timeline →
+            </TrackedCta>
           </div>
         </div>
 
@@ -419,6 +427,64 @@ export default function ServicesPage() {
       </section>
 
       {/* ---------------------------------------------------------------- */}
+      {/* PRICING & PROMISE — draft copy, confirm before treating as final */}
+      {/* ---------------------------------------------------------------- */}
+      <section className="border-t border-line-dark bg-paper py-20 sm:py-24 lg:py-28" aria-label="Pricing and policy">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">
+                Volume pricing
+              </p>
+              <h2 className="mt-4 text-balance font-sans text-[clamp(1.5rem,3vw,2.25rem)] font-semibold tracking-[-0.02em] text-ink">
+                Pricing that rewards volume.
+              </h2>
+              <p className="mt-5 max-w-[48ch] text-sm leading-[1.8] text-ink/70 sm:text-base">
+                Frameworks start at $200 per unit, and the per-unit price drops
+                as your monthly volume grows — the more you send, the less you
+                pay per frame. Tell us your monthly volume and we&apos;ll quote
+                your rate.
+              </p>
+              <div className="mt-6">
+                <TrackedCta
+                  href="/contact"
+                  event="cta_click"
+                  eventParams={{ location: "services_pricing", label: "get_volume_pricing" }}
+                  className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink underline decoration-line-dark underline-offset-4 transition-colors hover:decoration-gold-dim"
+                >
+                  Get your volume rate →
+                </TrackedCta>
+              </div>
+            </div>
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">
+                Our promise
+              </p>
+              <h2 className="mt-4 text-balance font-sans text-[clamp(1.5rem,3vw,2.25rem)] font-semibold tracking-[-0.02em] text-ink">
+                If we get it wrong, we fix it. No charge.
+              </h2>
+              <p className="mt-5 max-w-[48ch] text-sm leading-[1.8] text-ink/70 sm:text-base">
+                If a case doesn&apos;t fit or the error is ours, the remake and
+                the return shipping are on us. And every case runs on the same
+                strict 4-day production line — no exceptions, no jumping the
+                queue.
+              </p>
+              <div className="mt-6">
+                <TrackedCta
+                  href="/timeline"
+                  event="cta_click"
+                  eventParams={{ location: "services_pricing", label: "see_client_timeline" }}
+                  className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink underline decoration-line-dark underline-offset-4 transition-colors hover:decoration-gold-dim"
+                >
+                  See the day-by-day timeline →
+                </TrackedCta>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------------- */}
       {/* CTA — end of the line (paper)                                     */}
       {/* ---------------------------------------------------------------- */}
       <section className="bg-paper py-20 lg:py-28">
@@ -437,12 +503,14 @@ export default function ServicesPage() {
             </p>
             <div className="mt-8">
               <Magnetic>
-                <Link
+                <TrackedCta
                   href="/contact"
+                  event="cta_click"
+                  eventParams={{ location: "services_end", label: "get_in_touch" }}
                   className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink underline decoration-line-dark underline-offset-8 transition-colors hover:decoration-gold-dim"
                 >
                   Get in touch →
-                </Link>
+                </TrackedCta>
               </Magnetic>
             </div>
           </Reveal>

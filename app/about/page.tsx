@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { DrawRule, Reveal } from "@/components/motion-primitives"
 import { MachinedLines, Ticker } from "@/components/experience"
+import { TrackedCta } from "@/components/tracked-cta"
 import { sitePath } from "@/lib/site-path"
 
 export const metadata: Metadata = {
@@ -117,20 +118,23 @@ export default function AboutPage() {
                   Cochrane, AB T4C 2C1
                 </address>
                 <div className="mt-5 flex flex-wrap gap-3">
-                  <a
+                  <TrackedCta
                     href="https://www.google.com/maps/dir/?api=1&destination=204+A+River+Avenue%2C+Cochrane%2C+AB+T4C+2C1"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    external
+                    event="cta_click"
+                    eventParams={{ location: "about_address", label: "get_directions" }}
                     className="inline-flex min-h-11 items-center justify-center border border-gold bg-gold px-5 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:bg-transparent hover:text-gold"
                   >
                     Get directions ↗
-                  </a>
-                  <Link
+                  </TrackedCta>
+                  <TrackedCta
                     href="/contact"
+                    event="cta_click"
+                    eventParams={{ location: "about_address", label: "contact_the_lab" }}
                     className="inline-flex min-h-11 items-center justify-center border border-paper/40 px-5 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-paper transition-colors hover:border-paper"
                   >
                     Contact the lab
-                  </Link>
+                  </TrackedCta>
                 </div>
               </div>
             </div>
@@ -161,6 +165,14 @@ export default function AboutPage() {
             <h2 className="mt-5 max-w-[22ch] text-balance font-sans text-[clamp(1.5rem,3.5vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-ink">
               Every stage, under one roof.
             </h2>
+            <TrackedCta
+              href="/timeline"
+              event="cta_click"
+              eventParams={{ location: "about_production_line", label: "see_client_timeline" }}
+              className="mt-5 inline-block font-mono text-[11px] uppercase tracking-[0.18em] text-ink/60 underline decoration-line-dark underline-offset-4 transition-colors hover:text-gold-dim hover:decoration-gold-dim"
+            >
+              See the day-by-day client timeline →
+            </TrackedCta>
           </Reveal>
 
           <ol className="mt-12 lg:mt-16">
@@ -219,6 +231,31 @@ export default function AboutPage() {
                 DLyte · in-house finishing
               </p>
             </Reveal>
+          </div>
+
+          {/* Digital vs. analog — draft copy, confirm technical framing before publishing */}
+          <div className="mt-16 border-t border-line-dark pt-14 lg:mt-24 lg:pt-16">
+            <div className="grid gap-x-10 gap-y-6 lg:grid-cols-12">
+              <div className="lg:col-span-5">
+                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">
+                  Digital, not analog
+                </p>
+                <h2 className="mt-5 max-w-[20ch] text-balance font-sans text-[clamp(1.5rem,3.5vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-ink">
+                  Fewer hands, fewer chances to drift.
+                </h2>
+              </div>
+              <div className="lg:col-span-7">
+                <p className="max-w-[56ch] text-sm leading-[1.8] text-ink/70 sm:text-base">
+                  A traditional partial goes through an impression, a poured
+                  model, a hand-built wax pattern, an investment, and a cast —
+                  five analog steps, each one able to introduce its own small
+                  error. We replace that chain with one continuous digital
+                  path: scan in, CAD design out, printed directly in Co-Cr.
+                  What you approve on screen is what gets printed — not a
+                  hand-built approximation of it.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

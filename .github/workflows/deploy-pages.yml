@@ -1,8 +1,10 @@
 name: Deploy to GitHub Pages
 
+# Superseded by the Vercel deployment at tnkromes.ca. Disabled from auto-running
+# on push because the static export target (`output: "export"`) can't build
+# server-side Route Handlers like app/api/contact — left as manual-only in case
+# the GitHub Pages mirror is still needed for something.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:

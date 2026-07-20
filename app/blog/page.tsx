@@ -11,6 +11,13 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    slug: "our-digital-workflow",
+    title: "Our Digital Workflow",
+    excerpt: "From scan to shipped framework: how a case moves through design, WhatsApp approval, and a strict 4-day production line — and why we skip the analog steps entirely.",
+    date: "Off the build plate",
+    image: null,
+  },
+  {
     slug: "denturism-canada-feature",
     title: "Featured in Denturism Canada: Reimagining Partial Dentures",
     excerpt: "True North Kromes is featured in the Spring 2026 issue of Denturism Canada. Read \"From Analog Frustration to Digital Precision\" by Luke LaRocque-Walker, DD.",
@@ -40,7 +47,7 @@ export default function BlogPage() {
         {/* Header — eyebrow → machined H1 lines */}
         <Reveal y={10}>
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">
-            JOURNAL
+            OFF THE BUILD PLATE
           </p>
         </Reveal>
         <MachinedLines

@@ -1,3 +1,7 @@
+"use client"
+
+import { trackEvent } from "@/lib/analytics"
+
 export function ContactInfo() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
   const linkClass =
@@ -11,7 +15,11 @@ export function ContactInfo() {
           Phone
         </dt>
         <dd>
-          <a href="tel:+18076247222" className={linkClass}>
+          <a
+            href="tel:+18076247222"
+            onClick={() => trackEvent("contact_click", { method: "phone" })}
+            className={linkClass}
+          >
             807.624.7222
           </a>
         </dd>
@@ -23,7 +31,11 @@ export function ContactInfo() {
           Email
         </dt>
         <dd className="min-w-0">
-          <a href="mailto:truenorthkromes@gmail.com" className={`${linkClass} break-all`}>
+          <a
+            href="mailto:truenorthkromes@gmail.com"
+            onClick={() => trackEvent("contact_click", { method: "email" })}
+            className={`${linkClass} break-all`}
+          >
             truenorthkromes@gmail.com
           </a>
         </dd>

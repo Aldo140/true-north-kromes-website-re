@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { trackEvent } from "@/lib/analytics"
 
 const labelClass =
   "mb-2 block font-mono text-[11px] uppercase tracking-[0.18em] text-ink/60"
@@ -14,6 +15,8 @@ const selectClass =
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const validate = (formData: FormData) => {
     const newErrors: Record<string, string> = {}
@@ -42,7 +45,7 @@ export function ContactForm() {
     return newErrors
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     const validationErrors = validate(formData)
@@ -53,7 +56,28 @@ export function ContactForm() {
     }
 
     setErrors({})
-    setSubmitted(true)
+    setSubmitError(null)
+    setSubmitting(true)
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      })
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => null)
+        throw new Error(data?.error || "Failed to send. Please try again.")
+      }
+
+      trackEvent("generate_lead", { form: "contact" })
+      setSubmitted(true)
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : "Failed to send. Please try again.")
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   if (submitted) {
@@ -187,11 +211,15 @@ export function ContactForm() {
         <p className="mb-3 text-sm leading-relaxed text-ink/60">
           {"Let's get started with your personal link to upload files."}
         </p>
+        {submitError && (
+          <p className="mb-3 text-sm text-destructive">{submitError}</p>
+        )}
         <button
           type="submit"
-          className="w-full border border-ink bg-ink px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-paper transition-colors hover:bg-transparent hover:text-ink"
+          disabled={submitting}
+          className="w-full border border-ink bg-ink px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-paper transition-colors hover:bg-transparent hover:text-ink disabled:cursor-not-allowed disabled:opacity-60"
         >
-          Get my upload link
+          {submitting ? "Sending…" : "Get my upload link"}
         </button>
       </div>
     </form>

@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react"
 import { ScrambleText } from "./scramble"
 import { Wordmark } from "./wordmark"
 import { sitePath } from "@/lib/site-path"
+import { trackEvent } from "@/lib/analytics"
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -74,6 +75,7 @@ export function Navigation() {
               href={PORTAL_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("portal_click", { location: "nav_desktop" })}
               className={`${desktopLinkBase} ${
                 isDarkSurface ? "text-paper/70 hover:text-paper" : "text-ink/60 hover:text-ink"
               }`}
@@ -82,6 +84,7 @@ export function Navigation() {
             </a>
             <Link
               href={getStartedLink.href}
+              onClick={() => trackEvent("cta_click", { location: "nav_desktop", label: "get_started" })}
               className={`border px-4 py-2 ${desktopLinkBase} ${
                 isDarkSurface
                   ? "border-gold text-gold hover:bg-gold hover:text-ink"
@@ -129,14 +132,20 @@ export function Navigation() {
                 href={PORTAL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => {
+                  trackEvent("portal_click", { location: "nav_mobile" })
+                  setMobileOpen(false)
+                }}
                 className="py-3.5 font-mono uppercase text-[11px] tracking-[0.18em] text-paper/60 transition-colors hover:text-paper"
               >
                 Portal
               </a>
               <Link
                 href={getStartedLink.href}
-                onClick={() => setMobileOpen(false)}
+                onClick={() => {
+                  trackEvent("cta_click", { location: "nav_mobile", label: "get_started" })
+                  setMobileOpen(false)
+                }}
                 className="py-3.5 font-mono uppercase text-[11px] tracking-[0.18em] text-gold transition-colors hover:text-paper"
               >
                 Get Started

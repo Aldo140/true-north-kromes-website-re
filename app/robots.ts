@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 
 export const dynamic = "force-static"
 
-const baseUrl = "https://aldo140.github.io/true-north-kromes-website-re"
+const baseUrl = "https://www.tnkromes.ca"
 
 export default function robots(): MetadataRoute.Robots {
   return {

@@ -10,6 +10,7 @@ export function generateStaticParams() {
     { slug: "denturism-canada-feature" },
     { slug: "benefits-of-3d-printed-frameworks" },
     { slug: "digital-workflow-guide" },
+    { slug: "our-digital-workflow" },
   ]
 }
 
@@ -22,7 +23,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       ? ["Reimagining Partial Dentures:", "From Analog Frustration to Digital Precision"]
       : slug === "benefits-of-3d-printed-frameworks"
         ? ["Benefits of 3D Printed", "Partial Denture Frameworks"]
-        : ["Your New Portal"]
+        : slug === "our-digital-workflow"
+          ? ["Our Digital Workflow"]
+          : ["Your New Portal"]
 
   return (
     <article className="bg-paper pt-40 pb-20 lg:pt-48 lg:pb-28">
@@ -44,7 +47,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 ? "Denturism Canada — Spring 2026"
                 : slug === "benefits-of-3d-printed-frameworks"
                   ? "Frameworks · SLM"
-                  : "Client portal"}
+                  : slug === "our-digital-workflow"
+                    ? "Off the build plate"
+                    : "Client portal"}
             </p>
           </Reveal>
           <MachinedLines
@@ -133,6 +138,48 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </div>
             <div className="border-y border-line-dark py-8">
               <ComparisonTable />
+            </div>
+          </div>
+        ) : slug === "our-digital-workflow" ? (
+          <div className="space-y-10">
+            <div className="space-y-6 text-base leading-[1.8] text-ink/75">
+              <p>
+                Client scans are submitted either through email or directly
+                from your scanner&apos;s integrated portal. Once received, all
+                files are uploaded into our secure system and the design
+                phase begins — typically within one business day.
+              </p>
+              <p>
+                Upon completion, the digital framework design is sent to you
+                over WhatsApp for review and approval. Nothing goes to print
+                until you sign off. Following approval, the case moves
+                immediately to 3D printing and finishing, and the finalized
+                framework ships on the fourth business day after approval.
+              </p>
+              <p>
+                All shipments go out with Purolator, with next-day delivery
+                available for most regions — excluding certain maritime
+                locations, where transit times may vary a little.
+              </p>
+            </div>
+            <div className="space-y-6 text-base leading-[1.8] text-ink/75">
+              <h2 className="font-sans text-2xl font-medium tracking-[-0.02em] text-ink">
+                Why digital, not analog
+              </h2>
+              <p>
+                Traditional lab work duplicates a physical model from your
+                impression, then hand-builds a wax pattern on top of it — an
+                analog chain with several places for accuracy to drift.
+                We skip that chain entirely: your framework is designed
+                directly from your original digital scan and printed straight
+                from that design, in Co-Cr, with no casting step in between.
+              </p>
+              <p>
+                Where we do print physical models, we print them at an
+                extremely fine layer resolution — smooth and stone-like to
+                the touch, without the chipping and breakage that plaster
+                stone models are prone to.
+              </p>
             </div>
           </div>
         ) : (
