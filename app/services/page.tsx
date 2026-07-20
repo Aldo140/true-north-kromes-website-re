@@ -11,9 +11,16 @@ import { sitePath } from "@/lib/site-path"
 const EASE_MECH = [0.16, 1, 0.3, 1] as const
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "3D Dental Metal Printing Services",
   description:
-    "3D partial denture design, SLM metal printing, and plasma polishing — True North Kromes' in-house digital production line for dental labs and denturists.",
+    "CAD partial framework design, SLM cobalt-chrome 3D printing, and plasma polishing from True North Kromes in Cochrane, Alberta, serving labs across Canada.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "3D Dental Metal Printing Services | True North Kromes",
+    description: "Explore CAD design, Chamlion SLM printing, and AP10/DLyte plasma polishing for Co-Cr partial denture frameworks.",
+    url: "/services",
+    type: "website",
+  },
 }
 
 const services = [

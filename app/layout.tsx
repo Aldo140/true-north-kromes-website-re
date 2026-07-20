@@ -24,12 +24,15 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "True North Kromes Inc | One-Stop Metal Printing Service",
-    template: "%s | True North Kromes Inc",
+    default: "True North Kromes | 3D Dental Metal Printing in Cochrane, AB",
+    template: "%s | True North Kromes",
   },
   description:
-    "A fully integrated digital 3D-printing solution that transforms the way dental professionals design and manufacture partial dentures.",
+    "True North Kromes is a Cochrane, Alberta dental lab specializing in CAD design, SLM 3D printing, and plasma-polished Co-Cr partial frameworks.",
   applicationName: "True North Kromes Inc",
+  creator: "True North Kromes Inc",
+  publisher: "True North Kromes Inc",
+  category: "Dental laboratory",
   appleWebApp: {
     title: "True North Kromes",
   },
@@ -64,13 +67,26 @@ export const metadata: Metadata = {
     "dental lab near me metal printing",
   ],
   openGraph: {
-    siteName: "True North Kromes Inc",
-    title: "True North Kromes Inc | One-Stop Metal Printing Service",
+    siteName: "True North Kromes",
+    title: "True North Kromes | 3D Dental Metal Printing in Cochrane, AB",
     description:
-      "A fully integrated digital 3D-printing solution that transforms the way dental professionals design and manufacture partial dentures.",
+      "Cochrane, Alberta dental lab for CAD-designed, SLM-printed, plasma-polished Co-Cr partial denture frameworks.",
     type: "website",
     locale: "en_CA",
     url: "https://www.tnkromes.ca/",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "True North Kromes dental metal printing lab in Cochrane, Alberta" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "True North Kromes | Cochrane Dental Metal Printing",
+    description: "CAD design, SLM 3D printing, and plasma-polished Co-Cr partial frameworks from Cochrane, Alberta.",
+    images: ["/opengraph-image"],
+  },
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
   },
   metadataBase: new URL("https://www.tnkromes.ca/"),
 }
@@ -110,23 +126,62 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: "True North Kromes Inc",
-              description: "A dental lab specializing in 3D printing metal partial denture frameworks.",
-              url: "https://www.tnkromes.ca/",
-              telephone: "+1-807-624-7222",
-              email: "truenorthkromes@gmail.com",
-              logo: "https://www.tnkromes.ca/icon-512.png",
-              image: "https://www.tnkromes.ca/images/og-logo.png",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "204 A River Avenue",
-                addressLocality: "Cochrane",
-                addressRegion: "AB",
-                postalCode: "T4C 2C1",
-                addressCountry: "CA",
-              },
-              sameAs: ["https://www.instagram.com/truenorthkromes/"],
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.tnkromes.ca/#website",
+                  url: "https://www.tnkromes.ca/",
+                  name: "True North Kromes",
+                  alternateName: ["True North Kromes Inc", "TNK"],
+                  inLanguage: "en-CA",
+                  publisher: { "@id": "https://www.tnkromes.ca/#business" },
+                },
+                {
+                  "@type": ["LocalBusiness", "ProfessionalService"],
+                  "@id": "https://www.tnkromes.ca/#business",
+                  name: "True North Kromes",
+                  legalName: "True North Kromes Inc",
+                  alternateName: "TNK",
+                  description: "A Cochrane, Alberta dental laboratory specializing in CAD design, SLM 3D printing, and plasma polishing of cobalt-chrome partial denture frameworks.",
+                  url: "https://www.tnkromes.ca/",
+                  telephone: "+1-807-624-7222",
+                  email: "truenorthkromes@gmail.com",
+                  logo: {
+                    "@type": "ImageObject",
+                    url: "https://www.tnkromes.ca/icon-512.png",
+                    width: 512,
+                    height: 512,
+                  },
+                  image: [
+                    "https://www.tnkromes.ca/images/opt/gallery-lab-wide.jpg",
+                    "https://www.tnkromes.ca/images/opt/framework-hero.jpg",
+                  ],
+                  address: {
+                    "@type": "PostalAddress",
+                    streetAddress: "204 A River Avenue",
+                    addressLocality: "Cochrane",
+                    addressRegion: "Alberta",
+                    postalCode: "T4C 2C1",
+                    addressCountry: "CA",
+                  },
+                  hasMap: "https://www.google.com/maps/search/?api=1&query=True+North+Kromes+204+A+River+Avenue+Cochrane+AB",
+                  areaServed: [
+                    { "@type": "Country", name: "Canada" },
+                    { "@type": "AdministrativeArea", name: "Alberta" },
+                    { "@type": "City", name: "Cochrane" },
+                    { "@type": "City", name: "Calgary" },
+                  ],
+                  contactPoint: {
+                    "@type": "ContactPoint",
+                    telephone: "+1-807-624-7222",
+                    email: "truenorthkromes@gmail.com",
+                    contactType: "customer service",
+                    areaServed: "CA",
+                    availableLanguage: "English",
+                  },
+                  sameAs: ["https://www.instagram.com/truenorthkromes/"],
+                },
+              ],
             }),
           }}
         />

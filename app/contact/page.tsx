@@ -5,9 +5,16 @@ import { DrawRule, Reveal } from "@/components/motion-primitives"
 import { MachinedLines } from "@/components/experience"
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Contact Our Cochrane Dental Lab",
   description:
-    "Start a case with True North Kromes. Get your personal upload link for 3D printed Co-Cr partial denture frameworks.",
+    "Contact True North Kromes at 204 A River Avenue, Cochrane, AB. Start a 3D-printed Co-Cr framework case or request your personal upload link.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact True North Kromes in Cochrane, Alberta",
+    description: "Call, email, or visit our Cochrane dental metal printing lab to start a Co-Cr partial framework case.",
+    url: "/contact",
+    type: "website",
+  },
 }
 
 export default function ContactPage() {

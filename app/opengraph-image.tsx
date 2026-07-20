@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og"
 export const dynamic = "force-static"
 
 export const runtime = "edge"
-export const alt = "True North Kromes Inc"
+export const alt = "True North Kromes dental metal printing lab in Cochrane, Alberta"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -53,6 +53,19 @@ export default async function OGImage() {
           }}
         >
           3D-Printed Co-Cr Partial Denture Frameworks
+        </div>
+        <div
+          style={{
+            marginTop: 16,
+            display: "flex",
+            color: "#f2f0ec",
+            fontSize: 16,
+            letterSpacing: 5,
+            textTransform: "uppercase",
+            opacity: 0.7,
+          }}
+        >
+          Cochrane, Alberta · Canada
         </div>
       </div>
     ),

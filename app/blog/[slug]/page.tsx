@@ -1,9 +1,59 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { ComparisonTable } from "@/components/comparison-table"
 import { Reveal } from "@/components/motion-primitives"
 import { MachinedLines } from "@/components/experience"
 import { sitePath } from "@/lib/site-path"
+
+const POST_SEO = {
+  "denturism-canada-feature": {
+    title: "True North Kromes Featured in Denturism Canada",
+    description: "Read how digital scanning and 3D-printed Co-Cr partial frameworks are reshaping denturism in this Denturism Canada feature involving True North Kromes.",
+    image: "/images/opt/blog-denturism-cover.jpg",
+  },
+  "benefits-of-3d-printed-frameworks": {
+    title: "Benefits of 3D-Printed Partial Denture Frameworks",
+    description: "Learn how SLM-printed Co-Cr partial denture frameworks improve repeatability, comfort, durability, surface finish, and digital workflow control.",
+    image: "/images/benefits-framework.png",
+  },
+  "digital-workflow-guide": {
+    title: "True North Kromes Digital Client Portal Guide",
+    description: "Learn how dental labs submit scans, manage framework cases, and track orders through the True North Kromes digital client portal.",
+    image: "/opengraph-image",
+  },
+  "our-digital-workflow": {
+    title: "Digital Dental Workflow: Scan to Shipped Framework",
+    description: "See how True North Kromes moves a case from digital scan and WhatsApp design approval to SLM printing, finishing, and shipping in four business days.",
+    image: "/images/opt/framework-hero.jpg",
+  },
+} as const
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = POST_SEO[slug as keyof typeof POST_SEO]
+  if (!post) return { title: "Article", robots: { index: false, follow: false } }
+
+  const path = `/blog/${slug}`
+  return {
+    title: post.title,
+    description: post.description,
+    alternates: { canonical: path },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: path,
+      type: "article",
+      images: [{ url: post.image, alt: post.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [post.image],
+    },
+  }
+}
 
 export function generateStaticParams() {
   return [
@@ -14,8 +64,11 @@ export function generateStaticParams() {
   ]
 }
 
+export const dynamicParams = false
+
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
+  const postSeo = POST_SEO[slug as keyof typeof POST_SEO]
 
   // Headline pre-split into machined lines per post (same copy as before).
   const titleLines =
@@ -29,6 +82,23 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   return (
     <article className="bg-paper pt-40 pb-20 lg:pt-48 lg:pb-28">
+      {postSeo && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: postSeo.title,
+              description: postSeo.description,
+              image: `https://www.tnkromes.ca${postSeo.image}`,
+              mainEntityOfPage: `https://www.tnkromes.ca/blog/${slug}`,
+              author: { "@type": "Organization", "@id": "https://www.tnkromes.ca/#business", name: "True North Kromes" },
+              publisher: { "@type": "Organization", "@id": "https://www.tnkromes.ca/#business", name: "True North Kromes" },
+            }),
+          }}
+        />
+      )}
       <div className="mx-auto max-w-3xl px-5 sm:px-6">
         {/* Back link */}
         <Link

@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { WhyTNK } from "@/components/why-tnk"
@@ -14,6 +15,12 @@ const TELEMETRY = [
   "DESIGNED · PRINTED · POLISHED IN-HOUSE",
   "CANADA",
 ] as const
+
+export const metadata: Metadata = {
+  title: { absolute: "True North Kromes | 3D Dental Metal Printing in Cochrane, AB" },
+  description: "True North Kromes is a Cochrane, Alberta dental lab producing CAD-designed, SLM-printed, plasma-polished Co-Cr partial denture frameworks.",
+  alternates: { canonical: "/" },
+}
 
 export default function Home() {
   return (

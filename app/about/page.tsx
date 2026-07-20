@@ -6,9 +6,16 @@ import { TrackedCta } from "@/components/tracked-cta"
 import { sitePath } from "@/lib/site-path"
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Our Cochrane Dental Lab",
   description:
-    "True North Kromes is a Canadian dental lab that designs, laser-prints, and plasma-polishes Co-Cr partial denture frameworks under one roof — from CAD design to QC and delivery.",
+    "Visit True North Kromes at 204 A River Avenue in Cochrane, Alberta. Our dental lab designs, SLM-prints, and plasma-polishes Co-Cr partial frameworks.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "True North Kromes Dental Lab in Cochrane, Alberta",
+    description: "Meet the Cochrane team and see the in-house CAD, SLM metal printing, plasma polishing, and quality-control operation.",
+    url: "/about",
+    type: "website",
+  },
 }
 
 const STAGES = [

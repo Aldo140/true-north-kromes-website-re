@@ -5,8 +5,15 @@ import { MachinedLines } from "@/components/experience"
 import { sitePath } from "@/lib/site-path"
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "Latest news and insights from True North Kromes.",
+  title: "Dental 3D Printing News & Guides",
+  description: "True North Kromes articles on SLM-printed partial denture frameworks, digital dental workflows, Co-Cr materials, and lab production in Canada.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Dental 3D Printing News & Guides | True North Kromes",
+    description: "Practical guides and news about digital partial frameworks, SLM metal printing, plasma polishing, and the TNK workflow.",
+    url: "/blog",
+    type: "website",
+  },
 }
 
 const posts = [

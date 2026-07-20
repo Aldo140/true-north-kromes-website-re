@@ -99,8 +99,8 @@ export function Footer() {
               <Wordmark align="start" className="text-[9px] tracking-[0.34em]" />
             </Link>
             <p className="mt-5 max-w-[28ch] text-sm leading-relaxed text-paper/60">
-              A dental lab specializing in 3D-printed metal partial denture
-              frameworks. Designed, printed, and polished in-house.
+              A Cochrane, Alberta dental lab specializing in 3D-printed metal
+              partial denture frameworks. Designed, printed, and polished in-house.
             </p>
           </div>
 
@@ -131,10 +131,11 @@ export function Footer() {
             >
               <ScrambleText text="truenorthkromes@gmail.com" trigger="hover" />
             </a>
-            <span className={`${monoLabel} max-w-[24ch] leading-relaxed text-paper/60`}>
+            <address className={`${monoLabel} max-w-[24ch] not-italic leading-relaxed text-paper/60`}>
+              True North Kromes Inc<br />
               204 A River Avenue<br />
               Cochrane, AB T4C 2C1
-            </span>
+            </address>
             <a
               href="https://www.instagram.com/truenorthkromes/"
               target="_blank"
