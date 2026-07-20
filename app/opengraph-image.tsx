@@ -13,21 +13,47 @@ export default async function OGImage() {
       <div
         style={{
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           width: "100%",
           height: "100%",
-          backgroundColor: "#1a2230",
+          backgroundColor: "#101113",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://tnkromes.ca/images/og-logo.png"
+          src="https://www.tnkromes.ca/images/og-logo.png"
           alt=""
-          width={800}
-          height={400}
+          width={620}
+          height={180}
           style={{ objectFit: "contain" }}
         />
+        <div
+          style={{
+            marginTop: 28,
+            display: "flex",
+            color: "#f2f0ec",
+            fontSize: 30,
+            fontWeight: 600,
+            letterSpacing: 10,
+            textTransform: "uppercase",
+          }}
+        >
+          True North Kromes
+        </div>
+        <div
+          style={{
+            marginTop: 16,
+            display: "flex",
+            color: "#c9a227",
+            fontSize: 20,
+            letterSpacing: 4,
+            textTransform: "uppercase",
+          }}
+        >
+          3D-Printed Co-Cr Partial Denture Frameworks
+        </div>
       </div>
     ),
     { ...size }

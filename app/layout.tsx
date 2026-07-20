@@ -29,6 +29,10 @@ export const metadata: Metadata = {
   },
   description:
     "A fully integrated digital 3D-printing solution that transforms the way dental professionals design and manufacture partial dentures.",
+  applicationName: "True North Kromes Inc",
+  appleWebApp: {
+    title: "True North Kromes",
+  },
   keywords: [
     // Core / consumer-facing
     "3D printed dental frameworks",
@@ -60,10 +64,12 @@ export const metadata: Metadata = {
     "dental lab near me metal printing",
   ],
   openGraph: {
+    siteName: "True North Kromes Inc",
     title: "True North Kromes Inc | One-Stop Metal Printing Service",
     description:
       "A fully integrated digital 3D-printing solution that transforms the way dental professionals design and manufacture partial dentures.",
     type: "website",
+    locale: "en_CA",
     url: "https://www.tnkromes.ca/",
   },
   metadataBase: new URL("https://www.tnkromes.ca/"),
@@ -110,6 +116,8 @@ export default function RootLayout({
               url: "https://www.tnkromes.ca/",
               telephone: "+1-807-624-7222",
               email: "truenorthkromes@gmail.com",
+              logo: "https://www.tnkromes.ca/icon-512.png",
+              image: "https://www.tnkromes.ca/images/og-logo.png",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "204 A River Avenue",
