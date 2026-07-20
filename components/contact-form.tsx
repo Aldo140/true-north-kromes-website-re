@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { trackEvent } from "@/lib/analytics"
 
 const labelClass =
@@ -221,6 +222,13 @@ export function ContactForm() {
         >
           {submitting ? "Sending…" : "Get my upload link"}
         </button>
+        <p className="mt-3 text-xs leading-relaxed text-ink/45">
+          By submitting, you agree to our{" "}
+          <Link href="/privacy" className="underline underline-offset-2 hover:text-ink/70">
+            Privacy Policy
+          </Link>
+          .
+        </p>
       </div>
     </form>
   )

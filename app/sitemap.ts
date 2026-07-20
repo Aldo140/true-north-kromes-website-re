@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/benefits-of-3d-printed-frameworks",
     "/blog/digital-workflow-guide",
   ]
+  const legal = ["/privacy", "/terms"]
 
   return [
     ...routes.map((route) => ({
@@ -25,6 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.65,
+    })),
+    ...legal.map((route) => ({
+      url: `${baseUrl}${route}`,
+      lastModified: new Date(),
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
     })),
   ]
 }

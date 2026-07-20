@@ -164,13 +164,21 @@ export function Footer() {
 
       <div className="border-t border-line">
         <div className="mx-auto max-w-6xl px-5 py-5 sm:px-6 lg:px-12">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className={`${monoLabel} text-paper/40`}>
               © 2026 TRUE NORTH KROMES INC · CANADA
             </p>
-            <p className={`${monoLabel} text-paper/40`}>
-              Website by Prompt &amp; Pixel
-            </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link href="/privacy" className={`${monoLabel} text-paper/40 transition-colors hover:text-paper`}>
+                Privacy
+              </Link>
+              <Link href="/terms" className={`${monoLabel} text-paper/40 transition-colors hover:text-paper`}>
+                Terms
+              </Link>
+              <p className={`${monoLabel} text-paper/40`}>
+                Website by Prompt &amp; Pixel
+              </p>
+            </div>
           </div>
         </div>
       </div>
