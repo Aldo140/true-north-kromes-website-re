@@ -1,6 +1,15 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
+import {
+  motion,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+  type MotionValue,
+} from "motion/react"
 import { Reveal } from "./motion-primitives"
 import { sitePath } from "@/lib/site-path"
 
@@ -36,46 +45,79 @@ const STAGES = [
 ] as const
 
 const MONO = "font-mono text-[11px] uppercase tracking-[0.18em]"
-const AUTO_ADVANCE_MS = 4500
 
 export function ProcessCinema() {
   return (
     <div id="process">
       <div className="hidden lg:block">
-        <PinnedCinema />
+        <ScrollReel />
       </div>
       <div className="lg:hidden">
-        <MobileSwipeCinema />
+        <StackedReveal />
       </div>
     </div>
   )
 }
 
-function PinnedCinema() {
-  const [active, setActive] = useState(0)
-  const sectionRef = useRef<HTMLElement>(null)
-  const activeRef = useRef(0)
+/** Desktop: the section is pinned for STAGES.length screens of scroll distance.
+ *  Scroll position — not a timer — drives which stage is showing, so every
+ *  transition tracks the user's own scroll input instead of fighting it. */
+function ScrollReel() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const reducedMotion = useReducedMotion()
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  })
+  const rawFloat = useTransform(scrollYProgress, [0, 1], [0, STAGES.length - 1])
+  const activeFloat = useSpring(rawFloat, { stiffness: 220, damping: 32, mass: 0.6 })
+  const fillWidth = useTransform(scrollYProgress, (v) => `${v * 100}%`)
 
-  useEffect(() => {
-    activeRef.current = active
-  }, [active])
+  // Only used for aria-hidden bookkeeping — the visual crossfade itself runs
+  // entirely on motion values above, so this re-render is rare (once per
+  // stage change) rather than once per scroll frame.
+  const [activeIndex, setActiveIndex] = useState(0)
+  useMotionValueEvent(activeFloat, "change", (v) => {
+    const rounded = Math.min(STAGES.length - 1, Math.max(0, Math.round(v)))
+    setActiveIndex((current) => (current === rounded ? current : rounded))
+  })
 
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      const next = (activeRef.current + 1) % STAGES.length
-      activeRef.current = next
-      setActive(next)
-    }, AUTO_ADVANCE_MS)
-    return () => window.clearInterval(timer)
-  }, [])
+  // This site's global `overflow-x` on html/body forces `overflow-y: auto`
+  // on them per spec, which makes them the nearest scroll container — so
+  // `position: sticky` here pins against body's (inert) scroll box instead
+  // of the viewport and never actually sticks. Faking the pin manually with
+  // `fixed` (viewport-relative, unaffected by that) sidesteps it entirely.
+  const [phase, setPhase] = useState<"before" | "pinned" | "after">("before")
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    const next = v <= 0 ? "before" : v >= 1 ? "after" : "pinned"
+    setPhase((current) => (current === next ? current : next))
+  })
+  const panelPositionClass = reducedMotion
+    ? "relative"
+    : phase === "pinned"
+      ? "fixed top-0"
+      : phase === "after"
+        ? "absolute bottom-0"
+        : "absolute top-0"
+
+  const scrollToStage = (index: number) => {
+    const section = sectionRef.current
+    if (!section) return
+    const rect = section.getBoundingClientRect()
+    const sectionTop = window.scrollY + rect.top
+    const travel = rect.height - window.innerHeight
+    const fraction = index / (STAGES.length - 1)
+    window.scrollTo({ top: sectionTop + travel * fraction, behavior: "smooth" })
+  }
 
   return (
     <section
       ref={sectionRef}
       aria-label="Production process, step by step"
-      className="relative h-screen min-h-[42rem] touch-pan-y bg-ink text-paper"
+      className="relative bg-ink text-paper"
+      style={{ height: reducedMotion ? undefined : `${STAGES.length * 100}vh` }}
     >
-      <div className="sticky top-0 flex h-screen flex-col overflow-hidden">
+      <div className={`${panelPositionClass} left-0 right-0 flex h-screen flex-col overflow-hidden`}>
         <div className="flex items-baseline justify-between border-b border-line px-5 py-4 sm:px-6 lg:px-12">
           <p className={`${MONO} text-paper/70`}>THE PROCESS</p>
           <p className={`${MONO} text-paper/40`}>TNK · PRODUCTION</p>
@@ -83,90 +125,43 @@ function PinnedCinema() {
 
         <div className="relative flex min-h-0 flex-1">
           <div className="relative z-10 flex w-[40%] flex-col justify-center px-8 lg:px-12">
-            <p className={`${MONO} text-gold`}>
-              {STAGES[active].num} · {STAGES[active].label}
-            </p>
-
-            <div className="relative mt-6 h-[clamp(6rem,14vw,11rem)] overflow-hidden">
+            <div className="relative h-[clamp(6rem,14vw,11rem)] overflow-hidden">
               {STAGES.map((stage, index) => (
-                <p
-                  key={stage.num}
-                  aria-hidden={index !== active}
-                  className={`absolute inset-x-0 top-0 font-sans text-[clamp(6rem,14vw,11rem)] font-semibold leading-none tracking-[-0.03em] text-paper transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    index === active ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                  }`}
-                >
-                  {stage.num}
-                </p>
+                <StageNumeral key={stage.num} num={stage.num} index={index} activeIndex={activeIndex} activeFloat={activeFloat} reducedMotion={reducedMotion} />
               ))}
             </div>
 
             <div className="relative mt-8 h-28">
               {STAGES.map((stage, index) => (
-                <div
-                  key={stage.num}
-                  aria-hidden={index !== active}
-                  className={`absolute inset-x-0 top-0 transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    index === active ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
-                  }`}
-                >
-                  <p className={`${MONO} text-gold`}>{stage.num} · {stage.label}</p>
-                  <p className="mt-3 max-w-sm text-base leading-relaxed text-paper/80">
-                    {stage.line}
-                  </p>
-                </div>
+                <StageCopy key={stage.num} stage={stage} index={index} activeIndex={activeIndex} activeFloat={activeFloat} reducedMotion={reducedMotion} />
               ))}
             </div>
 
             <div className="mt-10 h-px w-full bg-line" aria-hidden="true">
-              <div
-                className="h-px bg-gold transition-[width] duration-500 ease-linear"
-                style={{ width: `${((active + 1) / STAGES.length) * 100}%` }}
-              />
+              <motion.div className="h-px bg-gold" style={{ width: fillWidth }} />
             </div>
 
-            <div className="mt-6 flex gap-2" role="tablist" aria-label="Select production stage">
+            <div className="mt-6 flex gap-2" role="tablist" aria-label="Jump to production stage">
               {STAGES.map((stage, index) => (
                 <button
                   key={stage.num}
                   type="button"
                   role="tab"
-                  aria-selected={index === active}
-                  onClick={() => {
-                    activeRef.current = index
-                    setActive(index)
-                  }}
-                  className={`min-h-10 min-w-10 border px-2 py-2 ${MONO} transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold ${
-                    index === active
-                      ? "border-gold bg-gold text-ink"
-                      : "border-line text-paper/50 hover:border-paper/70 hover:text-paper"
-                  }`}
+                  onClick={() => scrollToStage(index)}
+                  className={`min-h-10 min-w-10 border border-line px-2 py-2 ${MONO} text-paper/50 transition-colors hover:border-paper/70 hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold`}
                 >
                   {stage.num}
                 </button>
               ))}
             </div>
             <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-paper/35">
-              Auto-advancing · {AUTO_ADVANCE_MS / 1000}s per stage
+              Scroll to move through the line
             </p>
           </div>
 
           <div className="relative w-[60%]">
             {STAGES.map((stage, index) => (
-              <img
-                key={stage.num}
-                src={stage.src}
-                alt={stage.alt}
-                loading={index === 0 ? "eager" : "lazy"}
-                aria-hidden={index !== active}
-                className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                  index === active
-                    ? "translate-x-0 opacity-100"
-                    : index < active
-                      ? "-translate-x-full opacity-0"
-                      : "translate-x-full opacity-0"
-                }`}
-              />
+              <StageImage key={stage.num} stage={stage} index={index} activeIndex={activeIndex} activeFloat={activeFloat} reducedMotion={reducedMotion} />
             ))}
 
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-ink to-transparent" aria-hidden="true" />
@@ -178,7 +173,7 @@ function PinnedCinema() {
             </div>
             <div className="absolute inset-x-5 bottom-5 z-10 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.16em] text-paper/65 sm:inset-x-7 sm:bottom-7">
               <span>Production frame</span>
-              <span>{STAGES[active].num} / 04</span>
+              <FrameCounter activeFloat={activeFloat} />
             </div>
           </div>
         </div>
@@ -187,97 +182,148 @@ function PinnedCinema() {
   )
 }
 
-function MobileSwipeCinema() {
-  const [active, setActive] = useState(0)
-  const activeRef = useRef(0)
+/** Wide linear falloff — 1 at the stage's own index, 0 by the time the
+ *  scrub passes a neighbor. Used for images: a soft double-exposure
+ *  between adjacent photos reads as cinematic, not glitchy. */
+function useProximity(activeFloat: MotionValue<number>, index: number) {
+  return useTransform(activeFloat, (v) => Math.max(0, 1 - Math.abs(v - index)))
+}
 
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      const next = (activeRef.current + 1) % STAGES.length
-      activeRef.current = next
-      setActive(next)
-    }, AUTO_ADVANCE_MS)
-    return () => window.clearInterval(timer)
-  }, [])
+/** Narrow snap — full opacity for most of a stage's own scroll range, then
+ *  a quick handoff near the boundary. Two legible text blocks overlapping
+ *  reads as broken in a way two blended photos don't, so text needs a much
+ *  tighter transition band than images do. */
+function useTextOpacity(activeFloat: MotionValue<number>, index: number) {
+  return useTransform(activeFloat, (v) => {
+    const d = Math.abs(v - index)
+    if (d < 0.2) return 1
+    if (d > 0.55) return 0
+    return 1 - (d - 0.2) / 0.35
+  })
+}
 
+function StageNumeral({
+  num,
+  index,
+  activeIndex,
+  activeFloat,
+  reducedMotion,
+}: {
+  num: string
+  index: number
+  activeIndex: number
+  activeFloat: MotionValue<number>
+  reducedMotion: boolean | null
+}) {
+  const p = useTextOpacity(activeFloat, index)
+  const y = useTransform(p, [0, 1], [24, 0])
+  const scale = useTransform(p, [0, 1], [0.94, 1])
   return (
-    <section aria-label="Production process, automatically cycling through each stage" className="h-[100svh] min-h-[40rem] overflow-hidden bg-ink text-paper">
-      <div className="flex items-baseline justify-between border-b border-line px-5 py-4">
-        <p className={`${MONO} text-paper/70`}>THE PROCESS</p>
-        <p className={`${MONO} text-paper/40`}>TNK · {STAGES[active].num} / 04</p>
-      </div>
-      <div className="flex h-[calc(100%-3.25rem)] flex-col px-5 py-6">
-        <div className="relative min-h-0 flex-1 overflow-hidden border border-line bg-ink-soft">
-          {STAGES.map((stage, index) => (
-            <img
-              key={stage.num}
-              src={stage.src}
-              alt={stage.alt}
-              loading={index === 0 ? "eager" : "lazy"}
-              aria-hidden={index !== active}
-              className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${index === active ? "scale-100 opacity-100" : "scale-[1.04] opacity-0"}`}
-            />
-          ))}
-          <div className="pointer-events-none absolute inset-4 border border-paper/20" aria-hidden="true">
-            <span className="absolute -left-px -top-px h-5 w-5 border-l border-t border-gold" />
-            <span className="absolute -right-px -top-px h-5 w-5 border-r border-t border-gold" />
-            <span className="absolute -bottom-px -left-px h-5 w-5 border-b border-l border-gold" />
-            <span className="absolute -bottom-px -right-px h-5 w-5 border-b border-r border-gold" />
-          </div>
-        </div>
-        <div className="shrink-0 pt-5">
-          <p className={`${MONO} text-gold`}>{STAGES[active].num} · {STAGES[active].label}</p>
-          <p className="mt-3 max-w-sm text-base leading-relaxed text-paper/75">{STAGES[active].line}</p>
-          <div className="mt-5 flex items-center justify-between gap-4">
-            <div className="flex gap-2" role="tablist" aria-label="Select production stage">
-              {STAGES.map((stage, index) => (
-                <button
-                  key={stage.num}
-                  type="button"
-                  role="tab"
-                  aria-selected={index === active}
-                  onClick={() => { activeRef.current = index; setActive(index) }}
-                  className={`min-h-10 min-w-10 border px-2 py-2 ${MONO} ${index === active ? "border-gold bg-gold text-ink" : "border-line text-paper/50"}`}
-                >
-                  {stage.num}
-                </button>
-              ))}
-            </div>
-            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-paper/35">Auto · {AUTO_ADVANCE_MS / 1000}s</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <motion.p
+      aria-hidden={index !== activeIndex}
+      style={reducedMotion ? { opacity: index === 0 ? 1 : 0 } : { opacity: p, y, scale }}
+      className="absolute inset-x-0 top-0 font-sans text-[clamp(6rem,14vw,11rem)] font-semibold leading-none tracking-[-0.03em] text-paper"
+    >
+      {num}
+    </motion.p>
   )
 }
 
-function StackedFallback() {
+function StageCopy({
+  stage,
+  index,
+  activeIndex,
+  activeFloat,
+  reducedMotion,
+}: {
+  stage: (typeof STAGES)[number]
+  index: number
+  activeIndex: number
+  activeFloat: MotionValue<number>
+  reducedMotion: boolean | null
+}) {
+  const p = useTextOpacity(activeFloat, index)
+  const y = useTransform(p, [0, 1], [14, 0])
+  return (
+    <motion.div
+      aria-hidden={index !== activeIndex}
+      style={reducedMotion ? { opacity: index === 0 ? 1 : 0 } : { opacity: p, y }}
+      className="absolute inset-x-0 top-0"
+    >
+      <p className={`${MONO} text-gold`}>
+        {stage.num} · {stage.label}
+      </p>
+      <p className="mt-3 max-w-sm text-base leading-relaxed text-paper/80">{stage.line}</p>
+    </motion.div>
+  )
+}
+
+function StageImage({
+  stage,
+  index,
+  activeIndex,
+  activeFloat,
+  reducedMotion,
+}: {
+  stage: (typeof STAGES)[number]
+  index: number
+  activeIndex: number
+  activeFloat: MotionValue<number>
+  reducedMotion: boolean | null
+}) {
+  const p = useProximity(activeFloat, index)
+  const scale = useTransform(p, [0, 1], [1.06, 1])
+  const drift = useTransform(activeFloat, (v) => `${(index - v) * 6}%`)
+  return (
+    <motion.img
+      src={stage.src}
+      alt={stage.alt}
+      loading={index === 0 ? "eager" : "lazy"}
+      aria-hidden={index !== activeIndex}
+      style={reducedMotion ? { opacity: index === 0 ? 1 : 0 } : { opacity: p, scale, x: drift }}
+      className="absolute inset-0 h-full w-full object-cover"
+    />
+  )
+}
+
+function FrameCounter({ activeFloat }: { activeFloat: MotionValue<number> }) {
+  const label = useTransform(activeFloat, (v) => `${STAGES[Math.round(v)].num} / 0${STAGES.length}`)
+  return <motion.span>{label}</motion.span>
+}
+
+/** Mobile: forcing a pinned scroll-scrub into a small viewport tends to fight
+ *  momentum scrolling and address-bar chrome, so instead each stage reveals
+ *  naturally as it's scrolled into view — same fade-and-rise language as the
+ *  rest of the site, no swipe or tap required. */
+function StackedReveal() {
   return (
     <section aria-label="Production process, step by step" className="bg-ink text-paper">
-      <div className="flex items-baseline justify-between border-b border-line px-5 py-4 sm:px-6 lg:px-12">
+      <div className="flex items-baseline justify-between border-b border-line px-5 py-4">
         <p className={`${MONO} text-paper/70`}>THE PROCESS</p>
         <p className={`${MONO} text-paper/40`}>TNK · PRODUCTION</p>
       </div>
-      <div className="grid md:grid-cols-2">
+      <div className="divide-y divide-line">
         {STAGES.map((stage, index) => (
-          <Reveal key={stage.num} className="border-b border-line md:[&:nth-child(odd)]:border-r">
-            <article className="group relative overflow-hidden">
-              <div className="relative aspect-[4/5] overflow-hidden bg-ink-soft md:aspect-[3/2]">
-                <img
-                  src={stage.src}
-                  alt={stage.alt}
-                  loading={index === 0 ? "eager" : "lazy"}
-                  className="h-full w-full object-cover transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.025]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/15 to-transparent" aria-hidden="true" />
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
-                  <p className="font-sans text-7xl font-semibold leading-none tracking-[-0.06em] text-paper/85 md:text-8xl">{stage.num}</p>
-                  <p className={`${MONO} mt-4 text-gold`}>{stage.label}</p>
-                  <p className="mt-3 max-w-sm text-base leading-relaxed text-paper/80">{stage.line}</p>
-                </div>
-                <div aria-hidden="true" className="pointer-events-none absolute inset-5 border border-paper/15 transition-colors duration-300 group-hover:border-gold/70" />
+          <Reveal key={stage.num} y={28} amount={0.35} className="px-5 py-10">
+            <div className="relative aspect-[4/5] overflow-hidden border border-line-dark bg-ink-soft">
+              <img
+                src={stage.src}
+                alt={stage.alt}
+                loading={index === 0 ? "eager" : "lazy"}
+                className="h-full w-full object-cover"
+              />
+              <div className="pointer-events-none absolute inset-4 border border-paper/15" aria-hidden="true">
+                <span className="absolute -left-px -top-px h-5 w-5 border-l border-t border-gold" />
+                <span className="absolute -right-px -top-px h-5 w-5 border-r border-t border-gold" />
+                <span className="absolute -bottom-px -left-px h-5 w-5 border-b border-l border-gold" />
+                <span className="absolute -bottom-px -right-px h-5 w-5 border-b border-r border-gold" />
               </div>
-            </article>
+            </div>
+            <p className="mt-6 font-sans text-6xl font-semibold leading-none tracking-[-0.04em] text-paper/85">
+              {stage.num}
+            </p>
+            <p className={`${MONO} mt-4 text-gold`}>{stage.label}</p>
+            <p className="mt-3 max-w-sm text-base leading-relaxed text-paper/80">{stage.line}</p>
           </Reveal>
         ))}
       </div>

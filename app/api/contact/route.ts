@@ -5,6 +5,7 @@ export const runtime = "nodejs"
 
 const LEAD_TO = process.env.CONTACT_LEAD_EMAIL || "truenorthkromes@gmail.com"
 const LEAD_FROM = process.env.CONTACT_LEAD_FROM || "True North Kromes Website <onboarding@resend.dev>"
+const LEAD_CC = process.env.CONTACT_LEAD_CC || "jorti104@mtroyal.ca"
 
 function escapeHtml(value: string) {
   return value
@@ -69,6 +70,7 @@ export async function POST(request: Request) {
     const { error } = await resend.emails.send({
       from: LEAD_FROM,
       to: LEAD_TO,
+      cc: LEAD_CC,
       subject: `New case request — ${name}`,
       html,
     })

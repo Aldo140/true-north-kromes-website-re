@@ -58,7 +58,7 @@ function LabFigure() {
 
 export function About() {
   return (
-    <section id="process" className="bg-paper py-24 sm:py-32 lg:py-40" aria-label="About True North Kromes">
+    <section className="bg-paper py-24 sm:py-32 lg:py-40" aria-label="About True North Kromes">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
         {/* Editorial split: oversized statement + facts left, offset image right */}
         <div className="grid grid-cols-1 gap-x-12 gap-y-14 lg:grid-cols-12">
