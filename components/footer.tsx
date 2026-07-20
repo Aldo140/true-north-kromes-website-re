@@ -4,6 +4,7 @@ import Link from "next/link"
 import { motion, useReducedMotion } from "motion/react"
 import { EASE_MECH } from "./motion-primitives"
 import { ScrambleText } from "./scramble"
+import { Wordmark } from "./wordmark"
 import { sitePath } from "@/lib/site-path"
 
 const navLinks = [
@@ -93,8 +94,9 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 py-12 sm:grid-cols-2 sm:py-14 lg:grid-cols-[1.4fr_0.7fr_1fr] lg:gap-12">
           {/* Column 1: logo + description */}
           <div className="max-w-xs">
-            <Link href="/" aria-label="True North Kromes - Home">
-              <img src={sitePath("/images/logo.png")} alt="True North Kromes" className="h-12 w-auto" />
+            <Link href="/" className="flex flex-col items-start gap-1.5" aria-label="True North Kromes - Home">
+              <img src={sitePath("/images/logo.png")} alt="True North Kromes" className="h-11 w-auto" />
+              <Wordmark align="start" className="text-[9px] tracking-[0.34em]" />
             </Link>
             <p className="mt-5 max-w-[28ch] text-sm leading-relaxed text-paper/60">
               A dental lab specializing in 3D-printed metal partial denture

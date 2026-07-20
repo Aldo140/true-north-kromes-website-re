@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { ScrambleText } from "./scramble"
+import { Wordmark } from "./wordmark"
 import { sitePath } from "@/lib/site-path"
 
 const navLinks = [
@@ -37,12 +38,13 @@ export function Navigation() {
       <nav aria-label="Main navigation" className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between py-4 sm:py-6">
           {/* Logo */}
-          <Link href="/" className="shrink-0" aria-label="True North Kromes - Home">
+          <Link href="/" className="flex shrink-0 flex-col items-center gap-1" aria-label="True North Kromes - Home">
             <img
               src={sitePath("/images/logo.png")}
               alt="True North Kromes"
-              className="h-10 w-auto sm:h-[60px] lg:h-[70px]"
+              className="h-9 w-auto sm:h-[52px] lg:h-[60px]"
             />
+            <Wordmark className="text-[7px] tracking-[0.32em] sm:text-[9px] sm:tracking-[0.36em] lg:text-[10px]" />
           </Link>
 
           {/* Desktop links */}
