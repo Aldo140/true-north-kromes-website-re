@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { AnimatePresence, motion, useReducedMotion } from "motion/react"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+import { ArrowLeft, ArrowRight, Minus, Plus } from "lucide-react"
 
 export type FaqItem = {
   question: string
@@ -20,7 +20,69 @@ export function SwapFaq({ items }: { items: readonly FaqItem[] }) {
         <h2 id="faq-heading" className="max-w-[14ch] text-balance font-sans text-[clamp(2rem,5vw,4rem)] font-semibold leading-[0.98] tracking-[-0.035em]">
           Before you send a case.
         </h2>
-        <div className="mt-10 lg:hidden">
+        <div className="mt-9 md:hidden">
+          <div className="flex items-center justify-between border-y border-line py-3 font-mono text-[9px] uppercase tracking-[0.16em] text-paper/45">
+            <span>{String(items.length).padStart(2, "0")} common questions</span>
+            <span className="text-gold">Tap one to view the answer</span>
+          </div>
+
+          <div className="border-b border-line" aria-label="Frequently asked questions">
+            {items.map((item, index) => {
+              const isActive = active === index
+              const answerId = `faq-answer-mobile-${index}`
+
+              return (
+                <div key={`phone-${item.question}`} className="border-t border-line first:border-t-0">
+                  <button
+                    type="button"
+                    onClick={() => setActive(index)}
+                    aria-expanded={isActive}
+                    aria-controls={answerId}
+                    className="grid min-h-[5rem] w-full grid-cols-[2.25rem_1fr_2.75rem] items-center gap-2 py-4 text-left focus:outline-none focus-visible:bg-paper/[0.06]"
+                  >
+                    <span className={`font-mono text-[10px] tracking-[0.16em] transition-colors ${isActive ? "text-gold" : "text-paper/35"}`}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className={`text-[1.05rem] leading-[1.35] transition-colors ${isActive ? "font-medium text-paper" : "text-paper/72"}`}>
+                      {item.question}
+                    </span>
+                    <span className={`flex h-11 w-11 items-center justify-center border transition-colors ${isActive ? "border-gold bg-gold text-ink" : "border-line text-paper/55"}`} aria-hidden="true">
+                      {isActive ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                    </span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isActive && (
+                      <motion.div
+                        id={answerId}
+                        key={answerId}
+                        initial={reduced ? false : { height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={reduced ? undefined : { height: 0, opacity: 0 }}
+                        transition={{ duration: reduced ? 0 : 0.28, ease: [0.23, 1, 0.32, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="grid grid-cols-[2.25rem_1fr] gap-2 pb-7 pr-3">
+                          <span className="mt-2 h-px w-5 bg-gold" aria-hidden="true" />
+                          <div>
+                            <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-gold">Answer</p>
+                            <p className="mt-3 text-[15px] leading-7 text-paper/78">{item.answer}</p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            })}
+          </div>
+
+          <p className="mt-4 font-mono text-[9px] uppercase leading-5 tracking-[0.14em] text-paper/35">
+            Still unsure? Call the lab and we&apos;ll review your file before you send it.
+          </p>
+        </div>
+
+        <div className="mt-10 hidden md:block lg:hidden">
           <div className="-mx-5 overflow-x-auto px-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label="Frequently asked questions">
             <div className="flex w-max gap-2 pb-4">
               {items.map((item, index) => (
