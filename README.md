@@ -1,91 +1,122 @@
-# True North Kromes website
+# True North Kromes Website
 
-The True North Kromes marketing site for digital dental framework production: CAD design, SLM metal printing, plasma polishing, and finished Co-Cr partial denture frameworks.
+Production website for [True North Kromes Inc.](https://www.tnkromes.ca/), a Canadian dental laboratory specializing in digitally designed and 3D-printed cobalt-chrome partial denture frameworks.
 
-The site uses an industrial, precision-led visual system with ink and paper surfaces, gold registration marks, mono technical labels, image-led process storytelling, and restrained mechanical motion.
+The site explains the complete in-house production line—from CAD design and client approval through selective laser melting, plasma polishing, inspection, and delivery—and gives dental laboratories and denturists a direct path to start a case.
 
-## Project links
+## Production links
 
-- [GitHub Pages site](https://aldo140.github.io/true-north-kromes-website-re/)
-- [Preserved pre-change Vercel build](https://v0-true-north-kromes-p6ffxomnu-prompt-and-pixel-projects.vercel.app)
-- [GitHub repository](https://github.com/Aldo140/true-north-kromes-website-re)
+- Website: [www.tnkromes.ca](https://www.tnkromes.ca/)
+- Client portal: [True North Kromes client portal](https://truenorthkromesclient.seazona.cloud/Login.aspx?ReturnUrl=%2fOrder.aspx)
+- Repository: [github.com/Aldo140/true-north-kromes-website-re](https://github.com/Aldo140/true-north-kromes-website-re)
+- Hosting and deployments: Vercel
+- Sending email: Resend
+- DNS: Vercel DNS
 
-## Tech stack
+The `main` branch is the production source of truth. A push to `main` creates a Vercel deployment.
 
-- Next.js 16 with the App Router
+## What is included
+
+- Responsive, image-led marketing pages for the company, services, production timeline, and finished work
+- Mobile-specific layouts and interactions for every public page
+- Technical blog articles with static metadata and canonical URLs
+- Accessible full-screen navigation, carousels, timelines, accordions, and reduced-motion alternatives
+- Contact-form delivery through a server-side Next.js Route Handler and Resend
+- Local-business structured data, sitemap, robots configuration, Open Graph imagery, and Google site verification
+- Optional Google Analytics 4 event tracking
+
+## Technology
+
+- Next.js 16 App Router
 - React 19 and TypeScript
 - Tailwind CSS 4
-- Motion for scroll reveals, pinned process storytelling, and lightbox transitions
-- Lenis for smooth scrolling
-- Lucide React for interface icons
-- Next/font with Inter and IBM Plex Mono
+- Motion and Lenis
+- Resend
+- Optional GA4 event tracking
+- Lucide React
+
+The project uses `pnpm` and commits `pnpm-lock.yaml`. Node.js 22 and pnpm 10 match the deployment workflow.
 
 ## Routes
 
 | Route | Purpose |
 | --- | --- |
-| `/` | Landing page with hero, process cinema, capability sections, gallery preview, and CTA |
-| `/about` | Company and production overview |
-| `/services` | Three production stations: design, printing, and post-processing |
-| `/gallery` | Featured specimen and responsive framework archive with lightbox navigation |
-| `/blog` | Articles and technical comparisons |
-| `/contact` | Contact form and lab contact details |
+| `/` | Main marketing page and production overview |
+| `/about` | Company, facility, location, and material information |
+| `/services` | CAD design, SLM printing, post-processing, pricing, and guarantee |
+| `/timeline` | Four-business-day production sequence |
+| `/gallery` | Finished-framework archive and inspection lightbox |
+| `/blog` | News, guides, and technical articles |
+| `/blog/[slug]` | Statically generated article pages |
+| `/contact` | Contact details, case-intake form, and FAQ |
+| `/privacy` | Privacy policy |
+| `/terms` | Terms of service |
+| `/api/contact` | Server-side contact-form delivery endpoint |
 
-## Project structure
-
-```text
-app/                    Pages, metadata, global styles, and layout
-components/             Site sections, motion primitives, navigation, footer, and UI
-public/images/          Brand, gallery, optimized, and process imagery
-public/videos/          Local video assets used by the hero and services page
-lib/                    Shared utilities
-```
-
-The landing-page process sequence is implemented in `components/process-cinema.tsx`. It presents four stages:
-
-1. Scan / design
-2. Laser print
-3. Plasma polish
-4. Finished frame
-
-The Services page uses the local SaveClip process video in Station 03 rather than an external embed. Keep large media files in `public/videos/` and reference them with root-relative URLs.
-
-## Getting started
-
-Install dependencies and start the development server:
+## Local development
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
+cp .env.example .env.local
 pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
-The `main` branch is the source of truth for the repository and GitHub Pages deployment workflow. The preserved Vercel URL above remains available as the pre-change build.
-
-Available scripts:
+Useful validation commands:
 
 ```bash
-pnpm dev       # Start the development server
-pnpm lint      # Run ESLint
-pnpm build     # Create a production build
-pnpm start     # Serve the production build
+pnpm exec tsc --noEmit
+pnpm build
+pnpm start
 ```
 
-`npm`, `yarn`, and `pnpm` can be used according to the local environment, but the repository lockfile is `pnpm-lock.yaml`.
+The current repository does not include a working ESLint dependency/configuration, despite retaining a `lint` script in `package.json`. Use TypeScript and the production build as the required automated checks until linting is configured.
 
-## Media guidelines
+## Environment variables
 
-- Use descriptive `alt` text for every content image.
-- Prefer the optimized files in `public/images/opt/` for grids, hero sections, and process imagery.
-- Use local MP4 files for production footage when available; avoid external embeds for core page content.
-- Provide a poster image for local video so the frame has a useful first paint before playback begins.
-- Preserve the existing `ink`, `paper`, `gold`, `line`, and `line-dark` tokens when adding new sections.
+Copy `.env.example` for local development. Production and Preview values are maintained in Vercel, not in Git.
 
-## Design conventions
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `RESEND_API_KEY` | Yes for form delivery | Server-side Resend credential |
+| `CONTACT_LEAD_EMAIL` | Yes in production | Primary contact-form recipient |
+| `CONTACT_LEAD_CC` | Optional | Additional recipient copied on leads |
+| `CONTACT_LEAD_FROM` | Yes in production | Verified sender, formatted as `Name <email@domain>` |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Optional | Enables GA4 and CTA event tracking |
 
-- Keep the shared `max-w-6xl` container and responsive horizontal padding consistent.
-- Use the existing `Reveal`, `MachinedLines`, `DrawRule`, and `Ticker` primitives before creating new motion patterns.
-- Respect `prefers-reduced-motion`; all scroll-driven content must remain visible without animation.
-- Keep gold registration marks and rules geometrically straight and aligned to their containing frame.
-- Check both the dark navigation treatment and light navigation treatment when adding a route.
+Never commit API keys or `.env.local`. The production sender should be:
+
+```text
+True North Kromes Website <website@tnkromes.ca>
+```
+
+Resend must show `tnkromes.ca` as **Verified** before that sender can deliver mail. See [DEV.md](./DEV.md) for the full email setup and verification procedure.
+
+## Deployment
+
+Vercel is the production platform and supports the `/api/contact` Route Handler. Environment variables must be enabled for both Production and Preview when those environments need contact-form delivery. Changes to Vercel environment variables require a new deployment before they affect the application.
+
+A manual GitHub Pages workflow remains in `.github/workflows/deploy-pages.yml`, but it is not the production target. GitHub Pages is a static export and cannot run the contact API.
+
+## Brand and content safeguards
+
+Canonical business information used throughout the site:
+
+- Legal name: True North Kromes Inc.
+- Address: 204 A River Avenue, Cochrane, AB T4C 2C1
+- Telephone: 807-624-7222
+- Public email: truenorthkromes@gmail.com
+- Instagram: [@truenorthkromes](https://www.instagram.com/truenorthkromes/)
+
+Keep this information synchronized across visible pages, JSON-LD, metadata, the footer, and contact links. Do not publish clinical, licensing, production, pricing, or turnaround claims without business approval.
+
+## Documentation
+
+- [DEV.md](./DEV.md): complete developer and operations guide
+- [PRODUCT.md](./PRODUCT.md): audience, product purpose, and brand principles
+- [DESIGN.md](./DESIGN.md): visual tokens, typography, motion, and reusable patterns
+
+## Contributing
+
+Work from the latest `main`, keep changes scoped, and validate mobile, desktop, keyboard navigation, and reduced-motion behavior before merging. Do not commit generated output, local environment files, build caches, or raw media that has not been deliberately added to `public/`.
