@@ -7,6 +7,7 @@ import { ArrowUpRight, ChevronLeft, ChevronRight, X } from "lucide-react"
 import { EASE_MECH, Reveal } from "@/components/motion-primitives"
 import { MachinedLines } from "@/components/experience"
 import { sitePath } from "@/lib/site-path"
+import { CrossfadeCarousel } from "@/components/interactive-patterns"
 
 interface Specimen {
   gridSrc: string
@@ -111,16 +112,13 @@ const specimens: Specimen[] = [
   },
 ]
 
-function CornerMarks() {
-  return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-10">
-      <span className="absolute left-0 top-0 h-5 w-5 border-l border-t border-gold" />
-      <span className="absolute right-0 top-0 h-5 w-5 border-r border-t border-gold" />
-      <span className="absolute bottom-0 left-0 h-5 w-5 border-b border-l border-gold" />
-      <span className="absolute bottom-0 right-0 h-5 w-5 border-b border-r border-gold" />
-    </div>
-  )
-}
+const carouselSlides = specimens.slice(0, 4).map((specimen) => ({
+  title: specimen.title,
+  description: specimen.detail,
+  image: specimen.gridSrc,
+  alt: specimen.alt,
+  label: specimen.code,
+}))
 
 function SpecimenCard({ specimen, index, onOpen }: { specimen: Specimen; index: number; onOpen: () => void }) {
   const reduced = useReducedMotion()
@@ -229,40 +227,7 @@ export default function GalleryPage() {
           </div>
         </section>
 
-        <section className="bg-paper py-20 sm:py-24 lg:py-32" aria-label="Featured specimen">
-          <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
-            <div className="grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-16">
-              <div className="lg:col-span-8">
-                <Reveal y={12}>
-                  <button type="button" onClick={() => setLightbox(0)} className="group relative block w-full text-left focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-dim">
-                    <div className="relative overflow-hidden bg-ink-soft">
-                      <CornerMarks />
-                      <img
-                        src={specimens[0].gridSrc}
-                        alt={specimens[0].alt}
-                        className="aspect-[16/10] w-full object-cover transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]"
-                      />
-                    </div>
-                  </button>
-                </Reveal>
-              </div>
-              <div className="lg:col-span-4 lg:pb-2">
-                <Reveal y={12} delay={0.1}>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">Featured specimen</p>
-                  <h2 className="mt-4 text-balance font-sans text-[clamp(1.8rem,3vw,2.75rem)] font-semibold leading-[1] tracking-[-0.04em] text-ink">
-                    Upper / hand inspection
-                  </h2>
-                  <p className="mt-5 text-sm leading-relaxed text-ink/65">
-                    A finished cobalt-chrome framework held at the point where precision becomes visible: clean edges, controlled retention, mirror finish.
-                  </p>
-                  <button type="button" onClick={() => setLightbox(0)} className="mt-7 inline-flex items-center gap-2 border-b border-ink/30 pb-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:border-gold-dim hover:text-gold-dim">
-                    Open specimen <ArrowUpRight className="h-3.5 w-3.5" />
-                  </button>
-                </Reveal>
-              </div>
-            </div>
-          </div>
-        </section>
+        <CrossfadeCarousel slides={carouselSlides} />
 
         <section className="border-t border-line-dark bg-paper pb-24 pt-16 sm:pb-28 lg:pb-36" aria-label="Specimen collection">
           <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">

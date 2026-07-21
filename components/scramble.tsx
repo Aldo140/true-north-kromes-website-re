@@ -74,14 +74,10 @@ export function ScrambleText({ text, trigger = "hover", className }: ScrambleTex
     }
   }, [])
 
-  if (reduced) {
-    return <span className={className}>{text}</span>
-  }
-
   return (
     <span
       aria-label={text}
-      onMouseEnter={trigger === "hover" ? scramble : undefined}
+      onMouseEnter={!reduced && trigger === "hover" ? scramble : undefined}
       className={`whitespace-nowrap ${className ?? ""}`}
     >
       <span aria-hidden="true">{display}</span>

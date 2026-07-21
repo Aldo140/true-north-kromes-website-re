@@ -269,9 +269,9 @@ export function Hero() {
                   {isActive && <ViewfinderBrackets animate={!reduced} />}
                 </div>
                 {/* 1px gold progress line — linear, it's a timer */}
-                {isActive && !reduced && (
+                {isActive && (
                   <motion.div
-                    className="absolute inset-x-0 bottom-0 h-px origin-left bg-gold"
+                    className="motion-only absolute inset-x-0 bottom-0 h-px origin-left bg-gold"
                     style={{ scaleX: progress }}
                     aria-hidden="true"
                   />

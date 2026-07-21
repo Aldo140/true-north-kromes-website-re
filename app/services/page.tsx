@@ -1,14 +1,10 @@
 import type { Metadata } from "next"
-import * as motion from "motion/react-client"
 import { VideoSection } from "@/components/video-section"
 import { DrawRule, Reveal } from "@/components/motion-primitives"
-import { MachinedLines, Magnetic, Ticker } from "@/components/experience"
+import { MachinedLines, Magnetic } from "@/components/experience"
 import { TrackedCta } from "@/components/tracked-cta"
 import { sitePath } from "@/lib/site-path"
-
-// Duplicated from motion-primitives: plain values can't cross the
-// "use client" boundary into this server component, only components can.
-const EASE_MECH = [0.16, 1, 0.3, 1] as const
+import { ProcessTicker, StickyMediaStory } from "@/components/scroll-patterns"
 
 export const metadata: Metadata = {
   title: "3D Dental Metal Printing Services",
@@ -65,12 +61,24 @@ const stationIndex = [
   { num: "03", label: "POLISH", href: "#station-03" },
 ] as const
 
-const tickerFacts = [
-  "250-STRONG CAD TEAM · AI-ASSISTED",
-  "CHAMLION SLM",
-  "AP10 PLASMA POLISH",
-  "ANY MAJOR FILE FORMAT",
-  "MIRROR FINISH · INSPECTED",
+const processTickerItems = [
+  { number: "01", title: "Design", body: "Case-specific CAD design prepared for your approval." },
+  { number: "02", title: "Approve", body: "Review the digital framework before production begins." },
+  { number: "03", title: "SLM print", body: "Co-Cr powder is fused layer by layer on Chamlion printers." },
+  { number: "04", title: "Finish", body: "AP10 plasma polishing and DLyte finishing create the final surface." },
+  { number: "05", title: "Inspect", body: "Every framework is checked against the approved design." },
+] as const
+
+const designStory = [
+  { label: "Case intake", title: "Start with the scan.", body: "Send files through your scanner portal or personal upload link. We work with the major dental file formats and organize the case for digital design." },
+  { label: "CAD design", title: "Geometry built for the mouth.", body: "The design team develops retention, clasping, mesh, and support around the requirements of the individual case." },
+  { label: "Client review", title: "Approve before metal.", body: "You see the complete digital framework before printing. Production begins only after the design is approved." },
+] as const
+
+const printStory = [
+  { label: "Selective laser melting", title: "Metal, fused layer by layer.", body: "Chamlion SLM printers build the approved framework directly in cobalt-chrome powder without wax patterns, investment, or casting." },
+  { label: "Repeatable production", title: "The file controls the result.", body: "A digital manufacturing path keeps the geometry tied to the approved design and makes repeat cases more predictable." },
+  { label: "Build plate", title: "Several cases. One controlled cycle.", body: "Frameworks are nested on the build plate, printed under monitored conditions, then separated for finishing and inspection." },
 ] as const
 
 const additionalServices = [
@@ -105,58 +113,6 @@ function FrameBrackets() {
       <span className="absolute bottom-0 left-0 h-5 w-5 border-b border-l border-gold" />
       <span className="absolute bottom-0 right-0 h-5 w-5 border-b border-r border-gold" />
     </div>
-  )
-}
-
-/** Service image revealed with a clip-path machining wipe. Brackets sit
- *  outside the wipe so the frame is "locked" before the image opens. */
-function StationImage({
-  service,
-  initialClip,
-}: {
-  service: (typeof services)[number]
-  initialClip: string
-}) {
-  // The viewport observer sits on the unclipped frame; the clip-path animates
-  // on the child. A self-clipped element has zero visible area and never
-  // reports as intersecting, so it would deadlock hidden.
-  return (
-    <motion.div
-      className="relative"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.25 }}
-    >
-      <FrameBrackets />
-      <motion.div
-        variants={{
-          hidden: { clipPath: initialClip },
-          visible: {
-            clipPath: "inset(0% 0% 0% 0%)",
-            transition: { duration: 0.65, ease: EASE_MECH },
-          },
-        }}
-        className="motion-reduce:[clip-path:none]!"
-      >
-        {service.contain ? (
-          <div className="flex aspect-[4/3] w-full items-center justify-center border border-line-dark bg-white p-8">
-            <img
-              src={service.image}
-              alt={service.alt}
-              loading="lazy"
-              className="h-full w-auto max-w-full object-contain"
-            />
-          </div>
-        ) : (
-          <img
-            src={service.image}
-            alt={service.alt}
-            loading="lazy"
-            className="aspect-[4/3] w-full object-cover"
-          />
-        )}
-      </motion.div>
-    </motion.div>
   )
 }
 
@@ -306,59 +262,33 @@ export default function ServicesPage() {
         </div>
 
         {/* Telemetry strip — service-derived facts */}
-        <Ticker items={tickerFacts} className="mt-16" />
+        <ProcessTicker items={processTickerItems} title="Case movement / automatic cycle" className="mt-16" />
       </section>
 
       {/* ---------------------------------------------------------------- */}
       {/* STATION 01 — 3D DESIGN (paper · image right · numeral above copy) */}
       {/* ---------------------------------------------------------------- */}
-      <section
+      <StickyMediaStory
         id="station-01"
-        aria-label="Station 01 — 3D Design"
-        className="relative scroll-mt-20 overflow-hidden bg-paper py-24 lg:flex lg:min-h-screen lg:items-center lg:py-28"
-      >
-        <div className="mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-12">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
-            <div className="relative lg:col-span-5">
-              <span aria-hidden="true" className={`block text-ink/10 ${NUMERAL}`}>
-                01
-              </span>
-              <div className="relative -mt-8 lg:-mt-12">
-                <StationText service={services[0]} />
-              </div>
-            </div>
-            <div className="lg:col-span-6 lg:col-start-7">
-              <StationImage service={services[0]} initialClip="inset(0% 100% 0% 0%)" />
-            </div>
-          </div>
-        </div>
-      </section>
+        image={services[0].image}
+        alt={services[0].alt}
+        imageSide="right"
+        caption="Station 01 / digital design"
+        items={designStory}
+      />
 
       {/* ---------------------------------------------------------------- */}
       {/* STATION 02 — 3D PRINTING (ink · image left · numeral off right)   */}
       {/* ---------------------------------------------------------------- */}
-      <section
+      <StickyMediaStory
         id="station-02"
-        aria-label="Station 02 — 3D Printing"
-        className="relative scroll-mt-20 overflow-hidden bg-ink py-24 lg:flex lg:min-h-screen lg:items-center lg:py-28"
-      >
-        <span
-          aria-hidden="true"
-          className={`pointer-events-none absolute right-0 top-16 translate-x-[15%] text-paper/10 lg:top-1/2 lg:-translate-y-1/2 ${NUMERAL}`}
-        >
-          02
-        </span>
-        <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-12">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
-            <div className="order-2 lg:order-1 lg:col-span-6">
-              <StationImage service={services[1]} initialClip="inset(0% 0% 100% 0%)" />
-            </div>
-            <div className="order-1 lg:order-2 lg:col-span-5 lg:col-start-8">
-              <StationText service={services[1]} dark />
-            </div>
-          </div>
-        </div>
-      </section>
+        image={services[1].image}
+        alt={services[1].alt}
+        imageSide="left"
+        caption="Station 02 / Chamlion SLM"
+        items={printStory}
+        dark
+      />
 
       {/* ---------------------------------------------------------------- */}
       {/* STATION 03 — POST-PROCESSING (paper · Instagram Reel right ·      */}

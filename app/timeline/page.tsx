@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { DrawRule, Reveal } from "@/components/motion-primitives"
-import { MachinedLines, Ticker } from "@/components/experience"
+import { MachinedLines } from "@/components/experience"
 import { TrackedCta } from "@/components/tracked-cta"
 import { TimelineCinema } from "@/components/timeline-cinema"
 import { TimelineHero } from "@/components/timeline-hero"
@@ -23,19 +23,10 @@ export const metadata: Metadata = {
   },
 }
 
-const TICKER_ITEMS = [
-  "4 BUSINESS DAYS FROM APPROVAL",
-  "DESIGN SENT FOR APPROVAL OVER WHATSAPP",
-  "NO-CHARGE REMAKES ON OUR ERROR",
-  "SHIPPED VIA PUROLATOR · CANADA-WIDE",
-] as const
-
 export default function TimelinePage() {
   return (
     <main>
       <TimelineHero />
-
-      <Ticker items={TICKER_ITEMS} />
 
       <div id="production-line">
         <TimelineCinema />

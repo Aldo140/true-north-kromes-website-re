@@ -38,19 +38,15 @@ function LabFigure() {
         <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper/80">
           True North Kromes · Canada
         </span>
-        {reduced ? (
-          <span aria-hidden="true" className="h-px w-6 shrink-0 bg-gold" />
-        ) : (
-          <span
-            aria-hidden="true"
-            className="relative h-px w-16 shrink-0 overflow-hidden bg-paper/15"
-          >
-            <motion.span
-              className="absolute inset-0 origin-left bg-gold"
-              style={{ scaleX: scrollYProgress }}
-            />
-          </span>
-        )}
+        <span
+          aria-hidden="true"
+          className="relative h-px w-16 shrink-0 overflow-hidden bg-paper/15"
+        >
+          <motion.span
+            className="absolute inset-0 origin-left bg-gold"
+            style={{ scaleX: reduced ? 1 : scrollYProgress }}
+          />
+        </span>
       </div>
     </div>
   )

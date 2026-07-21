@@ -44,16 +44,13 @@ function Watermark() {
       <path d="M640 20V220 M640 120L840 20 M640 120L840 220" />
     </svg>
   )
-  if (reduced) {
-    return <div aria-hidden="true">{glyph}</div>
-  }
   // Observer lives on the unclipped wrapper; the clip-path animates on the
   // child. A self-clipped element has zero visible area and never intersects.
   return (
     <motion.div
       aria-hidden="true"
-      initial="hidden"
-      whileInView="visible"
+      initial={reduced ? false : "hidden"}
+      whileInView={reduced ? undefined : "visible"}
       viewport={{ once: true, amount: 0.3 }}
     >
       <motion.div

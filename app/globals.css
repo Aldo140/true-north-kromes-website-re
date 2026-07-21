@@ -90,7 +90,7 @@ html {
 
 body {
   min-width: 320px;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img,
@@ -152,6 +152,89 @@ html.lenis body {
   animation: ticker 36s linear infinite;
 }
 
+@keyframes ambient-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes ambient-marquee-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.ambient-marquee-row {
+  width: max-content;
+  font-size: clamp(3.5rem, 9vw, 9rem);
+  font-weight: 500;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: rgb(201 162 39 / 0.055);
+  white-space: nowrap;
+}
+
+.ambient-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: ambient-marquee 48s linear infinite;
+}
+
+.ambient-marquee-reverse .ambient-marquee-track {
+  animation-name: ambient-marquee-reverse;
+  animation-duration: 56s;
+}
+
+@keyframes process-ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.process-ticker-track {
+  animation: process-ticker 44s linear infinite;
+}
+
+.process-ticker-track:hover,
+.process-ticker-track:focus-within {
+  animation-play-state: paused;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 0.06em;
+  height: 0.85em;
+  margin-left: 0.08em;
+  background: currentColor;
+  animation: typewriter-blink 720ms steps(1, end) infinite;
+}
+
+@keyframes typewriter-blink {
+  0%, 48% { opacity: 1; }
+  49%, 100% { opacity: 0; }
+}
+
+@keyframes nav-edge-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.nav-edge-marquee {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  width: max-content;
+  color: rgb(242 240 236 / 0.34);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform-origin: center;
+  animation: nav-edge-marquee 16s linear infinite;
+  translate: -50% -50%;
+  rotate: 90deg;
+}
+
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
@@ -176,4 +259,27 @@ html.lenis body {
 ::selection {
   background: var(--gold);
   color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticker,
+  .ambient-marquee-track,
+  .process-ticker-track,
+  .typewriter-cursor {
+    animation: none !important;
+  }
+
+  .nav-edge-marquee {
+    animation: none !important;
+  }
+
+  .process-ticker-control,
+  .process-ticker-duplicate,
+  .ticker-duplicate {
+    display: none !important;
+  }
+
+  .motion-only {
+    display: none !important;
+  }
 }

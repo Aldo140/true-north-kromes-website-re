@@ -42,17 +42,6 @@ interface MachinedLinesProps {
 
 export function MachinedLines({ lines, as: Tag = "h2", className, delay = 0 }: MachinedLinesProps) {
   const reduced = useReducedMotion()
-  if (reduced) {
-    return (
-      <Tag className={className}>
-        {lines.map((line, i) => (
-          <span key={i} className="block">
-            {line}
-          </span>
-        ))}
-      </Tag>
-    )
-  }
   // The viewport observer must sit on the UNCLIPPED heading: a span translated
   // fully inside its overflow-hidden channel has zero visible area, so
   // IntersectionObserver never reports it intersecting (chicken-and-egg).
@@ -61,8 +50,8 @@ export function MachinedLines({ lines, as: Tag = "h2", className, delay = 0 }: M
   return (
     <MotionTag
       className={className}
-      initial="hidden"
-      whileInView="visible"
+      initial={reduced ? false : "hidden"}
+      whileInView={reduced ? undefined : "visible"}
       viewport={{ once: true, amount: 0.3 }}
     >
       {lines.map((line, i) => (
@@ -97,7 +86,6 @@ interface TickerProps {
 }
 
 export function Ticker({ items, className = "" }: TickerProps) {
-  const reduced = useReducedMotion()
   const row = (hidden: boolean) => (
     <span
       aria-hidden={hidden || undefined}
@@ -114,13 +102,6 @@ export function Ticker({ items, className = "" }: TickerProps) {
     </span>
   )
 
-  if (reduced) {
-    return (
-      <div className={`overflow-hidden border-y border-line bg-ink py-3 ${className}`}>
-        {row(false)}
-      </div>
-    )
-  }
   return (
     <div
       className={`group flex overflow-hidden border-y border-line bg-ink py-3 ${className}`}
@@ -129,7 +110,7 @@ export function Ticker({ items, className = "" }: TickerProps) {
     >
       <div className="flex min-w-full shrink-0 animate-ticker group-hover:[animation-play-state:paused]">
         {row(false)}
-        {row(true)}
+        <span className="ticker-duplicate flex shrink-0">{row(true)}</span>
       </div>
     </div>
   )
@@ -145,15 +126,13 @@ export function Magnetic({ children, className }: { children: React.ReactNode; c
   const ref = useRef<HTMLDivElement>(null)
   const [offset, setOffset] = useState({ x: 0, y: 0 })
 
-  if (reduced) return <div className={className}>{children}</div>
-
   return (
     <motion.div
       ref={ref}
       className={`inline-block ${className ?? ""}`}
-      animate={{ x: offset.x, y: offset.y }}
+      animate={reduced ? { x: 0, y: 0 } : { x: offset.x, y: offset.y }}
       transition={{ duration: DUR.fast, ease: EASE_MECH }}
-      onMouseMove={(e) => {
+      onMouseMove={reduced ? undefined : (e) => {
         const r = ref.current?.getBoundingClientRect()
         if (!r) return
         setOffset({
@@ -161,7 +140,7 @@ export function Magnetic({ children, className }: { children: React.ReactNode; c
           y: (e.clientY - (r.top + r.height / 2)) * 0.28,
         })
       }}
-      onMouseLeave={() => setOffset({ x: 0, y: 0 })}
+      onMouseLeave={reduced ? undefined : () => setOffset({ x: 0, y: 0 })}
     >
       {children}
     </motion.div>

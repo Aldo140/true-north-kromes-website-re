@@ -1,21 +1,24 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useRef, useState } from "react"
 import Link from "next/link"
 import { MessageSquare, X } from "lucide-react"
+import { useMotionValueEvent, useScroll } from "motion/react"
 import { trackEvent } from "@/lib/analytics"
 
 export function StickyQuote() {
   const [visible, setVisible] = useState(false)
   const [dismissed, setDismissed] = useState(false)
+  const visibleRef = useRef(false)
+  const { scrollY } = useScroll()
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setVisible(window.scrollY > 400)
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const next = latest > 400
+    if (next !== visibleRef.current) {
+      visibleRef.current = next
+      setVisible(next)
     }
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  })
 
   if (!visible || dismissed) return null
 

@@ -35,12 +35,11 @@ interface RevealProps {
 /** Viewport-triggered entrance: offset settles to rest with mechanical ease. */
 export function Reveal({ children, delay = 0, y = 16, x = 0, className, amount = 0.3 }: RevealProps) {
   const reduced = useReducedMotion()
-  if (reduced) return <div className={className}>{children}</div>
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 1, y, x }}
-      whileInView={{ opacity: 1, y: 0, x: 0 }}
+      initial={reduced ? false : { opacity: 1, y, x }}
+      whileInView={reduced ? undefined : { opacity: 1, y: 0, x: 0 }}
       viewport={{ once: true, amount }}
       transition={{ duration: DUR.base, delay, ease: EASE_MECH }}
     >
@@ -58,13 +57,12 @@ interface DrawRuleProps {
 /** A horizontal rule machined across from the left when scrolled into view. */
 export function DrawRule({ className = "h-px bg-gold", delay = 0 }: DrawRuleProps) {
   const reduced = useReducedMotion()
-  if (reduced) return <div className={className} />
   return (
     <div className="overflow-hidden">
       <motion.div
         className={className}
-        initial={{ clipPath: "inset(0 100% 0 0)" }}
-        whileInView={{ clipPath: "inset(0 0% 0 0)" }}
+        initial={reduced ? false : { clipPath: "inset(0 100% 0 0)" }}
+        whileInView={reduced ? undefined : { clipPath: "inset(0 0% 0 0)" }}
         viewport={{ once: true, amount: 1 }}
         transition={{ duration: DUR.slow, delay, ease: EASE_MECH }}
       />

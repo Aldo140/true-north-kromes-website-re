@@ -6,6 +6,7 @@ import { GalleryPreview } from "@/components/gallery-preview"
 import { CTABanner } from "@/components/cta-banner"
 import { ProcessCinema } from "@/components/process-cinema"
 import { Ticker } from "@/components/experience"
+import { CurtainTransition } from "@/components/scroll-patterns"
 
 const TELEMETRY = [
   "CO-CR · MEDILOY S · HEALTH CANADA LICENSED",
@@ -25,9 +26,15 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <Hero />
-      <Ticker items={TELEMETRY} />
-      <About />
+      <CurtainTransition
+        outgoing={<Hero />}
+        incoming={
+          <>
+            <Ticker items={TELEMETRY} />
+            <About />
+          </>
+        }
+      />
       <ProcessCinema />
       <WhyTNK />
       <GalleryPreview />

@@ -3,6 +3,7 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
 import { useRef } from "react"
 import { sitePath } from "@/lib/site-path"
+import { TypewriterHeadline } from "@/components/scroll-patterns"
 
 const CHECKPOINTS = ["DESIGN", "PRINT", "FINISH", "SHIP"] as const
 
@@ -22,9 +23,11 @@ export function TimelineHero() {
         </div>
 
         <motion.div style={{ y: copyY }} className="grid gap-10 pb-14 pt-10 lg:grid-cols-12 lg:items-end lg:pb-20 lg:pt-14">
-          <h1 id="timeline-hero-heading" className="text-balance font-sans text-[clamp(3.25rem,7vw,6rem)] font-medium leading-[0.92] tracking-[-0.04em] text-ink lg:col-span-8">
-            A production line<br />you can actually follow.
-          </h1>
+          <TypewriterHeadline
+            id="timeline-hero-heading"
+            text="A production line you can actually follow."
+            className="text-balance font-sans text-[clamp(3.25rem,7vw,6rem)] font-medium leading-[0.92] tracking-[-0.04em] text-ink lg:col-span-8"
+          />
           <div className="lg:col-span-4 lg:pb-1">
             <p className="max-w-md text-pretty text-base leading-7 text-ink/70 sm:text-lg">
               Your approval starts the clock. From that moment, every case moves through the same fixed four-business-day sequence.
@@ -52,15 +55,13 @@ export function TimelineHero() {
             CO-CR · SLM<br />TNK QC VERIFIED
           </div>
 
-          {!reducedMotion && (
-            <motion.span
-              initial={{ top: "8%", opacity: 0 }}
-              animate={{ top: ["8%", "92%"], opacity: [0, 0.85, 0] }}
-              transition={{ duration: 4.5, repeat: Infinity, repeatDelay: 2.4, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute inset-x-0 h-px bg-gold shadow-[0_0_16px_var(--gold)]"
-              aria-hidden="true"
-            />
-          )}
+          <motion.span
+            initial={reducedMotion ? false : { top: "8%", opacity: 0 }}
+            animate={reducedMotion ? undefined : { top: ["8%", "92%"], opacity: [0, 0.85, 0] }}
+            transition={{ duration: 4.5, repeat: Infinity, repeatDelay: 2.4, ease: [0.16, 1, 0.3, 1] }}
+            className="motion-only absolute inset-x-0 h-px bg-gold shadow-[0_0_16px_var(--gold)]"
+            aria-hidden="true"
+          />
 
           <div className="absolute inset-x-5 bottom-5 border-t border-paper/40 pt-4 text-paper sm:inset-x-6 sm:bottom-6 sm:pt-5">
             <div className="mb-4 flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.18em] sm:text-[10px]">
@@ -69,7 +70,7 @@ export function TimelineHero() {
             </div>
             <div className="relative grid grid-cols-4">
               <span className="absolute inset-x-0 top-[5px] h-px bg-paper/30" aria-hidden="true" />
-              {!reducedMotion && <motion.span initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 2.4, delay: 0.4, ease: [0.16, 1, 0.3, 1] }} className="absolute inset-x-0 top-[5px] h-px origin-left bg-gold" aria-hidden="true" />}
+              <motion.span initial={reducedMotion ? false : { scaleX: 0 }} animate={reducedMotion ? undefined : { scaleX: 1 }} transition={{ duration: 2.4, delay: 0.4, ease: [0.16, 1, 0.3, 1] }} className="motion-only absolute inset-x-0 top-[5px] h-px origin-left bg-gold" aria-hidden="true" />
               {CHECKPOINTS.map((checkpoint, index) => (
                 <div key={checkpoint} className={`relative ${index === 3 ? "text-right" : index > 0 ? "text-center" : "text-left"}`}>
                   <span className={`relative z-10 inline-block size-[11px] rounded-full border-2 border-ink ${index === 3 ? "bg-paper" : "bg-gold"}`} aria-hidden="true" />

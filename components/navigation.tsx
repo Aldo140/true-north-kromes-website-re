@@ -1,10 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { AnimatePresence, motion, useReducedMotion } from "motion/react"
 import { Menu, X } from "lucide-react"
-import { ScrambleText } from "./scramble"
 import { Wordmark } from "./wordmark"
 import { sitePath } from "@/lib/site-path"
 import { trackEvent } from "@/lib/analytics"
@@ -12,148 +12,189 @@ import { trackEvent } from "@/lib/analytics"
 const navLinks = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "Timeline", href: "/timeline" },
   { label: "Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
-]
+] as const
 
-const getStartedLink = { label: "Get Started", href: "/contact" }
+const menuImages = [
+  { src: "/images/opt/framework-hero.jpg", alt: "Polished cobalt-chrome dental frameworks" },
+  { src: "/images/opt/gallery-build-plate-printer.jpg", alt: "Frameworks on an SLM printer build plate" },
+  { src: "/images/opt/gallery-dlyte-polishing-action.jpg", alt: "Plasma polishing a dental framework" },
+] as const
 
-const PORTAL_URL =
-  "https://truenorthkromesclient.seazona.cloud/Login.aspx?ReturnUrl=%2fOrder.aspx"
+const PORTAL_URL = "https://truenorthkromesclient.seazona.cloud/Login.aspx?ReturnUrl=%2fOrder.aspx"
 
 export function Navigation() {
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [open, setOpen] = useState(false)
+  const [keyboardMode, setKeyboardMode] = useState(false)
   const pathname = usePathname()
-  const isHome = pathname === "/"
-  // These routes open on the ink surface, so the navigation links need
-  // the light treatment before the user reaches any later paper sections.
-  // The metallic logo reads on both surfaces, so it needs no filter.
-  const isDarkSurface = isHome || pathname === "/services" || pathname === "/gallery"
+  const reduced = useReducedMotion()
+  const closeRef = useRef<HTMLButtonElement>(null)
+  const openRef = useRef<HTMLButtonElement>(null)
+  const dialogRef = useRef<HTMLDivElement>(null)
+  const isDarkSurface = pathname === "/" || pathname === "/services" || pathname === "/gallery"
+  const disableMotion = reduced || keyboardMode
 
-  const desktopLinkBase =
-    "font-mono uppercase text-[11px] tracking-[0.18em] transition-colors"
+  useEffect(() => setOpen(false), [pathname])
+
+  useEffect(() => {
+    if (!open) return
+    const root = document.documentElement
+    root.classList.add("lenis-stopped")
+    closeRef.current?.focus()
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setKeyboardMode(true)
+        setOpen(false)
+      }
+      if (event.key !== "Tab") return
+      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      )
+      if (!focusable?.length) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+    window.addEventListener("keydown", onKeyDown)
+    return () => {
+      root.classList.remove("lenis-stopped")
+      window.removeEventListener("keydown", onKeyDown)
+      openRef.current?.focus()
+    }
+  }, [open])
 
   return (
-    <header className="absolute left-0 right-0 top-0 z-50">
+    <header className="absolute inset-x-0 top-0 z-[90]">
       <nav aria-label="Main navigation" className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between py-4 sm:py-6">
-          {/* Logo */}
-          <Link href="/" className="flex shrink-0 flex-col items-center gap-1" aria-label="True North Kromes - Home">
-            <img
-              src={sitePath("/images/logo.png")}
-              alt="True North Kromes"
-              className="h-9 w-auto sm:h-[52px] lg:h-[60px]"
-            />
+          <Link href="/" className="relative z-10 flex shrink-0 flex-col items-center gap-1" aria-label="True North Kromes home">
+            <img src={sitePath("/images/logo.png")} alt="True North Kromes" className="h-9 w-auto sm:h-[52px] lg:h-[60px]" />
             <Wordmark className="text-[7px] tracking-[0.32em] sm:text-[9px] sm:tracking-[0.36em] lg:text-[10px]" />
           </Link>
 
-          {/* Desktop links */}
-          <div className="hidden items-center gap-10 lg:flex">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-current={isActive ? "page" : undefined}
-                  className={`${desktopLinkBase} ${
-                    isActive
-                      ? `border-b pb-0.5 ${
-                          isDarkSurface ? "border-gold text-paper" : "border-gold-dim text-ink"
-                        }`
-                      : isDarkSurface
-                        ? "text-paper/70 hover:text-paper"
-                        : "text-ink/60 hover:text-ink"
-                  }`}
-                >
-                  <ScrambleText text={link.label} trigger="hover" />
-                </Link>
-              )
-            })}
-            <a
-              href={PORTAL_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackEvent("portal_click", { location: "nav_desktop" })}
-              className={`${desktopLinkBase} ${
-                isDarkSurface ? "text-paper/70 hover:text-paper" : "text-ink/60 hover:text-ink"
-              }`}
-            >
-              <ScrambleText text="Portal" trigger="hover" />
-            </a>
-            <Link
-              href={getStartedLink.href}
-              onClick={() => trackEvent("cta_click", { location: "nav_desktop", label: "get_started" })}
-              className={`border px-4 py-2 ${desktopLinkBase} ${
-                isDarkSurface
-                  ? "border-gold text-gold hover:bg-gold hover:text-ink"
-                  : "border-ink text-ink hover:bg-ink hover:text-paper"
-              }`}
-            >
-              <ScrambleText text={getStartedLink.label} trigger="hover" />
-            </Link>
-          </div>
-
-          {/* Mobile hamburger */}
           <button
-            className={`flex min-h-11 min-w-11 items-center justify-center p-2 transition-colors lg:hidden ${
-              isDarkSurface ? "text-paper hover:text-paper/70" : "text-ink hover:text-ink/60"
-            }`}
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
+            ref={openRef}
+            type="button"
+            onPointerDown={() => setKeyboardMode(false)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") setKeyboardMode(true)
+            }}
+            onClick={() => setOpen(true)}
+            aria-label="Open navigation menu"
+            aria-expanded={open}
+            aria-controls="site-menu-overlay"
+            className={`relative z-10 flex min-h-11 items-center gap-3 px-2 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors active:scale-[0.97] ${isDarkSurface ? "text-paper hover:text-gold" : "text-ink hover:text-gold-dim"}`}
           >
-            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <span className="hidden sm:inline">Menu</span>
+            <Menu className="h-5 w-5" />
           </button>
         </div>
-
-        {/* Mobile menu */}
-        {mobileOpen && (
-          <div className="border-t border-line bg-ink px-5 py-2 text-paper lg:hidden">
-            <div className="flex flex-col divide-y divide-line">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`py-3.5 font-mono uppercase text-[11px] tracking-[0.18em] transition-colors ${
-                      isActive ? "text-paper" : "text-paper/60 hover:text-paper"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              })}
-              <a
-                href={PORTAL_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => {
-                  trackEvent("portal_click", { location: "nav_mobile" })
-                  setMobileOpen(false)
-                }}
-                className="py-3.5 font-mono uppercase text-[11px] tracking-[0.18em] text-paper/60 transition-colors hover:text-paper"
-              >
-                Portal
-              </a>
-              <Link
-                href={getStartedLink.href}
-                onClick={() => {
-                  trackEvent("cta_click", { location: "nav_mobile", label: "get_started" })
-                  setMobileOpen(false)
-                }}
-                className="py-3.5 font-mono uppercase text-[11px] tracking-[0.18em] text-gold transition-colors hover:text-paper"
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
-        )}
       </nav>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            ref={dialogRef}
+            id="site-menu-overlay"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site navigation"
+            initial={disableMotion ? false : { opacity: 0, transform: "translateY(-100%)" }}
+            animate={{ opacity: 1, transform: "translateY(0%)" }}
+            exit={disableMotion ? undefined : { opacity: 0, transform: "translateY(-100%)" }}
+            transition={{ duration: disableMotion ? 0 : 0.28, ease: [0.32, 0.72, 0, 1] }}
+            className="fixed inset-0 z-20 overflow-hidden bg-ink text-paper"
+          >
+            <button
+              ref={closeRef}
+              type="button"
+              onClick={() => setOpen(false)}
+              aria-label="Close navigation menu"
+              className="absolute right-5 top-5 z-30 flex h-12 w-12 items-center justify-center border border-line text-paper transition-colors hover:border-gold hover:text-gold active:scale-[0.97] sm:right-8 sm:top-7"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            <div className="grid min-h-[100dvh] lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="relative hidden overflow-hidden border-r border-line lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-px lg:bg-line">
+                {menuImages.map((image, index) => (
+                  <motion.figure
+                    key={image.src}
+                    initial={disableMotion ? false : { opacity: 0, transform: "scale(1.04)" }}
+                    animate={{ opacity: 1, transform: "scale(1)" }}
+                    transition={{ duration: disableMotion ? 0 : 0.5, delay: disableMotion ? 0 : 0.06 + index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                    className={`relative overflow-hidden bg-ink-soft ${index === 0 ? "row-span-2" : ""}`}
+                  >
+                    <img src={sitePath(image.src)} alt={image.alt} className="h-full w-full object-cover opacity-75" />
+                    <span className="absolute inset-0 bg-ink/20" aria-hidden="true" />
+                  </motion.figure>
+                ))}
+              </div>
+
+              <div className="relative flex min-h-[100dvh] items-center px-6 py-24 sm:px-12 lg:px-16 lg:pr-24">
+                <div className="w-full max-w-xl">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">True North Kromes</p>
+                  <div className="mt-8">
+                    {navLinks.map((link, index) => {
+                      const active = pathname === link.href
+                      return (
+                        <motion.div
+                          key={link.href}
+                          initial={disableMotion ? false : { opacity: 0, transform: "translateY(12px)" }}
+                          animate={{ opacity: 1, transform: "translateY(0px)" }}
+                          transition={{ duration: disableMotion ? 0 : 0.35, delay: disableMotion ? 0 : 0.06 + index * 0.035, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                          <Link
+                            href={link.href}
+                            aria-current={active ? "page" : undefined}
+                            onClick={() => setOpen(false)}
+                            className={`group flex items-baseline justify-between border-b border-line py-3 text-[clamp(1.8rem,5vw,3.8rem)] font-medium leading-none tracking-[-0.035em] transition-colors ${active ? "text-gold" : "text-paper hover:text-gold"}`}
+                          >
+                            <span>{link.label}</span>
+                            <span className="font-mono text-[10px] tracking-[0.16em] text-paper/30 group-hover:text-gold">{String(index + 1).padStart(2, "0")}</span>
+                          </Link>
+                        </motion.div>
+                      )
+                    })}
+                  </div>
+
+                  <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4 font-mono text-[10px] uppercase tracking-[0.16em]">
+                    <a
+                      href={PORTAL_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => trackEvent("portal_click", { location: "nav_overlay" })}
+                      className="text-paper/55 transition-colors hover:text-gold"
+                    >
+                      Client portal ↗
+                    </a>
+                    <Link href="/contact" onClick={() => setOpen(false)} className="text-gold transition-colors hover:text-paper">
+                      Start a case
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="absolute right-0 top-0 hidden h-full w-14 overflow-hidden border-l border-line sm:block" aria-hidden="true">
+                  <div className="nav-edge-marquee">
+                    <span>DESIGN  PRINT  POLISH  DELIVER&nbsp;&nbsp;&nbsp;</span>
+                    <span>DESIGN  PRINT  POLISH  DELIVER&nbsp;&nbsp;&nbsp;</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }
