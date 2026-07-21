@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react"
 import {
+  AnimatePresence,
   motion,
   useMotionValueEvent,
   useReducedMotion,
@@ -9,6 +10,7 @@ import {
   useSpring,
   useTransform,
   type MotionValue,
+  type PanInfo,
 } from "motion/react"
 import { sitePath } from "@/lib/site-path"
 
@@ -51,10 +53,141 @@ export function ProcessCinema() {
       <div className="hidden lg:block">
         <ScrollReel />
       </div>
-      <div className="lg:hidden">
+      <div className="md:hidden">
+        <MobileProductionConsole />
+      </div>
+      <div className="hidden md:block lg:hidden">
         <StackedReveal />
       </div>
     </div>
+  )
+}
+
+/** Phone: a thumb-operated production console. The image remains dominant,
+ *  while taps or a horizontal swipe advance the same real manufacturing line. */
+function MobileProductionConsole() {
+  const reduced = useReducedMotion()
+  const [active, setActive] = useState(0)
+  const stage = STAGES[active]
+
+  const move = (direction: -1 | 1) => {
+    setActive((current) => (current + direction + STAGES.length) % STAGES.length)
+  }
+
+  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    if (reduced || Math.abs(info.offset.x) < 48) return
+    move(info.offset.x < 0 ? 1 : -1)
+  }
+
+  return (
+    <section aria-label="Production process, step by step" className="overflow-hidden bg-ink py-14 text-paper">
+      <div className="flex items-baseline justify-between border-y border-line px-5 py-4">
+        <p className={`${MONO} text-paper/70`}>THE PROCESS</p>
+        <p className={`${MONO} text-paper/40`}>TNK · PRODUCTION</p>
+      </div>
+
+      <div className="px-5 pt-8">
+        <h2 className="max-w-[10ch] text-balance text-[2.55rem] font-semibold leading-[0.94] tracking-[-0.035em]">
+          Four stations. One continuous line.
+        </h2>
+        <p className="mt-5 max-w-[34ch] text-[15px] leading-7 text-paper/68">
+          Swipe through the same sequence every framework follows inside our Cochrane lab.
+        </p>
+      </div>
+
+      <div className="mt-8 border-y border-line bg-ink-soft">
+        <AnimatePresence initial={false} mode="wait">
+          <motion.article
+            id="mobile-process-panel"
+            role="tabpanel"
+            aria-live="polite"
+            key={stage.num}
+            drag={reduced ? false : "x"}
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.08}
+            onDragEnd={handleDragEnd}
+            initial={reduced ? false : { opacity: 0, x: 18 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={reduced ? undefined : { opacity: 0, x: -18 }}
+            transition={{ duration: reduced ? 0 : 0.38, ease: [0.16, 1, 0.3, 1] }}
+            className="touch-pan-y"
+          >
+            <div className="relative aspect-[6/5] overflow-hidden">
+              <img
+                src={stage.src}
+                alt={stage.alt}
+                loading={active === 0 ? "eager" : "lazy"}
+                draggable={false}
+                className="h-full w-full select-none object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/10" aria-hidden="true" />
+              <span
+                aria-hidden="true"
+                className="absolute -bottom-8 right-3 font-sans text-[8.5rem] font-semibold leading-none tracking-[-0.04em] text-paper/12"
+              >
+                {stage.num}
+              </span>
+              <div className="pointer-events-none absolute inset-4" aria-hidden="true">
+                <span className="absolute left-0 top-0 h-6 w-6 border-l border-t border-gold" />
+                <span className="absolute right-0 top-0 h-6 w-6 border-r border-t border-gold" />
+                <span className="absolute bottom-0 left-0 h-6 w-6 border-b border-l border-gold" />
+                <span className="absolute bottom-0 right-0 h-6 w-6 border-b border-r border-gold" />
+              </div>
+              <p className="absolute left-5 top-5 bg-ink px-3 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
+                STAGE {stage.num} / 04
+              </p>
+            </div>
+            <div className="relative min-h-[10.25rem] px-5 py-6">
+              <p className={`${MONO} text-gold`}>{stage.label}</p>
+              <p className="mt-4 max-w-[32ch] text-lg leading-7 text-paper/85">{stage.line}</p>
+            </div>
+          </motion.article>
+        </AnimatePresence>
+      </div>
+
+      <div className="px-5 pt-4">
+        <div className="flex items-center justify-between gap-1">
+          <button
+            type="button"
+            onClick={() => move(-1)}
+            aria-label="Previous production stage"
+            className="grid min-h-11 min-w-11 place-items-center border border-line text-lg text-paper transition-colors active:border-gold active:bg-paper/10"
+          >
+            ←
+          </button>
+          <div className="flex gap-1" role="tablist" aria-label="Select a production stage">
+            {STAGES.map((item, index) => (
+              <button
+                key={item.num}
+                type="button"
+                role="tab"
+                aria-selected={index === active}
+                aria-controls="mobile-process-panel"
+                onClick={() => setActive(index)}
+                className={`grid min-h-11 min-w-11 place-items-center border font-mono text-[10px] tracking-[0.16em] transition-[background-color,color,transform] active:scale-95 ${
+                  index === active
+                    ? "border-gold bg-gold text-ink"
+                    : "border-line text-paper/55 active:bg-paper/10"
+                }`}
+              >
+                {item.num}
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => move(1)}
+            aria-label="Next production stage"
+            className="grid min-h-11 min-w-11 place-items-center border border-line text-lg text-paper transition-colors active:border-gold active:bg-paper/10"
+          >
+            →
+          </button>
+        </div>
+        <p className="mt-4 text-center font-mono text-[9px] uppercase tracking-[0.16em] text-paper/40">
+          Swipe image or select a station
+        </p>
+      </div>
+    </section>
   )
 }
 

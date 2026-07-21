@@ -39,18 +39,31 @@ export function ComparisonTable() {
 
   return (
     <div aria-label="RPD Comparison">
-      <div className="divide-y divide-line-dark border-y border-line-dark md:hidden">
-        {comparisons.map((item) => (
-          <article key={`mobile-${item.category}`} className="py-6">
-            <h3 className="text-base font-medium text-ink">{item.category}</h3>
-            <dl className="mt-4 space-y-4">
-              <div>
-                <dt className="font-mono text-[9px] uppercase tracking-[0.16em] text-ink/42">Hand-casted RPD</dt>
-                <dd className="mt-1.5 text-sm leading-6 text-ink/62">{item.traditional}</dd>
+      <div className="border-y border-line-dark md:hidden">
+        <div className="grid grid-cols-2 border-b border-line-dark" aria-hidden="true">
+          <div className="flex min-h-11 items-center px-3 font-mono text-[9px] uppercase tracking-[0.14em] text-ink/48">
+            Cast process
+          </div>
+          <div className="flex min-h-11 items-center bg-ink px-3 font-mono text-[9px] uppercase tracking-[0.14em] text-gold">
+            Printed process
+          </div>
+        </div>
+        {comparisons.map((item, index) => (
+          <article key={`mobile-${item.category}`} className="border-b border-line-dark last:border-b-0">
+            <header className="flex min-h-12 items-center justify-between gap-3 px-3">
+              <h3 className="text-[15px] font-medium leading-tight text-ink">{item.category}</h3>
+              <span className="font-mono text-[9px] tabular-nums tracking-[0.14em] text-gold-dim" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+            </header>
+            <dl className="grid grid-cols-2 items-stretch">
+              <div className="px-3 py-4">
+                <dt className="sr-only">Hand-casted RPD</dt>
+                <dd className="text-[13px] leading-[1.55] text-ink/62">{item.traditional}</dd>
               </div>
-              <div className="border-t border-line-dark pt-4">
-                <dt className="font-mono text-[9px] uppercase tracking-[0.16em] text-gold-dim">3D Printed RPD</dt>
-                <dd className="mt-1.5 text-sm leading-6 text-ink/82">{item.modern}</dd>
+              <div className="bg-ink px-3 py-4">
+                <dt className="sr-only">3D Printed RPD</dt>
+                <dd className="text-[13px] leading-[1.55] text-paper/88">{item.modern}</dd>
               </div>
             </dl>
           </article>

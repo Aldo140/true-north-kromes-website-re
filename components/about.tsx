@@ -27,13 +27,21 @@ function LabFigure() {
   })
 
   return (
-    <div ref={ref}>
-      <img
-        src={sitePath("/images/opt/gallery-lab-wide.jpg")}
-        alt="Wide view of the True North Kromes production floor with SLM printers and finishing stations"
-        loading="lazy"
-        className="aspect-[4/3] w-full object-cover"
-      />
+    <div ref={ref} className="relative">
+      <div className="relative overflow-hidden">
+        <img
+          src={sitePath("/images/opt/gallery-lab-wide.jpg")}
+          alt="Wide view of the True North Kromes production floor with SLM printers and finishing stations"
+          loading="lazy"
+          className="aspect-[16/11] w-full object-cover md:aspect-[4/3]"
+        />
+        <div className="pointer-events-none absolute inset-3 md:hidden" aria-hidden="true">
+          <span className="absolute left-0 top-0 h-5 w-5 border-l border-t border-gold" />
+          <span className="absolute right-0 top-0 h-5 w-5 border-r border-t border-gold" />
+          <span className="absolute bottom-0 left-0 h-5 w-5 border-b border-l border-gold" />
+          <span className="absolute bottom-0 right-0 h-5 w-5 border-b border-r border-gold" />
+        </div>
+      </div>
       <div className="flex items-center justify-between gap-4 bg-ink px-3 py-2">
         <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper/80">
           True North Kromes · Canada
@@ -72,8 +80,12 @@ export function About() {
               className="mt-5 max-w-[18ch] text-balance font-sans text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-ink"
             />
 
+            <div className="-mx-5 mt-8 md:hidden">
+              <LabFigure />
+            </div>
+
             <Reveal y={12} delay={0.1}>
-              <p className="mt-8 max-w-[52ch] text-sm leading-[1.8] text-ink/70 sm:text-base">
+              <p className="mt-7 max-w-[52ch] text-[15px] leading-[1.8] text-ink/70 sm:text-base md:mt-8">
                 True North Kromes is a Cochrane, Alberta dental laboratory
                 specializing in 3D-printed cobalt-chrome partial denture
                 frameworks for dental labs and denturists. CAD design,
@@ -85,7 +97,7 @@ export function About() {
             </Reveal>
           </div>
 
-          <div className="lg:col-span-5 lg:mt-20">
+          <div className="hidden md:block lg:col-span-5 lg:mt-20">
             <Reveal x={40} y={0} amount={0.25}>
               <LabFigure />
             </Reveal>
@@ -93,7 +105,7 @@ export function About() {
         </div>
 
         {/* Fact lines — hairline rules machined across, staggered */}
-        <dl className="mt-12 md:mt-20 lg:mt-24">
+        <dl className="mt-10 md:mt-20 lg:mt-24">
           {FACTS.map((fact, i) => (
             <div key={fact.label}>
               <DrawRule className="h-px bg-line-dark" delay={i * 0.12} />

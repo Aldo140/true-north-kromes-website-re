@@ -34,7 +34,17 @@ export default function TimelinePage() {
 
       <section className="bg-paper py-16 sm:py-20 lg:py-24" aria-label="Timeline guarantee">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
-          <Reveal y={12} className="max-w-[58ch]">
+          <div className="relative border-y border-line-dark py-7 md:hidden">
+            <span className="absolute -top-px left-0 h-px w-16 bg-gold" aria-hidden="true" />
+            <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-gold-dim">Fit assurance</p>
+            <p className="mt-4 text-pretty text-lg font-medium leading-7 tracking-[-0.02em] text-ink">
+              The remake is ours if the error is ours.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-ink/70">
+              If a case doesn&apos;t fit or we make an error, the remake and the return shipping are on us — no charge, no back-and-forth.
+            </p>
+          </div>
+          <Reveal y={12} className="hidden max-w-[58ch] md:block">
             <p className="text-sm leading-[1.8] text-ink/70 sm:text-base">
               If a case doesn&apos;t fit or we make an error, the remake and the
               return shipping are on us — no charge, no back-and-forth.
@@ -53,12 +63,12 @@ export default function TimelinePage() {
             className="mt-8 text-balance font-sans text-[clamp(1.5rem,3vw,2.25rem)] font-semibold tracking-[-0.02em] text-paper"
           />
           <Reveal y={12} delay={0.18}>
-            <div className="mt-8">
+            <div className="mt-8 border-t border-line pt-2 md:border-0 md:pt-0">
               <TrackedCta
                 href="/contact"
                 event="cta_click"
                 eventParams={{ location: "timeline_end", label: "get_started" }}
-                className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper underline decoration-line underline-offset-8 transition-colors hover:decoration-gold"
+                className="inline-flex min-h-14 w-full items-center justify-between border-b border-line font-mono text-[11px] uppercase tracking-[0.18em] text-paper transition-colors hover:border-gold md:min-h-0 md:w-auto md:border-0 md:underline md:decoration-line md:underline-offset-8 md:hover:decoration-gold"
               >
                 Get started →
               </TrackedCta>

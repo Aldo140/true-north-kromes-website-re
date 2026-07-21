@@ -153,14 +153,53 @@ export function GalleryPreview() {
             </h2>
             <Link
               href="/gallery"
-              className="text-sm font-medium text-ink transition-colors hover:text-gold-dim"
+              className="inline-flex min-h-11 items-center text-sm font-medium text-ink transition-colors active:text-gold-dim md:min-h-0 md:hover:text-gold-dim"
             >
               View gallery &rarr;
             </Link>
           </div>
         </Reveal>
 
-        <div className="-mx-5 mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-4 lg:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="-mx-5 mt-9 md:hidden">
+          <Link href="/gallery" className="block transition-transform duration-200 active:scale-[0.985]">
+            <Specimen
+              src={sitePath("/images/opt/framework-tweezers.jpg")}
+              alt="Raw laser-printed cobalt-chrome partial framework standing in the metal powder bed"
+              label="SPEC 019 — AS PRINTED"
+              aspectClass="aspect-[16/10]"
+              className="[&>figcaption]:px-5"
+            />
+          </Link>
+          <div className="mt-6 grid grid-cols-2 gap-x-3 gap-y-7 px-5">
+            <Link href="/gallery" className="block transition-transform duration-200 active:scale-[0.975]">
+              <Specimen
+                src={sitePath("/images/opt/chrome-crowns.jpg")}
+                alt="Polished upper partial framework seated over crowns"
+                label="SPEC 021 — FIT CHECK"
+                aspectClass="aspect-[3/4]"
+              />
+            </Link>
+            <Link href="/gallery" className="mt-9 block transition-transform duration-200 active:scale-[0.975]">
+              <Specimen
+                src={sitePath("/images/opt/framework-clasps.jpg")}
+                alt="Raw SLM-printed frameworks on their build plate supports"
+                label="SPEC 007 — BUILD PLATE"
+                aspectClass="aspect-[3/4]"
+              />
+            </Link>
+          </div>
+          <Link href="/gallery" className="mt-7 block transition-transform duration-200 active:scale-[0.985]">
+            <Specimen
+              src={sitePath("/images/opt/framework-full.jpg")}
+              alt="Plasma-polished upper partial framework seated on its model"
+              label="SPEC 011 — POLISHED"
+              aspectClass="aspect-[16/9]"
+              className="[&>figcaption]:px-5"
+            />
+          </Link>
+        </div>
+
+        <div className="-mx-5 mt-10 hidden snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-4 md:flex lg:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <Specimen
             src={sitePath("/images/opt/framework-tweezers.jpg")}
             alt="Raw laser-printed cobalt-chrome partial framework standing in the metal powder bed"
@@ -190,7 +229,7 @@ export function GalleryPreview() {
             className="w-[76vw] shrink-0 snap-center"
           />
         </div>
-        <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.16em] text-ink/40 lg:hidden">Swipe through recent work →</p>
+        <p className="mt-3 hidden font-mono text-[9px] uppercase tracking-[0.16em] text-ink/40 md:block lg:hidden">Swipe through recent work →</p>
 
         <div className="mt-14 hidden grid-cols-1 gap-y-14 lg:mt-20 lg:grid lg:grid-cols-12 lg:gap-x-8">
           {/* Column A — wide anchor image plus two staggered satellites */}

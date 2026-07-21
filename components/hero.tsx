@@ -89,6 +89,12 @@ export function Hero() {
   const [active, setActive] = useState(0)
   const [paused, setPaused] = useState(false)
 
+  const selectStage = (index: number) => {
+    elapsedRef.current = 0
+    progress.set(0)
+    setActive(index)
+  }
+
   // Timer: linear fill 0 -> 1 over the active stage's duration, then advance.
   // Pauses on hover, resets cleanly on stage change.
   const progress = useMotionValue(0)
@@ -198,11 +204,11 @@ export function Hero() {
       />
 
       {/* Lower-third copy — visible immediately, no entrance animation */}
-      <div className="relative z-10 w-full px-5 pb-8 sm:px-6 sm:pb-12 md:pb-16 lg:px-12">
+      <div className="relative z-10 w-full px-5 pb-5 sm:px-6 sm:pb-12 md:pb-16 lg:px-12">
         <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold">
           CO-CR · SLM · IN-HOUSE
         </p>
-        <h1 className="mt-4 max-w-[14ch] text-balance font-sans text-[clamp(2.25rem,10vw,4.5rem)] font-medium leading-[0.98] tracking-[-0.03em] text-paper">
+        <h1 className="mt-4 max-w-[14ch] text-balance font-sans text-[clamp(2.45rem,10.6vw,3rem)] font-medium leading-[0.96] tracking-[-0.03em] text-paper md:text-[clamp(2.25rem,10vw,4.5rem)] md:leading-[0.98]">
           <span className="block">3D-printed dental frameworks.</span>
           <span className="block">Designed, not cast.</span>
         </h1>
@@ -212,7 +218,7 @@ export function Hero() {
         </p>
         <Link
           href="#process"
-          className="mt-7 inline-block border-b border-gold pb-1 text-sm text-paper transition-colors hover:text-gold"
+          className="mt-5 inline-flex min-h-11 items-center border-b border-gold text-sm text-paper transition-colors active:text-gold md:mt-7 md:min-h-0 md:pb-1 md:hover:text-gold"
         >
           See the process →
         </Link>
@@ -222,8 +228,80 @@ export function Hero() {
           Deliberately NOT entrance-animated: it must be visible in the
           server-rendered HTML before JS hydrates (slow connections). */}
       <nav
+        aria-label="Production stage control"
+        className="relative z-10 border-t border-line bg-ink/90 pb-[env(safe-area-inset-bottom)] md:hidden"
+      >
+        <div className="flex items-center justify-between gap-1 px-5 py-2">
+          <div className="flex gap-1" role="group" aria-label="Select production stage">
+            {STAGES.map((stage, i) => (
+              <button
+                key={stage.num}
+                type="button"
+                aria-pressed={i === active}
+                aria-label={`${stage.num}: ${stage.label}`}
+                onClick={() => selectStage(i)}
+                className={`relative grid min-h-11 min-w-11 place-items-center border font-mono text-[10px] tracking-[0.16em] transition-[background-color,color,transform] duration-200 active:scale-95 ${
+                  i === active
+                    ? "border-gold bg-gold text-ink"
+                    : "border-line text-paper/65 active:bg-paper/10"
+                }`}
+              >
+                {stage.num}
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => setPaused((value) => !value)}
+            aria-pressed={paused}
+            aria-label={paused ? "Resume production sequence" : "Pause production sequence"}
+            className="grid min-h-11 min-w-11 place-items-center border border-line font-mono text-[10px] text-paper transition-colors active:bg-paper/10"
+          >
+            {paused ? "▶" : "Ⅱ"}
+          </button>
+        </div>
+
+        <Link
+          href="/services"
+          aria-label={`${STAGES[active].label} — view services`}
+          className="group relative grid min-h-[5.25rem] grid-cols-[5.5rem_1fr_auto] items-center gap-4 border-t border-line px-5 py-3 active:bg-paper/[0.04]"
+        >
+          <div className="relative h-14 overflow-hidden bg-ink-soft">
+            <motion.img
+              key={STAGES[active].num}
+              src={STAGES[active].src}
+              alt=""
+              initial={reduced ? false : { opacity: 0, scale: 1.04 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: DUR.fast, ease: EASE_MECH }}
+              className="h-full w-full object-cover"
+            />
+            <ViewfinderBrackets animate={!reduced} />
+          </div>
+          <div className="min-w-0">
+            <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-gold">
+              ACTIVE STAGE · {STAGES[active].num}/04
+            </p>
+            <p className="mt-1 truncate font-mono text-[11px] uppercase tracking-[0.16em] text-paper">
+              {STAGES[active].label}
+            </p>
+          </div>
+          <span aria-hidden="true" className="text-xl text-paper transition-transform duration-200 group-active:translate-x-1">
+            →
+          </span>
+          {!reduced && !paused && (
+            <motion.span
+              aria-hidden="true"
+              className="absolute inset-x-0 bottom-0 h-px origin-left bg-gold"
+              style={{ scaleX: progress }}
+            />
+          )}
+        </Link>
+      </nav>
+
+      <nav
         aria-label="Production process"
-        className="relative z-10 border-t border-line pb-[env(safe-area-inset-bottom)]"
+        className="relative z-10 hidden border-t border-line pb-[env(safe-area-inset-bottom)] md:block"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
         onFocus={() => setPaused(true)}

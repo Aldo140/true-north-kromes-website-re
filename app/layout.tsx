@@ -106,6 +106,12 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body className={`${inter.variable} ${plexMono.variable} font-sans antialiased`}>
+        <a
+          href="#site-content"
+          className="fixed left-3 top-3 z-[110] -translate-y-20 bg-gold px-4 py-3 font-mono text-[10px] uppercase tracking-[0.16em] text-ink transition-transform focus:translate-y-0"
+        >
+          Skip to content
+        </a>
         {GA_MEASUREMENT_ID && (
           <>
             <Script
@@ -191,7 +197,7 @@ export default function RootLayout({
         <PrecisionCursor />
         <div className="grain" aria-hidden="true" />
         <Navigation />
-        <main>{children}</main>
+        <main id="site-content" tabIndex={-1}>{children}</main>
         <Footer />
         <StickyQuote />
       </body>

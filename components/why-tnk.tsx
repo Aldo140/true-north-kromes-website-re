@@ -78,19 +78,34 @@ function SpecRow({ index, label, claim }: SpecRowProps) {
   const delay = index * 0.1
 
   const content = (
-    <div className="grid gap-3 py-6 md:grid-cols-12 md:gap-8 md:py-10">
-      <div className="flex items-baseline gap-4 md:col-span-4">
-        <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper/40">
-          {number}
-        </span>
-        <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper">
-          {label}
-        </h3>
+    <>
+      <div className="grid grid-cols-[3.25rem_1fr] md:hidden">
+        <div className="flex items-start justify-center border-r border-line py-6">
+          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
+            {number}
+          </span>
+        </div>
+        <div className="px-4 py-6">
+          <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper">
+            {label}
+          </h3>
+          <p className="mt-3 text-[15px] leading-7 text-paper/85">{claim}</p>
+        </div>
       </div>
-      <p className="max-w-2xl text-base leading-relaxed text-paper/85 sm:text-lg md:col-span-8">
-        {claim}
-      </p>
-    </div>
+      <div className="hidden gap-3 py-6 md:grid md:grid-cols-12 md:gap-8 md:py-10">
+        <div className="flex items-baseline gap-4 md:col-span-4">
+          <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper/40">
+            {number}
+          </span>
+          <h3 className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper">
+            {label}
+          </h3>
+        </div>
+        <p className="max-w-2xl text-base leading-relaxed text-paper/85 sm:text-lg md:col-span-8">
+          {claim}
+        </p>
+      </div>
+    </>
   )
 
   if (reduced) {
@@ -107,7 +122,7 @@ function SpecRow({ index, label, claim }: SpecRowProps) {
       {/* Laser pass: a 1px gold line sweeps once left-to-right, then fades. */}
       <motion.span
         aria-hidden="true"
-        className="motion-only pointer-events-none absolute inset-y-0 left-0 w-px bg-gold"
+        className="motion-only pointer-events-none absolute inset-y-0 left-0 hidden w-px bg-gold md:block"
         variants={{
           hidden: { left: "0%", opacity: 0 },
           visible: {
@@ -166,7 +181,10 @@ export function WhyTNK() {
           <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper">
             SPEC — PRINTED vs CAST
           </h2>
-          <span className="hidden font-mono text-[11px] uppercase tracking-[0.18em] text-paper/40 sm:block">
+          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-paper/40 md:hidden">
+            <PrecisionDial />
+          </span>
+          <span className="hidden font-mono text-[11px] uppercase tracking-[0.18em] text-paper/40 md:block">
             CO-CR · SLM · <PrecisionDial />
           </span>
         </div>
@@ -186,7 +204,13 @@ export function WhyTNK() {
         >
           <Link
             href="/blog/benefits-of-3d-printed-frameworks"
-            className="text-sm text-paper underline decoration-line underline-offset-4 transition-colors hover:decoration-gold"
+            className="flex min-h-12 items-center justify-between border border-line px-4 font-mono text-[10px] uppercase tracking-[0.16em] text-paper transition-colors active:border-gold md:hidden"
+          >
+            Full comparison →
+          </Link>
+          <Link
+            href="/blog/benefits-of-3d-printed-frameworks"
+            className="hidden text-sm text-paper underline decoration-line underline-offset-4 transition-colors hover:decoration-gold md:inline"
           >
             Full comparison →
           </Link>

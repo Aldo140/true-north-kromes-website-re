@@ -5,13 +5,17 @@ import { trackEvent } from "@/lib/analytics"
 export function ContactInfo() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
   const linkClass =
-    "font-mono text-xs tracking-[0.02em] text-ink underline decoration-line-dark underline-offset-4 transition-colors hover:decoration-gold-dim hover:text-gold-dim"
+    "inline-flex min-h-11 items-center font-mono text-xs tracking-[0.02em] text-paper underline decoration-paper/40 underline-offset-4 transition-colors max-md:active:text-gold hover:decoration-gold-dim hover:text-gold md:inline md:min-h-0 md:text-ink md:decoration-line-dark md:hover:text-gold-dim motion-reduce:transition-none"
+  const rowClass =
+    "grid min-h-16 grid-cols-[4.5rem_1fr] items-center gap-3 border-t border-line py-3 min-[380px]:grid-cols-[7rem_1fr] min-[380px]:gap-4 md:min-h-0 md:items-baseline md:border-line-dark md:py-4"
+  const termClass =
+    "font-mono text-[11px] uppercase tracking-[0.16em] text-paper/55 md:tracking-[0.18em] md:text-ink/50"
 
   return (
-    <dl className="mt-14 border-b border-line-dark" aria-label="Contact information">
+    <dl className="mt-10 border-b border-line bg-ink px-4 text-paper md:mt-14 md:border-line-dark md:bg-transparent md:px-0 md:text-ink" aria-label="Contact information">
       {/* Phone */}
-      <div className="grid grid-cols-[5rem_1fr] items-baseline gap-3 border-t border-line-dark py-4 min-[380px]:grid-cols-[7rem_1fr] min-[380px]:gap-4">
-        <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50">
+      <div className={rowClass}>
+        <dt className={termClass}>
           Phone
         </dt>
         <dd>
@@ -26,8 +30,8 @@ export function ContactInfo() {
       </div>
 
       {/* Email */}
-      <div className="grid grid-cols-[5rem_1fr] items-baseline gap-3 border-t border-line-dark py-4 min-[380px]:grid-cols-[7rem_1fr] min-[380px]:gap-4">
-        <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50">
+      <div className={rowClass}>
+        <dt className={termClass}>
           Email
         </dt>
         <dd className="min-w-0">
@@ -42,19 +46,19 @@ export function ContactInfo() {
       </div>
 
       {/* Address */}
-      <div className="grid grid-cols-[5rem_1fr] items-baseline gap-3 border-t border-line-dark py-4 min-[380px]:grid-cols-[7rem_1fr] min-[380px]:gap-4">
-        <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50">
+      <div className={rowClass}>
+        <dt className={termClass}>
           Address
         </dt>
-        <dd className="font-mono text-xs leading-relaxed tracking-[0.02em] text-ink">
+        <dd className="font-mono text-xs leading-relaxed tracking-[0.02em] text-paper md:text-ink">
           204 A River Avenue<br />
           Cochrane, AB T4C 2C1
         </dd>
       </div>
 
       {/* Instagram */}
-      <div className="grid grid-cols-[5rem_1fr] items-baseline gap-3 border-t border-line-dark py-4 min-[380px]:grid-cols-[7rem_1fr] min-[380px]:gap-4">
-        <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50">
+      <div className={rowClass}>
+        <dt className={termClass}>
           Instagram
         </dt>
         <dd>
@@ -70,8 +74,8 @@ export function ContactInfo() {
       </div>
 
       {/* Downloads */}
-      <div className="grid grid-cols-[5rem_1fr] items-baseline gap-3 border-t border-line-dark py-4 min-[380px]:grid-cols-[7rem_1fr] min-[380px]:gap-4">
-        <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50">
+      <div className={rowClass}>
+        <dt className={termClass}>
           Downloads
         </dt>
         <dd>

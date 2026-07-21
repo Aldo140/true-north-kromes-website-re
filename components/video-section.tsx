@@ -32,10 +32,55 @@ function MonitorBrackets() {
 export function VideoSection() {
   return (
     <section
-      className="bg-ink py-16 text-paper md:py-24 lg:py-28"
+      className="bg-ink py-14 text-paper md:py-24 lg:py-28"
       aria-label="Process videos"
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
+        <div className="md:hidden">
+          <div className="flex items-center gap-4">
+            <p className="font-mono text-[10px] uppercase tracking-[0.17em] text-gold">
+              Station feed / Medit ecosystem
+            </p>
+            <span className="h-px flex-1 bg-line" aria-hidden="true" />
+          </div>
+          <h2 className="mt-5 max-w-[9ch] text-balance text-[2.4rem] font-semibold leading-[0.95] tracking-[-0.035em]">
+            Process Videos
+          </h2>
+
+          <div className="-mx-5 mt-9 flex snap-x snap-mandatory overflow-x-auto border-y border-line pl-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {videos.map((video, i) => (
+              <figure key={`mobile-${video.id}`} className="w-[86vw] shrink-0 snap-start border-r border-line bg-ink-soft first:border-l first:border-l-gold/60">
+                <div className="flex min-h-12 items-center justify-between border-b border-line px-4 font-mono text-[9px] uppercase tracking-[0.14em]">
+                  <span className="text-gold">Feed {String(i + 1).padStart(2, "0")}</span>
+                  <span className="text-paper/65">Medit instruction</span>
+                </div>
+                <div className="aspect-video w-full overflow-hidden bg-black">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={`https://www.youtube.com/embed/${video.id}`}
+                    title={video.title}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="h-full w-full"
+                  />
+                </div>
+                <figcaption className="p-5">
+                  <h3 className="max-w-[24ch] text-balance text-lg font-semibold leading-6 tracking-[-0.02em]">{video.title}</h3>
+                  <p className="mt-3 text-[15px] leading-[1.65] text-paper/72">{video.description}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+          <div className="mt-4 flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.14em] text-paper/65">
+            <span className="text-gold">Swipe</span>
+            <span className="h-px flex-1 bg-line" aria-hidden="true" />
+            <span>01-02</span>
+          </div>
+        </div>
+
+        <div className="hidden md:block">
         {/* Monitoring-station header row */}
         <div className="flex items-baseline justify-between gap-4">
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold">
@@ -86,6 +131,7 @@ export function VideoSection() {
               </figure>
             </Reveal>
           ))}
+        </div>
         </div>
       </div>
     </section>

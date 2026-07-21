@@ -52,7 +52,7 @@ const SECTIONS = [
 
 export default function TermsPage() {
   return (
-    <section className="bg-paper pb-16 pt-32 md:pt-40 lg:pb-28 lg:pt-48">
+    <section className="bg-paper pb-[max(4rem,calc(2rem+env(safe-area-inset-bottom)))] pt-[calc(7.5rem+env(safe-area-inset-top))] md:pb-16 md:pt-40 lg:pb-28 lg:pt-48">
       <div className="mx-auto max-w-3xl px-5 sm:px-6">
         <Reveal y={10}>
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">Legal</p>
@@ -69,17 +69,32 @@ export default function TermsPage() {
           </p>
         </Reveal>
 
-        <div className="mt-10 mb-10 h-px bg-line-dark" aria-hidden="true" />
+        <div className="mt-8 h-px bg-line-dark md:mt-10 md:mb-10" aria-hidden="true" />
 
-        <div className="space-y-10">
+        <nav className="sticky top-[calc(4.5rem+env(safe-area-inset-top))] z-10 -mx-5 border-b border-line-dark bg-paper/95 px-5 md:hidden" aria-label="Terms of service sections">
+          <div className="flex min-h-14 items-center gap-5 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.16em] text-gold-dim">On this page</span>
+            {SECTIONS.map((section) => (
+              <a
+                key={section.heading}
+                href={`#terms-${section.heading.toLowerCase().replaceAll(" ", "-")}`}
+                className="inline-flex min-h-11 shrink-0 items-center font-mono text-[11px] text-ink/75 underline decoration-line-dark underline-offset-4 active:text-gold-dim"
+              >
+                {section.heading}
+              </a>
+            ))}
+          </div>
+        </nav>
+
+        <div className="mt-9 space-y-12 md:mt-0 md:space-y-10">
           {SECTIONS.map((section, i) => (
-            <div key={section.heading}>
+            <div id={`terms-${section.heading.toLowerCase().replaceAll(" ", "-")}`} className="scroll-mt-36" key={section.heading}>
               <DrawRule className="h-px bg-line-dark" delay={i * 0.05} />
-              <Reveal y={10} delay={i * 0.05 + 0.08} className="pt-6">
-                <h2 className="font-sans text-xl font-medium tracking-[-0.02em] text-ink">
+              <Reveal y={10} delay={i * 0.05 + 0.08} className="pt-5 md:pt-6">
+                <h2 className="font-sans text-[1.375rem] font-medium leading-tight tracking-[-0.02em] text-ink md:text-xl md:leading-[1.75rem]">
                   {section.heading}
                 </h2>
-                <div className="mt-3 space-y-3 text-base leading-[1.8] text-ink/75">
+                <div className="mt-4 max-w-[68ch] space-y-4 text-[1.0625rem] leading-[1.75] text-ink/80 md:mt-3 md:max-w-none md:space-y-3 md:text-base md:leading-[1.8] md:text-ink/75">
                   {section.body.map((p) => (
                     <p key={p}>{p}</p>
                   ))}
@@ -89,18 +104,18 @@ export default function TermsPage() {
           ))}
         </div>
 
-        <div className="mt-16 bg-ink p-8 sm:p-10">
+        <div className="mt-14 bg-ink p-5 py-7 sm:p-10 md:mt-16">
           <div className="h-px w-12 bg-gold" aria-hidden="true" />
           <h3 className="mt-6 font-sans text-xl font-medium tracking-[-0.02em] text-paper">
             Questions about these terms?
           </h3>
-          <p className="mt-3 text-sm leading-relaxed text-paper/70">
+          <p className="mt-3 text-base leading-relaxed text-paper/75 md:text-sm md:text-paper/70">
             Email{" "}
-            <a href="mailto:truenorthkromes@gmail.com" className="text-gold underline underline-offset-4">
+            <a href="mailto:truenorthkromes@gmail.com" className="inline-flex min-h-11 items-center text-gold underline underline-offset-4 md:inline md:min-h-0">
               truenorthkromes@gmail.com
             </a>{" "}
             or call{" "}
-            <a href="tel:+18076247222" className="text-gold underline underline-offset-4">
+            <a href="tel:+18076247222" className="inline-flex min-h-11 items-center text-gold underline underline-offset-4 md:inline md:min-h-0">
               807.624.7222
             </a>
             .

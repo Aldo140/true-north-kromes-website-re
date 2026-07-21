@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { AnimatePresence, motion, useReducedMotion } from "motion/react"
+import { AnimatePresence, motion, useReducedMotion, useScroll } from "motion/react"
 import { Menu, X } from "lucide-react"
 import { Wordmark } from "./wordmark"
 import { sitePath } from "@/lib/site-path"
@@ -31,11 +31,14 @@ export function Navigation() {
   const [keyboardMode, setKeyboardMode] = useState(false)
   const pathname = usePathname()
   const reduced = useReducedMotion()
+  const { scrollYProgress } = useScroll()
   const closeRef = useRef<HTMLButtonElement>(null)
   const openRef = useRef<HTMLButtonElement>(null)
   const dialogRef = useRef<HTMLDivElement>(null)
   const isDarkSurface = pathname === "/" || pathname === "/services" || pathname === "/gallery"
   const disableMotion = reduced || keyboardMode
+  const activeRoute = navLinks.find((link) => pathname === link.href)
+  const mobileRouteLabel = pathname === "/" ? "00 · Home" : activeRoute ? `${String(navLinks.indexOf(activeRoute) + 1).padStart(2, "0")} · ${activeRoute.label}` : "TNK · Record"
 
   useEffect(() => setOpen(false), [pathname])
 
@@ -95,10 +98,18 @@ export function Navigation() {
             aria-controls="site-menu-overlay"
             className={`relative z-10 flex min-h-11 min-w-11 items-center justify-center gap-3 px-2 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors active:scale-[0.97] ${isDarkSurface ? "text-paper hover:text-gold" : "text-ink hover:text-gold-dim"}`}
           >
+            <span className={`text-right font-mono text-[8px] uppercase leading-3 tracking-[0.14em] md:hidden ${isDarkSurface ? "text-paper/48" : "text-ink/48"}`} aria-hidden="true">
+              {mobileRouteLabel}
+            </span>
             <span className="hidden md:inline">Menu</span>
             <Menu className="h-5 w-5" />
           </button>
         </div>
+        <motion.span
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-px origin-left bg-gold md:hidden"
+          style={{ scaleX: scrollYProgress }}
+        />
       </nav>
 
       <AnimatePresence>

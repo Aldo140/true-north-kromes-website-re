@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react"
 import Link from "next/link"
-import { MessageSquare, X } from "lucide-react"
+import { MessageSquare, Phone, X } from "lucide-react"
 import { useMotionValueEvent, useScroll } from "motion/react"
 import { trackEvent } from "@/lib/analytics"
 import { usePathname } from "next/navigation"
@@ -34,6 +34,14 @@ export function StickyQuote() {
         <MessageSquare className="h-3.5 w-3.5" />
         Get a quote
       </Link>
+      <a
+        href="tel:+18076247222"
+        onClick={() => trackEvent("contact_click", { method: "phone", location: "sticky_quote" })}
+        className="flex h-12 w-12 shrink-0 items-center justify-center border border-line bg-ink text-paper/75 shadow-lg transition-colors active:border-gold active:text-gold md:hidden"
+        aria-label="Call True North Kromes"
+      >
+        <Phone className="h-4 w-4" />
+      </a>
       <button
         onClick={() => setDismissed(true)}
         className="flex h-12 w-12 shrink-0 items-center justify-center border border-line bg-ink text-paper/70 shadow-lg transition-colors hover:text-paper md:h-auto md:w-auto md:p-2.5"
