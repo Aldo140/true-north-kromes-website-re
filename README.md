@@ -83,6 +83,8 @@ Copy `.env.example` for local development. Production and Preview values are mai
 | `CONTACT_LEAD_EMAIL` | Yes in production | Primary contact-form recipient |
 | `CONTACT_LEAD_CC` | Optional | Additional recipient copied on leads |
 | `CONTACT_LEAD_FROM` | Yes in production | Verified sender, formatted as `Name <email@domain>` |
+| `SMTP_USER` | Temporary only | Google Workspace account used while Resend DNS is unavailable |
+| `SMTP_APP_PASSWORD` | Temporary only | Google app password; never use the account's normal password |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Optional | Enables GA4 and CTA event tracking |
 
 Never commit API keys or `.env.local`. The production sender should be:
@@ -92,6 +94,8 @@ True North Kromes Website <website@tnkromes.ca>
 ```
 
 Resend must show `tnkromes.ca` as **Verified** before that sender can deliver mail. See [DEV.md](./DEV.md) for the full email setup and verification procedure.
+
+When both temporary SMTP variables are set, the contact endpoint deliberately uses Google SMTP before Resend. Remove both SMTP variables and redeploy once Resend is verified.
 
 ## Deployment
 

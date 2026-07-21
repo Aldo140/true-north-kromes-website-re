@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server"
+import nodemailer from "nodemailer"
 import { Resend } from "resend"
 
 export const runtime = "nodejs"
@@ -6,6 +7,22 @@ export const runtime = "nodejs"
 const LEAD_TO = process.env.CONTACT_LEAD_EMAIL || "truenorthkromes@gmail.com"
 const LEAD_FROM = process.env.CONTACT_LEAD_FROM || "True North Kromes Website <onboarding@resend.dev>"
 const LEAD_CC = process.env.CONTACT_LEAD_CC || "jorti104@mtroyal.ca"
+
+function getDeliveryConfig() {
+  const smtpUser = process.env.SMTP_USER?.trim()
+  const smtpAppPassword = process.env.SMTP_APP_PASSWORD?.trim()
+  const resendApiKey = process.env.RESEND_API_KEY?.trim()
+
+  if (smtpUser && smtpAppPassword) {
+    return { type: "smtp" as const, smtpUser, smtpAppPassword }
+  }
+
+  if (resendApiKey) {
+    return { type: "resend" as const, resendApiKey }
+  }
+
+  return null
+}
 
 function escapeHtml(value: string) {
   return value
@@ -15,9 +32,9 @@ function escapeHtml(value: string) {
 }
 
 export async function POST(request: Request) {
-  const apiKey = process.env.RESEND_API_KEY
-  if (!apiKey) {
-    console.error("RESEND_API_KEY is not set — contact form cannot deliver leads.")
+  const delivery = getDeliveryConfig()
+  if (!delivery) {
+    console.error("No contact-form email transport is configured.")
     return NextResponse.json(
       { error: "Contact form is not configured yet. Please call or email us directly." },
       { status: 503 }
@@ -65,19 +82,49 @@ export async function POST(request: Request) {
     </table>
   `
 
-  try {
-    const resend = new Resend(apiKey)
-    const { error } = await resend.emails.send({
-      from: LEAD_FROM,
-      to: LEAD_TO,
-      cc: LEAD_CC,
-      subject: `New case request — ${name}`,
-      html,
-    })
+  const text = [
+    "New case request from tnkromes.ca",
+    "",
+    ...rows.map(([label, value]) => `${label}: ${value}`),
+  ].join("\n")
 
-    if (error) {
-      console.error("Resend error:", error)
-      return NextResponse.json({ error: "Failed to send. Please try again." }, { status: 502 })
+  const subject = `New case request — ${name}`
+
+  try {
+    if (delivery.type === "smtp") {
+      const transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: {
+          user: delivery.smtpUser,
+          pass: delivery.smtpAppPassword,
+        },
+      })
+
+      await transporter.sendMail({
+        from: `True North Kromes Website <${delivery.smtpUser}>`,
+        to: LEAD_TO,
+        cc: LEAD_CC,
+        subject,
+        text,
+        html,
+      })
+    } else {
+      const resend = new Resend(delivery.resendApiKey)
+      const { error } = await resend.emails.send({
+        from: LEAD_FROM,
+        to: LEAD_TO,
+        cc: LEAD_CC,
+        subject,
+        text,
+        html,
+      })
+
+      if (error) {
+        console.error("Resend error:", error)
+        return NextResponse.json({ error: "Failed to send. Please try again." }, { status: 502 })
+      }
     }
 
     return NextResponse.json({ ok: true })

@@ -155,6 +155,8 @@ RESEND_API_KEY=
 CONTACT_LEAD_EMAIL=
 CONTACT_LEAD_CC=
 CONTACT_LEAD_FROM=True North Kromes Website <website@tnkromes.ca>
+SMTP_USER=
+SMTP_APP_PASSWORD=
 NEXT_PUBLIC_GA_MEASUREMENT_ID=
 ```
 
@@ -172,6 +174,12 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=
 `CONTACT_LEAD_FROM`
 : Resend sender. Use the exact friendly-address format `True North Kromes Website <website@tnkromes.ca>`. The domain must be verified by Resend.
 
+`SMTP_USER`
+: Temporary Google Workspace sender. When this and `SMTP_APP_PASSWORD` are both present, SMTP takes precedence over Resend.
+
+`SMTP_APP_PASSWORD`
+: Temporary 16-character Google app password. Never use the account's normal password. Mark it Sensitive in Vercel and revoke it after removal.
+
 `NEXT_PUBLIC_GA_MEASUREMENT_ID`
 : Optional. Because it is public and bundled into client output, it must not contain a secret.
 
@@ -187,6 +195,8 @@ Environment-variable changes affect only new deployments. Redeploy Production af
 4. User input is escaped before inclusion in the HTML email.
 5. Resend sends the lead to the primary and CC recipients.
 6. A successful request emits the GA4 `generate_lead` event when GA4 is enabled.
+
+While both SMTP variables are configured, step 5 uses authenticated Google SMTP instead. This temporary route still delivers to both `CONTACT_LEAD_EMAIL` and `CONTACT_LEAD_CC`; removing either SMTP variable restores the Resend path automatically.
 
 Required fields are name, telephone, file type, and monthly volume. Address, city, and postal code are optional.
 
@@ -206,6 +216,18 @@ After verification:
 6. Confirm a `Delivered` event in Resend Logs.
 
 The Resend API key should have Sending access only. It is currently scoped to all domains because the domain was not selectable while pending; it may be rotated to a domain-scoped key after verification.
+
+### Temporary Google Workspace transport
+
+If domain verification is blocked, use a Google Workspace account controlled by the site operator:
+
+1. Enable 2-Step Verification on that Google account.
+2. Generate a dedicated app password named `TNK website temporary`.
+3. Add `SMTP_USER` and `SMTP_APP_PASSWORD` to Vercel Production and Preview as Sensitive values.
+4. Redeploy and submit one test lead.
+5. Confirm both recipients receive the message.
+
+Do not share the app password through chat, email, screenshots, or Git. Once Resend is verified, remove both SMTP variables, redeploy, test Resend delivery, and revoke the Google app password.
 
 ### Current limitations
 
