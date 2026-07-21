@@ -58,6 +58,7 @@ export function StickyMediaStory({
             <motion.article
               key={`${item.title}-${index}`}
               initial={reduced ? false : { opacity: 1, transform: "translateY(18px)" }}
+              animate={reduced ? { opacity: 1, transform: "translateY(0px)" } : undefined}
               whileInView={reduced ? undefined : { opacity: 1, transform: "translateY(0px)" }}
               viewport={{ once: true, amount: 0.42 }}
               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
@@ -134,6 +135,10 @@ export function TypewriterHeadline({
     const timer = window.setTimeout(() => setCount((value) => value + 1), speed)
     return () => window.clearTimeout(timer)
   }, [count, reduced, speed, started, text.length])
+
+  if (reduced) {
+    return <Tag ref={ref} id={id} className={className}>{text}</Tag>
+  }
 
   return (
     <Tag ref={ref} id={id} className={`relative ${className}`}>
@@ -239,7 +244,7 @@ export function VerticalScrollTimeline({ items }: { items: readonly TimelineItem
   const lineTransform = useTransform(lineScale, (value) => `scaleY(${value})`)
 
   return (
-    <div ref={sectionRef} className="relative mx-auto mt-20 max-w-6xl lg:mt-28">
+    <div ref={sectionRef} className="relative mx-auto mt-14 max-w-6xl md:mt-20 lg:mt-28">
       <div className="absolute bottom-0 left-[7px] top-0 w-px bg-paper/20 lg:left-1/2" aria-hidden="true" />
       <motion.div
         className="absolute bottom-0 left-[7px] top-0 w-[2px] origin-top bg-gold lg:left-1/2"
@@ -247,7 +252,7 @@ export function VerticalScrollTimeline({ items }: { items: readonly TimelineItem
         aria-hidden="true"
       />
 
-      <ol className="space-y-16 lg:space-y-24">
+      <ol className="space-y-12 md:space-y-16 lg:space-y-24">
         {items.map((item, index) => {
           const left = index % 2 === 0
           return (
@@ -255,6 +260,7 @@ export function VerticalScrollTimeline({ items }: { items: readonly TimelineItem
               <span className="absolute left-0 top-2 z-10 h-[15px] w-[15px] bg-gold ring-[6px] ring-ink lg:left-1/2 lg:-translate-x-1/2" aria-hidden="true" />
               <motion.article
                 initial={reduced ? false : { opacity: 1, transform: `translateX(${left ? "-18px" : "18px"})` }}
+                animate={reduced ? { opacity: 1, transform: "translateX(0px)" } : undefined}
                 whileInView={reduced ? undefined : { opacity: 1, transform: "translateX(0px)" }}
                 viewport={{ once: true, amount: 0.45 }}
                 transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}

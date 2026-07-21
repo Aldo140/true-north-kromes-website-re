@@ -128,7 +128,8 @@ function SpecimenCard({ specimen, index, onOpen }: { specimen: Specimen; index: 
       onClick={onOpen}
       aria-label={`Open ${specimen.code} — ${specimen.title}`}
       className="group block w-full text-left focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-dim"
-      initial={reduced ? undefined : { opacity: 0, y: 18 }}
+      initial={reduced ? false : { opacity: 1, y: 18 }}
+      animate={reduced ? { opacity: 1, y: 0 } : undefined}
       whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.55, delay: (index % 3) * 0.06, ease: EASE_MECH }}
@@ -142,11 +143,11 @@ function SpecimenCard({ specimen, index, onOpen }: { specimen: Specimen; index: 
             className={`${specimen.aspect === "landscape" ? "aspect-[16/10]" : "aspect-[4/5]"} w-full object-cover transition duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.025] group-hover:opacity-90`}
           />
           <div className="absolute inset-0 bg-ink/0 transition-colors duration-300 group-hover:bg-ink/10" />
-          <span className="absolute bottom-3 right-3 z-10 flex h-9 w-9 items-center justify-center bg-paper text-ink opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <span className="absolute bottom-2 right-2 z-10 flex h-9 w-9 items-center justify-center bg-paper text-ink opacity-100 transition-opacity duration-300 md:bottom-3 md:right-3 md:opacity-0 md:group-hover:opacity-100">
             <ArrowUpRight className="h-4 w-4" />
           </span>
         </div>
-        <figcaption className="border-b border-line-dark py-4">
+        <figcaption className="border-b border-line-dark py-3 md:py-4">
           <div className="flex items-baseline justify-between gap-4">
             <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-gold-dim">
               {specimen.code}
@@ -155,10 +156,10 @@ function SpecimenCard({ specimen, index, onOpen }: { specimen: Specimen; index: 
               {String(index + 1).padStart(2, "0")} / 10
             </span>
           </div>
-          <p className="mt-2 font-sans text-base font-medium capitalize tracking-[-0.01em] text-ink">
+          <p className="mt-2 font-sans text-sm font-medium capitalize leading-5 tracking-[-0.01em] text-ink md:text-base">
             {specimen.title}
           </p>
-          <p className="mt-1 text-sm text-ink/55">{specimen.detail}</p>
+          <p className="mt-1 hidden text-sm text-ink/55 md:block">{specimen.detail}</p>
         </figcaption>
       </figure>
     </motion.button>
@@ -229,7 +230,7 @@ export default function GalleryPage() {
 
         <CrossfadeCarousel slides={carouselSlides} />
 
-        <section className="border-t border-line-dark bg-paper pb-24 pt-16 sm:pb-28 lg:pb-36" aria-label="Specimen collection">
+        <section className="border-t border-line-dark bg-paper pb-16 pt-14 md:pb-28 md:pt-16 lg:pb-36" aria-label="Specimen collection">
           <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
             <div className="flex flex-wrap items-end justify-between gap-5 border-b border-line-dark pb-5">
               <div>
@@ -238,12 +239,12 @@ export default function GalleryPage() {
               </div>
               <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink/45">Click any specimen to inspect</p>
             </div>
-            <div className="mt-12 grid gap-x-5 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-20">
+            <div className="mt-9 grid grid-cols-2 gap-x-3 gap-y-8 md:mt-12 md:gap-x-5 md:gap-y-14 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-20">
               {specimens.slice(1).map((specimen, index) => (
                 <SpecimenCard key={specimen.code} specimen={specimen} index={index + 1} onOpen={() => setLightbox(index + 1)} />
               ))}
             </div>
-            <div className="mt-20 border-t border-line-dark pt-6 sm:flex sm:items-center sm:justify-between">
+            <div className="mt-14 border-t border-line-dark pt-6 md:mt-20 sm:flex sm:items-center sm:justify-between">
               <p className="max-w-[42ch] text-sm leading-relaxed text-ink/60">Have a case that needs the same level of control?</p>
               <Link href="/contact" className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink underline decoration-line-dark underline-offset-8 transition-colors hover:text-gold-dim sm:mt-0">
                 Start a case <ArrowUpRight className="h-3.5 w-3.5" />

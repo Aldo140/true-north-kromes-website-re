@@ -101,14 +101,14 @@ export default function BlogPage() {
 
                     {/* Thumbnail — only for posts that have one */}
                     {post.image && (
-                      <div className="md:col-span-3">
+                      <div className="mt-2 md:col-span-3 md:mt-0">
                         <img
                           src={post.image}
                           alt={`${post.title} thumbnail`}
                           width={540}
                           height={704}
                           loading="lazy"
-                          className="aspect-[540/704] w-full max-w-[200px] border border-line-dark object-cover"
+                          className="aspect-[16/10] w-full border border-line-dark object-cover md:aspect-[540/704] md:max-w-[200px]"
                         />
                       </div>
                     )}

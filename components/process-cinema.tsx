@@ -10,7 +10,6 @@ import {
   useTransform,
   type MotionValue,
 } from "motion/react"
-import { Reveal } from "./motion-primitives"
 import { sitePath } from "@/lib/site-path"
 
 const STAGES = [
@@ -297,15 +296,23 @@ function FrameCounter({ activeFloat }: { activeFloat: MotionValue<number> }) {
  *  rest of the site, no swipe or tap required. */
 function StackedReveal() {
   return (
-    <section aria-label="Production process, step by step" className="bg-ink text-paper">
+    <section aria-label="Production process, step by step" className="overflow-hidden bg-ink py-16 text-paper md:py-20">
       <div className="flex items-baseline justify-between border-b border-line px-5 py-4">
         <p className={`${MONO} text-paper/70`}>THE PROCESS</p>
         <p className={`${MONO} text-paper/40`}>TNK · PRODUCTION</p>
       </div>
-      <div className="divide-y divide-line">
+      <div className="px-5 pt-8">
+        <h2 className="max-w-[10ch] text-balance text-[2.35rem] font-semibold leading-[0.96] tracking-[-0.035em]">
+          Four stations. One continuous line.
+        </h2>
+        <p className="mt-5 max-w-[34ch] text-[15px] leading-7 text-paper/65">
+          Swipe through the same sequence every framework follows inside our Cochrane lab.
+        </p>
+      </div>
+      <div className="mt-9 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {STAGES.map((stage, index) => (
-          <Reveal key={stage.num} y={28} amount={0.35} className="px-5 py-10">
-            <div className="relative aspect-[4/5] overflow-hidden border border-line-dark bg-ink-soft">
+          <article key={stage.num} className="w-[82vw] max-w-[21rem] shrink-0 snap-center border border-line bg-ink-soft">
+            <div className="relative aspect-[5/4] overflow-hidden bg-ink-soft">
               <img
                 src={stage.src}
                 alt={stage.alt}
@@ -319,14 +326,17 @@ function StackedReveal() {
                 <span className="absolute -bottom-px -right-px h-5 w-5 border-b border-r border-gold" />
               </div>
             </div>
-            <p className="mt-6 font-sans text-6xl font-semibold leading-none tracking-[-0.04em] text-paper/85">
-              {stage.num}
-            </p>
-            <p className={`${MONO} mt-4 text-gold`}>{stage.label}</p>
-            <p className="mt-3 max-w-sm text-base leading-relaxed text-paper/80">{stage.line}</p>
-          </Reveal>
+            <div className="p-5">
+              <div className="flex items-baseline justify-between gap-4">
+                <p className="font-sans text-5xl font-semibold leading-none tracking-[-0.04em] text-paper/25">{stage.num}</p>
+                <p className={`${MONO} text-right text-gold`}>{stage.label}</p>
+              </div>
+              <p className="mt-5 text-[15px] leading-7 text-paper/78">{stage.line}</p>
+            </div>
+          </article>
         ))}
       </div>
+      <p className="px-5 pt-2 font-mono text-[9px] uppercase tracking-[0.16em] text-paper/35">Swipe to move through the line →</p>
     </section>
   )
 }

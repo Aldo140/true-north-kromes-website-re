@@ -38,12 +38,12 @@ const BACKGROUND_LINES = [
 
 export function TimelineCinema() {
   return (
-    <section aria-labelledby="timeline-line-heading" className="relative isolate overflow-hidden bg-ink py-24 text-paper sm:py-28 lg:py-36">
+    <section aria-labelledby="timeline-line-heading" className="relative isolate overflow-hidden bg-ink py-16 text-paper md:py-28 lg:py-36">
       <AmbientMarquee rows={BACKGROUND_LINES} className="-z-10" />
       <div className="relative mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-16">
         <div className="max-w-3xl">
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">The TNK production line</p>
-          <h2 id="timeline-line-heading" className="mt-6 max-w-[11ch] text-balance font-sans text-[clamp(3.2rem,8vw,6rem)] font-medium leading-[0.9] tracking-[-0.04em] text-paper">
+          <h2 id="timeline-line-heading" className="mt-6 max-w-[11ch] text-balance font-sans text-[clamp(2.7rem,12vw,3.2rem)] font-medium leading-[0.92] tracking-[-0.04em] text-paper md:text-[clamp(3.2rem,8vw,6rem)]">
             From scan to doorstep.
           </h2>
           <p className="mt-7 max-w-xl text-base leading-7 text-paper/70 sm:text-lg">

@@ -78,7 +78,7 @@ function SpecRow({ index, label, claim }: SpecRowProps) {
   const delay = index * 0.1
 
   const content = (
-    <div className="grid gap-3 py-8 sm:py-10 md:grid-cols-12 md:gap-8">
+    <div className="grid gap-3 py-6 md:grid-cols-12 md:gap-8 md:py-10">
       <div className="flex items-baseline gap-4 md:col-span-4">
         <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper/40">
           {number}
@@ -92,6 +92,10 @@ function SpecRow({ index, label, claim }: SpecRowProps) {
       </p>
     </div>
   )
+
+  if (reduced) {
+    return <li className="border-t border-line">{content}</li>
+  }
 
   return (
     <motion.li
@@ -116,7 +120,7 @@ function SpecRow({ index, label, claim }: SpecRowProps) {
       {/* Row content is revealed behind the pass via a matching clip-path wipe. */}
       <motion.div
         variants={{
-          hidden: { clipPath: "inset(0 100% 0 0)" },
+          hidden: { clipPath: "inset(0 0% 0 0)" },
           visible: {
             clipPath: "inset(0 0% 0 0)",
             transition: { duration: DUR.slow, delay, ease: "linear" },
@@ -143,7 +147,7 @@ export function WhyTNK() {
   return (
     <section
       ref={sectionRef}
-      className="bg-ink py-20 text-paper sm:py-24 lg:py-32"
+      className="bg-ink py-16 text-paper md:py-24 lg:py-32"
       aria-label="Spec sheet: printed versus cast frameworks"
     >
       <div className="relative mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
@@ -175,7 +179,7 @@ export function WhyTNK() {
 
         <motion.div
           className="pt-8"
-          initial={reduced ? false : { opacity: 0 }}
+          initial={reduced ? false : { opacity: 1 }}
           whileInView={reduced ? undefined : { opacity: 1 }}
           viewport={{ once: true, amount: 1 }}
           transition={{ duration: DUR.base, delay: 0.2, ease: EASE_MECH }}

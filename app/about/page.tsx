@@ -99,7 +99,7 @@ export default function AboutPage() {
       </section>
 
       {/* ============ Location — make the lab easy to find ============ */}
-      <section className="bg-ink py-16 text-paper sm:py-20 lg:py-28" aria-label="Find True North Kromes">
+      <section className="bg-ink py-16 text-paper md:py-20 lg:py-28" aria-label="Find True North Kromes">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-16">
             <div>
@@ -165,7 +165,7 @@ export default function AboutPage() {
       <Ticker items={TICKER_ITEMS} />
 
       {/* ============ Under one roof — production line ============ */}
-      <section className="bg-paper pt-16 pb-24 sm:pb-32 lg:pt-24 lg:pb-40" aria-label="The production line, under one roof">
+      <section className="bg-paper pb-16 pt-16 md:pb-32 lg:pb-40 lg:pt-24" aria-label="The production line, under one roof">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
           <Reveal y={12}>
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">Production line</p>
@@ -211,8 +211,8 @@ export default function AboutPage() {
           <DrawRule className="h-px bg-line-dark" delay={STAGES.length * 0.08} />
 
           {/* Finishing floor — offset pair */}
-          <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:mt-24">
-            <Reveal y={20} amount={0.2}>
+          <div className="-mx-5 mt-14 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-3 md:mx-0 md:mt-16 md:grid md:grid-cols-2 md:gap-x-10 md:gap-y-12 md:overflow-visible md:px-0 lg:mt-24">
+            <Reveal y={20} amount={0.2} className="w-[78vw] shrink-0 snap-center md:w-auto">
               <img
                 src={sitePath("/images/opt/gallery-dlyte-sintering.jpg")}
                 alt="Co-Cr partial denture frameworks in the finishing area after printing"
@@ -225,7 +225,7 @@ export default function AboutPage() {
                 Frameworks off the build plate
               </p>
             </Reveal>
-            <Reveal y={20} amount={0.2} className="sm:mt-12 lg:mt-20">
+            <Reveal y={20} amount={0.2} className="w-[78vw] shrink-0 snap-center md:mt-12 md:w-auto lg:mt-20">
               <img
                 src={sitePath("/images/opt/dlyte-polishing.jpg")}
                 alt="DLyte polishing system finishing Co-Cr frameworks in-house"
@@ -239,9 +239,10 @@ export default function AboutPage() {
               </p>
             </Reveal>
           </div>
+          <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.16em] text-ink/40 md:hidden">Swipe across the finishing floor →</p>
 
           {/* Digital vs. analog — draft copy, confirm technical framing before publishing */}
-          <div className="mt-16 border-t border-line-dark pt-14 lg:mt-24 lg:pt-16">
+          <div className="mt-12 border-t border-line-dark pt-10 md:mt-16 md:pt-14 lg:mt-24 lg:pt-16">
             <div className="grid gap-x-10 gap-y-6 lg:grid-cols-12">
               <div className="lg:col-span-5">
                 <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">
@@ -268,7 +269,7 @@ export default function AboutPage() {
       </section>
 
       {/* ============ Material — licensed alloy (ink) ============ */}
-      <section className="bg-ink py-20 text-paper sm:py-24 lg:py-32" aria-label="Material and licensing">
+      <section className="bg-ink py-16 text-paper md:py-24 lg:py-32" aria-label="Material and licensing">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
           <div className="flex items-baseline justify-between gap-4 pb-4">
             <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-paper">
@@ -310,7 +311,7 @@ export default function AboutPage() {
       </section>
 
       {/* ============ Press — Denturism Canada ============ */}
-      <section className="bg-paper py-24 sm:py-32 lg:py-40" aria-label="Press coverage">
+      <section className="bg-paper py-16 md:py-32 lg:py-40" aria-label="Press coverage">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
           <div className="grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-12">
             <div className="lg:col-span-4">

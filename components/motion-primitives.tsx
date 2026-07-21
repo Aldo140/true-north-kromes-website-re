@@ -39,6 +39,7 @@ export function Reveal({ children, delay = 0, y = 16, x = 0, className, amount =
     <motion.div
       className={className}
       initial={reduced ? false : { opacity: 1, y, x }}
+      animate={reduced ? { opacity: 1, y: 0, x: 0 } : undefined}
       whileInView={reduced ? undefined : { opacity: 1, y: 0, x: 0 }}
       viewport={{ once: true, amount }}
       transition={{ duration: DUR.base, delay, ease: EASE_MECH }}
@@ -62,6 +63,7 @@ export function DrawRule({ className = "h-px bg-gold", delay = 0 }: DrawRuleProp
       <motion.div
         className={className}
         initial={reduced ? false : { clipPath: "inset(0 100% 0 0)" }}
+        animate={reduced ? { clipPath: "inset(0 0% 0 0)" } : undefined}
         whileInView={reduced ? undefined : { clipPath: "inset(0 0% 0 0)" }}
         viewport={{ once: true, amount: 1 }}
         transition={{ duration: DUR.slow, delay, ease: EASE_MECH }}

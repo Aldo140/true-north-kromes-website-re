@@ -4,7 +4,7 @@ import { MachinedLines, Magnetic } from "@/components/experience"
 
 export function CTABanner() {
   return (
-    <section className="bg-ink py-20 text-paper sm:py-24 lg:py-32" aria-label="Call to action">
+    <section className="bg-ink py-16 text-paper md:py-24 lg:py-32" aria-label="Call to action">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
         <DrawRule className="h-px bg-gold" />
         {/* Headline rises out of its channel like a face-mill pass */}

@@ -32,7 +32,7 @@ function MonitorBrackets() {
 export function VideoSection() {
   return (
     <section
-      className="bg-ink py-20 text-paper sm:py-24 lg:py-28"
+      className="bg-ink py-16 text-paper md:py-24 lg:py-28"
       aria-label="Process videos"
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">

@@ -10,7 +10,7 @@ export function ContactInfo() {
   return (
     <dl className="mt-14 border-b border-line-dark" aria-label="Contact information">
       {/* Phone */}
-      <div className="grid grid-cols-[7rem_1fr] items-baseline gap-4 border-t border-line-dark py-4">
+      <div className="grid grid-cols-[5rem_1fr] items-baseline gap-3 border-t border-line-dark py-4 min-[380px]:grid-cols-[7rem_1fr] min-[380px]:gap-4">
         <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50">
           Phone
         </dt>
@@ -26,7 +26,7 @@ export function ContactInfo() {
       </div>
 
       {/* Email */}
-      <div className="grid grid-cols-[7rem_1fr] items-baseline gap-4 border-t border-line-dark py-4">
+      <div className="grid grid-cols-[5rem_1fr] items-baseline gap-3 border-t border-line-dark py-4 min-[380px]:grid-cols-[7rem_1fr] min-[380px]:gap-4">
         <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50">
           Email
         </dt>
@@ -42,7 +42,7 @@ export function ContactInfo() {
       </div>
 
       {/* Address */}
-      <div className="grid grid-cols-[7rem_1fr] items-baseline gap-4 border-t border-line-dark py-4">
+      <div className="grid grid-cols-[5rem_1fr] items-baseline gap-3 border-t border-line-dark py-4 min-[380px]:grid-cols-[7rem_1fr] min-[380px]:gap-4">
         <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50">
           Address
         </dt>
@@ -53,7 +53,7 @@ export function ContactInfo() {
       </div>
 
       {/* Instagram */}
-      <div className="grid grid-cols-[7rem_1fr] items-baseline gap-4 border-t border-line-dark py-4">
+      <div className="grid grid-cols-[5rem_1fr] items-baseline gap-3 border-t border-line-dark py-4 min-[380px]:grid-cols-[7rem_1fr] min-[380px]:gap-4">
         <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50">
           Instagram
         </dt>
@@ -70,7 +70,7 @@ export function ContactInfo() {
       </div>
 
       {/* Downloads */}
-      <div className="grid grid-cols-[7rem_1fr] items-baseline gap-4 border-t border-line-dark py-4">
+      <div className="grid grid-cols-[5rem_1fr] items-baseline gap-3 border-t border-line-dark py-4 min-[380px]:grid-cols-[7rem_1fr] min-[380px]:gap-4">
         <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50">
           Downloads
         </dt>

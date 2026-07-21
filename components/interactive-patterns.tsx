@@ -118,7 +118,7 @@ export function CrossfadeCarousel({ slides }: { slides: readonly CrossfadeSlide[
   const step = (direction: number) => setActive((value) => (value + direction + slides.length) % slides.length)
 
   return (
-    <section className="bg-paper py-20 sm:py-24 lg:py-32" aria-label="Featured framework carousel">
+    <section className="bg-paper py-14 md:py-24 lg:py-32" aria-label="Featured framework carousel">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
         <div className="mb-8 flex items-end justify-between gap-6 border-b border-line-dark pb-5">
           <h2 className="max-w-[16ch] text-balance font-sans text-[clamp(1.9rem,4vw,3.25rem)] font-semibold leading-[1] tracking-[-0.035em] text-ink">
@@ -134,7 +134,7 @@ export function CrossfadeCarousel({ slides }: { slides: readonly CrossfadeSlide[
           </div>
         </div>
 
-        <div className="relative min-h-[41rem] md:min-h-[52rem] lg:min-h-[34rem]" aria-live="polite">
+        <div className="relative min-h-[38rem] md:min-h-[52rem] lg:min-h-[34rem]" aria-live="polite">
           <AnimatePresence initial={false} mode="sync">
             <motion.article
               key={slide.image}
@@ -145,7 +145,7 @@ export function CrossfadeCarousel({ slides }: { slides: readonly CrossfadeSlide[
               className="absolute inset-0 grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-14"
             >
               <div className="overflow-hidden bg-ink lg:col-span-8">
-                <img src={slide.image} alt={slide.alt} className="aspect-[4/5] w-full object-cover sm:aspect-[16/11]" />
+                <img src={slide.image} alt={slide.alt} className="aspect-[5/4] w-full object-cover md:aspect-[16/11]" />
               </div>
               <div className="lg:col-span-4 lg:pb-4">
                 {slide.label && <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold-dim">{slide.label}</p>}

@@ -38,7 +38,26 @@ export function ComparisonTable() {
   ]
 
   return (
-    <div className="overflow-x-auto" aria-label="RPD Comparison">
+    <div aria-label="RPD Comparison">
+      <div className="divide-y divide-line-dark border-y border-line-dark md:hidden">
+        {comparisons.map((item) => (
+          <article key={`mobile-${item.category}`} className="py-6">
+            <h3 className="text-base font-medium text-ink">{item.category}</h3>
+            <dl className="mt-4 space-y-4">
+              <div>
+                <dt className="font-mono text-[9px] uppercase tracking-[0.16em] text-ink/42">Hand-casted RPD</dt>
+                <dd className="mt-1.5 text-sm leading-6 text-ink/62">{item.traditional}</dd>
+              </div>
+              <div className="border-t border-line-dark pt-4">
+                <dt className="font-mono text-[9px] uppercase tracking-[0.16em] text-gold-dim">3D Printed RPD</dt>
+                <dd className="mt-1.5 text-sm leading-6 text-ink/82">{item.modern}</dd>
+              </div>
+            </dl>
+          </article>
+        ))}
+      </div>
+
+      <div className="hidden overflow-x-auto md:block">
       <table className="w-full min-w-[560px] border-collapse">
         <thead>
           <tr className="border-b border-gold-dim">
@@ -69,6 +88,7 @@ export function ComparisonTable() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   )
 }

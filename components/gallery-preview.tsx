@@ -139,7 +139,7 @@ export function GalleryPreview() {
   return (
     <section
       ref={sectionRef}
-      className="bg-paper py-20 sm:py-24 lg:py-32"
+      className="overflow-hidden bg-paper py-16 md:py-24 lg:py-32"
       aria-label="Recent work"
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
@@ -160,7 +160,39 @@ export function GalleryPreview() {
           </div>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-y-14 lg:mt-20 lg:grid-cols-12 lg:gap-x-8">
+        <div className="-mx-5 mt-10 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-4 lg:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <Specimen
+            src={sitePath("/images/opt/framework-tweezers.jpg")}
+            alt="Raw laser-printed cobalt-chrome partial framework standing in the metal powder bed"
+            label="SPEC 019 — AS PRINTED"
+            aspectClass="aspect-[4/5]"
+            className="w-[76vw] shrink-0 snap-center"
+          />
+          <Specimen
+            src={sitePath("/images/opt/chrome-crowns.jpg")}
+            alt="Polished upper partial framework seated over crowns"
+            label="SPEC 021 — FIT CHECK"
+            aspectClass="aspect-[4/5]"
+            className="w-[76vw] shrink-0 snap-center"
+          />
+          <Specimen
+            src={sitePath("/images/opt/framework-clasps.jpg")}
+            alt="Raw SLM-printed frameworks on their build plate supports"
+            label="SPEC 007 — BUILD PLATE"
+            aspectClass="aspect-[4/5]"
+            className="w-[76vw] shrink-0 snap-center"
+          />
+          <Specimen
+            src={sitePath("/images/opt/framework-full.jpg")}
+            alt="Plasma-polished upper partial framework seated on its model"
+            label="SPEC 011 — POLISHED"
+            aspectClass="aspect-[4/5]"
+            className="w-[76vw] shrink-0 snap-center"
+          />
+        </div>
+        <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.16em] text-ink/40 lg:hidden">Swipe through recent work →</p>
+
+        <div className="mt-14 hidden grid-cols-1 gap-y-14 lg:mt-20 lg:grid lg:grid-cols-12 lg:gap-x-8">
           {/* Column A — wide anchor image plus two staggered satellites */}
           <motion.div style={{ y: reduced ? 0 : yLeft }} className="lg:col-span-7">
             <Specimen

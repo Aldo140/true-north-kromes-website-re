@@ -73,7 +73,7 @@ export function Footer() {
     <footer className="bg-ink text-paper" aria-label="Site footer">
       <div className="border-y border-line">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
-          <div className="grid min-h-24 grid-cols-2 items-center gap-6 sm:grid-cols-3">
+          <div className="grid min-h-18 grid-cols-2 items-center gap-6 md:min-h-24 md:grid-cols-3">
             <span className={`${monoLabel} text-paper/40`}>TNK / EST. CANADA</span>
             <span className="hidden h-px bg-line sm:block" aria-hidden="true" />
             <span className="text-right font-mono text-[11px] uppercase tracking-[0.18em] text-gold">
@@ -82,7 +82,53 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="mx-auto max-w-6xl px-5 pt-14 sm:px-6 sm:pt-16 lg:px-12">
+
+      <div className="mx-auto max-w-6xl px-5 py-10 md:hidden">
+        <Link href="/" className="inline-flex min-h-11 flex-col items-start justify-center gap-1" aria-label="True North Kromes - Home">
+          <img src={sitePath("/images/logo.png")} alt="True North Kromes" className="h-11 w-auto" />
+          <Wordmark align="start" className="text-[8px] tracking-[0.32em]" />
+        </Link>
+        <p className="mt-5 max-w-[34ch] text-[15px] leading-7 text-paper/65">
+          Cochrane&apos;s in-house line for CAD-designed, SLM-printed, and plasma-polished Co-Cr frameworks.
+        </p>
+
+        <div className="mt-8 grid grid-cols-2 border border-line">
+          <a href="tel:+18076247222" className="flex min-h-12 items-center justify-between border-b border-r border-line px-4 font-mono text-[10px] uppercase tracking-[0.14em] text-paper/75">
+            Call <span className="text-gold">↗</span>
+          </a>
+          <a href="mailto:truenorthkromes@gmail.com" className="flex min-h-12 items-center justify-between border-b border-line px-4 font-mono text-[10px] uppercase tracking-[0.14em] text-paper/75">
+            Email <span className="text-gold">↗</span>
+          </a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=204+A+River+Avenue%2C+Cochrane%2C+AB+T4C+2C1" className="flex min-h-12 items-center justify-between border-r border-line px-4 font-mono text-[10px] uppercase tracking-[0.14em] text-paper/75">
+            Directions <span className="text-gold">↗</span>
+          </a>
+          <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center justify-between px-4 font-mono text-[10px] uppercase tracking-[0.14em] text-paper/75">
+            Portal <span className="text-gold">↗</span>
+          </a>
+        </div>
+
+        <nav aria-label="Mobile footer navigation" className="mt-8 grid grid-cols-2 border-y border-line">
+          {navLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="flex min-h-11 items-center border-b border-line font-mono text-[10px] uppercase tracking-[0.16em] text-paper/55 odd:border-r">
+              {link.label}
+            </Link>
+          ))}
+          <Link href="/timeline" className="flex min-h-11 items-center border-b border-line pl-4 font-mono text-[10px] uppercase tracking-[0.16em] text-paper/55">
+            Timeline
+          </Link>
+        </nav>
+
+        <div className="mt-8 flex items-end justify-between gap-6">
+          <address className="font-mono text-[10px] not-italic uppercase leading-5 tracking-[0.13em] text-paper/48">
+            204 A River Avenue<br />Cochrane, AB T4C 2C1
+          </address>
+          <Link href="/contact" className="inline-flex min-h-11 items-center border-b border-gold font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
+            Start a case →
+          </Link>
+        </div>
+      </div>
+
+      <div className="mx-auto hidden max-w-6xl px-5 pt-14 md:block md:px-6 md:pt-16 lg:px-12">
         {/* Machined watermark */}
         <div className="overflow-hidden border-b border-line pb-8 sm:pb-10">
           <Watermark />
@@ -159,7 +205,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-line">
+      <div className="border-t border-line max-md:hidden">
         <div className="mx-auto max-w-6xl px-5 py-5 sm:px-6 lg:px-12">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className={`${monoLabel} text-paper/40`}>
@@ -176,6 +222,15 @@ export function Footer() {
                 Website by Prompt &amp; Pixel
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="border-t border-line px-5 py-5 md:hidden">
+        <div className="flex items-center justify-between gap-4">
+          <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/35">© 2026 TNK · Canada</p>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/45">Privacy</Link>
+            <Link href="/terms" className="font-mono text-[9px] uppercase tracking-[0.14em] text-paper/45">Terms</Link>
           </div>
         </div>
       </div>

@@ -297,7 +297,7 @@ export default function ServicesPage() {
       <section
         id="station-03"
         aria-label="Station 03 — Post-Processing"
-        className="relative scroll-mt-20 overflow-hidden bg-paper py-24 lg:flex lg:min-h-screen lg:items-center lg:py-28"
+        className="relative scroll-mt-20 overflow-hidden bg-paper py-16 md:py-24 lg:flex lg:min-h-screen lg:items-center lg:py-28"
       >
         <span
           aria-hidden="true"
@@ -326,7 +326,7 @@ export default function ServicesPage() {
       {/* ADDITIONAL SERVICES — ruled rows off the main line (ink)          */}
       {/* ---------------------------------------------------------------- */}
       <section
-        className="border-t border-line bg-ink py-20 text-paper sm:py-24 lg:py-28"
+        className="border-t border-line bg-ink py-16 text-paper md:py-24 lg:py-28"
         aria-label="Additional services"
       >
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
@@ -337,7 +337,20 @@ export default function ServicesPage() {
             Additional Services
           </h2>
 
-          <dl className="mt-12">
+          <div className="mt-8 divide-y divide-line border-y border-line md:hidden">
+            {additionalServices.map((service, index) => (
+              <details key={`mobile-${service.title}`} className="group">
+                <summary className="flex min-h-14 cursor-pointer list-none items-center gap-4 py-3 [&::-webkit-details-marker]:hidden">
+                  <span className="font-mono text-[10px] tracking-[0.16em] text-paper/35">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="text-[15px] text-paper">{service.title}</span>
+                  <span className="ml-auto font-mono text-lg font-light text-gold transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                </summary>
+                <p className="pb-5 pl-9 text-sm leading-7 text-paper/68">{service.description}</p>
+              </details>
+            ))}
+          </div>
+
+          <dl className="mt-12 hidden md:block">
             {additionalServices.map((s, i) => (
               <div key={s.title}>
                 <DrawRule className="h-px bg-line" delay={i * 0.1} />
@@ -366,7 +379,7 @@ export default function ServicesPage() {
       {/* ---------------------------------------------------------------- */}
       {/* PRICING & PROMISE — draft copy, confirm before treating as final */}
       {/* ---------------------------------------------------------------- */}
-      <section className="border-t border-line-dark bg-paper py-20 sm:py-24 lg:py-28" aria-label="Pricing and policy">
+      <section className="border-t border-line-dark bg-paper py-16 md:py-24 lg:py-28" aria-label="Pricing and policy">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
@@ -424,7 +437,7 @@ export default function ServicesPage() {
       {/* ---------------------------------------------------------------- */}
       {/* CTA — end of the line (paper)                                     */}
       {/* ---------------------------------------------------------------- */}
-      <section className="bg-paper py-20 lg:py-28">
+      <section className="bg-paper py-16 lg:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
           <DrawRule className="h-px w-16 bg-gold" />
           <MachinedLines
