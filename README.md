@@ -97,6 +97,8 @@ Resend must show `tnkromes.ca` as **Verified** before that sender can deliver ma
 
 When both temporary SMTP variables are set, the contact endpoint deliberately uses Google SMTP before Resend. Remove both SMTP variables and redeploy once Resend is verified.
 
+If automatic delivery is unavailable, the contact form preserves the completed details and opens a pre-addressed email to both lead recipients. This browser-level fallback requires no site credentials and prevents the visitor from having to re-enter the request.
+
 ## Deployment
 
 Vercel is the production platform and supports the `/api/contact` Route Handler. Environment variables must be enabled for both Production and Preview when those environments need contact-form delivery. Changes to Vercel environment variables require a new deployment before they affect the application.

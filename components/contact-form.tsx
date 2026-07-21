@@ -13,11 +13,33 @@ const inputClass =
 const selectClass =
   "min-h-14 w-full border-0 border-b border-ink/35 bg-transparent px-0 py-3 text-base text-ink transition-[border-color,background-color] duration-200 focus:border-gold-dim focus:bg-white/30 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-dim sm:text-[15px] md:min-h-12 md:border-line-dark md:transition-colors md:focus:bg-transparent md:focus-visible:outline-none motion-reduce:transition-none"
 
+const CONTACT_EMAIL = "truenorthkromes@gmail.com"
+const CONTACT_CC = "jorti104@mtroyal.ca"
+
+function createEmailFallback(formData: FormData) {
+  const value = (key: string) => String(formData.get(key) || "Not provided").trim()
+  const subject = `New case request — ${value("name")}`
+  const body = [
+    "New case request from tnkromes.ca",
+    "",
+    `Name: ${value("name")}`,
+    `Telephone: ${value("telephone")}`,
+    `Address: ${value("address")}`,
+    `City: ${value("city")}`,
+    `Postal code: ${value("postal")}`,
+    `File type: ${value("fileType")}`,
+    `Frames per month: ${value("monthlyVolume")}`,
+  ].join("\n")
+
+  return `mailto:${CONTACT_EMAIL}?cc=${encodeURIComponent(CONTACT_CC)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+}
+
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
+  const [emailFallback, setEmailFallback] = useState<string | null>(null)
 
   const clearFieldError = (field: string) => {
     setErrors((current) => {
@@ -76,6 +98,7 @@ export function ContactForm() {
 
     setErrors({})
     setSubmitError(null)
+    setEmailFallback(null)
     setSubmitting(true)
 
     try {
@@ -92,8 +115,14 @@ export function ContactForm() {
 
       trackEvent("generate_lead", { form: "contact" })
       setSubmitted(true)
-    } catch (err) {
-      setSubmitError(err instanceof Error ? err.message : "Failed to send. Please try again.")
+    } catch {
+      const fallbackUrl = createEmailFallback(formData)
+      trackEvent("contact_email_fallback", { form: "contact" })
+      setEmailFallback(fallbackUrl)
+      setSubmitError(
+        "Automatic delivery is temporarily unavailable. We opened a ready-to-send email containing your request.",
+      )
+      window.location.assign(fallbackUrl)
     } finally {
       setSubmitting(false)
     }
@@ -262,7 +291,14 @@ export function ContactForm() {
           {"Let's get started with your personal link to upload files."}
         </p>
         {submitError && (
-          <p className="mb-3 border-y border-destructive py-3 text-sm font-medium text-destructive md:border-0 md:p-0 md:font-normal" role="alert">{submitError}</p>
+          <div className="mb-3 border-y border-destructive py-3 text-sm font-medium text-destructive md:border-0 md:p-0 md:font-normal" role="alert">
+            <p>{submitError}</p>
+            {emailFallback && (
+              <a className="mt-2 inline-flex min-h-11 items-center underline underline-offset-4" href={emailFallback}>
+                Open the prepared email again
+              </a>
+            )}
+          </div>
         )}
         <button
           type="submit"

@@ -198,6 +198,8 @@ Environment-variable changes affect only new deployments. Redeploy Production af
 
 While both SMTP variables are configured, step 5 uses authenticated Google SMTP instead. This temporary route still delivers to both `CONTACT_LEAD_EMAIL` and `CONTACT_LEAD_CC`; removing either SMTP variable restores the Resend path automatically.
 
+If the endpoint returns an error, the client creates a `mailto:` message from the validated form data, addressed to the primary recipient with the secondary recipient copied. This is the zero-configuration last resort while provider access is unavailable. It does not claim that the request was received: the visitor must send the message from the mail application that opens.
+
 Required fields are name, telephone, file type, and monthly volume. Address, city, and postal code are optional.
 
 ### Domain configuration
