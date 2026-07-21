@@ -52,7 +52,7 @@ const SECTIONS = [
 
 export default function TermsPage() {
   return (
-    <section className="bg-paper pt-40 pb-20 lg:pt-48 lg:pb-28">
+    <section className="bg-paper pb-16 pt-32 md:pt-40 lg:pb-28 lg:pt-48">
       <div className="mx-auto max-w-3xl px-5 sm:px-6">
         <Reveal y={10}>
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">Legal</p>

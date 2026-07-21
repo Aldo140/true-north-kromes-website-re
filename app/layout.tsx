@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter, IBM_Plex_Mono } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
@@ -91,8 +91,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.tnkromes.ca/"),
 }
 
-export const viewport = {
+export const viewport: Viewport = {
   themeColor: "#101113",
+  viewportFit: "cover",
 }
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID

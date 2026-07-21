@@ -91,7 +91,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 py-12 sm:grid-cols-2 sm:py-14 lg:grid-cols-[1.4fr_0.7fr_1fr] lg:gap-12">
           {/* Column 1: logo + description */}
           <div className="max-w-xs">
-            <Link href="/" className="flex flex-col items-start gap-1.5" aria-label="True North Kromes - Home">
+            <Link href="/" className="flex min-h-11 flex-col items-start justify-center gap-1.5 md:min-h-0" aria-label="True North Kromes - Home">
               <img src={sitePath("/images/logo.png")} alt="True North Kromes" className="h-11 w-auto" />
               <Wordmark align="start" className="text-[9px] tracking-[0.34em]" />
             </Link>
@@ -107,7 +107,7 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`${monoLabel} text-paper/60 transition-colors hover:text-paper`}
+                className={`${monoLabel} inline-flex min-h-11 items-center text-paper/60 transition-colors hover:text-paper md:min-h-0`}
               >
                 <ScrambleText text={link.label} trigger="hover" />
               </Link>
@@ -118,13 +118,13 @@ export function Footer() {
           <div className="flex flex-col items-start gap-3.5 border-l border-line pl-5 sm:pl-6">
             <a
               href="tel:+18076247222"
-              className={`${monoLabel} text-paper/60 transition-colors hover:text-gold`}
+              className={`${monoLabel} inline-flex min-h-11 items-center text-paper/60 transition-colors hover:text-gold md:min-h-0`}
             >
               <ScrambleText text="807.624.7222" trigger="hover" />
             </a>
             <a
               href="mailto:truenorthkromes@gmail.com"
-              className={`${monoLabel} break-all text-paper/60 transition-colors hover:text-gold`}
+              className={`${monoLabel} inline-flex min-h-11 items-center break-all text-paper/60 transition-colors hover:text-gold md:min-h-0`}
             >
               <ScrambleText text="truenorthkromes@gmail.com" trigger="hover" />
             </a>
@@ -137,7 +137,7 @@ export function Footer() {
               href="https://www.instagram.com/truenorthkromes/"
               target="_blank"
               rel="noopener noreferrer"
-              className={`${monoLabel} text-paper/60 transition-colors hover:text-gold`}
+              className={`${monoLabel} inline-flex min-h-11 items-center text-paper/60 transition-colors hover:text-gold md:min-h-0`}
             >
               <ScrambleText text="Instagram" trigger="hover" />
             </a>
@@ -145,13 +145,13 @@ export function Footer() {
               href={PORTAL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${monoLabel} text-paper/60 transition-colors hover:text-paper`}
+              className={`${monoLabel} inline-flex min-h-11 items-center text-paper/60 transition-colors hover:text-paper md:min-h-0`}
             >
               <ScrambleText text="Portal" trigger="hover" />
             </a>
             <Link
               href="/contact"
-              className={`${monoLabel} text-gold transition-colors hover:text-paper`}
+              className={`${monoLabel} inline-flex min-h-11 items-center text-gold transition-colors hover:text-paper md:min-h-0`}
             >
               <ScrambleText text="Get Started" trigger="hover" />
             </Link>

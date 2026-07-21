@@ -143,7 +143,7 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-[100dvh] w-full flex-col justify-end overflow-hidden bg-ink"
+      className="mobile-viewport-hero relative flex min-h-[100dvh] w-full flex-col justify-end overflow-hidden bg-ink"
       aria-label="True North Kromes — printed metal partial frameworks"
     >
       {/* Stage-synced background slideshow with scroll parallax.

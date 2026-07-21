@@ -15,12 +15,48 @@ export function SwapFaq({ items }: { items: readonly FaqItem[] }) {
   const current = items[active]
 
   return (
-    <section className="bg-ink py-20 text-paper sm:py-24 lg:py-32" aria-labelledby="faq-heading">
+    <section className="bg-ink py-16 text-paper md:py-24 lg:py-32" aria-labelledby="faq-heading">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
         <h2 id="faq-heading" className="max-w-[14ch] text-balance font-sans text-[clamp(2rem,5vw,4rem)] font-semibold leading-[0.98] tracking-[-0.035em]">
           Before you send a case.
         </h2>
-        <div className="mt-14 grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="mt-10 lg:hidden">
+          <div className="-mx-5 overflow-x-auto px-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" aria-label="Frequently asked questions">
+            <div className="flex w-max gap-2 pb-4">
+              {items.map((item, index) => (
+                <button
+                  key={`mobile-${item.question}`}
+                  type="button"
+                  onClick={() => setActive(index)}
+                  aria-pressed={active === index}
+                  aria-controls="faq-answer-panel-mobile"
+                  className={`min-h-11 shrink-0 border px-4 font-mono text-[10px] uppercase tracking-[0.14em] transition-colors ${active === index ? "border-gold bg-gold text-ink" : "border-line text-paper/65"}`}
+                >
+                  {String(index + 1).padStart(2, "0")} · {item.question}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div id="faq-answer-panel-mobile" className="relative min-h-[20rem] overflow-hidden border border-line bg-ink-soft p-6" aria-live="polite">
+            <span className="absolute inset-x-0 top-0 h-px bg-gold" aria-hidden="true" />
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={`mobile-${current.question}`}
+                initial={reduced ? false : { opacity: 0, transform: "translateY(10px)" }}
+                animate={{ opacity: 1, transform: "translateY(0px)" }}
+                exit={reduced ? undefined : { opacity: 0, transform: "translateY(-6px)" }}
+                transition={{ duration: reduced ? 0 : 0.2, ease: [0.23, 1, 0.32, 1] }}
+              >
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">Answer {String(active + 1).padStart(2, "0")}</p>
+                <h3 className="mt-6 text-balance text-2xl font-medium tracking-[-0.025em]">{current.question}</h3>
+                <p className="mt-5 text-[15px] leading-7 text-paper/72">{current.answer}</p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+
+        <div className="mt-14 hidden gap-12 lg:grid lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6" aria-label="Frequently asked questions">
             {items.map((item, index) => (
               <button
@@ -98,7 +134,7 @@ export function CrossfadeCarousel({ slides }: { slides: readonly CrossfadeSlide[
           </div>
         </div>
 
-        <div className="relative min-h-[43rem] sm:min-h-[52rem] lg:min-h-[34rem]" aria-live="polite">
+        <div className="relative min-h-[41rem] md:min-h-[52rem] lg:min-h-[34rem]" aria-live="polite">
           <AnimatePresence initial={false} mode="sync">
             <motion.article
               key={slide.image}

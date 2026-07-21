@@ -15,7 +15,7 @@ export function TimelineHero() {
   const copyY = useTransform(scrollYProgress, [0, 1], reducedMotion ? [0, 0] : [0, -42])
 
   return (
-    <section ref={sectionRef} aria-labelledby="timeline-hero-heading" className="relative overflow-hidden bg-paper pt-36 text-ink sm:pt-40 lg:pt-44">
+    <section ref={sectionRef} aria-labelledby="timeline-hero-heading" className="relative overflow-hidden bg-paper pt-32 text-ink md:pt-40 lg:pt-44">
       <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-16">
         <div className="flex items-center justify-between border-b border-line-dark pb-4 font-mono text-[10px] uppercase tracking-[0.18em]">
           <span className="text-gold-dim">Client production record</span>
@@ -26,7 +26,7 @@ export function TimelineHero() {
           <TypewriterHeadline
             id="timeline-hero-heading"
             text="A production line you can actually follow."
-            className="text-balance font-sans text-[clamp(3.25rem,7vw,6rem)] font-medium leading-[0.92] tracking-[-0.04em] text-ink lg:col-span-8"
+            className="text-balance font-sans text-[clamp(2.75rem,12vw,3.25rem)] font-medium leading-[0.92] tracking-[-0.04em] text-ink sm:text-[clamp(3.25rem,7vw,6rem)] lg:col-span-8"
           />
           <div className="lg:col-span-4 lg:pb-1">
             <p className="max-w-md text-pretty text-base leading-7 text-ink/70 sm:text-lg">

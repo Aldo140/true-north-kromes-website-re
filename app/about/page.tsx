@@ -55,7 +55,7 @@ export default function AboutPage() {
   return (
     <main>
       {/* ============ Header — the operation ============ */}
-      <section className="bg-paper pt-40 pb-16 sm:pt-44 lg:pt-52 lg:pb-24" aria-label="About True North Kromes">
+      <section className="bg-paper pb-14 pt-32 md:pb-16 md:pt-44 lg:pt-52 lg:pb-24" aria-label="About True North Kromes">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
           <Reveal y={10}>
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">The operation</p>
@@ -77,7 +77,7 @@ export default function AboutPage() {
           </Reveal>
 
           {/* Lab floor — full-width establishing shot */}
-          <div className="mt-14 lg:mt-20">
+          <div className="mt-10 sm:mt-14 lg:mt-20">
             <Reveal y={24} amount={0.2}>
               <img
                 src={sitePath("/images/opt/gallery-lab-chamlion.jpg")}

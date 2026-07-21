@@ -8,10 +8,10 @@ const labelClass =
   "mb-2 block font-mono text-[11px] uppercase tracking-[0.18em] text-ink/60"
 
 const inputClass =
-  "w-full border-0 border-b border-line-dark bg-transparent px-0 py-3 text-[15px] text-ink placeholder-ink/40 transition-colors focus:border-gold-dim focus:outline-none"
+  "min-h-12 w-full border-0 border-b border-line-dark bg-transparent px-0 py-3 text-base text-ink placeholder-ink/40 transition-colors focus:border-gold-dim focus:outline-none sm:text-[15px]"
 
 const selectClass =
-  "w-full border-0 border-b border-line-dark bg-transparent px-0 py-3 text-[15px] text-ink transition-colors focus:border-gold-dim focus:outline-none"
+  "min-h-12 w-full border-0 border-b border-line-dark bg-transparent px-0 py-3 text-base text-ink transition-colors focus:border-gold-dim focus:outline-none sm:text-[15px]"
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
@@ -124,7 +124,7 @@ export function ContactForm() {
       </div>
 
       {/* City & Postal */}
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-7 min-[380px]:grid-cols-2 min-[380px]:gap-6">
         <div>
           <label htmlFor="city" className={labelClass}>
             City

@@ -205,7 +205,7 @@ export default function ServicesPage() {
       {/* ---------------------------------------------------------------- */}
       {/* OPENING — the head of the line (ink)                              */}
       {/* ---------------------------------------------------------------- */}
-      <section className="relative overflow-hidden bg-ink pt-36 lg:pt-44">
+      <section className="relative overflow-hidden bg-ink pt-32 md:pt-36 lg:pt-44">
         <div className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-6 sm:pb-20 lg:px-12 lg:pb-24">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.8fr)] lg:items-end lg:gap-20">
             <div>

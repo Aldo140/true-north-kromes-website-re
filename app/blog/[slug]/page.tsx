@@ -81,7 +81,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           : ["Your New Portal"]
 
   return (
-    <article className="bg-paper pt-40 pb-20 lg:pt-48 lg:pb-28">
+    <article className="bg-paper pb-16 pt-32 md:pt-40 lg:pb-28 lg:pt-48">
       {postSeo && (
         <script
           type="application/ld+json"

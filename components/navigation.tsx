@@ -74,12 +74,12 @@ export function Navigation() {
   }, [open])
 
   return (
-    <header className="absolute inset-x-0 top-0 z-[90]">
-      <nav aria-label="Main navigation" className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
-        <div className="flex items-center justify-between py-4 sm:py-6">
+    <header className="fixed inset-x-0 top-0 z-[90] lg:absolute">
+      <nav aria-label="Main navigation" className={`mx-auto max-w-6xl border-b px-4 backdrop-blur-md md:px-6 lg:border-b-0 lg:bg-transparent lg:px-12 lg:backdrop-blur-none ${isDarkSurface ? "border-line bg-ink/92" : "border-line-dark bg-paper/92"}`}>
+        <div className="flex items-center justify-between pb-3 pt-[calc(0.75rem+env(safe-area-inset-top))] md:py-6">
           <Link href="/" className="relative z-10 flex shrink-0 flex-col items-center gap-1" aria-label="True North Kromes home">
-            <img src={sitePath("/images/logo.png")} alt="True North Kromes" className="h-9 w-auto sm:h-[52px] lg:h-[60px]" />
-            <Wordmark className="text-[7px] tracking-[0.32em] sm:text-[9px] sm:tracking-[0.36em] lg:text-[10px]" />
+            <img src={sitePath("/images/logo.png")} alt="True North Kromes" className="h-9 w-auto md:h-[52px] lg:h-[60px]" />
+            <Wordmark className="text-[7px] tracking-[0.32em] md:text-[9px] md:tracking-[0.36em] lg:text-[10px]" />
           </Link>
 
           <button
@@ -93,9 +93,9 @@ export function Navigation() {
             aria-label="Open navigation menu"
             aria-expanded={open}
             aria-controls="site-menu-overlay"
-            className={`relative z-10 flex min-h-11 items-center gap-3 px-2 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors active:scale-[0.97] ${isDarkSurface ? "text-paper hover:text-gold" : "text-ink hover:text-gold-dim"}`}
+            className={`relative z-10 flex min-h-11 min-w-11 items-center justify-center gap-3 px-2 font-mono text-[10px] uppercase tracking-[0.18em] transition-colors active:scale-[0.97] ${isDarkSurface ? "text-paper hover:text-gold" : "text-ink hover:text-gold-dim"}`}
           >
-            <span className="hidden sm:inline">Menu</span>
+            <span className="hidden md:inline">Menu</span>
             <Menu className="h-5 w-5" />
           </button>
         </div>
@@ -113,19 +113,33 @@ export function Navigation() {
             animate={{ opacity: 1, transform: "translateY(0%)" }}
             exit={disableMotion ? undefined : { opacity: 0, transform: "translateY(-100%)" }}
             transition={{ duration: disableMotion ? 0 : 0.28, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed inset-0 z-20 overflow-hidden bg-ink text-paper"
+            className="fixed inset-0 z-20 overflow-y-auto bg-ink text-paper"
           >
             <button
               ref={closeRef}
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Close navigation menu"
-              className="absolute right-5 top-5 z-30 flex h-12 w-12 items-center justify-center border border-line text-paper transition-colors hover:border-gold hover:text-gold active:scale-[0.97] sm:right-8 sm:top-7"
+              className="fixed right-4 top-[calc(1rem+env(safe-area-inset-top))] z-30 flex h-12 w-12 items-center justify-center border border-line bg-ink/75 text-paper backdrop-blur-md transition-colors hover:border-gold hover:text-gold active:scale-[0.97] md:right-8 md:top-7"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <div className="grid min-h-[100dvh] lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="grid min-h-[100dvh] grid-rows-[28dvh_1fr] lg:grid-cols-[1.1fr_0.9fr] lg:grid-rows-1">
+              <div className="grid grid-cols-3 gap-px overflow-hidden border-b border-line bg-line lg:hidden" aria-hidden="true">
+                {menuImages.map((image, index) => (
+                  <motion.figure
+                    key={`mobile-${image.src}`}
+                    initial={disableMotion ? false : { opacity: 0, transform: "scale(1.06)" }}
+                    animate={{ opacity: 1, transform: "scale(1)" }}
+                    transition={{ duration: disableMotion ? 0 : 0.45, delay: disableMotion ? 0 : index * 0.045, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative min-w-0 overflow-hidden bg-ink-soft"
+                  >
+                    <img src={sitePath(image.src)} alt="" className="h-full w-full object-cover opacity-70" />
+                    <span className="absolute inset-0 bg-ink/20" />
+                  </motion.figure>
+                ))}
+              </div>
               <div className="relative hidden overflow-hidden border-r border-line lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-px lg:bg-line">
                 {menuImages.map((image, index) => (
                   <motion.figure
@@ -141,10 +155,10 @@ export function Navigation() {
                 ))}
               </div>
 
-              <div className="relative flex min-h-[100dvh] items-center px-6 py-24 sm:px-12 lg:px-16 lg:pr-24">
+              <div className="relative flex min-h-0 items-start px-5 pb-[calc(2rem+env(safe-area-inset-bottom))] pt-7 md:min-h-[100dvh] md:items-center md:px-12 md:py-24 lg:px-16 lg:pr-24">
                 <div className="w-full max-w-xl">
                   <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">True North Kromes</p>
-                  <div className="mt-8">
+                  <div className="mt-5 md:mt-8">
                     {navLinks.map((link, index) => {
                       const active = pathname === link.href
                       return (
@@ -158,7 +172,7 @@ export function Navigation() {
                             href={link.href}
                             aria-current={active ? "page" : undefined}
                             onClick={() => setOpen(false)}
-                            className={`group flex items-baseline justify-between border-b border-line py-3 text-[clamp(1.8rem,5vw,3.8rem)] font-medium leading-none tracking-[-0.035em] transition-colors ${active ? "text-gold" : "text-paper hover:text-gold"}`}
+                            className={`group flex min-h-12 items-center justify-between border-b border-line py-2 text-[clamp(1.65rem,8vw,2.2rem)] font-medium leading-none tracking-[-0.035em] transition-colors md:py-3 md:text-[clamp(1.8rem,5vw,3.8rem)] ${active ? "text-gold" : "text-paper hover:text-gold"}`}
                           >
                             <span>{link.label}</span>
                             <span className="font-mono text-[10px] tracking-[0.16em] text-paper/30 group-hover:text-gold">{String(index + 1).padStart(2, "0")}</span>
@@ -168,23 +182,23 @@ export function Navigation() {
                     })}
                   </div>
 
-                  <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4 font-mono text-[10px] uppercase tracking-[0.16em]">
+                  <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2 font-mono text-[10px] uppercase tracking-[0.16em] md:mt-8 md:gap-y-4">
                     <a
                       href={PORTAL_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => trackEvent("portal_click", { location: "nav_overlay" })}
-                      className="text-paper/55 transition-colors hover:text-gold"
+                      className="inline-flex min-h-11 items-center text-paper/55 transition-colors hover:text-gold"
                     >
                       Client portal ↗
                     </a>
-                    <Link href="/contact" onClick={() => setOpen(false)} className="text-gold transition-colors hover:text-paper">
+                    <Link href="/contact" onClick={() => setOpen(false)} className="inline-flex min-h-11 items-center text-gold transition-colors hover:text-paper">
                       Start a case
                     </Link>
                   </div>
                 </div>
 
-                <div className="absolute right-0 top-0 hidden h-full w-14 overflow-hidden border-l border-line sm:block" aria-hidden="true">
+                <div className="absolute right-0 top-0 hidden h-full w-14 overflow-hidden border-l border-line md:block" aria-hidden="true">
                   <div className="nav-edge-marquee">
                     <span>DESIGN  PRINT  POLISH  DELIVER&nbsp;&nbsp;&nbsp;</span>
                     <span>DESIGN  PRINT  POLISH  DELIVER&nbsp;&nbsp;&nbsp;</span>

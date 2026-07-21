@@ -37,7 +37,7 @@ export function StickyMediaStory({
       className={`scroll-mt-20 ${dark ? "bg-ink text-paper" : "bg-paper text-ink"}`}
       aria-label={items[0]?.title}
     >
-      <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-12 lg:py-0">
+      <div className="mx-auto grid max-w-6xl gap-7 px-5 py-14 sm:gap-12 sm:px-6 sm:py-20 lg:grid-cols-12 lg:gap-16 lg:px-12 lg:py-0">
         <figure className={`${imageOrder} lg:col-span-6 lg:py-24`}>
           <div className="lg:sticky lg:top-24">
             <div className={`relative overflow-hidden ${dark ? "bg-ink-soft" : "bg-ink"}`}>
@@ -61,7 +61,7 @@ export function StickyMediaStory({
               whileInView={reduced ? undefined : { opacity: 1, transform: "translateY(0px)" }}
               viewport={{ once: true, amount: 0.42 }}
               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-              className={`flex min-h-[58vh] flex-col justify-center border-b py-16 last:border-b-0 lg:min-h-[78vh] ${dark ? "border-line" : "border-line-dark"}`}
+              className={`flex min-h-0 flex-col justify-center border-b py-10 last:border-b-0 md:min-h-[58vh] md:py-16 lg:min-h-[78vh] ${dark ? "border-line" : "border-line-dark"}`}
             >
               {item.label && (
                 <p className={`font-mono text-[10px] uppercase tracking-[0.18em] ${dark ? "text-gold" : "text-gold-dim"}`}>
@@ -71,7 +71,7 @@ export function StickyMediaStory({
               <h2 className="mt-4 max-w-[18ch] text-balance font-sans text-[clamp(1.8rem,4vw,3.25rem)] font-semibold leading-[1.03] tracking-[-0.03em]">
                 {item.title}
               </h2>
-              <p className={`mt-6 max-w-[58ch] text-sm leading-[1.8] sm:text-base ${dark ? "text-paper/72" : "text-ink/72"}`}>
+              <p className={`mt-4 max-w-[58ch] text-[15px] leading-[1.75] sm:mt-6 sm:text-base ${dark ? "text-paper/72" : "text-ink/72"}`}>
                 {item.body}
               </p>
             </motion.article>

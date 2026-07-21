@@ -41,8 +41,8 @@ export default function ContactPage() {
   return (
     <main>
       <section className="bg-paper text-ink" aria-label="Contact">
-        <div className="mx-auto max-w-6xl px-5 pb-20 pt-36 sm:px-6 sm:pt-40 lg:px-12 lg:pb-28 lg:pt-44">
-          <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
+        <div className="mx-auto max-w-6xl px-5 pb-16 pt-32 sm:px-6 md:pb-20 md:pt-40 lg:px-12 lg:pb-28 lg:pt-44">
+          <div className="grid gap-12 sm:gap-16 lg:grid-cols-2 lg:gap-20">
             {/* Left: intro, headline, and contact facts */}
             <div>
               <Reveal y={10}>

@@ -197,7 +197,7 @@ export default function GalleryPage() {
   return (
     <>
       <div>
-        <section className="relative overflow-hidden bg-ink pb-16 pt-36 text-paper sm:pb-20 lg:pb-24 lg:pt-44" aria-label="Gallery introduction">
+        <section className="relative overflow-hidden bg-ink pb-14 pt-32 text-paper md:pb-20 md:pt-36 lg:pb-24 lg:pt-44" aria-label="Gallery introduction">
           <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-12">
             <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(22rem,1fr)] lg:items-end lg:gap-20">
               <div>
