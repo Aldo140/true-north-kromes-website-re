@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { trackEvent } from "@/lib/analytics"
 
@@ -40,6 +40,11 @@ export function ContactForm() {
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [emailFallback, setEmailFallback] = useState<string | null>(null)
+  const successRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (submitted) successRef.current?.focus()
+  }, [submitted])
 
   const clearFieldError = (field: string) => {
     setErrors((current) => {
@@ -86,6 +91,7 @@ export function ContactForm() {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors)
       setSubmitError(null)
+      setEmailFallback(null)
       const firstInvalidField = Object.keys(validationErrors)[0]
       requestAnimationFrame(() => {
         const firstInvalidControl = form.elements.namedItem(firstInvalidField)
@@ -101,11 +107,15 @@ export function ContactForm() {
     setEmailFallback(null)
     setSubmitting(true)
 
+    const controller = new AbortController()
+    const timeout = window.setTimeout(() => controller.abort(), 15000)
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(Object.fromEntries(formData)),
+        signal: controller.signal,
       })
 
       if (!res.ok) {
@@ -124,6 +134,7 @@ export function ContactForm() {
       )
       window.location.assign(fallbackUrl)
     } finally {
+      window.clearTimeout(timeout)
       setSubmitting(false)
     }
   }
@@ -131,15 +142,17 @@ export function ContactForm() {
   if (submitted) {
     return (
       <div className="border-t border-gold bg-ink px-5 py-8 text-paper md:border-0 md:bg-transparent md:p-0 md:text-ink" aria-label="Contact form submitted" role="status">
-        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">
-          Request received
-        </p>
-        <h2 className="mt-4 text-balance font-sans text-[clamp(1.75rem,3vw,2.5rem)] font-medium tracking-[-0.02em] text-paper md:text-ink">
-          Thank you.
-        </h2>
-        <p className="mt-4 max-w-md text-base leading-relaxed text-paper/75 md:text-ink/70">
-          {"We'll send your personal upload link shortly."}
-        </p>
+        <div ref={successRef} tabIndex={-1} className="outline-none">
+          <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-gold-dim">
+            Request sent
+          </p>
+          <h2 className="mt-4 text-balance font-sans text-[clamp(1.75rem,3vw,2.5rem)] font-medium tracking-[-0.02em] text-paper md:text-ink">
+            Thank you.
+          </h2>
+          <p className="mt-4 max-w-md text-base leading-relaxed text-paper/75 md:text-ink/70">
+            {"Your details were sent successfully. We'll send your personal upload link shortly."}
+          </p>
+        </div>
       </div>
     )
   }
@@ -291,21 +304,33 @@ export function ContactForm() {
           {"Let's get started with your personal link to upload files."}
         </p>
         {submitError && (
-          <div className="mb-3 border-y border-destructive py-3 text-sm font-medium text-destructive md:border-0 md:p-0 md:font-normal" role="alert">
-            <p>{submitError}</p>
+          <div className="mb-4 border-y border-gold-dim bg-gold/5 py-4 text-sm font-medium text-ink md:px-4" role="alert">
+            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-gold-dim">Email ready</p>
+            <p className="mt-2 max-w-lg leading-relaxed">{submitError}</p>
             {emailFallback && (
-              <a className="mt-2 inline-flex min-h-11 items-center underline underline-offset-4" href={emailFallback}>
-                Open the prepared email again
+              <a className="mt-2 inline-flex min-h-11 items-center font-mono text-xs uppercase tracking-[0.12em] underline decoration-gold-dim underline-offset-4" href={emailFallback}>
+                Open prepared email again ↗
               </a>
             )}
+          </div>
+        )}
+        {submitting && (
+          <div id="contact-submit-status" className="mb-3 flex min-h-11 items-center gap-3 text-sm text-ink/70" role="status" aria-live="polite">
+            <span className="size-3 animate-spin border border-ink/25 border-t-gold-dim motion-reduce:animate-none" aria-hidden="true" />
+            <span>Sending your request securely…</span>
           </div>
         )}
         <button
           type="submit"
           disabled={submitting}
-          className="min-h-14 w-full border border-ink bg-ink px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-paper transition-colors max-md:active:bg-paper max-md:active:text-ink hover:bg-transparent hover:text-ink disabled:cursor-not-allowed disabled:opacity-60 md:min-h-0 motion-reduce:transition-none"
+          aria-busy={submitting}
+          aria-describedby={submitting ? "contact-submit-status" : undefined}
+          className="group flex min-h-14 w-full items-center justify-between border border-ink bg-ink px-6 py-4 font-mono text-xs uppercase tracking-[0.18em] text-paper transition-colors max-md:active:bg-paper max-md:active:text-ink hover:bg-transparent hover:text-ink disabled:cursor-wait disabled:border-ink/65 disabled:bg-ink/80 disabled:text-paper md:min-h-0 motion-reduce:transition-none"
         >
-          {submitting ? "Sending…" : "Get my upload link"}
+          <span>{submitting ? "Sending request" : emailFallback ? "Retry automatic delivery" : "Get my upload link"}</span>
+          <span className="text-gold transition-transform duration-200 group-hover:translate-x-1 group-disabled:animate-pulse group-disabled:transform-none motion-reduce:animate-none motion-reduce:transition-none" aria-hidden="true">
+            {submitting ? "•••" : "→"}
+          </span>
         </button>
         <p className="mt-3 text-xs leading-relaxed text-ink/45">
           By submitting, you agree to our{" "}
